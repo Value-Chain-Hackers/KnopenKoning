@@ -61,3 +61,6 @@ def build_rag():
         source_id_key="key",
     )
     print(indexing)
+
+if __name__ == "__main__":
+    build_rag()
