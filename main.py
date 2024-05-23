@@ -5,4 +5,4 @@ allknowledge = extract_all_knowledge_from_pdf("unilever-annual-report-and-accoun
 # join all the knowledge into a single string
 allknowledge_str = "\n".join(allknowledge)
 
-summarized_knowledge = summarize_all_text(allknowledge_str)
+summarized_knowledge = summarize_all_text(allknowledge_str, "output_summary.txt")
