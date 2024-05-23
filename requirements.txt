@@ -6,3 +6,8 @@ PyMuPDF
 seaborn
 streamlit
 wikipedia 
+tqdm
+chroma
+langchain_chroma
+sentence-transformers
+streamlit
