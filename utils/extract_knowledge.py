@@ -4,6 +4,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.llms.ollama import Ollama
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.documents import Document
 
 knowledge_extraction_prompt = PromptTemplate.from_template("""\
 Please proceed to knowledge extraction from the provided text. Focus on the following aspects:
@@ -70,6 +71,22 @@ def split_text_into_chunks(text):
         is_separator_regex=False,
     )
     return text_splitter.split_text(text)
+
+def split_text_into_documents(text):
+    text_splitter = RecursiveCharacterTextSplitter(
+        # Set a really small chunk size, just to show.
+        chunk_size=4000,
+        chunk_overlap=256,
+        length_function=len,
+        is_separator_regex=False,
+    )
+    doc = Document(text)
+    doc.metadata["key"] = "doc1"
+    all_docs = text_splitter.split_documents([doc])
+    splitcount = 0
+    for sdoc in all_docs:
+        sdoc.metadata["key"] = doc.metadata["key"] + f"-split{splitcount}"
+        splitcount += 1
 
 def extract_text_from_pdf(pdf_path):
     # Open the PDF file
