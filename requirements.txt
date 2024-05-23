@@ -1,0 +1,8 @@
+arxiv 
+langchain 
+langchain_community 
+matplotlib
+PyMuPDF
+seaborn
+streamlit
+wikipedia 
