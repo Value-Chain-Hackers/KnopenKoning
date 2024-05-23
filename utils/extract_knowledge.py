@@ -1,10 +1,12 @@
 import fitz  # PyMuPDF
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
 from langchain_community.llms.ollama import Ollama
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.documents import Document
+from langchain_chroma import Chroma
+from langchain.indexes import SQLRecordManager, index
+import os
 
 knowledge_extraction_prompt = PromptTemplate.from_template("""\
 Please proceed to knowledge extraction from the provided text. Focus on the following aspects:
@@ -72,11 +74,11 @@ def split_text_into_chunks(text):
     )
     return text_splitter.split_text(text)
 
-def split_text_into_documents(text):
+def split_text_into_documents(text, chunk_size=512, chunk_overlap=64):
     text_splitter = RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.
-        chunk_size=4000,
-        chunk_overlap=256,
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
         length_function=len,
         is_separator_regex=False,
     )
@@ -138,3 +140,30 @@ def extract_knowledge_graph(text, output_path):
             response = chain.invoke({"chunk": chunk})
             knowledge.append(response)
     return knowledge
+
+
+def get_records_manager(database, namespace):
+
+    # if the file exists, load the record manager from the file
+    if os.path.exists(database):
+        record_manager = SQLRecordManager(
+            namespace, db_url=f"sqlite:///{database}"
+        )
+        return record_manager
+    else:
+        record_manager = SQLRecordManager(
+            namespace, db_url=f"sqlite:///{database}"
+        )
+        record_manager.create_schema()
+
+def get_huggingface_model(model_name):
+    from langchain_community.embeddings import HuggingFaceEmbeddings
+    model_kwargs =  {'device': 'cpu'}
+    encode_kwargs = {'normalize_embeddings': False}
+    hf = HuggingFaceEmbeddings(
+        model_name=model_name,
+        model_kwargs=model_kwargs,
+        encode_kwargs=encode_kwargs
+    )
+    return hf
+    

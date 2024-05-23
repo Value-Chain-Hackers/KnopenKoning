@@ -1,4 +1,4 @@
-from utils.extract_knowledge import extract_all_knowledge_from_pdf, summarize_all_text, extract_knowledge_graph
+from utils import extract_all_knowledge_from_pdf, summarize_all_text, extract_knowledge_graph
 
 allknowledge = extract_all_knowledge_from_pdf("unilever-annual-report-and-accounts-2023.pdf", "output.txt")
 

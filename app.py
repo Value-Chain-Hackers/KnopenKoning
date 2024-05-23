@@ -1,35 +1,42 @@
 import streamlit as st
+import time
+from utils.extract_knowledge import get_huggingface_model
 from langchain_chroma import Chroma
-from utils.build_rag import get_huggingface_model
-
+from langchain_community.llms.ollama import Ollama
+from langchain_core.prompts import PromptTemplate
+from langchain.indexes import SQLRecordManager, index
+# Initialize the retriever (ensure you replace this with your actual initialization)
 hf = get_huggingface_model("BAAI/bge-base-en-v1.5")
 chroma = Chroma("docs",  embedding_function=hf, persist_directory="./.cache/chroma/docs")
+retriever = chroma.as_retriever()
 
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+prompt = PromptTemplate.from_template("Please answer the following question: {question}\n\nUse only the information provided in the context below to answer the question.\n\n{context}")
+rag_chain = (
+    {"context": retriever, "question": RunnablePassthrough()}
+    | prompt
+    | llm
+    | StrOutputParser()
+)
+
+
+@st.cache_data
+def get_answer(question):
+    # Simulate a long-running operation (e.g., a call to a retriever)
+    answer = rag_chain.invoke(question)
+    return answer
 
 def main():
     st.title("File Upload and Question Box")
 
-    # File upload
-    #uploaded_file = st.file_uploader("Choose a file", type=["csv", "txt", "xlsx", "pdf", "docx", "jpg", "png"])
-    
-    # if uploaded_file is not None:
-    #     st.write(f"File {uploaded_file.name} uploaded successfully.")
-        
-    #     # You can add your file processing code here
-    #     # For example, reading and displaying the content of a text file
-    #     if uploaded_file.type == "text/plain":
-    #         content = uploaded_file.read().decode("utf-8")
-    #         st.text_area("File Content", content, height=250)
-
     # Question box
     question = st.text_input("Ask a question:")
     if question:
-        docs = chroma.as_retriever().get_relevant_documents(question)
-        if(docs):
-            st.write(f"You asked: {question}\n Found {len(docs)} found.")
-            st.write(docs)
-        else:
-            st.write("No relevant documents found.")
-            
+        with st.spinner('Retrieving answer...'):
+            answer = get_answer(question)
+            st.write(answer)
+
 if __name__ == "__main__":
     main()

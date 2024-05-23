@@ -1,35 +1,10 @@
 from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
-import glob
-from extract_knowledge import extract_text_from_pdf, split_text_into_documents
 from tqdm import tqdm
 
-def get_records_manager(database, namespace):
+from utils.extract_knowledge import extract_text_from_pdf, get_huggingface_model, get_records_manager, split_text_into_documents
 
-    # if the file exists, load the record manager from the file
-    if os.path.exists(database):
-        record_manager = SQLRecordManager(
-            namespace, db_url=f"sqlite:///{database}"
-        )
-        return record_manager
-    else:
-        record_manager = SQLRecordManager(
-            namespace, db_url=f"sqlite:///{database}"
-        )
-        record_manager.create_schema()
-
-def get_huggingface_model(model_name):
-    from langchain_community.embeddings import HuggingFaceEmbeddings
-    model_kwargs =  {'device': 'cpu'}
-    encode_kwargs = {'normalize_embeddings': False}
-    hf = HuggingFaceEmbeddings(
-        model_name=model_name,
-        model_kwargs=model_kwargs,
-        encode_kwargs=encode_kwargs
-    )
-    return hf
-    
 def build_rag():
     if not os.path.exists("./.cache"):
         os.makedirs("./.cache")
