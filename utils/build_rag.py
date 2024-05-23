@@ -2,7 +2,7 @@ from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
 import glob
-from extract_knowledge import extract_text_from_pdf, split_text_into_documents
+from utils.extract_knowledge import extract_text_from_pdf, split_text_into_documents
 
 from tqdm import tqdm
 tqdm()
@@ -32,32 +32,32 @@ def get_huggingface_model(model_name):
     )
     return hf
     
+def build_rag():
+    if not os.path.exists("./.cache"):
+        os.makedirs("./.cache")
 
-if not os.path.exists("./.cache"):
-    os.makedirs("./.cache")
+    namespace = f"rags/docs"
 
-namespace = f"rags/docs"
+    model_name = "BAAI/bge-base-en-v1.5"
+    print(f"Loading Hugging Face model {model_name}")
+    hf = get_huggingface_model(model_name)
 
-model_name = "BAAI/bge-base-en-v1.5"
-print(f"Loading Hugging Face model {model_name}")
-hf = get_huggingface_model(model_name)
-
-print(f"Getting records manager for namespace {namespace} in db")
-record_manager = get_records_manager("./.cache/record_manager_cache.sql", namespace)
+    print(f"Getting records manager for namespace {namespace} in db")
+    record_manager = get_records_manager("./.cache/record_manager_cache.sql", namespace)
 
 
-chroma = Chroma("docs",  embedding_function=hf, persist_directory="./.cache/chroma/docs")
+    chroma = Chroma("docs",  embedding_function=hf, persist_directory="./.cache/chroma/docs")
 
-docs = extract_text_from_pdf("unilever-annual-report-and-accounts-2023.pdf")
-docs = split_text_into_documents(docs)
+    docs = extract_text_from_pdf("unilever-annual-report-and-accounts-2023.pdf")
+    docs = split_text_into_documents(docs)
 
-print(f"Indexing {len(docs)} splits of Ollama docs")
+    print(f"Indexing {len(docs)} splits of pdf docs")
 
-indexing = index(
-    docs,
-    record_manager,
-    chroma,
-    cleanup='incremental',
-    source_id_key="key",
-)
-print(indexing)
+    indexing = index(
+        docs,
+        record_manager,
+        chroma,
+        cleanup='incremental',
+        source_id_key="key",
+    )
+    print(indexing)
