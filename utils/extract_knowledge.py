@@ -87,6 +87,7 @@ def split_text_into_documents(text):
     for sdoc in all_docs:
         sdoc.metadata["key"] = doc.metadata["key"] + f"-split{splitcount}"
         splitcount += 1
+    return all_docs
 
 def extract_text_from_pdf(pdf_path):
     # Open the PDF file

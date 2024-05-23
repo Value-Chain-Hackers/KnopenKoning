@@ -2,10 +2,8 @@ from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
 import glob
-from utils.extract_knowledge import extract_text_from_pdf, split_text_into_documents
-
+from extract_knowledge import extract_text_from_pdf, split_text_into_documents
 from tqdm import tqdm
-tqdm()
 
 def get_records_manager(database, namespace):
 
@@ -48,7 +46,8 @@ def build_rag():
 
     chroma = Chroma("docs",  embedding_function=hf, persist_directory="./.cache/chroma/docs")
 
-    docs = extract_text_from_pdf("unilever-annual-report-and-accounts-2023.pdf")
+    docs = extract_text_from_pdf("./data/unilever-annual-report-and-accounts-2023.pdf")
+    print(f"Extracted {len(docs)} splits of pdf docs")
     docs = split_text_into_documents(docs)
 
     print(f"Indexing {len(docs)} splits of pdf docs")
