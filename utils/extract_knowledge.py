@@ -32,7 +32,6 @@ Context:
 ----- 
 """)
 
-
 knowledge_summary_prompt = PromptTemplate.from_template("""\
 Please proceed to summarizing the knowledge extracted from the text.
 Remove all duplicate information and keep the summary concise.
@@ -45,6 +44,22 @@ Context:
 -----                                                     
 """)
 
+knowledge_build_prompt = PromptTemplate.from_template("""\
+Given the knowledge extracted from the text, please proceed to build a knowledge graph.
+The knowledge graph should include all the key information extracted from the text.
+Create triples in the following format:
+    1. Entity1 -> Relation -> Entity2
+    2. Entity1 -> Relation -> Value
+    3. Entity1 -> Attribute -> Value
+DO NOT include any irrelevant information, nor any information that is not present in the text.
+DO ONLY use json-ld format as output.
+------
+Context:
+                                    
+{chunk}
+
+------
+""")
 
 def split_text_into_chunks(text):
     text_splitter = RecursiveCharacterTextSplitter(
@@ -93,4 +108,15 @@ def summarize_all_text(text, output_path):
             response = chain.invoke({"chunk": chunk})
             knowledge.append(response)
     
+    return knowledge
+
+def extract_knowledge_graph(text, output_path):
+    chunks = split_text_into_chunks(text)
+    llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+    chain = knowledge_build_prompt | llm | StrOutputParser()
+    knowledge = []
+    with open(output_path, "a", encoding='utf-8') as f:
+        for chunk in chunks:
+            response = chain.invoke({"chunk": chunk})
+            knowledge.append(response)
     return knowledge
