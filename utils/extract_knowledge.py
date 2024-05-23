@@ -33,6 +33,19 @@ Context:
 """)
 
 
+knowledge_summary_prompt = PromptTemplate.from_template("""\
+Please proceed to summarizing the knowledge extracted from the text.
+Remove all duplicate information and keep the summary concise.
+Make sure you retain all the key information.
+-----
+Context:
+                                      
+{chunk}
+
+-----                                                     
+""")
+
+
 def split_text_into_chunks(text):
     text_splitter = RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.
@@ -68,4 +81,16 @@ def extract_all_knowledge_from_pdf(pdf_path, output_path):
             f.write(response + "\n")
             f.write("-----\n")
 
+    return knowledge
+
+def summarize_all_text(text):
+    chunks = split_text_into_chunks(text)
+    llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+    chain = knowledge_summary_prompt | llm | StrOutputParser()
+    knowledge = []
+    with open("summary_output.txt", "a", encoding='utf-8') as f:
+        for chunk in chunks:
+            response = chain.invoke({"chunk": chunk})
+            knowledge.append(response)
+    
     return knowledge
