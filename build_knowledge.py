@@ -1,3 +1,4 @@
+from config import MODEL_NAME, EMBEDDING_MODEL
 from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
@@ -16,7 +17,7 @@ def build_knowledge():
 
     namespace = f"rags/docs"
 
-    model_name = "BAAI/bge-base-en-v1.5"
+    model_name = EMBEDDING_MODEL
     print(f"Loading Hugging Face model {model_name}")
     hf = get_huggingface_model(model_name)
 
@@ -43,7 +44,7 @@ def build_knowledge():
 
     ------
     """)
-    llm = Ollama(model="phi3:instruct", num_ctx=4096, num_predict=2048, temperature=0.1)
+    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = (
         {"context": retriever, "question": RunnablePassthrough()}
         | knowledge_build_prompt
