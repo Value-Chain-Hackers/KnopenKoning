@@ -8,6 +8,8 @@ from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
 
+from config import MODEL_NAME, EMBEDDING_MODEL
+
 knowledge_extraction_prompt = PromptTemplate.from_template("""\
 Please proceed to knowledge extraction from the provided text. Focus on the following aspects:
     1. Identify the key suppliers and customers of the company.
@@ -114,7 +116,7 @@ def extract_text_from_pdf(pdf_path):
 def extract_all_knowledge_from_pdf(pdf_path, output_path):
     text = extract_text_from_pdf(pdf_path)
     chunks = split_text_into_chunks(text)
-    llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = knowledge_extraction_prompt | llm | StrOutputParser()
     knowledge = []
     with open(output_path, "a", encoding='utf-8') as f:
@@ -128,7 +130,7 @@ def extract_all_knowledge_from_pdf(pdf_path, output_path):
 
 def summarize_all_text(text, output_path):
     chunks = split_text_into_chunks(text)
-    llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = knowledge_summary_prompt | llm | StrOutputParser()
     knowledge = []
     with open(output_path, "a", encoding='utf-8') as f:
@@ -140,7 +142,7 @@ def summarize_all_text(text, output_path):
 
 def extract_knowledge_graph(text, output_path):
     chunks = split_text_into_chunks(text)
-    llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = knowledge_build_prompt | llm | StrOutputParser()
     knowledge = []
     with open(output_path, "a", encoding='utf-8') as f:
