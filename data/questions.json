@@ -1,0 +1,17 @@
+{
+    "countries":[
+        "What countries does the company operate in?",
+        "Where are the company's headquarters located?",
+        "Where are the company's manufacturing facilities located?"
+    ],
+    "suppliers":[
+        "What are the main suppliers of the company?",
+        "Where are the suppliers located?",
+        "What is the relationship between the company and its suppliers?"
+    ],
+    "products":[
+        "What are the main products of the company?",
+        "What are the main services of the company?",
+        "What are the main ingriedients of {product}?"
+    ]
+}
