@@ -1,0 +1,1530 @@
+[
+    {
+        "subject": "Coca-Cola Bottling Company",
+        "predicate": "owns",
+        "object": "Southeastern",
+        "object-type": "subsidiary"
+    },
+    {
+        "subject": "Coca-Cola Bottling Company",
+        "predicate": "owns",
+        "object": "Sales & Services Company LLC",
+        "object-type": "subsidiary"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "operates_in",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "Coca-Cola Consolidated",
+        "predicate": "headquarters",
+        "object": "Charlotte, NC",
+        "object-type": "city"
+    },
+    {
+        "subject": "Roanoke, VA",
+        "predicate": "uses",
+        "object": "manufacturing plant",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Cincinnati, OH",
+        "predicate": "uses",
+        "object": "manufacturing plant",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Nashville, TN",
+        "predicate": "uses",
+        "object": "manufacturing plant",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Charlotte, NC",
+        "predicate": "uses",
+        "object": "distribution center/manufacturing plant combination",
+        "object-type": "facility"
+    },
+    {
+        "subject": "Indianapolis, IN",
+        "predicate": "uses",
+        "object": "manufacturing plant",
+        "object-type": "plant"
+    },
+    {
+        "subject": "West Memphis, AR",
+        "predicate": "uses",
+        "object": "manufacturing plant",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Bishopville, South Carolina",
+        "predicate": "hosts",
+        "object": "SAC manufacturing cooperative",
+        "object-type": "cooperative"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "Southeastern Container",
+        "object-type": "supplier",
+        "more-info": "a manufacturing cooperative"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "Western Container",
+        "object-type": "supplier",
+        "more-info": "a manufacturing cooperative"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "two domestic suppliers",
+        "object-type": "supplier",
+        "more-info": "aluminum can suppliers"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "distributes",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "owns",
+        "object": "Distribution Center",
+        "object-type": "distribution-center",
+        "more-info": "Charlotte, NC"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "owns",
+        "object": "Distribution Center",
+        "object-type": "distribution-center",
+        "more-info": "Whitestown, IN"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "owns",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing-plant",
+        "more-info": "Indianapolis, IN"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "owns",
+        "object": "Distribution Center",
+        "object-type": "distribution-center",
+        "more-info": "Sandston, VA"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "owns",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing-plant",
+        "more-info": "West Memphis, AR"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "owns",
+        "object": "Distribution Center",
+        "object-type": "distribution-center",
+        "more-info": "Erlanger, KY"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "owns",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing-plant",
+        "more-info": "Roanoke, VA"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "owns",
+        "object": "Distribution Center",
+        "object-type": "distribution-center",
+        "more-info": "Hanover, MD"
+    },
+    {
+        "subject": "United States",
+        "predicate": "has retail outlets",
+        "object": "The Company",
+        "object-type": "country"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Federal Food, Drug and Cosmetic Act",
+        "object-type": "law"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Occupational Safety and Health Act",
+        "object-type": "law"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Food Safety Modernization Act",
+        "object-type": "law"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Clean Air Act",
+        "object-type": "law"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Clean Water Act",
+        "object-type": "law"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Comprehensive Environmental Response, Compensation and Liability Act (CERCLA)",
+        "object-type": "law"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "complies with",
+        "object": "U.S. laws and regulations",
+        "object-type": "regulations"
+    },
+    {
+        "subject": "Coca-Cola Bottlers' Sales & Services Company LLC",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Southeastern Container",
+        "predicate": "supplies",
+        "object": "plastic bottles",
+        "object-type": "product"
+    },
+    {
+        "subject": "Western Container",
+        "predicate": "supplies",
+        "object": "plastic bottles",
+        "object-type": "product"
+    },
+    {
+        "subject": "Two domestic suppliers",
+        "predicate": "supplies",
+        "object": "aluminum cans",
+        "object-type": "product"
+    },
+    {
+        "subject": "Southeastern Container",
+        "predicate": "sources",
+        "object": "plastic bottles",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Western Container",
+        "predicate": "sources",
+        "object": "plastic bottles",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "The Company relies on purchased finished products from external sources."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "works closely with",
+        "object": "key suppliers",
+        "object-type": "supplier",
+        "more-info": "to mitigate risks and ensure inventory levels, customer confidence, and results of operations."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "purchases",
+        "object": "business interruption insurance",
+        "object-type": "insurance",
+        "more-info": "where appropriate to protect against supplier failures."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "negotiates",
+        "object": "procurement for raw materials",
+        "object-type": "raw-material",
+        "more-info": "through CCBSS, a joint procurement organization with other Coca-Cola bottlers."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "receives rebate from",
+        "object": "CCBSS",
+        "object-type": "organization",
+        "more-info": "for the purchase of raw materials."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "facilitates",
+        "object": "supply chain finance program",
+        "object-type": "program",
+        "more-info": "to allow qualifying suppliers to sell their receivables and negotiate shorter payment terms."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "evaluated",
+        "object": "SCF program",
+        "object-type": "program",
+        "more-info": "The supplier elects to participate in the SCF program and reaches an agreement with the financial institution."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "selected",
+        "object": "Company",
+        "object-type": "company",
+        "more-info": "The Company selects suppliers that meet its purchase requirements."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "qualified",
+        "object": "SCF program",
+        "object-type": "program",
+        "more-info": "A supplier must qualify to participate in the SCF program."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "achieves",
+        "object": "purchase requirements",
+        "object-type": "supplier-performance",
+        "more-info": "Meeting customer demand and ensuring timely delivery of products."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "requires",
+        "object": "business interruption insurance",
+        "object-type": "insurance",
+        "more-info": "To mitigate risks and ensure continuity of operations."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "raw-materials",
+        "object-type": "supplier",
+        "more-info": "purchased through CCBSS"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "concentrate",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "distributes",
+        "object": "finished-goods",
+        "object-type": "product",
+        "more-info": "through finished goods supply arrangements"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "ensures",
+        "object": "product quality",
+        "object-type": "standard",
+        "more-info": "The Company has rigorous product safety and quality standards."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "supplier",
+        "more-info": "The Company purchases all of the plastic bottles used in its manufacturing plants from Southeastern Container and Western Container."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "may not meet",
+        "object": "purchase requirements",
+        "object-type": "supplier-risk",
+        "more-info": "Failure of plastic bottle or aluminum can suppliers to meet Company's purchase requirements could negatively impact inventory levels, customer confidence and results of operations."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "may not be available",
+        "object": "raw materials",
+        "object-type": "supplier-risk",
+        "more-info": "Unavailability or shortages of raw materials, fuel and other supplies could have an adverse impact on the Company's business and results of operations."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "may not be reliable",
+        "object": "purchased finished products",
+        "object-type": "supplier-risk",
+        "more-info": "The reliance on purchased finished products from external sources could have an adverse impact on the Company's profitability."
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "may not be diverse",
+        "object": "customers and suppliers",
+        "object-type": "supplier-risk",
+        "more-info": "Concentration risks among customers and suppliers could impact sales and ability to access necessary product inputs at commercially advantageous prices."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "plastic bottles",
+        "object-type": "raw-material",
+        "more-info": "Southeastern Container and Western Container, two manufacturing cooperatives co-owned with other Coca-Cola bottlers"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "aluminum cans",
+        "object-type": "raw-material",
+        "more-info": "two domestic suppliers"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "contains",
+        "object": "sparkling beverages",
+        "object-type": "product",
+        "more-info": "carbonated beverages"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "contains",
+        "object": "still beverages",
+        "object-type": "product",
+        "more-info": "energy products, noncarbonated beverages such as bottled water, ready to drink tea, ready to drink coffee, enhanced water, juices and sports drinks"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "manufactures",
+        "object": "soft drink products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "distributes",
+        "object": "bottle/can sales",
+        "object-type": "product",
+        "more-info": "products packaged in plastic bottles and aluminum cans"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "distributes",
+        "object": "other sales",
+        "object-type": "product",
+        "more-info": "sales to other Coca-Cola bottlers, post-mix sales, transportation revenue and equipment maintenance revenue"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "information technology systems",
+        "object-type": "technology"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "requires",
+        "object": "third-party service providers and business partners to do the same",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "participates in",
+        "object": "commodity hedging and risk mitigation programs",
+        "object-type": "program"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses a combination of",
+        "object": "internal and external freight shipping and transportation services",
+        "object-type": "service"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "contains",
+        "object": "water",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "contains",
+        "object": "coffee",
+        "object-type": "product-ingredient",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "contains",
+        "object": "juices",
+        "object-type": "product-ingredient",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "contains",
+        "object": "sports drinks",
+        "object-type": "product-ingredient",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "contains",
+        "object": "energy products",
+        "object-type": "product-ingredient",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "purchased finished products",
+        "object-type": "raw-material",
+        "more-info": "The Company relies on purchased finished products from external sources to meet customer demand."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "manufactures",
+        "object": "some products",
+        "object-type": "product",
+        "more-info": "The Company does not manufacture all of the products it distributes, but rather relies on purchased finished products from external sources."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "procures",
+        "object": "finished product",
+        "object-type": "raw-material",
+        "more-info": "The Company procures finished products from other manufacturers to meet customer demand."
+    },
+    {
+        "subject": "product development",
+        "predicate": "achieves",
+        "object": "less than one day",
+        "object-type": "timeframe"
+    },
+    {
+        "subject": "repair services",
+        "predicate": "requires",
+        "object": "less than one month",
+        "object-type": "timeframe"
+    },
+    {
+        "subject": "Distribution Agreements",
+        "predicate": "uses",
+        "object": "estimated useful lives of 20 to 40 years",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Customer Lists",
+        "predicate": "uses",
+        "object": "estimated useful lives of five to 12 years",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Distribution Assets",
+        "predicate": "has",
+        "object": "related sub-bottling payments extend through the life of the related distribution assets acquired in each distribution territory, which is generally 40 years",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "The Company",
+        "predicate": "requires",
+        "object": "plastic bottles",
+        "object-type": "product",
+        "more-info": "for certain designated territories from Southeastern"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "purchases",
+        "object": "finished product",
+        "object-type": "product",
+        "more-info": "from SAC on an annual basis through June 2024"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": "Examples include aluminum cans, plastic bottles, PET resin, carbon dioxide, and high fructose corn syrup."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "requires",
+        "object": "water",
+        "object-type": "resource",
+        "more-info": "Prolonged drought conditions could lead to restrictions on water use, which could adversely affect the Company's cost and ability to manufacture and distribute products."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "energy",
+        "object-type": "resource",
+        "more-info": "Increased energy costs due to changes in public expectations for reductions in greenhouse gas emissions could result in increased energy, transportation and raw material costs."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "aluminum cans",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "sources",
+        "object": "plastic bottles",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "PET resin",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "high fructose corn syrup",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "adheres_to",
+        "object": "product safety and quality standards",
+        "object-type": "standard"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "complies_with",
+        "object": "Equal Employment Opportunity Act",
+        "object-type": "law"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "complies_with",
+        "object": "National Labor Relations Act",
+        "object-type": "law"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "uses",
+        "object": "alternative distributors",
+        "object-type": "supplier",
+        "more-info": "to deliver post-mix products to customers"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "uses",
+        "object": "Company-owned vehicles and warehouses",
+        "object-type": "logistics provider",
+        "more-info": "for typical direct store delivery method"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "shifts to",
+        "object": "alternative methods of distribution",
+        "object-type": "logistics provider",
+        "more-info": "to enhance customer service and profitability"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Company-owned vehicles",
+        "object-type": "transportation-method",
+        "more-info": "The Company uses its own vehicles to transport products from manufacturing facilities to distribution centers."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Alternative distributors",
+        "object-type": "transportation-method",
+        "more-info": "In certain circumstances, the Company has shifted its delivery method to alternative distributors instead of using Company-owned vehicles."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "transports",
+        "object": "Finished products",
+        "object-type": "product",
+        "more-info": "The Company transports finished products from manufacturing facilities to distribution centers."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "Company-owned vehicles",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "alternative distributors",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "third-party distributors",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "freight shipping and transportation services",
+        "object-type": "transportation-service"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "manages",
+        "object": "fuel costs",
+        "object-type": "cost-management"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "strives",
+        "object": "to reduce fuel consumption",
+        "object-type": "efficiency-goal"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "commodity hedges",
+        "object-type": "risk-mitigation-tool"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "participates",
+        "object": "in commodity hedging and risk mitigation programs",
+        "object-type": "program-participation"
+    },
+    {
+        "subject": "Company",
+        "predicate": "uses",
+        "object": "freight shipping and transportation services",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "Company",
+        "predicate": "requires",
+        "object": "fuel",
+        "object-type": "raw-material"
+    },
+    {
+        "subject": "Company",
+        "predicate": "faces",
+        "object": "driver shortages",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Company",
+        "predicate": "faces",
+        "object": "reduced availability of independent contractor drivers",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Company",
+        "predicate": "faces",
+        "object": "higher fuel costs",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Company",
+        "predicate": "faces",
+        "object": "weather conditions",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Company",
+        "predicate": "faces",
+        "object": "traffic congestion",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Company",
+        "predicate": "faces",
+        "object": "increased government regulation",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Company",
+        "predicate": "requires",
+        "object": "significant investments in supply chain optimization",
+        "object-type": "investment"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "freight shipping and transportation services",
+        "object-type": "service",
+        "more-info": "The company uses a combination of internal and external freight shipping and transportation services to transport and deliver its products."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "distributes",
+        "object": "products",
+        "object-type": "product",
+        "more-info": "The company distributes its products through various channels, including direct store delivery method using Company-owned vehicles and warehouses."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "shifts",
+        "object": "delivery method",
+        "object-type": "method",
+        "more-info": "In instances of post-mix delivery for use in fountain machines, the company has shifted its delivery method to alternative distributors."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "invests",
+        "object": "tools and technology",
+        "object-type": "technology",
+        "more-info": "The company continues to invest in tools and technology to enable its teammates to operate more effectively and efficiently with customers."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "recognizes",
+        "object": "revenues",
+        "object-type": "revenue",
+        "more-info": "Revenues related to freight hauling and brokerage services are recognized as the delivery occurs using a miles driven output method."
+    },
+    {
+        "subject": "Repair services",
+        "predicate": "achieves",
+        "object": "less than one day but can extend up to one month",
+        "object-type": "timeframe"
+    },
+    {
+        "subject": "Freight hauling and brokerage services",
+        "predicate": "recognized",
+        "object": "as the delivery occurs using a miles driven output method",
+        "object-type": "method"
+    },
+    {
+        "subject": "Delivery",
+        "predicate": "occurs",
+        "object": "in the same day",
+        "object-type": "timeframe"
+    },
+    {
+        "subject": "Wal-Mart Stores, Inc.",
+        "predicate": "uses",
+        "object": "Coca-Cola products",
+        "object-type": "customer"
+    },
+    {
+        "subject": "The Kroger Company",
+        "predicate": "uses",
+        "object": "Coca-Cola products",
+        "object-type": "customer"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "grocery stores",
+        "object-type": "retailer"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "mass merchandise stores",
+        "object-type": "retailer"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "club stores",
+        "object-type": "retailer"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "convenience stores",
+        "object-type": "retailer"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "drug stores",
+        "object-type": "retailer"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "restaurants",
+        "object-type": "food-service-provider"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "schools",
+        "object-type": "educational-institution"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "amusement parks",
+        "object-type": "recreational-venue"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "recreational facilities",
+        "object-type": "recreational-venue"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "vending machine outlets",
+        "object-type": "retailer"
+    },
+    {
+        "subject": "customers",
+        "predicate": "located",
+        "object": "Carolinas",
+        "object-type": "region"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "sells",
+        "object": "products",
+        "object-type": "product",
+        "more-info": "to various channels, including grocery stores, mass merchandise stores, club stores, convenience stores and drug stores"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "distributes",
+        "object": "products",
+        "object-type": "product",
+        "more-info": "through various channels, including selling directly to customers, on-premise locations, and vending machine outlets"
+    },
+    {
+        "subject": "customers",
+        "predicate": "market",
+        "object": "The Coca-Cola Company's products",
+        "object-type": "product",
+        "more-info": "in their periodic advertising"
+    },
+    {
+        "subject": "significant customers",
+        "predicate": "promote",
+        "object": "The Coca-Cola Company's products",
+        "object-type": "product",
+        "more-info": "through in-store promotions and other marketing efforts"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "depends",
+        "object": "customer tastes, preferences and shopping habits",
+        "object-type": "factor",
+        "more-info": "that change in often unpredictable ways"
+    },
+    {
+        "subject": "Wal-Mart Stores, Inc. or The Kroger Company",
+        "predicate": "is a customer",
+        "object": "The Coca-Cola Company",
+        "object-type": "customer",
+        "more-info": "and losing them could have a material adverse effect on the business"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "faces",
+        "object": "concentration risks",
+        "object-type": "risk",
+        "more-info": "related to a few customers comprising a large portion of the Company\u2019s annual sales volume and net sales"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "uses",
+        "object": "customer survey",
+        "object-type": "program",
+        "more-info": "The customer survey provides valuable insight to our leaders about how our teammates experience the Company and how we can better serve them and improve job performance, satisfaction and retention."
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "receives",
+        "object": "feedback",
+        "object-type": "customer",
+        "more-info": "The company receives feedback from customers through various channels, including social media and networking websites."
+    },
+    {
+        "subject": "The Company",
+        "predicate": "sells",
+        "object": "directly to customers",
+        "object-type": "customer",
+        "more-info": "including grocery stores, mass merchandise stores, club stores, convenience stores and drug stores"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "sells",
+        "object": "to on-premise locations",
+        "object-type": "location",
+        "more-info": "where products are typically consumed immediately, such as restaurants, schools, amusement parks and recreational facilities"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "sells",
+        "object": "through vending machine outlets",
+        "object-type": "channel",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "cost-to-cost input method",
+        "object-type": "method",
+        "more-info": "for repair services"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "recognizes",
+        "object": "revenues",
+        "object-type": "revenue",
+        "more-info": "over time for freight hauling and brokerage services"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "evaluates",
+        "object": "collectability of trade accounts receivable",
+        "object-type": "process",
+        "more-info": "based on historic collections pattern and changes to customer's financial obligations"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "typically collects payment from customers within",
+        "object": "30 days",
+        "object-type": "timeframe",
+        "more-info": "from the date of sale"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "has established an allowance for doubtful accounts",
+        "object": "to adjust recorded receivable to estimated amount",
+        "object-type": "process",
+        "more-info": "the Company believes will ultimately be collected"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "experiences customer returns primarily as a result of",
+        "object": "damaged or out-of-date product",
+        "object-type": "product",
+        "more-info": "less than 1% of bottle/can sales and post-mix sales could be at risk for return"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "receives a fee from a vendor on post-mix gallons delivered to",
+        "object": "locally managed customers in our territory",
+        "object-type": "customers",
+        "more-info": "which is recorded as a reduction to cost of sales"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "achieves",
+        "object": "reducing emissions",
+        "object-type": "environmental-goal",
+        "more-info": "by optimizing supply chain and investing in future growth"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "uses",
+        "object": "recycling solutions",
+        "object-type": "sustainability-initiative",
+        "more-info": "to reduce single-use plastics and place onus on plastic suppliers"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "strives",
+        "object": "reducing water use",
+        "object-type": "environmental-goal",
+        "more-info": "by optimizing manufacturing intensity ratio"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "invests",
+        "object": "$282.3 million in capital expenditures",
+        "object-type": "financial-investment",
+        "more-info": "to optimize supply chain and invest for future growth"
+    },
+    {
+        "subject": "Company",
+        "predicate": "sources",
+        "object": "raw-materials",
+        "object-type": "raw-material",
+        "more-info": "The Company has an agreement with a third-party financial institution to facilitate a supply chain finance (\u201cSCF\u201d) program, which allows qualifying suppliers to sell their receivables from the Company to the financial institution."
+    },
+    {
+        "subject": "Company",
+        "predicate": "works-closely-with",
+        "object": "key-suppliers",
+        "object-type": "supplier",
+        "more-info": "The Company may not be able to respond successfully to changes in the marketplace, and failure of the plastic bottle or aluminum can suppliers to meet the Company\u2019s purchase requirements could negatively impact inventory levels, customer confidence and results of operations."
+    },
+    {
+        "subject": "Company",
+        "predicate": "requires",
+        "object": "recycling-solutions",
+        "object-type": "process",
+        "more-info": "The Company is not currently impacted by the policies in these types of proposed legislation, but it is possible that similar or more restrictive legal requirements may be proposed or enacted within its distribution territories in the future."
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "uses",
+        "object": "skilled workforce",
+        "object-type": "employee",
+        "more-info": "including front-line employees"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "requires",
+        "object": "properly credentialed workforce",
+        "object-type": "employee",
+        "more-info": "to meet labor needs while controlling labor costs"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "renegotiates",
+        "object": "collective bargaining agreements",
+        "object-type": "contract",
+        "more-info": "with labor unions on satisfactory terms and conditions"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "is impacted by",
+        "object": "new or revised labor laws",
+        "object-type": "regulation",
+        "more-info": "which could affect the Company's ability to fully implement operational changes"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "participates in",
+        "object": "programs for employee assistance and benefits",
+        "object-type": "program",
+        "more-info": "to attract, retain, and promote teammates"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "manages",
+        "object": "waste",
+        "object-type": "process",
+        "more-info": "The Company implements new recycling regulations to reduce solid waste and litter."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "requires",
+        "object": "plastic suppliers",
+        "object-type": "supplier",
+        "more-info": "to identify recycling solutions"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "alternative distributors",
+        "object-type": "method",
+        "more-info": "to deliver post-mix products to customers in our territory"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "strives",
+        "object": "sustainability solutions",
+        "object-type": "goal",
+        "more-info": "to reduce emissions, water and energy use"
+    },
+    {
+        "subject": "Coca-Cola Consolidated",
+        "predicate": "achieves",
+        "object": "reduced emissions",
+        "object-type": "environmental goal",
+        "more-info": "The company strives to reduce its carbon footprint by optimizing supply chain and investing in future growth."
+    },
+    {
+        "subject": "Coca-Cola Consolidated",
+        "predicate": "achieves",
+        "object": "reduced water use",
+        "object-type": "environmental goal",
+        "more-info": "The company aims to reduce its water usage by optimizing supply chain and investing in future growth."
+    },
+    {
+        "subject": "Coca-Cola Consolidated",
+        "predicate": "achieves",
+        "object": "reduced energy use",
+        "object-type": "environmental goal",
+        "more-info": "The company strives to reduce its energy consumption by optimizing supply chain and investing in future growth."
+    },
+    {
+        "subject": "Coca-Cola Consolidated",
+        "predicate": "strives",
+        "object": "to find solutions to help the beverage industry with ways to recover what we produce and protect the communities we refresh",
+        "object-type": "sustainability goal",
+        "more-info": "The company aims to reduce its environmental impact by finding sustainable solutions for the beverage industry."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "purchased finished products from external sources",
+        "object-type": "raw-material",
+        "more-info": "The company relies on purchased finished products to meet customer demand."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "remains reliant on",
+        "object": "purchased finished products from external sources",
+        "object-type": "raw-material",
+        "more-info": "The company does not manufacture all products it distributes and remains reliant on purchased finished products."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "works closely with",
+        "object": "key suppliers",
+        "object-type": "supplier",
+        "more-info": "The company works closely with key suppliers to mitigate risks in its supply chain."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "purchases business interruption insurance",
+        "object": "where appropriate",
+        "object-type": "insurance",
+        "more-info": "The company purchases business interruption insurance where appropriate to mitigate risks in its supply chain."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "continues to make significant reinvestments",
+        "object": "its business",
+        "object-type": "company",
+        "more-info": "The company continues to make significant reinvestments in its business to evolve its operating model and accommodate future growth."
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "is subject to",
+        "object": "risk of unavailability of still products",
+        "object-type": "product",
+        "more-info": "The company is subject to the risk of unavailability of still products that it acquires from other manufacturers."
+    },
+    {
+        "subject": "Company",
+        "predicate": "uses",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": "including plastic bottles, aluminum cans, PET resin, carbon dioxide and high fructose corn syrup"
+    },
+    {
+        "subject": "Company",
+        "predicate": "sources",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Company",
+        "predicate": "requires",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Company",
+        "predicate": "depends",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Company",
+        "predicate": "may be impacted by",
+        "object": "unavailability or shortages of raw materials, fuel and other supplies",
+        "object-type": "risk",
+        "more-info": ""
+    },
+    {
+        "subject": "Company",
+        "predicate": "may be impacted by",
+        "object": "price volatility",
+        "object-type": "risk",
+        "more-info": "worsened by periods of increased demand, supply constraints or high inflation"
+    },
+    {
+        "subject": "Company",
+        "predicate": "may be impacted by",
+        "object": "geopolitical events",
+        "object-type": "risk",
+        "more-info": "including pandemics, armed conflict or the imposition of tariffs and/or quotas by the U.S. government"
+    },
+    {
+        "subject": "Company",
+        "predicate": "may be impacted by",
+        "object": "drought conditions",
+        "object-type": "risk",
+        "more-info": "leading to restrictions on water use, which could adversely affect the Company's cost and ability to manufacture and distribute products"
+    },
+    {
+        "subject": "Company",
+        "predicate": "may be impacted by",
+        "object": "hurricanes or similar storms",
+        "object-type": "risk",
+        "more-info": "which could cause shifts in product mix to lower-margin products and packages"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "supply chain optimization",
+        "object-type": "process"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "works closely with",
+        "object": "key suppliers",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "purchases",
+        "object": "business interruption insurance",
+        "object-type": "insurance"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "has",
+        "object": "disaster recovery plans",
+        "object-type": "process",
+        "more-info": "to mitigate risks to data integrity and service interruptions"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "business interruption insurance",
+        "object-type": "insurance",
+        "more-info": "to mitigate risks of supply chain disruptions"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "has",
+        "object": "cybersecurity incident response plan",
+        "object-type": "process",
+        "more-info": "to protect against and respond to cybersecurity threats"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "reinvests",
+        "object": "supply chain optimization",
+        "object-type": "initiative",
+        "more-info": "to accommodate future growth and portfolio expansion"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "may not be able to respond successfully",
+        "object": "supplier insolvency",
+        "object-type": "supplier",
+        "more-info": "due to failure of plastic bottle or aluminum can suppliers"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "may incur significant financial and other resources",
+        "object": "to mitigate, upgrade, repair or replace",
+        "object-type": "information technology systems",
+        "more-info": "in case of damage, breach or ceasing to function properly"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "evaluates the recoverability",
+        "object": "of its property, plant and equipment",
+        "object-type": "asset",
+        "more-info": "when events or circumstances indicate the carrying amount may not be recoverable"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "is subject to incremental risk",
+        "object": "due to reliance on purchased finished products from external sources",
+        "object-type": "supplier",
+        "more-info": "which could have an adverse impact on profitability"
+    },
+    {
+        "subject": "Coca-Cola Company",
+        "predicate": "uses",
+        "object": "business interruption insurance",
+        "object-type": "insurance policy",
+        "more-info": "to mitigate supply chain risks"
+    },
+    {
+        "subject": "Coca-Cola Company",
+        "predicate": "uses",
+        "object": "cybersecurity insurance",
+        "object-type": "insurance policy",
+        "more-info": "to protect against cybersecurity incidents"
+    },
+    {
+        "subject": "Coca-Cola Company",
+        "predicate": "participates in",
+        "object": "commodity hedging and risk mitigation programs",
+        "object-type": "risk management program",
+        "more-info": "to manage commodity price risks"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "information technology systems",
+        "object-type": "technology"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "invests",
+        "object": "tools and technology",
+        "object-type": "technology"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "continues to upgrade",
+        "object": "current technology or installs new technology",
+        "object-type": "technology"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "monitors",
+        "object": "networks and systems",
+        "object-type": "technology"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "requires",
+        "object": "third-party service providers and business partners, customers, suppliers and other third parties to do the same",
+        "object-type": "organization"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "data analytics",
+        "object-type": "tool",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "optimizes",
+        "object": "supply chain",
+        "object-type": "process",
+        "more-info": "using data analytics"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "invests",
+        "object": "tools and technology",
+        "object-type": "investment",
+        "more-info": "to enable teammates to operate more effectively and efficiently with customers"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "makes",
+        "object": "significant reinvestments",
+        "object-type": "investment",
+        "more-info": "in its business to evolve operating model and accommodate future growth and portfolio expansion"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "achieves",
+        "object": "supply chain optimization",
+        "object-type": "process"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "invests",
+        "object": "$282.3 million in capital expenditures",
+        "object-type": "amount"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "uses",
+        "object": "alternative distributors",
+        "object-type": "method"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "shifts",
+        "object": "post-mix delivery method to alternative distributors",
+        "object-type": "process"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "implements",
+        "object": "closed-loop recycling programs at large venues and events",
+        "object-type": "initiative"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "uses",
+        "object": "cybersecurity processes",
+        "object-type": "processes",
+        "more-info": "to assess, identify and mitigate material risks from cybersecurity threats"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "integrates",
+        "object": "cybersecurity processes",
+        "object-type": "processes",
+        "more-info": "into the Company\u2019s overall risk management program"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "documents",
+        "object": "Cybersecurity Incident Response Plan",
+        "object-type": "plan",
+        "more-info": "to preserve forensic data and perform other activities to restore systems to normal operation"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "engages",
+        "object": "third parties",
+        "object-type": "parties",
+        "more-info": "to assist in the assessment and ongoing development of cybersecurity processes"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "grounds",
+        "object": "cybersecurity processes",
+        "object-type": "processes",
+        "more-info": "in the National Institute of Standards and Technology Cybersecurity Framework"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "performs",
+        "object": "periodic risk assessments",
+        "object-type": "assessments",
+        "more-info": "of systems and applications to identify risks, vulnerabilities and threats"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "conducts",
+        "object": "incident response tabletop exercises",
+        "object-type": "exercises",
+        "more-info": "to assess the effectiveness of the current cybersecurity response process"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "meets",
+        "object": "with and assesses third-party service providers",
+        "object-type": "providers",
+        "more-info": "to help ensure the Company is made aware of any potential material cybersecurity threats or incidents"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "requires",
+        "object": "third-party service providers and business partners, customers, suppliers and other third parties",
+        "object-type": "parties",
+        "more-info": "to do the same (upgrade security policies and train employees)"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "continuously upgrades and updates",
+        "object": "current technology or installs new technology",
+        "object-type": "technology",
+        "more-info": "to address risks to its information technology systems"
+    }
+]
