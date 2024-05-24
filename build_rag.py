@@ -3,7 +3,7 @@ from langchain.indexes import SQLRecordManager, index
 import os
 from tqdm import tqdm
 
-from utils.extract_knowledge import extract_text_from_pdf, get_huggingface_model, get_records_manager, split_text_into_documents
+from utils.extract_knowledge import extract_text_from_pdf, get_huggingface_model, get_records_manager, split_text_into_documents, extract_documents_from_pdf
 
 def build_rag():
     if not os.path.exists("./.cache"):
@@ -21,12 +21,16 @@ def build_rag():
 
     chroma = Chroma("docs",  embedding_function=hf, persist_directory="./.cache/chroma/docs")
 
-    docs = extract_text_from_pdf("./data/unilever-annual-report-and-accounts-2023.pdf")
+    pdf_files = ["./data/cocacola.pdf", "./data/unilever.pdf", "./data/ikea.pdf", "./data/albertheijn.pdf"]
+    docs = []
+    for pdf_file in pdf_files:
+        parts = extract_documents_from_pdf(pdf_file)
+        print(f"Extracted {len(parts)} splits of pdf docs from {pdf_file}")
+        docs.extend(parts)
+        print(parts[0].metadata)
     print(f"Extracted {len(docs)} splits of pdf docs")
-    docs = split_text_into_documents(docs)
 
     print(f"Indexing {len(docs)} splits of pdf docs")
-
     indexing = index(
         docs,
         record_manager,

@@ -1,127 +1,315 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>D3.js Graph</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <style>
-        .node {
-            stroke: #fff;
-            stroke-width: 1.5px;
-        }
+      .node {
+        stroke: #fff;
+        stroke-width: 1.5px;
+      }
 
-        .link {
-            stroke: #999;
-            stroke-opacity: 0.6;
-        }
+      .link {
+        stroke: #999;
+        stroke-opacity: 0.6;
+      }
 
-        text {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            pointer-events: none;
-            fill: #000;
-        }
+      text {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        pointer-events: none;
+        fill: #000;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div>
+        <h1>Unilever Company Graph</h1>
+        <div id="details"></div>
+    </div>
     <script>
-        const width = 960;
-        const height = 600;
+      const width = 1024;
+      const height = 768;
 
-        const graph = {
-            nodes: [
-                { id: "1", group: 1 },
-                { id: "2", group: 2 },
-                { id: "3", group: 2 },
-                { id: "4", group: 3 }
-            ],
-            links: [
-                { source: "1", target: "2", value: 1 },
-                { source: "2", target: "3", value: 1 },
-                { source: "3", target: "4", value: 1 }
-            ]
-        };
-
-        const svg = d3.select("body").append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
-        const link = svg.append("g")
-            .attr("class", "links")
-            .selectAll("line")
-            .data(graph.links)
-            .enter().append("line")
-            .attr("class", "link")
-            .attr("stroke-width", d => Math.sqrt(d.value) * 2);
-
-        const node = svg.append("g")
-            .attr("class", "nodes")
-            .selectAll("circle")
-            .data(graph.nodes)
-            .enter().append("circle")
-            .attr("class", "node")
-            .attr("r", 10)
-            .attr("fill", d => d3.schemeCategory10[d.group % 10])
-            .call(d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended));
-
-        const labels = svg.append("g")
-            .attr("class", "labels")
-            .selectAll("text")
-            .data(graph.nodes)
-            .enter().append("text")
-            .attr("dy", -15)
-            .text(d => d.id);
-
-        node.append("title")
-            .text(d => d.id);
-
-        const simulation = d3.forceSimulation(graph.nodes)
-            .force("link", d3.forceLink(graph.links).id(d => d.id))
-            .force("charge", d3.forceManyBody())
-            .force("center", d3.forceCenter(width / 2, height / 2));
-
-        simulation
-            .nodes(graph.nodes)
-            .on("tick", ticked);
-
-        simulation.force("link")
-            .links(graph.links);
-
-        function ticked() {
-            link
-                .attr("x1", d => d.source.x)
-                .attr("y1", d => d.source.y)
-                .attr("x2", d => d.target.x)
-                .attr("y2", d => d.target.y);
-
-            node
-                .attr("cx", d => d.x)
-                .attr("cy", d => d.y);
-
-            labels
-                .attr("x", d => d.x)
-                .attr("y", d => d.y);
+      // Convert input to graph format
+      const nodes = [];
+      const links = [];
+      const nodeMap = {};
+      const input = [
+        
+          {
+            subject: "Unilever de Argentina S.A.",
+            predicate: "operates_in",
+            object: "Argentina",
+          },
+          {
+            subject: "Unilever Australia Limited",
+            predicate: "operates_in",
+            object: "Australia",
+          },
+          {
+            subject: "Unilever Bangladesh Limited",
+            predicate: "operates_in",
+            object: "Bangladesh",
+          },
+          {
+            subject: "Unilever Brasil Ltda.",
+            predicate: "operates_in",
+            object: "Brazil",
+          },
+          {
+            subject: "Unilever Canada, Inc.",
+            predicate: "operates_in",
+            object: "Canada",
+          },
+          {
+            subject: "Unilever Services (Hefei) Co. Ltd",
+            predicate: "operates_in",
+            object: "China",
+          },
+          {
+            subject: "Wall's (China) Co. Limited",
+            predicate: "operates_in",
+            object: "China",
+          },
+          {
+            subject: "Unilever UK & CN Holdings Limited",
+            predicate: "operates_in",
+            object: "England and Wales",
+          },
+          {
+            subject: "Unilever Global IP Ltd",
+            predicate: "operates_in",
+            object: "England and Wales",
+          },
+          {
+            subject: "Unilever U.K. Holdings Limited",
+            predicate: "operates_in",
+            object: "England and Wales",
+          },
+          {
+            subject: "Unilever UK Limited",
+            predicate: "operates_in",
+            object: "England and Wales",
+          },
+          {
+            subject: "Unilever U.K. Central Resources Limited",
+            predicate: "operates_in",
+            object: "England and Wales",
+          },
+          {
+            subject: "Unilever France S.A.S.",
+            predicate: "operates_in",
+            object: "France",
+          },
+          {
+            subject: "Unilever Deutschland GmbH",
+            predicate: "operates_in",
+            object: "Germany",
+          },
+          {
+            subject: "Unilever Deutschland Holding GmbH",
+            predicate: "operates_in",
+            object: "Germany",
+          },
+          {
+            subject: "Hindustan Unilever Limited",
+            predicate: "operates_in",
+            object: "India",
+          },
+          {
+            subject: "PT Unilever Indonesia Tbk",
+            predicate: "operates_in",
+            object: "Indonesia",
+          },
+          {
+            subject: "Unilever Italia Mkt Operations S.R.L.",
+            predicate: "operates_in",
+            object: "Italy",
+          },
+          {
+            subject: "Unilever de Mexico, S. de R.l. de C.V.",
+            predicate: "operates_in",
+            object: "Mexico",
+          },
+          {
+            subject: "Unilever Asia Private Limited",
+            predicate: "operates_in",
+            object: "Singapore",
+          },
+          {
+            subject: "Unilever South Africa (Pty) Limited",
+            predicate: "operates_in",
+            object: "South Africa",
+          },
+          {
+            subject: "Unilever Espana S.A.",
+            predicate: "operates_in",
+            object: "Spain",
+          },
+          {
+            subject: "Unilever Finance International AG",
+            predicate: "operates_in",
+            object: "Switzerland",
+          },
+          {
+            subject: "Unilever Thai Trading Limited",
+            predicate: "operates_in",
+            object: "Thailand",
+          },
+          {
+            subject: "Unilever Sanayi ve Ticaret Turk A.S.",
+            predicate: "operates_in",
+            object: "Turkey",
+          },
+          {
+            subject: "ConopCo, Inc.",
+            predicate: "operates_in",
+            object: "United States",
+          },
+          {
+            subject: "Unilever",
+            predicate: "headquarters_location",
+            object: "United Kingdom",
+          },
+          {
+            subject: "Unilever (Sichuan) Company Limited",
+            predicate: "manufacturing facility location",
+            object:
+              "China - No.16 Wanyuan Road, Beijing E&T Development, Beijing 100076",
+          },
+          {
+            subject: "Wall`s (China) Co. Limited",
+            predicate: "manufacturing facility location",
+            object:
+              "China - No. 358, Xingci 1 Road, Hangzhou Bay, New District, Ningbo, 315336",
+          },
+          {
+            subject: "Zhejiang Qinyuan Water Treatment Technology Co. Limited",
+            predicate: "manufacturing facility location",
+            object:
+              "China - Room 326, 3rd Floor, Xinmao Building, 2 South Taizhong Road, (Shanghai) Pilot Free Trade Zone",
+          },
+      ];
+      // Helper function to add node
+      function addNode(name) {
+        if (!nodeMap[name]) {
+          const newNode = { id: name, group: nodes.length % 10, type:"root" };
+          nodes.push(newNode);
+          nodeMap[name] = newNode;
         }
+      }
 
-        function dragstarted(event, d) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
-            d.fx = d.x;
-            d.fy = d.y;
-        }
+      // Build nodes and links from input
+      input.forEach((entry) => {
+        const { subject, predicate, object } = entry;
+        addNode(subject);
+        addNode("Unilever");
+        addNode(object);
+        links.push({ source: subject, target: object, value: 1, type:"country" });
+        links.push({ source: "Unilever", target: object, value: 1, type:"root" });
+      });
 
-        function dragged(event, d) {
-            d.fx = event.x;
-            d.fy = event.y;
-        }
+      // Output graph data
+      const graph = { nodes, links };
+      console.log(JSON.stringify(graph, null, 2));
 
-        function dragended(event, d) {
-            if (!event.active) simulation.alphaTarget(0);
-            d.fx = null;
-            d.fy = null;
-        }
+      const svg = d3
+        .select("body")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+      const link = svg
+        .append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(graph.links)
+        .enter()
+        .append("line")
+        .attr("class", "link")
+        .attr("stroke-width", (d) => Math.sqrt(d.value) * 2);
+
+      const node = svg
+        .append("g")
+        .attr("class", "nodes")
+        .selectAll("circle")
+        .data(graph.nodes)
+        .enter()
+        .append("circle")
+        .attr("class", "node")
+        .attr("r", 10)
+        .on("click", d => showDetails(d))
+        .attr("fill", (d) => d3.schemeCategory10[d.group % 10])
+        .call(
+          d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended)
+        );
+
+      const labels = svg
+        .append("g")
+        .attr("class", "labels")
+        .selectAll("text")
+        .data(graph.nodes)
+        .enter()
+        .append("text")
+        .attr("dy", -15)
+        .text((d) => d.id);
+
+      node.append("title").text((d) => d.id);
+
+      const simulation = d3
+        .forceSimulation(graph.nodes)
+        .force(
+          "link",
+          d3.forceLink(graph.links).id(d => d.id).distance(100)
+        )
+        .force("charge", d3.forceManyBody())
+        .force("center", d3.forceCenter(width / 2, height / 2));
+
+      simulation.nodes(graph.nodes).on("tick", ticked);
+
+      simulation.force("link").links(graph.links);
+
+      function ticked() {
+        link
+          .attr("x1", (d) => d.source.x)
+          .attr("y1", (d) => d.source.y)
+          .attr("x2", (d) => d.target.x)
+          .attr("y2", (d) => d.target.y);
+
+        node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
+
+        labels.attr("x", (d) => d.x).attr("y", (d) => d.y);
+      }
+
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+    
+      function showDetails(d) {
+        const details = document.getElementById("details");
+        console.log(d.target.__data__);
+        details.innerHTML = `<h3>${d.target.__data__.id}</h3><p>Group: ${d.target.__data__}</p>`;
+      }
+    
     </script>
-</body>
+  </body>
 </html>

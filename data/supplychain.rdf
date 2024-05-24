@@ -1,0 +1,209 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:supplyChain="http://example.com/supplyChain#">
+
+  <!-- Define the ontology -->
+  <owl:Ontology rdf:about="http://example.com/supplyChain"/>
+
+  <!-- Define Classes -->
+  <owl:Class rdf:about="&supplyChain;Entity"/>
+  <owl:Class rdf:about="&supplyChain;Organization"/>
+  <owl:Class rdf:about="&supplyChain;Supplier"/>
+  <owl:Class rdf:about="&supplyChain;Manufacturer"/>
+  <owl:Class rdf:about="&supplyChain;Distributor"/>
+  <owl:Class rdf:about="&supplyChain;LogisticsProvider"/>
+  <owl:Class rdf:about="&supplyChain;Customer"/>
+  <owl:Class rdf:about="&supplyChain;Resource"/>
+  <owl:Class rdf:about="&supplyChain;Material"/>
+  <owl:Class rdf:about="&supplyChain;Information"/>
+  <owl:Class rdf:about="&supplyChain;Financial"/>
+  <owl:Class rdf:about="&supplyChain;Process"/>
+  <owl:Class rdf:about="&supplyChain;Procurement"/>
+  <owl:Class rdf:about="&supplyChain;Manufacturing"/>
+  <owl:Class rdf:about="&supplyChain;Distribution"/>
+  <owl:Class rdf:about="&supplyChain;SalesAndMarketing"/>
+  <owl:Class rdf:about="&supplyChain;Activity"/>
+  <owl:Class rdf:about="&supplyChain;Transportation"/>
+  <owl:Class rdf:about="&supplyChain;InventoryManagement"/>
+  <owl:Class rdf:about="&supplyChain;SupplyChainPlanning"/>
+  <owl:Class rdf:about="&supplyChain;Relationship"/>
+  <owl:Class rdf:about="&supplyChain;Flow"/>
+  <owl:Class rdf:about="&supplyChain;Dependency"/>
+  <owl:Class rdf:about="&supplyChain;PerformanceMetric"/>
+  <owl:Class rdf:about="&supplyChain;Efficiency"/>
+  <owl:Class rdf:about="&supplyChain;Effectiveness"/>
+  <owl:Class rdf:about="&supplyChain;Cost"/>
+  <owl:Class rdf:about="&supplyChain;ExternalFactor"/>
+  <owl:Class rdf:about="&supplyChain;Regulation"/>
+  <owl:Class rdf:about="&supplyChain;MarketCondition"/>
+  <owl:Class rdf:about="&supplyChain;Risk"/>
+
+  <!-- Define Class Hierarchy -->
+  <rdf:Description rdf:about="&supplyChain;Organization">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="&supplyChain;Supplier">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Manufacturer">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="&supplyChain;Distributor">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;LogisticsProvider">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="&supplyChain;Customer">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="&supplyChain;Resource">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Material">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Resource"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="&supplyChain;Information">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Resource"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="&supplyChain;Financial">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Resource"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Process">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Procurement">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Process"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Manufacturing">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Process"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Distribution">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Process"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;SalesAndMarketing">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Process"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Activity">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Transportation">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Activity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;InventoryManagement">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Activity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;SupplyChainPlanning">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Activity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Relationship">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Flow">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Relationship"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Dependency">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Relationship"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;PerformanceMetric">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Efficiency">
+    <rdfs:subClassOf rdf:resource="&supplyChain;PerformanceMetric"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Effectiveness">
+    <rdfs:subClassOf rdf:resource="&supplyChain;PerformanceMetric"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Cost">
+    <rdfs:subClassOf rdf:resource="&supplyChain;PerformanceMetric"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;ExternalFactor">
+    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Regulation">
+    <rdfs:subClassOf rdf:resource="&supplyChain;ExternalFactor"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;MarketCondition">
+    <rdfs:subClassOf rdf:resource="&supplyChain;ExternalFactor"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;Risk">
+    <rdfs:subClassOf rdf:resource="&supplyChain;ExternalFactor"/>
+  </rdf:Description>
+
+  <!-- Define Properties -->
+  <owl:ObjectProperty rdf:about="&supplyChain;hasEntity"/>
+  <owl:ObjectProperty rdf:about="&supplyChain;hasResource"/>
+  <owl:ObjectProperty rdf:about="&supplyChain;hasProcess"/>
+  <owl:ObjectProperty rdf:about="&supplyChain;hasActivity"/>
+  <owl:ObjectProperty rdf:about="&supplyChain;hasRelationship"/>
+  <owl:ObjectProperty rdf:about="&supplyChain;hasPerformanceMetric"/>
+  <owl:ObjectProperty rdf:about="&supplyChain;hasExternalFactor"/>
+  
+  <!-- Define Property Domains and Ranges -->
+  <rdf:Description rdf:about="&supplyChain;hasEntity">
+    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
+    <rdfs:range rdf:resource="&supplyChain;Entity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;hasResource">
+    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
+    <rdfs:range rdf:resource="&supplyChain;Resource"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;hasProcess">
+    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
+    <rdfs:range rdf:resource="&supplyChain;Process"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;hasActivity">
+    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
+    <rdfs:range rdf:resource="&supplyChain;Activity"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;hasRelationship">
+    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
+    <rdfs:range rdf:resource="&supplyChain;Relationship"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;hasPerformanceMetric">
+    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
+    <rdfs:range rdf:resource="&supplyChain;PerformanceMetric"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="&supplyChain;hasExternalFactor">
+    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
+    <rdfs:range rdf:resource="&supplyChain;ExternalFactor"/>
+  </rdf:Description>
+  
+</rdf:RDF>

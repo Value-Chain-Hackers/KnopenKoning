@@ -74,7 +74,15 @@ def split_text_into_chunks(text):
     )
     return text_splitter.split_text(text)
 
-def split_text_into_documents(text, chunk_size=512, chunk_overlap=64):
+def extract_documents_from_pdf(pdf_path):
+    text = extract_text_from_pdf(pdf_path)
+    basename = os.path.basename(pdf_path).replace(".pdf", "")
+    docs = split_text_into_documents(text, key=basename)
+    for doc in docs:
+        doc.metadata["source"] = pdf_path
+    return docs
+
+def split_text_into_documents(text, key, chunk_size=512, chunk_overlap=64):
     text_splitter = RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.
         chunk_size=chunk_size,
@@ -83,7 +91,7 @@ def split_text_into_documents(text, chunk_size=512, chunk_overlap=64):
         is_separator_regex=False,
     )
     doc = Document(text)
-    doc.metadata["key"] = "doc1"
+    doc.metadata["key"] = key
     all_docs = text_splitter.split_documents([doc])
     splitcount = 0
     for sdoc in all_docs:
