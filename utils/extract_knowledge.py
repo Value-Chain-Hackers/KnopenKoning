@@ -1,3 +1,4 @@
+from config import MODEL_NAME, EMBEDDING_MODEL
 import fitz  # PyMuPDF
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.llms.ollama import Ollama
@@ -114,7 +115,7 @@ def extract_text_from_pdf(pdf_path):
 def extract_all_knowledge_from_pdf(pdf_path, output_path):
     text = extract_text_from_pdf(pdf_path)
     chunks = split_text_into_chunks(text)
-    llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = knowledge_extraction_prompt | llm | StrOutputParser()
     knowledge = []
     with open(output_path, "a", encoding='utf-8') as f:
@@ -128,7 +129,7 @@ def extract_all_knowledge_from_pdf(pdf_path, output_path):
 
 def summarize_all_text(text, output_path):
     chunks = split_text_into_chunks(text)
-    llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = knowledge_summary_prompt | llm | StrOutputParser()
     knowledge = []
     with open(output_path, "a", encoding='utf-8') as f:
@@ -140,7 +141,7 @@ def summarize_all_text(text, output_path):
 
 def extract_knowledge_graph(text, output_path):
     chunks = split_text_into_chunks(text)
-    llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
+    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = knowledge_build_prompt | llm | StrOutputParser()
     knowledge = []
     with open(output_path, "a", encoding='utf-8') as f:
@@ -166,7 +167,7 @@ def get_records_manager(database, namespace):
 
 def get_huggingface_model(model_name):
     from langchain_community.embeddings import HuggingFaceEmbeddings
-    model_kwargs =  {'device': 'cpu'}
+    model_kwargs =  {'device': 'cuda'}
     encode_kwargs = {'normalize_embeddings': False}
     hf = HuggingFaceEmbeddings(
         model_name=model_name,
