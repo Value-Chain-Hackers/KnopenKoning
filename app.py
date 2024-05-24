@@ -8,12 +8,12 @@ from langchain.indexes import SQLRecordManager, index
 # Initialize the retriever (ensure you replace this with your actual initialization)
 hf = get_huggingface_model("BAAI/bge-base-en-v1.5")
 chroma = Chroma("docs",  embedding_function=hf, persist_directory="./.cache/chroma/docs")
-retriever = chroma.as_retriever()
+retriever = chroma.as_retriever(search_kwargs= {"k": 5})
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
-llm = Ollama(model="phi3:latest", num_ctx=4096, num_predict=2048, temperature=0.1)
-prompt = PromptTemplate.from_template("Please answer the following question: {question}\n\nUse only the information provided in the context below to answer the question.\n\n{context}")
+llm = Ollama(model="phi3:instruct", num_ctx=4096, num_predict=2048, temperature=0.1)
+prompt = PromptTemplate.from_template("Please answer the following question: {question}\nUse only the information provided in the context below to answer the question.\nContext:\n{context}")
 rag_chain = (
     {"context": retriever, "question": RunnablePassthrough()}
     | prompt
@@ -21,15 +21,12 @@ rag_chain = (
     | StrOutputParser()
 )
 
-
-@st.cache_data
 def get_answer(question):
-    # Simulate a long-running operation (e.g., a call to a retriever)
     answer = rag_chain.invoke(question)
     return answer
 
 def main():
-    st.title("File Upload and Question Box")
+    st.title("Ask the AI a question about the supply chain of Unilever!")
 
     # Question box
     question = st.text_input("Ask a question:")
