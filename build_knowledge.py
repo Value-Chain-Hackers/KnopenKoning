@@ -12,11 +12,10 @@ from langchain_core.runnables import RunnablePassthrough
 import json
 from langchain_community.llms.ollama import Ollama
 
-def build_knowledge():
+def build_knowledge(pdf_file):
     if not os.path.exists("./.cache"):
         os.makedirs("./.cache")
-
-    namespace = f"rags/docs"
+    namespace = f"rags/docs/{pdf_file}".replace("/","").replace(".","")
 
     model_name = EMBEDDING_MODEL
     print(f"Loading Hugging Face model {model_name}")
@@ -24,7 +23,7 @@ def build_knowledge():
 
     print(f"Getting records manager for namespace {namespace} in db")
     record_manager = get_records_manager("./.cache/record_manager_cache.sql", namespace)
-    chroma = Chroma("docs",  embedding_function=hf, persist_directory="./.cache/chroma/docs")
+    chroma = Chroma(namespace,  embedding_function=hf, persist_directory=f"./.cache/chroma/docs/{pdf_file}")
     retriever = chroma.as_retriever(search_kwargs= {"k": 15})
     topics = json.load(open("./data/questions.json", "r"))
     knowledge_build_prompt = PromptTemplate.from_template("""\
@@ -72,8 +71,11 @@ def build_knowledge():
             print(result)
             relationships.extend(result)
     
-        with open("output.json","w") as out:
-            json.dump(relationships, out)
+        with open(f"{pdf_file.replace('.pdf','.json')}","w") as out:
+            json.dump(relationships, out, indent=4)
 
 if __name__ == "__main__":
-    build_knowledge()
+    
+    pdf_files = ["./data/cocacola.pdf", "./data/unilever.pdf", "./data/ikea.pdf", "./data/albertheijn.pdf"]
+    for file in pdf_files:
+        build_knowledge(file)

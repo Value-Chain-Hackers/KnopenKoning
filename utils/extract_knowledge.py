@@ -1,3 +1,4 @@
+from config import MODEL_NAME, EMBEDDING_MODEL
 import fitz  # PyMuPDF
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.llms.ollama import Ollama
@@ -168,7 +169,7 @@ def get_records_manager(database, namespace):
 
 def get_huggingface_model(model_name):
     from langchain_community.embeddings import HuggingFaceEmbeddings
-    model_kwargs =  {'device': 'cpu'}
+    model_kwargs =  {'device': 'cuda'}
     encode_kwargs = {'normalize_embeddings': False}
     hf = HuggingFaceEmbeddings(
         model_name=model_name,

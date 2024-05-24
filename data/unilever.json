@@ -1,0 +1,2461 @@
+[
+    {
+        "subject": "Unilever Alg\u00e9rie SPA",
+        "predicate": "subsidiary",
+        "object": "Unilever PLC",
+        "object-type": "company"
+    },
+    {
+        "subject": "Arisco S.A.",
+        "predicate": "subsidiary",
+        "object": "Unilever De Argentina S.A.",
+        "object-type": "company"
+    },
+    {
+        "subject": "Unilever De Argentina S.A.",
+        "predicate": "subsidiary",
+        "object": "Unilever PLC",
+        "object-type": "company"
+    },
+    {
+        "subject": "Club de beneficios S.A.U.",
+        "predicate": "subsidiary",
+        "object": "Unilever De Argentina S.A.",
+        "object-type": "company"
+    },
+    {
+        "subject": "Hindustan Unilever Limited",
+        "predicate": "subsidiary",
+        "object": "Unilever PLC",
+        "object-type": "company"
+    },
+    {
+        "subject": "Unilever United States, Inc.",
+        "predicate": "subsidiary",
+        "object": "Unilever PLC",
+        "object-type": "company"
+    },
+    {
+        "subject": "Ben & Jerry's Homemade, Inc.",
+        "predicate": "subsidiary",
+        "object": "Unilever United States, Inc.",
+        "object-type": "company"
+    },
+    {
+        "subject": "Paula's Choice, Inc.",
+        "predicate": "subsidiary",
+        "object": "Unilever United States, Inc.",
+        "object-type": "company"
+    },
+    {
+        "subject": "The LIV Group, Inc.",
+        "predicate": "subsidiary",
+        "object": "Unilever United States, Inc.",
+        "object-type": "company"
+    },
+    {
+        "subject": "Unilever Vietnam International Company Limited",
+        "predicate": "subsidiary",
+        "object": "Unilever PLC",
+        "object-type": "company"
+    },
+    {
+        "subject": "Unilever de Argentina S.A.",
+        "predicate": "operates",
+        "object": "Argentina",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Australia Limited",
+        "predicate": "operates",
+        "object": "Australia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Bangladesh Limited",
+        "predicate": "operates",
+        "object": "Bangladesh",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Brasil Ltda.",
+        "predicate": "operates",
+        "object": "Brazil",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Canada, Inc.",
+        "predicate": "operates",
+        "object": "Canada",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Services (Hefei) Co. Ltd",
+        "predicate": "operates",
+        "object": "China",
+        "object-type": "country"
+    },
+    {
+        "subject": "Wall's (China) Co. Limited",
+        "predicate": "operates",
+        "object": "China",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever UK & CN Holdings Limited",
+        "predicate": "operates",
+        "object": "England and Wales",
+        "object-type": "region"
+    },
+    {
+        "subject": "Unilever Global IP Ltd",
+        "predicate": "operates",
+        "object": "England and Wales",
+        "object-type": "region"
+    },
+    {
+        "subject": "Unilever UK Limited",
+        "predicate": "operates",
+        "object": "England and Wales",
+        "object-type": "region"
+    },
+    {
+        "subject": "Unilever U.K. Central Resources Limited",
+        "predicate": "operates",
+        "object": "England and Wales",
+        "object-type": "region"
+    },
+    {
+        "subject": "Unilever France S.A.S.",
+        "predicate": "operates",
+        "object": "France",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Deutschland GmbH",
+        "predicate": "operates",
+        "object": "Germany",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Deutschland Holding GmbH",
+        "predicate": "operates",
+        "object": "Germany",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever India",
+        "predicate": "operates",
+        "object": "India",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Indonesia",
+        "predicate": "operates",
+        "object": "Indonesia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Italy",
+        "predicate": "operates",
+        "object": "Italy",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Japan",
+        "predicate": "operates",
+        "object": "Japan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Kenya",
+        "predicate": "operates",
+        "object": "Kenya",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Malaysia",
+        "predicate": "operates",
+        "object": "Malaysia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Mexico",
+        "predicate": "operates",
+        "object": "Mexico",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Middle East",
+        "predicate": "operates",
+        "object": "Middle East",
+        "object-type": "region"
+    },
+    {
+        "subject": "Unilever Morocco",
+        "predicate": "operates",
+        "object": "Morocco",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Nigeria",
+        "predicate": "operates",
+        "object": "Nigeria",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Pakistan",
+        "predicate": "operates",
+        "object": "Pakistan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Philippines",
+        "predicate": "operates",
+        "object": "Philippines",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Poland",
+        "predicate": "operates",
+        "object": "Poland",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Russia",
+        "predicate": "operates",
+        "object": "Russia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever South Africa",
+        "predicate": "operates",
+        "object": "South Africa",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Spain",
+        "predicate": "operates",
+        "object": "Spain",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Thailand",
+        "predicate": "operates",
+        "object": "Thailand",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Turkey",
+        "predicate": "operates",
+        "object": "Turkey",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "headquarters",
+        "object": "England and Wales",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has-manufacturing-facility",
+        "object": "United States - 125 S Clark, Suite 2000, Chicago, IL 60603",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has-manufacturing-facility",
+        "object": "United States - 2816 S. Kilbourne Avenue, Chicago IL 60624",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has-manufacturing-facility",
+        "object": "United States - 2900 W. Truman Boulevard, Jefferson City, MO 65109",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has-manufacturing-facility",
+        "object": "United States - 40 Merritt Boulevard, Trumbull, CT 06611",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has-manufacturing-facility",
+        "object": "Philippines - 7th Floor, Bonifacio Stopover Corporate Center, 31st Street corner 2nd Avenue, Bonifacio Global City, Taguig City",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has-manufacturing-facility",
+        "object": "China - No.16 Wanyuan Road, Beijing E&T Development, Beijing 100076",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has-manufacturing-facility",
+        "object": "United Arab Emirates - Warehouse No.1.2, Dubai Industrial Park \u2013 Seeh Shwaib 2",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "sources",
+        "object": "locally and internationally",
+        "object-type": "location",
+        "more-info": "in various countries"
+    },
+    {
+        "subject": "Jovein Agriculture Industry J.S.C",
+        "predicate": "supplies",
+        "object": "raw materials used in personal care and home care products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Amlah Madani Iran",
+        "predicate": "supplies",
+        "object": "raw materials used in personal care and home care products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever Asia Private Limited",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever South Africa (Pty) Limited",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever Espana S.A.",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever Finance International AG",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever Thai Trading Limited",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever Sanayi ve Ticaret Turk A.S.",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "ConopCo, Inc.",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever Capital Corporation",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever North America Supply Chain Company LLC",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Argentina",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Australia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Bangladesh",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Brazil",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Canada",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "China",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "England and Wales",
+        "object-type": "region"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "France",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Germany",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "India",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Italy",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Mexico",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Netherlands",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Pakistan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Philippines",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Russia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Rwanda",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Saudi Arabia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "Scotland",
+        "object-type": "region"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "retail-outlet",
+        "object": "France",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "retail-outlet",
+        "object": "Germany",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "retail-outlet",
+        "object": "Singapore",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "retail-outlet",
+        "object": "South Africa",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "retail-outlet",
+        "object": "United Arab Emirates",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "retail-outlet",
+        "object": "United States of America",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "national and regional laws and regulations",
+        "object-type": "regulations",
+        "more-info": "in diverse areas such as environmental compliance, product safety, product claims, trademarks, copyright, patents, competition, health and safety, data privacy, corporate governance, listing and disclosure, employment and taxes"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "competition authorities",
+        "object-type": "regulatory bodies",
+        "more-info": "in various geographies with active sanctions"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "financial reporting legislation",
+        "object-type": "regulations",
+        "more-info": "including related companies' legislation and taxation legislation"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "data privacy laws",
+        "object-type": "regulations",
+        "more-info": "requirements from existing data privacy laws"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "environmental regulation",
+        "object-type": "regulations",
+        "more-info": "reflecting the nature of the Group's production and distribution processes"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "sanctions",
+        "object-type": "regulatory measures",
+        "more-info": "reflecting the Group's dealings in various geographies with active sanctions"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "GroNext Technologies Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Hourglass Cosmetics UK Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Margarine Union (1930) Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "MBUK Trading Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Mixhold Investments Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "ND4A Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "TIGI Holdings Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Toni & Guy Products Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "UAC International Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "UML Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Unidis Forty Nine Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Unilever AC Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Unilever Assam Estates Limited",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "headquarters",
+        "object": "Singapore",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Asia Private Limited",
+        "predicate": "headquarters",
+        "object": "Singapore",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever South Africa (Pty) Limited",
+        "predicate": "headquarters",
+        "object": "South Africa",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Espana S.A.",
+        "predicate": "headquarters",
+        "object": "Spain",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Finance International AG",
+        "predicate": "headquarters",
+        "object": "Switzerland",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Thai Trading Limited",
+        "predicate": "headquarters",
+        "object": "Thailand",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Tanzania Limited",
+        "predicate": "headquarters",
+        "object": "Tanzania",
+        "object-type": "country"
+    },
+    {
+        "subject": "Paula's Choice Taiwan Co., Limited",
+        "predicate": "headquarters",
+        "object": "Taiwan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Slovensko, spol. s. r.o.",
+        "predicate": "headquarters",
+        "object": "Slovakia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Knorr-N\u00e4hrmittel Aktiengesellschaft",
+        "predicate": "headquarters",
+        "object": "Switzerland",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Deutschland Supply Chain Services GmbH",
+        "predicate": "headquarters",
+        "object": "Germany",
+        "object-type": "country"
+    },
+    {
+        "subject": "Warga 002, Kelurahan Srengseng, Kecamatan Kembangan, Jakarta Barat 11630, Provinsi Daerah Khusus Ibukota",
+        "predicate": "headquarters",
+        "object": "Indonesia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever-Golestan Foods (Private Joint Stock Company)",
+        "predicate": "headquarters",
+        "object": "Iran",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "raw-materials",
+        "object-type": "supplier",
+        "more-info": "verified annually and regularly monitored through performance indicators"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "sources",
+        "object": "deforestation-free palm oil and palm kernel oil",
+        "object-type": "raw-material",
+        "more-info": "directly in the coming years"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works with",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "to support the transformation in our soy supply chain"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "communicates with",
+        "object": "business partners and suppliers",
+        "object-type": "partner",
+        "more-info": "frequently through Supply Chain and Procurement teams"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "conducts audits on",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "to verify their compliance with our Responsible Suppliers Policy"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests in",
+        "object": "Green Refinery in Brazil",
+        "object-type": "infrastructure",
+        "more-info": "to increase the availability of deforestation-free soy for our products"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Supplier financing arrangements for trade payables",
+        "object-type": "process"
+    },
+    {
+        "subject": "Suppliers",
+        "predicate": "elect",
+        "object": "to factor some of their receivables from the Group with financial institutions",
+        "object-type": "action"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "provides",
+        "object": "suppliers and/or banks with visibility of invoices approved for payment",
+        "object-type": "service"
+    },
+    {
+        "subject": "Suppliers",
+        "predicate": "choose",
+        "object": "to factor their receivable",
+        "object-type": "option"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "monitors",
+        "object": "performance indicators that drive improvement activities",
+        "object-type": "process"
+    },
+    {
+        "subject": "Suppliers",
+        "predicate": "are",
+        "object": "externally certified",
+        "object-type": "status"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "stringent requirements for the design, manufacture and delivery of our products",
+        "object-type": "standard"
+    },
+    {
+        "subject": "Suppliers",
+        "predicate": "are",
+        "object": "verified annually",
+        "object-type": "schedule"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "conducts",
+        "object": "an annual Partner with Purpose survey to understand how our suppliers feel about working with Unilever and areas for improvement",
+        "object-type": "process"
+    },
+    {
+        "subject": "Suppliers",
+        "predicate": "are",
+        "object": "evaluated",
+        "object-type": "evaluation"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "key agricultural crops",
+        "object-type": "supplier",
+        "more-info": "100% sustainable sourcing goal"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "RPP requirements",
+        "object-type": "supplier",
+        "more-info": "mandatory requirements for human rights and sustainability issues"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "sources",
+        "object": "57,000 supplier partners",
+        "object-type": "supplier",
+        "more-info": "in 150 countries"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "supplier financing arrangements",
+        "object-type": "process",
+        "more-info": "to factor some of their receivables from the Group with financial institutions"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "provides",
+        "object": "visibility of invoices approved for payment",
+        "object-type": "information",
+        "more-info": "to suppliers and/or banks to help them receive cash from the bank before the invoice due date"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "contractually agreed financial targets",
+        "object-type": "standard",
+        "more-info": "mainly relates to cumulative increases in turnover and profit before tax until 2025"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "stringent requirements for the design, manufacture, and delivery of products",
+        "object-type": "standard",
+        "more-info": "to ensure we consistently supply safe and high-quality products which our customers require"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "contingency plans designed to enable us to secure alternative key material supplies at short notice",
+        "object-type": "plan",
+        "more-info": "to transfer or share production between manufacturing sites and use substitute materials in our product formulations"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "verified annually and regularly monitored performance indicators",
+        "object-type": "quality-control-process"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "owns",
+        "object": "externally certified key raw material suppliers",
+        "object-type": "supplier-certification"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "monitors",
+        "object": "materials received to ensure they meet rigorous quality standards",
+        "object-type": "quality-assurance-process"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "stringent requirements for product design, manufacture, and delivery",
+        "object-type": "product-quality-standards"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "ensures",
+        "object": "safe and high-quality products through regular monitoring and improvement activities",
+        "object-type": "quality-assurance-process"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "key agricultural crops"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "exposed to",
+        "object": "potentially adverse events",
+        "object-type": "event",
+        "more-info": "geopolitical sanctions, physical disruptions, environmental and industrial accidents, trade restrictions or disruptions at a key supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "impacted by",
+        "object": "sourcing transparency and product labelling regulations",
+        "object-type": "regulation",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "risks",
+        "object": "loss of market share to more transparent competitors",
+        "object-type": "risk",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "exposed to",
+        "object": "cyber-attack causing a sustained shutdown of manufacturing systems",
+        "object-type": "event",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "impacted by",
+        "object": "extended producer responsibility (EPR)",
+        "object-type": "regulation",
+        "more-info": "incentivise efficient and responsible resource extraction, and pass waste management costs through higher disposal and recycling fees to producers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "risks",
+        "object": "raw materials being accidentally or maliciously contaminated throughout the supply chain",
+        "object-type": "risk",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "exposed to",
+        "object": "global supply chain disruption and deep recession",
+        "object-type": "event",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "impacted by",
+        "object": "energy and commodity market volatility",
+        "object-type": "market condition",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "single-source suppliers",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works with",
+        "object": "suppliers to support transformation in soy supply chain",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests in",
+        "object": "Green Refinery in Brazil",
+        "object-type": "rearch-center"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "sources",
+        "object": "deforestation-free palm oil and palm kernel oil",
+        "object-type": "raw-material"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "hair care (shampoo, conditioner, styling)",
+        "object-type": "product"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "skin care (face, hand and body moisturisers)",
+        "object-type": "product"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "personal care products (toothpaste, toothbrush, mouthwash)",
+        "object-type": "product"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "fabric care (washing powders and liquids, rinse conditioners)",
+        "object-type": "product"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "cleaning products",
+        "object-type": "product"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "nutrition products (Knorr and Hellmann\u2019s)",
+        "object-type": "product"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "finance IT systems",
+        "object-type": "product",
+        "more-info": "main ERP finance system, consolidation system, and other specific IT systems that support automated controls across the Group"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "maintains",
+        "object": "centralised operating centres",
+        "object-type": "rearch-center",
+        "more-info": "accounting and reporting activities alongside related controls, processing a substantial portion of the Group's transactions"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "provides",
+        "object": "customer sales and outlet design capabilities",
+        "object-type": "product",
+        "more-info": "enabling new ways to improve customer performance and enhance customer relationships"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests",
+        "object": "technology",
+        "object-type": "raw-material",
+        "more-info": "to optimise order and stock management processes for our distributive trade customers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "joint business plans with key customers",
+        "object-type": "product",
+        "more-info": "including detailed investment plans and customer service objectives, regularly monitoring progress"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "shampoo",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "conditioner",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "styling products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "face moisturizers",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "hand and body moisturisers",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "soap",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "shower products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "toothpaste",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "toothbrush",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "mouthwash",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "washing powders and liquids",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "contains",
+        "object": "rinse conditioners",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "silicones",
+        "object-type": "raw-material"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "surfactants",
+        "object-type": "raw-material"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "palm oil",
+        "object-type": "raw-material"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "products",
+        "object-type": "product"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "optimises",
+        "object": "North America factory network",
+        "object-type": "plant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests",
+        "object": "logistics operations",
+        "object-type": "operation"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "renewable electricity",
+        "object-type": "energy-source"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "targets",
+        "object": "emissions reduction from logistics suppliers and own vehicle fleet",
+        "object-type": "environmental-goal"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "lower GHG soda ash and surfactants for use in laundry powders",
+        "object-type": "product-development"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "achieves",
+        "object": "rapid and efficient innovation",
+        "object-type": "product-development-process",
+        "more-info": "through Agile Innovation hubs"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "converts",
+        "object": "strategies into projects",
+        "object-type": "innovation-pipeline",
+        "more-info": "to launch new products in the market"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "responds",
+        "object": "to rapidly changing consumer trends",
+        "object-type": "product-development-process",
+        "more-info": "with speed through innovation management process"
+    },
+    {
+        "subject": "Product end of life",
+        "predicate": "accounts for",
+        "object": "6% of our GHG emissions",
+        "object-type": "percentage"
+    },
+    {
+        "subject": "Product end of life",
+        "predicate": "fell by",
+        "object": "2% versus 2022",
+        "object-type": "percentage"
+    },
+    {
+        "subject": "Packaging materials",
+        "predicate": "account for",
+        "object": "11% of our GHG emissions",
+        "object-type": "percentage"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "fully recyclable and more widely recyclable packaging",
+        "object-type": "packaging"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "product formats suitable for refill and reusable packaging solutions",
+        "object-type": "packaging solution"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "higher levels of recycled material into our packaging and components",
+        "object-type": "component"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "achieves",
+        "object": "50% virgin plastic reduction by 2025",
+        "object-type": "goal"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "100% reusable, recyclable or compostable plastic packaging by 2025",
+        "object-type": "packaging"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "25% recycled plastic by 2025",
+        "object-type": "component"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "achieves",
+        "object": "actual recyclability rate of our plastic packaging portfolio was 53%",
+        "object-type": "packaging portfolio"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "renewable electricity",
+        "object-type": "energy-source"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "replaces",
+        "object": "climate-harmful refrigerants",
+        "object-type": "refrigerant"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests",
+        "object": "new products and formulations",
+        "object-type": "product-development"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "monitors",
+        "object": "government policy",
+        "object-type": "policy"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "EcoBeautyScore Consortium",
+        "object-type": "organization"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "offers",
+        "object": "range of formats",
+        "object-type": "product-format"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "mitigates",
+        "object": "potential impact of product labelling regulations",
+        "object-type": "regulation"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "sets",
+        "object": "100% sustainable sourcing goal for key agricultural crops",
+        "object-type": "sustainability-goal"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "reduces",
+        "object": "GHG emissions per consumer use",
+        "object-type": "emission-reduction"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "emissions factors (IPCC AR6)",
+        "object-type": "emission-factor"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "measures",
+        "object": "product footprint data",
+        "object-type": "data-measurement"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "circular product design and manufacturing practices",
+        "object-type": "innovation"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "reviews",
+        "object": "intensive GHG components and ingredients",
+        "object-type": "ingredient-review"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "substitutes",
+        "object": "lower GHG soda ash and surfactants",
+        "object-type": "ingredient-substitution"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "reduces",
+        "object": "amount of virgin plastic in packaging innovations",
+        "object-type": "plastic-reduction"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "externally certified raw material suppliers",
+        "object-type": "supplier",
+        "more-info": "verified annually and regularly monitored through performance indicators"
+    },
+    {
+        "subject": "Unilever's products",
+        "predicate": "meet",
+        "object": "rigorous quality standards",
+        "object-type": "standard",
+        "more-info": "to ensure consistently safe and high-quality products"
+    },
+    {
+        "subject": "Unilever's product labelling",
+        "predicate": "complies with",
+        "object": "applicable regulations",
+        "object-type": "regulation",
+        "more-info": "and Unilever labelling policies"
+    },
+    {
+        "subject": "Unilever's IT systems",
+        "predicate": "safeguards",
+        "object": "confidentiality, integrity of data and management of information",
+        "object-type": "data",
+        "more-info": "through annual programme of testing of access controls"
+    },
+    {
+        "subject": "Unilever's Code of Business Principles",
+        "predicate": "governs",
+        "object": "behaviour of employees, suppliers, distributors and third parties",
+        "object-type": "code",
+        "more-info": "and is embedded through comprehensive business integrity training programmes"
+    },
+    {
+        "subject": "Unilever's product labelling",
+        "predicate": "provides",
+        "object": "clear and accurate ingredient information",
+        "object-type": "information",
+        "more-info": "to enable consumers to make informed decisions regarding products they buy"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "logistics providers",
+        "object-type": "supplier",
+        "more-info": "Multiple logistics providers are used by Unilever to manage its supply chain and distribution network."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works with",
+        "object": "57,000 supplier partners",
+        "object-type": "supplier",
+        "more-info": "Unilever has a large network of suppliers that provide critical services and materials for its products."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "optimises",
+        "object": "logistics operations",
+        "object-type": "process",
+        "more-info": "Unilever is working to improve the efficiency of its logistics operations, including reducing emissions and increasing productivity."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "minimises",
+        "object": "logistics emissions",
+        "object-type": "environmental impact",
+        "more-info": "Unilever is working to reduce its logistics emissions by minimizing the number and length of journeys, as well as maximizing the number of pallets carried per truck."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "logistics network",
+        "object-type": "supply-chain",
+        "more-info": "to deliver orders to customers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "distributes",
+        "object": "products",
+        "object-type": "product",
+        "more-info": "from manufacturing facilities to distribution centers"
+    },
+    {
+        "subject": "logistics network",
+        "predicate": "accounts for",
+        "object": "3% of GHG emissions",
+        "object-type": "emission",
+        "more-info": "in 2023, decreased by 13% versus 2022"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works to",
+        "object": "minimise the number and length of journeys",
+        "object-type": "logistics",
+        "more-info": "to reduce kilometres travelled per tonne of products sold in 2023"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests in",
+        "object": "supply chain",
+        "object-type": "supply-chain",
+        "more-info": "to bring further productivity improvements in the coming years"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "company vehicles",
+        "object-type": "transportation mode"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "logistics suppliers",
+        "object-type": "transportation mode"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "manages",
+        "object": "transportation costs",
+        "object-type": "costs",
+        "more-info": "through contingency plans, securing alternative key material supplies, and using substitute materials in product formulations"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "monitors",
+        "object": "trends",
+        "object-type": "trends",
+        "more-info": "regularly and models them to integrate into forecasting process for commodity price risk management"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "continued focus and flexibility",
+        "object-type": "logistics operation"
+    },
+    {
+        "subject": "global logistics network",
+        "predicate": "presents challenges",
+        "object": "input materials and finished goods",
+        "object-type": "supply chain"
+    },
+    {
+        "subject": "geopolitical tensions",
+        "predicate": "challenge",
+        "object": "continuity and cost of supply chain",
+        "object-type": "logistics operation"
+    },
+    {
+        "subject": "global energy crisis",
+        "predicate": "disrupts",
+        "object": "operations",
+        "object-type": "supply chain"
+    },
+    {
+        "subject": "Unilever's supply chain",
+        "predicate": "exposed to",
+        "object": "potentially adverse events",
+        "object-type": "logistics operation"
+    },
+    {
+        "subject": "physical environment risks",
+        "predicate": "impact",
+        "object": "operations or reduce demand for products",
+        "object-type": "supply chain"
+    },
+    {
+        "subject": "Unilever's operations",
+        "predicate": "exposed to",
+        "object": "economic and political instability",
+        "object-type": "logistics operation"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "global logistics network",
+        "object-type": "logistics",
+        "more-info": "for both input materials and finished goods"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "continued focus and flexibility",
+        "object-type": "logistics",
+        "more-info": "to present challenges and require continued focus and flexibility"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "reduced",
+        "object": "total logistics emissions by 14% versus 2020",
+        "object-type": "emissions",
+        "more-info": "through minimising the number and length of journeys, as well as maximising the number of pallets carried per truck"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works",
+        "object": "to minimise the number and length of journeys",
+        "object-type": "logistics",
+        "more-info": "and maximise the number of pallets carried per truck"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "delivery",
+        "object-type": "process",
+        "more-info": "Generally on delivery to the customer, but depending on individual customer terms, this can be at the time of dispatch, delivery or upon formal customer acceptance."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "delivery",
+        "object-type": "process",
+        "more-info": "This is considered the appropriate point where the performance obligations in our contracts are satisfied as Unilever no longer has control over the inventory."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "serves",
+        "object": "smaller retailers",
+        "object-type": "customer",
+        "more-info": "through various consumer engagement platforms annually"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners",
+        "object": "key customers",
+        "object-type": "customer",
+        "more-info": "to drive mutual growth and category growth opportunities"
+    },
+    {
+        "subject": "Unilever Home Care",
+        "predicate": "drives",
+        "object": "category growth",
+        "object-type": "business outcome",
+        "more-info": "in 16 out of 21 markets in scope, according to Advantage Group"
+    },
+    {
+        "subject": "Unilever Japan Customer Marketing K.K.",
+        "predicate": "customer",
+        "object": "Japan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Japan Holdings G.K.",
+        "predicate": "customer",
+        "object": "Japan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Japan K.K.",
+        "predicate": "customer",
+        "object": "Japan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever Japan Service K.K.",
+        "predicate": "customer",
+        "object": "Japan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Rafra Japan K.K.",
+        "predicate": "customer",
+        "object": "Japan",
+        "object-type": "country"
+    },
+    {
+        "subject": "UPD Japan K.K.",
+        "predicate": "customer",
+        "object": "Japan",
+        "object-type": "country"
+    },
+    {
+        "subject": "Capvent Asia Consumer Fund Limited",
+        "predicate": "customer",
+        "object": "Mauritius",
+        "object-type": "country"
+    },
+    {
+        "subject": "Towell Unilever LLC",
+        "predicate": "customer",
+        "object": "Oman",
+        "object-type": "country"
+    },
+    {
+        "subject": "Sto Tomas Paco Land Corp",
+        "predicate": "customer",
+        "object": "Philippines",
+        "object-type": "country"
+    },
+    {
+        "subject": "Cavite Horizons Land, Inc.",
+        "predicate": "customer",
+        "object": "Philippines",
+        "object-type": "country"
+    },
+    {
+        "subject": "Gronext Technologies Pte. Ltd.",
+        "predicate": "customer",
+        "object": "Singapore",
+        "object-type": "country"
+    },
+    {
+        "subject": "Paula's Choice Singapore, SEA Pte. Ltd.",
+        "predicate": "customer",
+        "object": "Singapore",
+        "object-type": "country"
+    },
+    {
+        "subject": "YOU Private Limited",
+        "predicate": "customer",
+        "object": "Singapore",
+        "object-type": "country"
+    },
+    {
+        "subject": "ESQA Corp Pte Ltd",
+        "predicate": "customer",
+        "object": "Singapore",
+        "object-type": "country"
+    },
+    {
+        "subject": "SachaJuan Haircare AB",
+        "predicate": "customer",
+        "object": "Sweden",
+        "object-type": "country"
+    },
+    {
+        "subject": "Al Gurg Unilever LLC",
+        "predicate": "customer",
+        "object": "United Arab Emirates",
+        "object-type": "country"
+    },
+    {
+        "subject": "Olly Public Benefit Corporation",
+        "predicate": "customer",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "Tatcha, LLC",
+        "predicate": "customer",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "The LIV Group, Inc.",
+        "predicate": "customer",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "SmartyPants, Inc.",
+        "predicate": "customer",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "Metrolab Industries, Inc.",
+        "predicate": "customer",
+        "object": "Philippines",
+        "object-type": "country"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "builds",
+        "object": "trading relationships",
+        "object-type": "customer",
+        "more-info": "across a broad spectrum of channels"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "identifies",
+        "object": "changing shopper habits",
+        "object-type": "customer",
+        "more-info": "and builds relationships with new customers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "joint business plans",
+        "object-type": "customer",
+        "more-info": "with key customers that include detailed investment plans and customer service objectives"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "regularly monitors",
+        "object": "progress",
+        "object-type": "customer",
+        "more-info": "through performance indicators that drive improvement activities"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests",
+        "object": "in technology",
+        "object-type": "customer",
+        "more-info": "to optimize order and stock management processes for our distributive trade customers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "maintains",
+        "object": "strong relationships",
+        "object-type": "customer",
+        "more-info": "with existing customers and builds relationships with new customers who have built new technology-enabled business models to serve changing shopper habits"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "online platform",
+        "object-type": "customer",
+        "more-info": "to provide shopper insights and research for our smaller retailer customers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Advantage Group Survey",
+        "object-type": "customer-research-tool",
+        "more-info": "to help understand how to improve customer experience"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "engages",
+        "object": "over three million consumers",
+        "object-type": "consumer-panel",
+        "more-info": "through various consumer engagement platforms annually"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "conducts",
+        "object": "'Rate-My-Reward' survey",
+        "object-type": "employee-survey",
+        "more-info": "to gauge employee views on different parts of their reward package"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "engages",
+        "object": "employees",
+        "object-type": "employee-panel",
+        "more-info": "through workforce engagement sessions to collect feedback and speed up decision-making"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Centrally managed multinational customers",
+        "object-type": "customer"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Distributors in many emerging markets",
+        "object-type": "distributor"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Small traders accessed via distributors",
+        "object-type": "trader"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Digital commerce channel",
+        "object-type": "channel"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Modern retail channel",
+        "object-type": "channel"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "customer service process",
+        "object-type": "process",
+        "more-info": "to provide support to customers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "joint business plans",
+        "object-type": "plan",
+        "more-info": "with key customers that include detailed investment plans and customer service objectives"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "regularly monitors",
+        "object": "progress",
+        "object-type": "progress",
+        "more-info": "to ensure timely and effective action"
+    },
+    {
+        "subject": "customer",
+        "predicate": "has",
+        "object": "performance obligation",
+        "object-type": "obligation",
+        "more-info": "in Unilever's contracts"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "recognises",
+        "object": "turnover",
+        "object-type": "revenue",
+        "more-info": "when control of the products being sold has been transferred to the customer"
+    },
+    {
+        "subject": "customer",
+        "predicate": "receives",
+        "object": "discounts",
+        "object-type": "incentive",
+        "more-info": "based on contractual arrangements with Unilever"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "achieves",
+        "object": "sustainability goals",
+        "object-type": "goal",
+        "more-info": "Focused on climate, nature, plastics, and livelihoods"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "responsible sourcing",
+        "object-type": "practice",
+        "more-info": "Developing relevant policies and procedures"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "lower GHG alternative ingredients",
+        "object-type": "product",
+        "more-info": "Alongside a series of strategic investments through the Climate & Nature Fund"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "explores",
+        "object": "alternative packaging materials",
+        "object-type": "technology",
+        "more-info": "To reduce plastic use and lower GHG emissions"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "reduces",
+        "object": "virgin plastic use",
+        "object-type": "practice",
+        "more-info": "Alongside investment in new Packaging R&D Centre"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "optimizes",
+        "object": "deliveries and reducing costs",
+        "object-type": "process",
+        "more-info": "Using AI image capturing and automatic replenishment"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "publishes",
+        "object": "Climate Transition Action Plan",
+        "object-type": "report",
+        "more-info": "To be put to shareholders at the 2024 AGM"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "verified suppliers",
+        "object-type": "supplier",
+        "more-info": "externally certified and regularly monitored through performance indicators"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "stringent requirements for design, manufacture, and delivery of products",
+        "object-type": "product",
+        "more-info": "to ensure consistent supply of safe and high-quality products"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "conducts",
+        "object": "annual Partner with Purpose survey",
+        "object-type": "survey",
+        "more-info": "to understand how suppliers feel about working with Unilever and areas for improvement"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "operates",
+        "object": "Responsible Suppliers Policy",
+        "object-type": "policy",
+        "more-info": "to define mandatory requirements that all supply chain partners must confirm they can meet"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "monitors",
+        "object": "regulatory developments",
+        "object-type": "regulation",
+        "more-info": "to ensure product labelling is compliant and future innovations/products are designed to consider forthcoming climate-related legislation"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works",
+        "object": "EcoBeautyScore Consortium",
+        "object-type": "organization",
+        "more-info": "to develop a common labelling convention that will allow consumers to compare the environmental impact of products"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "living wage",
+        "object-type": "labor practice",
+        "more-info": "paid a living wage to workers who directly provide goods and services"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "ensures",
+        "object": "human rights are protected",
+        "object-type": "labor practice",
+        "more-info": "in our supply chains by ensuring human rights are protected"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "makes",
+        "object": "healthy and safe workplace a mandatory requirement",
+        "object-type": "labor practice",
+        "more-info": "for our suppliers to ensure a healthy and safe workplace"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "defines",
+        "object": "mandatory requirements that all supply chain partners must confirm they can meet",
+        "object-type": "labor practice",
+        "more-info": "through our Responsible Suppliers Policy"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "recycled plastic",
+        "object-type": "raw-material",
+        "more-info": "to reduce virgin plastic usage"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "owns",
+        "object": "waste collection and processing projects",
+        "object-type": "rearch-center",
+        "more-info": "to recycle more plastic"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "achieves",
+        "object": "100% reusable, recyclable or compostable plastic packaging by 2025",
+        "object-type": "product",
+        "more-info": "through redesign of products and increasing use of post-consumer recycled materials"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "extended producer responsibility (EPR) schemes",
+        "object-type": "policy",
+        "more-info": "to incentivise efficient and responsible resource extraction"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests",
+        "object": "in waste collection, processing, and capacity-building projects",
+        "object-type": "rearch-center",
+        "more-info": "to recycle more plastic"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works",
+        "object": "with partners to raise awareness and find solutions to improve recycling infrastructure for plastics",
+        "object-type": "supplier",
+        "more-info": "to support improving recyclability profile"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "achieves",
+        "object": "Zero GHG emissions in our operations by 2030",
+        "object-type": "target"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "achieves",
+        "object": "Net zero emissions by 2039",
+        "object-type": "target"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "reduces",
+        "object": "GHG emissions from our logistics suppliers and own vehicle fleet",
+        "object-type": "emission-reduction"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "reduces",
+        "object": "Emissions reduction through product reformulations",
+        "object-type": "emission-reduction"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests",
+        "object": "In new products and formulations to reduce water usage",
+        "object-type": "investment"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Renewable electricity at our factory sites",
+        "object-type": "energy-source"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "satellite imagery and geolocation data",
+        "object-type": "technology",
+        "more-info": "to measure deforestation"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "owns",
+        "object": "Responsible Suppliers Policy",
+        "object-type": "policy",
+        "more-info": "to define mandatory requirements for suppliers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "conducts",
+        "object": "annual Partner with Purpose survey",
+        "object-type": "survey",
+        "more-info": "to understand supplier feelings and areas for improvement"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "operates",
+        "object": "deforestation-free supply chain",
+        "object-type": "supply-chain",
+        "more-info": "for palm oil, paper and board, tea, soy and cocoa"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "achieves",
+        "object": "97.5% deforestation-free order volumes",
+        "object-type": "percentage",
+        "more-info": "by the end of 2023"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "requires",
+        "object": "deforestation-free requirements from suppliers",
+        "object-type": "requirement",
+        "more-info": "to ensure sustainable sourcing"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "stringent quality standards for raw materials",
+        "object-type": "standard",
+        "more-info": "to ensure high-quality products"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "exposed_to",
+        "object": "geopolitical sanctions",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "exposed_to",
+        "object": "physical disruptions",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "exposed_to",
+        "object": "environmental and industrial accidents",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "exposed_to",
+        "object": "trade restrictions or disruptions at a key supplier",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "facing",
+        "object": "climate change risks",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "facing",
+        "object": "supply chain disruption and deep recession",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "facing",
+        "object": "global energy crisis risks",
+        "object-type": "risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "policies and procedures designed to ensure the health and safety of employees and products in facilities",
+        "object-type": "processes",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "manages",
+        "object": "commodity price risks through forward buying of traded commodities and other hedging mechanisms",
+        "object-type": "risk-management-strategies",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "extreme weather contingency plans which implement as necessary to secure alternative key material supplies at short notice or transfer or share production between manufacturing sites",
+        "object-type": "contingency-plans",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "manages",
+        "object": "supply chain risks through scenario analysis and monitoring of trends and models regularly integrated into forecasting process",
+        "object-type": "risk-management-strategies",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "conducts",
+        "object": "resilience planning and recovery testing, aiming to bolster preparedness for cybersecurity incidents",
+        "object-type": "cybersecurity-measures",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "contingency plans",
+        "object-type": "supply-chain-disruption-plan",
+        "more-info": "Designed to enable us to secure alternative key material supplies at short notice, transfer or share production between manufacturing sites, and use substitute materials in our product formulations and recipes."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "extreme weather contingency plans",
+        "object-type": "weather-event-response-plan",
+        "more-info": "Implemented as necessary to secure alternative key material supplies at short notice or transfer or share production between manufacturing sites."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "manages",
+        "object": "commodity price risks",
+        "object-type": "risk-management-strategy",
+        "more-info": "Through forward-buying of traded commodities and other appropriate hedging mechanisms."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "monitors",
+        "object": "climate change",
+        "object-type": "environmental-risk",
+        "more-info": "To assess potential impacts on our supply chain, manufacturing, and distribution network."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "does not consider",
+        "object": "supplier financing arrangements as these arrangements are non-recourse to Unilever and supplier payment dates and terms for Unilever do not vary based on whether the supplier chooses to factor their receivable.",
+        "object-type": "supplier-financing-arrangement",
+        "more-info": "These arrangements are non-recourse to Unilever, meaning that even if a supplier becomes insolvent, Unilever is not liable for any outstanding payments."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "does not assess",
+        "object": "supplier payment dates and terms as these arrangements are non-recourse to Unilever.",
+        "object-type": "supplier-financing-arrangement",
+        "more-info": "As the supplier financing arrangements are non-recourse to Unilever, there is no need for Unilever to assess or consider the insolvency of suppliers."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "forward buying of traded commodities",
+        "object-type": "risk management mechanism",
+        "more-info": "to manage commodity price risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "other hedging mechanisms",
+        "object-type": "risk management mechanism",
+        "more-info": "to manage commodity price risk"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "contingency plans",
+        "object-type": "supply chain risk mitigation strategy",
+        "more-info": "designed to enable us to secure alternative key material supplies at short notice, to transfer or share production between manufacturing sites and to use substitute materials in our product formulations and recipes"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "Regenerative Agriculture Principles",
+        "object-type": "sustainability initiative",
+        "more-info": "to encourage agricultural raw material suppliers to adopt practices which increase their sustainability"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "digital and automated technology",
+        "object-type": "technology",
+        "more-info": "in their innovation centres"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "robots",
+        "object-type": "machine",
+        "more-info": "for material chemistry in the UK Materials Innovation Factory"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "satellite imagery and geolocation data",
+        "object-type": "data",
+        "more-info": "to measure deforestation in their palm oil supply chain"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "new tools and automated systems",
+        "object-type": "technology",
+        "more-info": "such as a promotion planning tool to support the transformation of their end-to-end customer experience"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "data analytics",
+        "object-type": "technology"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "improves",
+        "object": "cost efficiency and agility in supply chain",
+        "object-type": "supply-chain-efficiency"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "optimizes",
+        "object": "North America factory network",
+        "object-type": "factory-network"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests",
+        "object": "logistics operations to improve customer service and productivity",
+        "object-type": "logistics-operations"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "satellite imagery and geolocation data to measure deforestation",
+        "object-type": "deforestation-measurement"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "initiates",
+        "object": "large-scale transformation programme within supply chain",
+        "object-type": "transformation-programme"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "implements",
+        "object": "new tools and automated systems for promotion planning",
+        "object-type": "promotion-planning-tool"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "plant protein technology",
+        "object-type": "product",
+        "more-info": "NoBacon 2.0"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "sources",
+        "object": "palm oil",
+        "object-type": "raw-material",
+        "more-info": "deforestation-free supply chain"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "digital twinning and machine learning",
+        "object-type": "technology",
+        "more-info": "factory cost efficiency and agility"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "optimises",
+        "object": "North America factory network",
+        "object-type": "plant",
+        "more-info": "investment in logistics operations"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "improves",
+        "object": "dispatch capabilities",
+        "object-type": "logistics",
+        "more-info": "reduce distance products travel to customers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "cybersecurity risk management framework",
+        "object-type": "process",
+        "more-info": "aligned to industry-standard methodologies and control frameworks"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "conducts",
+        "object": "resilience planning and recovery testing",
+        "object-type": "activity",
+        "more-info": "aiming to bolster preparedness for cybersecurity incidents"
+    },
+    {
+        "subject": "Chief Enterprise Technology Officer (CETO)",
+        "predicate": "supports",
+        "object": "cybersecurity risk management process",
+        "object-type": "process",
+        "more-info": "monitoring and advising on Unilever's cybersecurity risk"
+    },
+    {
+        "subject": "Cyber Security Assurance team",
+        "predicate": "comprises",
+        "object": "internal and external expertise",
+        "object-type": "team",
+        "more-info": "including penetration testing services and a bug bounty program"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "follows",
+        "object": "defence in-depth strategy",
+        "object-type": "approach",
+        "more-info": "guided by industry standards frameworks"
+    },
+    {
+        "subject": "Cyber Security team",
+        "predicate": "assesses",
+        "object": "cybersecurity risk posture of key systems, services, data, and operations",
+        "object-type": "assessment",
+        "more-info": "conducting independent enterprise-wide risk reassurance"
+    },
+    {
+        "subject": "Chief Financial Officer (CFO) and Chief Business Operations Officer (CBOO)",
+        "predicate": "receive",
+        "object": "regular, routine cybersecurity briefings",
+        "object-type": "briefing",
+        "more-info": "as well as ad hoc updates, as needed"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "established framework of Cyber Security Policies and Standards",
+        "object-type": "framework",
+        "more-info": "aligned to cybersecurity industry frameworks"
+    }
+]
