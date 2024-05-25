@@ -11,3 +11,5 @@ chroma
 langchain_chroma
 sentence-transformers
 streamlit
+flash_attn
+accelerate

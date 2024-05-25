@@ -9,6 +9,7 @@ def build_rag():
     if not os.path.exists("./.cache"):
         os.makedirs("./.cache")
 
+    namespace = f"rags/docs"
 
     model_name = "BAAI/bge-base-en-v1.5"
     print(f"Loading Hugging Face model {model_name}")

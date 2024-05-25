@@ -9,6 +9,8 @@ from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
 
+from config import MODEL_NAME, EMBEDDING_MODEL
+
 knowledge_extraction_prompt = PromptTemplate.from_template("""\
 Please proceed to knowledge extraction from the provided text. Focus on the following aspects:
     1. Identify the key suppliers and customers of the company.
