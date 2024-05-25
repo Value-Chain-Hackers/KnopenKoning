@@ -21,7 +21,7 @@
         "subject": "Inter IKEA Systems B.V.",
         "predicate": "assigns",
         "object": "IKEA Supply AG",
-        "object-type": "subsidiary"
+        "object-type": "business"
     },
     {
         "subject": "IKEA",
@@ -32,176 +32,201 @@
     {
         "subject": "IKEA",
         "predicate": "operates_in",
-        "object": "Russia",
-        "object-type": "country"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "operates_in",
-        "object": "Belarus",
-        "object-type": "country"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "operates_in",
-        "object": "China",
-        "object-type": "country"
-    },
-    {
-        "subject": "Inter IKEA Holding B.V.",
-        "predicate": "headquarters",
-        "object": "Olof Palmestraat 1, Delft",
-        "object-type": "address"
-    },
-    {
-        "subject": "IKEA Industry",
-        "predicate": "uses",
-        "object": "Europe",
-        "object-type": "country"
-    },
-    {
-        "subject": "IKEA Industry",
-        "predicate": "uses",
         "object": "South China",
         "object-type": "region"
     },
     {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "headquarters",
+        "object": "Delft",
+        "object-type": "city"
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "uses",
+        "object": "Europe",
+        "object-type": "country"
+    },
+    {
         "subject": "IKEA Industry",
         "predicate": "uses",
         "object": "Russia",
         "object-type": "country"
     },
     {
-        "subject": "IKEA",
-        "predicate": "sources",
-        "object": "wood components and furniture",
-        "object-type": "raw-material",
-        "more-info": "from forestry, sawmills, and production of board material"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "sources",
-        "object": "screws and wooden dowels",
-        "object-type": "raw-material",
-        "more-info": "developed, sourced, packed, and supplied by IKEA Components"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "sources",
-        "object": "technical starch from corn",
-        "object-type": "raw-material",
-        "more-info": "used in large-scale production at Kazlu Ruda, Lithuania"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "has_distribution_center",
-        "object": "China",
+        "subject": "IKEA Industry",
+        "predicate": "uses",
+        "object": "Lithuania",
         "object-type": "country"
     },
     {
         "subject": "IKEA",
-        "predicate": "has_distribution_center",
-        "object": "Europe",
-        "object-type": "continent"
+        "predicate": "sources",
+        "object": "raw-materials",
+        "object-type": "raw-material",
+        "more-info": ""
     },
     {
         "subject": "IKEA",
-        "predicate": "has-retail-outlets-in",
+        "predicate": "sources",
+        "object": "Europe",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Czech Republic",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Germany",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Italy",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Sweden",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Turkey",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Lithuania",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Portugal",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Romania",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Slovakia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sources",
+        "object": "Vietnam",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "distributes",
+        "object": "South China",
+        "object-type": "country"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "owns",
+        "object": "distribution centre",
+        "object-type": "rearch-center",
+        "more-info": "located in South China"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "retail-outlet",
         "object": "Europe",
         "object-type": "country"
     },
     {
         "subject": "IKEA",
-        "predicate": "has-retail-outlets-in",
+        "predicate": "retail-outlet",
         "object": "Colombia",
         "object-type": "country"
     },
     {
         "subject": "IKEA",
-        "predicate": "has-retail-outlets-in",
+        "predicate": "retail-outlet",
         "object": "New Zealand",
         "object-type": "country"
     },
     {
         "subject": "IKEA",
-        "predicate": "complies with",
-        "object": "anti-bribery and corruption regulations",
-        "object-type": "regulation"
+        "predicate": "operates_in",
+        "object": "anti-bribery_and_corruption",
+        "object-type": "regulatory_environment"
     },
     {
         "subject": "IKEA",
-        "predicate": "complies with",
-        "object": "trade sanctions and export controls",
-        "object-type": "regulation"
+        "predicate": "operates_in",
+        "object": "trade_sanctions_and_export_controls",
+        "object-type": "regulatory_environment"
     },
     {
         "subject": "IKEA",
-        "predicate": "complies with",
-        "object": "product risk and safety compliance regulations",
-        "object-type": "regulation"
+        "predicate": "operates_in",
+        "object": "product_risk_and_safety_compliance",
+        "object-type": "regulatory_environment"
     },
     {
         "subject": "IKEA",
-        "predicate": "has processes in place to guarantee compliance with",
-        "object": "regulatory requirements in all markets",
-        "object-type": "regulation"
+        "predicate": "complies_with",
+        "object": "Group-wide_tax_control_framework",
+        "object-type": "tax_regulation"
     },
     {
         "subject": "IKEA",
-        "predicate": "faces financial (reporting & compliance) risks",
-        "object": "foreign currency exchange, commodity price increases, credit and tax risks",
-        "object-type": "risk"
+        "predicate": "complies_with",
+        "object": "transfer_pricing_and_transparency",
+        "object-type": "tax_regulation"
     },
     {
         "subject": "IKEA",
-        "predicate": "uses various financial instruments that expose it to",
-        "object": "currency, interest, cash flow, fair value, market, credit and liquidity risks",
-        "object-type": "risk"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "has instituted a policy including a code of conduct and procedures that are intended to limit the risks of",
-        "object": "unpredictable adverse developments in the financial markets and thus for the financial performance of the Company",
-        "object-type": "risk"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "is subject to social and regulatory scrutiny of human rights and ethical sourcing across the supply chain",
-        "object": "new levels",
-        "object-type": "regulation"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "has a Group-wide tax control framework that simplifies the Group structure and keeps tax, including transfer pricing and transparency high on the Group\u2019s agenda",
-        "object": "high on the Group\u2019s agenda",
-        "object-type": "regulation"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "actively manages exchange rate risk using derivatives contracts",
-        "object": "EUR 134 million negative (FY22: EUR 228 million positive)",
-        "object-type": "financial instrument"
+        "predicate": "complies_with",
+        "object": "regulatory_requirements_in_all_markets",
+        "object-type": "regulatory_environment"
     },
     {
         "subject": "Inter IKEA Systems B.V.",
         "predicate": "uses",
         "object": "IKEA Supply AG",
-        "object-type": "supplier",
-        "more-info": "mainly responsible for developing and designing the overall IKEA product range"
+        "object-type": "supplier"
     },
     {
         "subject": "Inter IKEA Systems B.V.",
         "predicate": "uses",
         "object": "IKEA Industry AB",
-        "object-type": "supplier",
-        "more-info": "strategic IKEA manufacturer that produces IKEA home furnishing products"
+        "object-type": "supplier"
     },
     {
         "subject": "Inter IKEA Systems B.V.",
         "predicate": "uses",
         "object": "IKEA Components AB",
-        "object-type": "supplier",
-        "more-info": "develops, sources, packs and supplies components such as screws and wooden dowels"
+        "object-type": "supplier"
     },
     {
         "subject": "IKEA Supply AG",
@@ -217,27 +242,21 @@
     },
     {
         "subject": "IKEA Components AB",
-        "predicate": "develops",
-        "object": "components such as screws and wooden dowels",
+        "predicate": "produces",
+        "object": "furniture components (screws, plugs, etc.)",
         "object-type": "product"
     },
     {
-        "subject": "Russia",
-        "predicate": "has production units",
-        "object": "4 Russian production units",
-        "object-type": "supplier"
+        "subject": "Russian production units",
+        "predicate": "located",
+        "object": "Russia",
+        "object-type": "country"
     },
     {
-        "subject": "Belarus",
-        "predicate": "has production units",
-        "object": "2 Belarusian production units",
-        "object-type": "supplier"
-    },
-    {
-        "subject": "South China",
-        "predicate": "has distribution centre",
-        "object": "new distribution centre",
-        "object-type": "location"
+        "subject": "new distribution centre",
+        "predicate": "located",
+        "object": "South China",
+        "object-type": "region"
     },
     {
         "subject": "IKEA",
@@ -249,29 +268,29 @@
     {
         "subject": "IKEA Supply AG",
         "predicate": "manages",
-        "object": "IKEA supply chain",
+        "object": "the IKEA supply chain",
         "object-type": "supply-chain",
         "more-info": ""
     },
     {
         "subject": "IKEA",
-        "predicate": "sources",
-        "object": "products",
-        "object-type": "product",
-        "more-info": "from external suppliers"
+        "predicate": "operates",
+        "object": "purchasing offices",
+        "object-type": "office",
+        "more-info": "located close to where the suppliers are"
     },
     {
         "subject": "IKEA Supply AG",
-        "predicate": "sells",
-        "object": "products",
+        "predicate": "sources",
+        "object": "IKEA products",
         "object-type": "product",
-        "more-info": "to IKEA franchisees"
+        "more-info": ""
     },
     {
         "subject": "IKEA",
-        "predicate": "requires",
-        "object": "suppliers to comply with IWAY code of conduct",
-        "object-type": "code-of-conduct",
+        "predicate": "distributes",
+        "object": "IKEA products to IKEA franchisees",
+        "object-type": "product-distribution",
         "more-info": ""
     },
     {
@@ -279,10 +298,10 @@
         "predicate": "uses",
         "object": "purchasing offices",
         "object-type": "location",
-        "more-info": "operated close to where suppliers are"
+        "more-info": "located close to where the suppliers are"
     },
     {
-        "subject": "Inter IKEA Holding B.V.",
+        "subject": "IKEA Supply AG",
         "predicate": "manages",
         "object": "IKEA supply chain",
         "object-type": "supply-chain",
@@ -292,7 +311,7 @@
         "subject": "IKEA Supply AG",
         "predicate": "operates",
         "object": "wholesale subsidiaries and external business partners",
-        "object-type": "partners",
+        "object-type": "business-partners",
         "more-info": ""
     },
     {
@@ -300,154 +319,144 @@
         "predicate": "responsible for",
         "object": "environmental, social and working conditions",
         "object-type": "requirements",
-        "more-info": "minimum requirements on environmental, social and working conditions"
+        "more-info": "as set out in the IWAY code of conduct"
     },
     {
-        "subject": "Supplier",
+        "subject": "IKEA",
         "predicate": "requires",
-        "object": "IWAY",
-        "object-type": "supplier-code-of-conduct",
-        "more-info": "The supplier code of conduct IWAY sets out our minimum requirements on environmental, social and working conditions."
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "to secure good social, environmental and working conditions"
     },
     {
-        "subject": "Supplier",
-        "predicate": "communicates",
-        "object": "IWAY",
-        "object-type": "supplier-code-of-conduct",
-        "more-info": "Communicating the content of the IKEA Supplier code of conduct to their employees and sub-suppliers."
+        "subject": "IKEA suppliers",
+        "predicate": "must",
+        "object": "communicate the content of the IKEA Supplier code of conduct to their employees and sub-suppliers",
+        "object-type": "supplier",
+        "more-info": "and ensure that all required measures are implemented at their own operations"
     },
     {
-        "subject": "Supplier",
-        "predicate": "ensures",
-        "object": "required measures",
-        "object-type": "supplier-operations",
-        "more-info": "Ensuring that all required measures are implemented at their own operations."
+        "subject": "IKEA suppliers",
+        "predicate": "must",
+        "object": "ensure that all required measures are implemented at their own operations",
+        "object-type": "supplier",
+        "more-info": "to secure good social, environmental and working conditions"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "sets out",
+        "object": "minimum requirements on environmental, social and working conditions",
+        "object-type": "code of conduct",
+        "more-info": "through the supplier code of conduct IWAY"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "uses",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "across the globe"
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "operates",
+        "object": "purchasing offices",
+        "object-type": "office",
+        "more-info": "located close to where the suppliers are"
+    },
+    {
+        "subject": "IKEA Group",
+        "predicate": "enters into",
         "object": "purchase agreements",
-        "object-type": "supplier contract",
+        "object-type": "agreement",
         "more-info": "with external suppliers for a total value of EUR 3,714 million at 31 August 2023"
     },
     {
-        "subject": "IKEA Supply AG",
-        "predicate": "uses",
+        "subject": "IKEA Group",
+        "predicate": "enters into",
         "object": "IT services agreements",
-        "object-type": "supplier contract",
-        "more-info": "including both 'Agreed' and metadata"
+        "object-type": "agreement",
+        "more-info": "with different remaining periods, ranging up to 9 years"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "sources",
-        "object": "suppliers across the globe",
-        "object-type": "supplier",
-        "more-info": "operated through purchasing offices, located close to where the suppliers are"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "uses",
-        "object": "IWAY code of conduct",
-        "object-type": "supplier-code-of-conduct",
-        "more-info": "sets out minimum requirements on environmental, social and working conditions"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "requires",
-        "object": "suppliers to comply with IWAY code of conduct",
-        "object-type": "supplier-compliance",
-        "more-info": "ensures shared values and expectations with suppliers"
+        "object": "raw-material",
+        "object-type": "raw-material",
+        "more-info": "from external suppliers"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "manages",
-        "object": "IKEA supply chain",
-        "object-type": "supply-chain-management",
-        "more-info": "operates the IKEA supply chain together with its wholesale subsidiaries and external business partners"
+        "object": "supply chain",
+        "object-type": "supply-chain",
+        "more-info": "together with its wholesale subsidiaries and external business partners"
     },
     {
-        "subject": "IKEA Supply AG",
-        "predicate": "sources",
-        "object": "components from suppliers",
-        "object-type": "component-sourcing",
-        "more-info": "develops, sources, packs and supplies components such as screws and wooden dowels that are used to assemble IKEA furniture"
+        "subject": "IWAY",
+        "predicate": "sets out",
+        "object": "minimum requirements",
+        "object-type": "requirements",
+        "more-info": "on environmental, social and working conditions for suppliers"
+    },
+    {
+        "subject": "IKEA suppliers",
+        "predicate": "responsible for",
+        "object": "IWAY",
+        "object-type": "code-of-conduct",
+        "more-info": "to develop shared values and expectations with IKEA"
     },
     {
         "subject": "IKEA",
-        "predicate": "conducts",
-        "object": "risk assessments and audits",
-        "object-type": "risk-assessment-and-audit",
-        "more-info": "identifies and assesses key risks, resulting in risk registers and action plans"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "ensures",
-        "object": "compliance with regulatory requirements",
-        "object-type": "regulatory-compliance",
-        "more-info": "directed at preventing and detecting fraud"
-    },
-    {
-        "subject": "Supplier",
-        "predicate": "poses",
-        "object": "Risk of brand and reputation damage",
-        "object-type": "supplier-risk",
-        "more-info": "due to non-compliance with laws, policies, and treaties such as the Paris Agreement"
-    },
-    {
-        "subject": "Supplier",
-        "predicate": "poses",
-        "object": "Risk of business restrictions and financial exposures",
-        "object-type": "supplier-risk",
-        "more-info": "due to non-compliance with laws, policies, and treaties such as the Paris Agreement"
-    },
-    {
-        "subject": "Supplier",
         "predicate": "requires",
-        "object": "Compliance with regulatory requirements",
-        "object-type": "supplier-requirement",
-        "more-info": "in all markets"
+        "object": "supplier code of conduct",
+        "object-type": "supplier",
+        "more-info": "IWAY sets out our minimum requirements on environmental, social and working conditions"
     },
     {
-        "subject": "Supplier",
-        "predicate": "poses",
-        "object": "Risk of fraud and non-compliance risk factors",
-        "object-type": "supplier-risk",
-        "more-info": "that indicate a risk of material misstatement in the financial statements"
+        "subject": "IKEA suppliers",
+        "predicate": "responsible for",
+        "object": "developing shared values and expectations with IKEA",
+        "object-type": "supplier",
+        "more-info": "IWAY entails a set of requirements applicable to every supplier"
+    },
+    {
+        "subject": "purchase agreements",
+        "predicate": "pose",
+        "object": "risk of breach",
+        "object-type": "contract",
+        "more-info": "These agreements have different remaining periods, ranging up to 9 years"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "sources",
-        "object": "IKEA products",
+        "object": "products",
         "object-type": "product",
         "more-info": ""
     },
     {
-        "subject": "IKEA Industry AB",
-        "predicate": "produces",
-        "object": "IKEA home furnishing products",
-        "object-type": "product",
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "assigns",
+        "object": "IKEA Supply AG",
+        "object-type": "supplier",
         "more-info": ""
     },
     {
-        "subject": "Inter IKEA Systems B.V.",
+        "subject": "IKEA",
         "predicate": "produces",
-        "object": "IKEA home furnishing products",
-        "object-type": "product",
-        "more-info": "including wood-based furniture"
+        "object": "home furnishings",
+        "object-type": "product"
     },
     {
-        "subject": "Inter IKEA Systems B.V.",
-        "predicate": "sells",
-        "object": "IKEA products",
-        "object-type": "product",
-        "more-info": "to franchisees"
+        "subject": "IKEA",
+        "predicate": "produces",
+        "object": "food products",
+        "object-type": "product"
     },
     {
-        "subject": "IKEA Industry AB",
+        "subject": "IKEA Industry",
         "predicate": "produces",
-        "object": "IKEA home furnishing products",
-        "object-type": "product",
-        "more-info": "with its main focus on wood-based furniture"
+        "object": "wood-based furniture",
+        "object-type": "product"
     },
     {
         "subject": "Inter IKEA Systems B.V.",
@@ -469,7 +478,7 @@
     },
     {
         "subject": "Inter IKEA Systems B.V.",
-        "predicate": "uses",
+        "predicate": "provides",
         "object": "Consultancy Services",
         "object-type": "service"
     },
@@ -480,67 +489,73 @@
         "object-type": "product"
     },
     {
+        "subject": "Inter IKEA Systems B.V.",
+        "predicate": "assigns",
+        "object": "IKEA Supply AG",
+        "object-type": "company"
+    },
+    {
         "subject": "IKEA",
         "predicate": "contains",
         "object": "wood-based furniture",
         "object-type": "product",
-        "more-info": "produced by IKEA Industry"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "sources",
-        "object": "technical starch from corn",
-        "object-type": "raw-material",
-        "more-info": "used in glue systems to reduce fossil-based usage"
+        "more-info": "main focus on wood-based furniture"
     },
     {
         "subject": "IKEA Industry",
         "predicate": "produces",
         "object": "IKEA home furnishing products",
         "object-type": "product",
-        "more-info": "main focus on wood-based furniture"
+        "more-info": "unique IKEA capabilities and capacities in relevant parts of the value chain (e.g. material and manufacturing)"
+    },
+    {
+        "subject": "IKEA Components",
+        "predicate": "develops",
+        "object": "components such as screws and wooden dowels",
+        "object-type": "product",
+        "more-info": "used to assemble IKEA furniture"
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "produces",
+        "object": "IKEA home furnishing products",
+        "object-type": "product",
+        "more-info": ""
     },
     {
         "subject": "IKEA Industry",
         "predicate": "develops",
         "object": "unique IKEA capabilities and capacities",
         "object-type": "capability",
-        "more-info": "in relevant parts of the value chain (e.g. material and manufacturing)"
+        "more-info": ""
     },
     {
         "subject": "IKEA Industry",
-        "predicate": "operates",
-        "object": "33 production units",
-        "object-type": "production-unit",
+        "predicate": "produces",
+        "object": "wood-based furniture",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "33 production units",
+        "predicate": "conducts operations through",
+        "object": "IKEA Industry",
+        "object-type": "company",
         "more-info": ""
     },
     {
         "subject": "IKEA",
         "predicate": "achieves",
         "object": "product range development",
-        "object-type": "product",
-        "more-info": "The Group continues to invest significant resources to make IKEA more affordable, accessible and sustainable for customers everywhere with the ambition to reach and interact with 3 billion people."
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "requires",
-        "object": "new ways to shop",
         "object-type": "process",
-        "more-info": ""
+        "more-info": "Delivered many new products this year."
     },
     {
         "subject": "IKEA",
         "predicate": "requires",
-        "object": "sustainable ways of working",
-        "object-type": "process",
-        "more-info": ""
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "requires",
-        "object": "inspiring, functional and affordable IKEA product range",
-        "object-type": "product",
-        "more-info": ""
+        "object": "focus on Management Board",
+        "object-type": "target",
+        "more-info": "To create the most impact for our business"
     },
     {
         "subject": "IKEA Brand",
@@ -554,7 +569,7 @@
         "predicate": "has",
         "object": "Estimated useful life (years)",
         "object-type": "timeframe",
-        "more-info": "Expected economic life is set at 45 years."
+        "more-info": "45 years"
     },
     {
         "subject": "IKEA",
@@ -565,22 +580,22 @@
     },
     {
         "subject": "IKEA",
-        "predicate": "complies with",
-        "object": "regulatory requirements",
-        "object-type": "regulation",
+        "predicate": "requires",
+        "object": "compliance with all regulatory requirements in any of our markets",
+        "object-type": "regulatory requirement",
         "more-info": ""
     },
     {
         "subject": "IKEA",
-        "predicate": "achieves",
-        "object": "reducing fossil-based glue usage by 40%",
-        "object-type": "goal",
-        "more-info": "by FY30, using bio-based alternatives"
+        "predicate": "uses",
+        "object": "bio-based alternatives",
+        "object-type": "raw-material",
+        "more-info": "to reduce fossil-based glue usage by 40%"
     },
     {
         "subject": "IKEA Industry factory (Kazlu Ruda, Lithuania)",
         "predicate": "uses",
-        "object": "glue system made of technical starch from corn",
+        "object": "technical starch from corn",
         "object-type": "raw-material",
         "more-info": "in large-scale production"
     },
@@ -589,46 +604,65 @@
         "predicate": "will use",
         "object": "glues with lower climate footprints",
         "object-type": "product",
-        "more-info": "by FY30, in most board-producing factories"
+        "more-info": "by FY30"
     },
     {
         "subject": "IKEA",
-        "predicate": "complies with",
-        "object": "regulatory requirements",
-        "object-type": "standard",
-        "more-info": "in all markets"
+        "predicate": "requires",
+        "object": "IWAY",
+        "object-type": "supplier-code-of-conduct",
+        "more-info": "a set of requirements applicable to every supplier"
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
-        "object": "IWAY",
-        "object-type": "supplier code of conduct",
-        "more-info": "sets out minimum requirements on environmental, social and working conditions"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "complies with",
         "object": "Paris Agreement",
-        "object-type": "treaty",
+        "object-type": "regulatory-requirement",
         "more-info": "primarily poses the risk of brand and reputation damage"
     },
     {
         "subject": "IKEA",
-        "predicate": "uses",
-        "object": "transporters",
-        "object-type": "supplier"
+        "predicate": "complies with",
+        "object": "Dutch Standard 720",
+        "object-type": "regulatory-standard",
+        "more-info": "by performing procedures to obtain an understanding of the legal and regulatory frameworks"
     },
     {
         "subject": "IKEA",
-        "predicate": "uses",
-        "object": "warehouse providers",
-        "object-type": "supplier"
+        "predicate": "adheres to",
+        "object": "Part 9 of Book 2 of the Dutch Civil Code",
+        "object-type": "regulatory-requirement",
+        "more-info": "by performing procedures to obtain an understanding of the legal and regulatory frameworks"
     },
     {
-        "subject": "IKEA",
+        "subject": "IKEA Supply AG",
         "predicate": "uses",
-        "object": "custom brokers",
-        "object-type": "supplier"
+        "object": "logistics services",
+        "object-type": "services"
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "operates",
+        "object": "purchasing offices",
+        "object-type": "offices"
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "manages",
+        "object": "wholesale subsidiaries",
+        "object-type": "subsidiary"
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "operates",
+        "object": "external business partners",
+        "object-type": "partner"
+    },
+    {
+        "subject": "IKEA Industry AB",
+        "predicate": "produces",
+        "object": "IKEA home furnishing products",
+        "object-type": "product"
     },
     {
         "subject": "IKEA",
@@ -638,11 +672,32 @@
         "more-info": "companies that transport IKEA products"
     },
     {
-        "subject": "IKEA",
-        "predicate": "distributes",
-        "object": "products",
+        "subject": "IKEA Supply AG",
+        "predicate": "operates",
+        "object": "wholesale subsidiaries",
+        "object-type": "business",
+        "more-info": "companies that manage and operate the IKEA supply chain"
+    },
+    {
+        "subject": "IKEA Industry AB",
+        "predicate": "produces",
+        "object": "IKEA home furnishing products",
         "object-type": "product",
-        "more-info": "through distribution centers"
+        "more-info": "products manufactured by IKEA Industry AB"
+    },
+    {
+        "subject": "IKEA Components AB",
+        "predicate": "develops",
+        "object": "components (e.g. screws, wooden dowels)",
+        "object-type": "product",
+        "more-info": "components developed and supplied by IKEA Components AB"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "transporters",
+        "object-type": "supplier",
+        "more-info": "operated through purchasing offices, located close to where the suppliers are"
     },
     {
         "subject": "IKEA Supply AG",
@@ -652,163 +707,114 @@
         "more-info": "together with its wholesale subsidiaries and external business partners"
     },
     {
-        "subject": "IKEA Industry AB",
-        "predicate": "produces",
-        "object": "products",
-        "object-type": "product",
-        "more-info": "in 33 production units, mainly focusing on wood-based furniture"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "uses",
-        "object": "transporters",
-        "object-type": "supplier"
-    },
-    {
-        "subject": "IKEA Supply AG",
-        "predicate": "operates",
-        "object": "supply chain",
-        "object-type": "process"
-    },
-    {
         "subject": "IKEA",
         "predicate": "uses",
         "object": "transportation services",
-        "object-type": "supplier",
-        "more-info": "The Company uses transportation services for the procurement of raw materials and consumables relating to the manufacturing and procurement of finished goods."
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "uses",
-        "object": "logistics",
         "object-type": "service",
-        "more-info": "The Company uses logistics services for the transportation, storage, and handling of raw materials and consumables."
+        "more-info": "The company uses transportation services to move goods and products."
     },
     {
         "subject": "IKEA",
         "predicate": "manages",
-        "object": "transportation costs",
+        "object": "transport costs",
+        "object-type": "cost",
+        "more-info": "The company manages transport costs by optimizing routes, reducing fuel consumption, and negotiating with logistics providers."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "tracks",
+        "object": "logistics expenses",
         "object-type": "expense",
-        "more-info": "The Company actively monitors and addresses developments in transportation costs to ensure the financial position of The Company is appropriately reflected in the financial statements."
+        "more-info": "The company tracks logistics expenses to ensure that transportation costs are reasonable and in line with business objectives."
     },
     {
-        "subject": "Supply Chain Disruptions",
-        "predicate": "achieves",
-        "object": "Risk Management",
-        "object-type": "process",
-        "more-info": "The pandemic, war in Ukraine, and increasing cost of raw materials have severely dominated and disrupted our supply chain."
+        "subject": "IKEA",
+        "predicate": "faces",
+        "object": "supply chain disruptions",
+        "object-type": "challenge",
+        "more-info": "due to pandemic, war in Ukraine, and resource scarcity"
     },
     {
-        "subject": "Inventory Levels",
+        "subject": "IKEA",
         "predicate": "requires",
-        "object": "Replenishing Inventory",
-        "object-type": "process",
-        "more-info": "During FY20 and FY21, transport constraints in combination with high customer demand posed a challenge in replenishing inventory to a desired level."
+        "object": "agility",
+        "object-type": "capability",
+        "more-info": "to respond to changing market conditions"
     },
     {
-        "subject": "Cybersecurity Threats",
-        "predicate": "poses",
-        "object": "Risk of Brand and Reputation Damage",
+        "subject": "IKEA",
+        "predicate": "needs",
+        "object": "sustainability",
+        "object-type": "goal",
+        "more-info": "to reduce environmental impact and ensure long-term success"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "struggles",
+        "object": "inventory management",
+        "object-type": "challenge",
+        "more-info": "due to transport constraints and high customer demand"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "confronts",
+        "object": "cybersecurity threats",
         "object-type": "risk",
-        "more-info": "Lower barriers to entry for cyberthreat actors and more aggressive attack methods are all aggravating the risk."
-    },
-    {
-        "subject": "Geopolitics",
-        "predicate": "poses",
-        "object": "Risk of Supply Chain Disruptions",
-        "object-type": "risk",
-        "more-info": "The pandemic, war in Ukraine, and increasing cost of raw materials have severely dominated and disrupted our supply chain."
-    },
-    {
-        "subject": "Regulatory Scrutiny",
-        "predicate": "requires",
-        "object": "Compliance with Regulatory Requirements",
-        "object-type": "process",
-        "more-info": "The EU has issued a new demand for companies to demonstrate their environmental and social contributions in a more comparable and quantifiable way."
+        "more-info": "from evolving attack methods and lower barriers to entry"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "uses",
         "object": "purchasing offices",
-        "object-type": "offices",
-        "more-info": "located close to where suppliers are"
-    },
-    {
-        "subject": "IKEA Supply AG",
-        "predicate": "operates",
-        "object": "wholesale subsidiaries and external business partners",
-        "object-type": "partners",
-        "more-info": ""
+        "object-type": "location",
+        "more-info": "operated close to suppliers"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "manages",
-        "object": "exchange rate risk",
-        "object-type": "risk",
-        "more-info": "using derivatives contracts"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "sources",
-        "object": "IKEA products from external suppliers",
-        "object-type": "products",
+        "object": "wholesale subsidiaries",
+        "object-type": "subsidiary",
         "more-info": ""
     },
     {
         "subject": "IKEA Supply AG",
-        "predicate": "sells and distributes",
-        "object": "IKEA products to IKEA franchisees",
-        "object-type": "products",
-        "more-info": ""
+        "predicate": "operates",
+        "object": "external business partners",
+        "object-type": "partner",
+        "more-info": "transporters, warehouse providers and custom brokers"
+    },
+    {
+        "subject": "IKEA Industry AB",
+        "predicate": "divests",
+        "object": "4 Russian production units",
+        "object-type": "asset",
+        "more-info": "concluding process at end of March 2023"
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
-        "object": "transporters, warehouse providers, and custom brokers",
-        "object-type": "services",
-        "more-info": ""
+        "object": "purchase agreements",
+        "object-type": "supplier",
+        "more-info": "with external suppliers for a total value of EUR 3,714 million at 31 August 20"
     },
     {
         "subject": "IKEA",
-        "predicate": "uses",
-        "object": "supplier code of conduct IWAY",
-        "object-type": "supplier-code-of-conduct",
-        "more-info": "sets out minimum requirements on environmental, social and working conditions"
-    },
-    {
-        "subject": "IWAY",
-        "predicate": "entails",
-        "object": "set of requirements applicable to every supplier",
-        "object-type": "requirements-set",
-        "more-info": ""
-    },
-    {
-        "subject": "IKEA suppliers",
-        "predicate": "responsible for",
-        "object": "developing shared values and expectations with their suppliers",
-        "object-type": "supplier-relationship",
-        "more-info": ""
+        "predicate": "has",
+        "object": "IT services agreements",
+        "object-type": "contract",
+        "more-info": "including both \u2018Agreed' and other terms"
     },
     {
         "subject": "IKEA franchisees",
         "predicate": "uses",
         "object": "IKEA products",
-        "object-type": "product",
-        "more-info": "The majority of IKEA products (approximately 90%) is sourced from external suppliers and sold to IKEA franchisees."
+        "object-type": "product"
     },
     {
-        "subject": "customers",
-        "predicate": "meets",
-        "object": "customer needs",
-        "object-type": "need",
-        "more-info": "The Group works closely with IKEA franchisees to bring the IKEA retail experience closer to where people live, work or socialise."
-    },
-    {
-        "subject": "retail sales",
-        "predicate": "contributes",
-        "object": "wholesale revenues and franchise fee income",
-        "object-type": "revenue",
-        "more-info": "The expectation is that retail sales will grow modestly in FY24, directly contributing to the Group\u2019s wholesale revenues and franchise fee income."
+        "subject": "IKEA retailers",
+        "predicate": "pays",
+        "object": "franchise fees and IKEA products sold and invoiced",
+        "object-type": "receivable"
     },
     {
         "subject": "IKEA",
@@ -821,112 +827,98 @@
         "subject": "IKEA",
         "predicate": "operates",
         "object": "over 600 customer meeting points",
-        "object-type": "customer",
-        "more-info": "including traditional stores, small stores and pick-up points, plus several test formats"
+        "object-type": "customer meeting points",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "opens",
+        "object": "small format stores and plan & order points in urban areas",
+        "object-type": "stores",
+        "more-info": "such as Madrid, Almeria, Rome, Surabaya, Bavaro, Cabo, San Francisco and Toronto"
     },
     {
         "subject": "IKEA",
         "predicate": "opens",
         "object": "small store in the centre of Copenhagen",
+        "object-type": "store",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "works with",
+        "object": "customers",
         "object-type": "customer",
-        "more-info": "tailored to local needs, both in terms of better accessibility for the city\u2019s many cyclists"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "expands",
-        "object": "into new markets",
-        "object-type": "market",
-        "more-info": "with preparations to open the first IKEA store in Colombia, and a groundbreaking event in Auckland, New Zealand"
-    },
-    {
-        "subject": "customer",
-        "predicate": "meets",
-        "object": "IKEA retail experience",
-        "object-type": "experience",
-        "more-info": "closer to where people live, work or socialise"
-    },
-    {
-        "subject": "Ikea",
-        "predicate": "sells",
-        "object": "goods",
-        "object-type": "product",
-        "more-info": ""
-    },
-    {
-        "subject": "Ikea",
-        "predicate": "recognizes",
-        "object": "revenue",
-        "object-type": "transaction",
-        "more-info": "from the sale of goods"
-    },
-    {
-        "subject": "Ikea",
-        "predicate": "receives",
-        "object": "payments",
-        "object-type": "payment",
-        "more-info": "from customers"
-    },
-    {
-        "subject": "Ikea",
-        "predicate": "provides",
-        "object": "services",
-        "object-type": "service",
-        "more-info": ""
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "uses",
-        "object": "customer feedback",
-        "object-type": "process",
         "more-info": "The Group works closely with IKEA franchisees to bring the IKEA retail experience closer to where people live, work or socialise."
     },
     {
         "subject": "IKEA",
-        "predicate": "sources",
-        "object": "customer needs and preferences",
-        "object-type": "data",
+        "predicate": "meets",
+        "object": "customers",
+        "object-type": "customer",
+        "more-info": "Meeting the customer The Group works closely with IKEA franchisees to bring the IKEA retail experience closer to where people live, work or socialise."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "provides",
+        "object": "unique customer experience",
+        "object-type": "customer experience",
         "more-info": "This means locations in large cities or metropolitan areas, and an omnichannel offering that meets customer needs and provides a seamless and unique customer experience."
     },
     {
         "subject": "IKEA",
-        "predicate": "requires",
-        "object": "customer insights and feedback",
-        "object-type": "information",
-        "more-info": "To assess the Management Board\u2019s assessment, we have performed procedures to evaluate possible correspondence with supervisory authorities and regulators as well as legal confirmation letters."
+        "predicate": "focuses on",
+        "object": "better accessibility for customers",
+        "object-type": "customer access",
+        "more-info": "In FY23, our expansion focused on better accessibility for our customers in existing IKEA markets."
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
-        "object": "market research and customer surveys",
-        "object-type": "process",
-        "more-info": "The Group continues to invest significant resources to make IKEA more affordable, accessible and sustainable for customers everywhere with the ambition to reach and interact with 3 billion people."
+        "object": "customer meeting points",
+        "object-type": "customer",
+        "more-info": "to gather feedback and improve customer experience"
     },
     {
-        "subject": "Inter IKEA Systems B.V.",
+        "subject": "customer meeting points",
+        "predicate": "provide",
+        "object": "seamless and unique customer experience",
+        "object-type": "experience",
+        "more-info": "by offering omnichannel services and meeting changing customer expectations"
+    },
+    {
+        "subject": "IKEA franchisees",
+        "predicate": "work closely with",
+        "object": "customers",
+        "object-type": "customer",
+        "more-info": "to bring the IKEA retail experience closer to where people live, work or socialise"
+    },
+    {
+        "subject": "IKEA",
         "predicate": "sells",
-        "object": "IKEA products",
+        "object": "products",
         "object-type": "product",
-        "more-info": "to franchisees"
+        "more-info": "through franchisees"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "sources",
         "object": "products",
         "object-type": "product",
-        "more-info": "from external suppliers"
+        "more-info": "from external suppliers and internal manufacturers"
     },
     {
         "subject": "IKEA Industry AB",
         "predicate": "produces",
         "object": "home furnishing products",
         "object-type": "product",
-        "more-info": "for IKEA franchisees"
+        "more-info": "through 33 production units"
     },
     {
         "subject": "IKEA",
         "predicate": "provides",
         "object": "customer meeting points",
-        "object-type": "product",
+        "object-type": "service",
         "more-info": "including traditional stores, small stores and pick-up points"
     },
     {
@@ -945,45 +937,45 @@
     },
     {
         "subject": "IKEA",
-        "predicate": "achieves",
-        "object": "climate change mitigation",
-        "object-type": "sustainability goal",
-        "more-info": "through bundled frame agreements or Power Purchase Agreements that enable suppliers to consume 100% renewable electricity"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "achieves",
-        "object": "workplace inequality reduction",
-        "object-type": "sustainability goal",
-        "more-info": ""
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "achieves",
-        "object": "unsustainable consumption reduction",
-        "object-type": "sustainability goal",
-        "more-info": ""
-    },
-    {
-        "subject": "IKEA",
         "predicate": "uses",
         "object": "renewable electricity",
-        "object-type": "energy source",
+        "object-type": "energy-source",
         "more-info": "through bundled frame agreements or Power Purchase Agreements"
     },
     {
         "subject": "IKEA",
-        "predicate": "develops",
-        "object": "Sustainable living shop",
-        "object-type": "retail concept",
-        "more-info": "presenting solutions and services to make changes in lifestyle that are easy and affordable"
+        "predicate": "achieves",
+        "object": "100% renewable electricity consumption",
+        "object-type": "goal",
+        "more-info": "by enabling suppliers to consume 100% renewable electricity"
     },
     {
         "subject": "IKEA",
-        "predicate": "invests",
-        "object": "digital capabilities",
-        "object-type": "technology",
-        "more-info": "to transform digital capabilities by making significant IT investments and embracing the opportunities from data and technology"
+        "predicate": "requires",
+        "object": "sustainable and safe home furnishing",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "requires",
+        "object": "compliance with environmental regulations",
+        "object-type": "regulation",
+        "more-info": "through regular monitoring and documentation"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "develops",
+        "object": "new ways to make production more sustainable and energy-efficient",
+        "object-type": "process",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "implements",
+        "object": "Sustainable living shop",
+        "object-type": "initiative",
+        "more-info": "presenting solutions and services to make changes in lifestyle"
     },
     {
         "subject": "IKEA",
@@ -995,9 +987,9 @@
     {
         "subject": "IKEA suppliers",
         "predicate": "responsible for",
-        "object": "implementing measures at their own operations",
+        "object": "implementing required measures at their own operations",
         "object-type": "supplier-operations",
-        "more-info": "communicating IWAY code of conduct to employees and sub-suppliers"
+        "more-info": "communicating the content of IWAY code of conduct to employees and sub-suppliers"
     },
     {
         "subject": "IKEA",
@@ -1007,47 +999,39 @@
         "more-info": "advises on response to critical ethical dilemmas and handling of potential breaches"
     },
     {
-        "subject": "IWAY code of conduct",
-        "predicate": "sets out",
-        "object": "minimum requirements on environmental, social and working conditions",
-        "object-type": "supplier-code-of-conduct-requirements",
-        "more-info": "applicable to every supplier"
-    },
-    {
         "subject": "IKEA",
         "predicate": "requires",
-        "object": "sustainable and safe home furnishing and food products for customers",
-        "object-type": "product"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "requires",
-        "object": "safe and secure working environments for co-workers across the value chain",
-        "object-type": "workplace"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "uses",
-        "object": "IWAY (Supplier Code of Conduct)",
-        "object-type": "policy"
-    },
-    {
-        "subject": "IWAY",
-        "predicate": "sets out",
-        "object": "minimum requirements on environmental, social and working conditions",
-        "object-type": "standard"
+        "object": "sustainable and safe working environments",
+        "object-type": "working-condition",
+        "more-info": "across the value chain"
     },
     {
         "subject": "IKEA suppliers",
         "predicate": "are responsible for",
         "object": "implementing required measures at their own operations",
-        "object-type": "responsibility"
+        "object-type": "supplier-requirement",
+        "more-info": "communicating the content of the IKEA Supplier code of conduct to their employees and sub-suppliers"
     },
     {
         "subject": "IKEA",
-        "predicate": "communicates",
-        "object": "the content of the IKEA Supplier code of conduct to employees and sub-suppliers",
-        "object-type": "communication"
+        "predicate": "has a supplier code of conduct (IWAY)",
+        "object": "sets out minimum requirements on environmental, social and working conditions",
+        "object-type": "supplier-code-of-conduct",
+        "more-info": "applicable to every supplier"
+    },
+    {
+        "subject": "IKEA suppliers",
+        "predicate": "are expected to",
+        "object": "comply with all regulatory requirements in any of their markets",
+        "object-type": "regulatory-compliance",
+        "more-info": "in close cooperation with IKEA"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "sustainable practices",
+        "object-type": "approach",
+        "more-info": "to reduce waste and increase recycling"
     },
     {
         "subject": "IKEA",
@@ -1058,51 +1042,37 @@
     },
     {
         "subject": "IKEA",
-        "predicate": "recycles",
-        "object": "components",
-        "object-type": "raw-material",
-        "more-info": "such as screws and wooden dowels that are used to assemble IKEA furniture"
+        "predicate": "invests",
+        "object": "in new ways to shop, more sustainable ways of working, and an inspiring, functional and affordable IKEA product range",
+        "object-type": "initiative",
+        "more-info": "to make IKEA more affordable, accessible and sustainable for customers everywhere"
     },
     {
         "subject": "IKEA",
         "predicate": "achieves",
         "object": "reducing carbon footprint",
         "object-type": "goal",
-        "more-info": "by FY30, most board-producing factories will use glues with lower climate footprints"
+        "more-info": "by using bio-based alternatives to reduce fossil-based glue usage by 40% and having most board-producing factories in the IKEA supply chain using glues with lower climate footprints by FY30"
     },
     {
         "subject": "IKEA",
-        "predicate": "uses",
-        "object": "bio-based alternatives",
-        "object-type": "glue solutions",
-        "more-info": "to reduce fossil-based glue usage by 40%"
-    },
-    {
-        "subject": "IKEA Industry factory (Kazlu Ruda, Lithuania)",
-        "predicate": "uses",
-        "object": "technical starch from corn",
-        "object-type": "glue system",
-        "more-info": "in large-scale production"
+        "predicate": "achieves",
+        "object": "renewable electricity consumption",
+        "object-type": "goal",
+        "more-info": "through bundled frame agreements or Power Purchase Agreements that the Group takes part in"
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
         "object": "supplier code of conduct IWAY",
-        "object-type": "code-of-conduct",
+        "object-type": "product",
         "more-info": "sets out minimum requirements on environmental, social and working conditions"
     },
     {
         "subject": "IKEA suppliers",
         "predicate": "responsible for",
-        "object": "developing shared values and expectations with IKEA",
-        "object-type": "supplier",
-        "more-info": "through IWAY"
-    },
-    {
-        "subject": "IWAY",
-        "predicate": "entails",
-        "object": "set of requirements applicable to every supplier",
-        "object-type": "requirements",
+        "object": "IWAY",
+        "object-type": "product",
         "more-info": "applicable to every supplier"
     },
     {
@@ -1114,9 +1084,9 @@
     },
     {
         "subject": "IKEA",
-        "predicate": "launched a programme",
-        "object": "enabling suppliers to consume 100% renewable electricity",
-        "object-type": "programme",
+        "predicate": "launches",
+        "object": "programme to enable suppliers to consume 100% renewable electricity",
+        "object-type": "initiative",
         "more-info": "through bundled frame agreements or Power Purchase Agreements"
     },
     {
@@ -1124,35 +1094,35 @@
         "predicate": "faces",
         "object": "geopolitical uncertainties",
         "object-type": "risk",
-        "more-info": "existing crises"
+        "more-info": "remaining to pose serious threats to our business"
     },
     {
         "subject": "IKEA",
-        "predicate": "faces",
-        "object": "social and regulatory scrutiny of human rights and ethical sourcing",
-        "object-type": "risk",
-        "more-info": "across the supply chain"
+        "predicate": "recognises",
+        "object": "inherent risk",
+        "object-type": "supplier breach",
+        "more-info": "to a breach in any of the above"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "exposes",
+        "object": "currency risk",
+        "object-type": "foreign exchange market",
+        "more-info": "on franchise fees and goods flows"
     },
     {
         "subject": "IKEA suppliers",
-        "predicate": "required to comply with",
-        "object": "IWAY code of conduct",
-        "object-type": "supplier agreement",
-        "more-info": "minimum requirements on environmental, social and working conditions"
+        "predicate": "responsible for",
+        "object": "environmental, social and working conditions",
+        "object-type": "supplier code of conduct",
+        "more-info": "IWAY sets out our minimum requirements"
     },
     {
-        "subject": "IKEA",
-        "predicate": "exposed to",
-        "object": "currency risk",
-        "object-type": "financial risk",
-        "more-info": "franchise fees and goods flows"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "faces",
-        "object": "fraud and non-compliance risk factors",
-        "object-type": "risk",
-        "more-info": "material misstatement in financial statements"
+        "subject": "IKEA supply chain",
+        "predicate": "disrupted by",
+        "object": "pandemic, war in Ukraine, resource scarcity and increasing cost of raw materials",
+        "object-type": "supply chain disruptions",
+        "more-info": "during the past few years"
     },
     {
         "subject": "IKEA",
@@ -1172,22 +1142,15 @@
         "subject": "IKEA",
         "predicate": "monitors",
         "object": "cash position",
-        "object-type": "cash flow forecast model",
-        "more-info": "to ensure the cash position is always sufficient"
+        "object-type": "liquidity planning",
+        "more-info": "using a cash flow forecast model"
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
-        "object": "risk management methodology",
-        "object-type": "risk management",
-        "more-info": "to identify and assess key risks"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "assesses",
-        "object": "key internal control and compliance requirements",
-        "object-type": "internal audits",
-        "more-info": "across three lines of defence"
+        "object": "derivative instruments (currency options and forward exchange contracts)",
+        "object-type": "risk management strategy",
+        "more-info": "to control its foreign exchange exposure"
     },
     {
         "subject": "IKEA",
@@ -1199,142 +1162,128 @@
     {
         "subject": "IKEA",
         "predicate": "uses",
-        "object": "IWAY supplier code of conduct",
-        "object-type": "standard",
-        "more-info": "to ensure environmental, social and working conditions are met"
+        "object": "cash flow forecast model",
+        "object-type": "tool",
+        "more-info": "to ensure sufficient cash position for financial obligations"
     },
     {
         "subject": "IKEA",
         "predicate": "has",
-        "object": "risk management approach",
-        "object-type": "process",
-        "more-info": "to detect and manage issues as they occur"
+        "object": "IT services agreements",
+        "object-type": "contract",
+        "more-info": "with external suppliers for a total value of EUR 62 million"
     },
     {
         "subject": "IKEA",
-        "predicate": "employs",
-        "object": "Ethics Committee",
-        "object-type": "committee",
-        "more-info": "to supervise and advise on critical ethical dilemmas"
+        "predicate": "has",
+        "object": "distribution services commitments",
+        "object-type": "agreement",
+        "more-info": "covering the services for distribution with different remaining periods"
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
-        "object": "cash flow forecast model",
-        "object-type": "tool",
-        "more-info": "to ensure sufficient cash position to meet financial obligations"
+        "object": "supplier code of conduct (IWAY)",
+        "object-type": "process",
+        "more-info": "sets out minimum requirements on environmental, social and working conditions for suppliers"
     },
     {
         "subject": "IKEA",
-        "predicate": "handles",
-        "object": "supplier insolvency",
-        "object-type": "process",
-        "more-info": "The company has clear processes in place to guarantee compliance with regulatory requirements in all markets, including supplier relationships."
+        "predicate": "operates",
+        "object": "purchasing offices",
+        "object-type": "office",
+        "more-info": "located close to where the suppliers are"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "manages",
-        "object": "supplier relationships",
-        "object-type": "process",
-        "more-info": "The operational relationships with suppliers are operated through purchasing offices, located close to where the suppliers are."
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "recognizes",
-        "object": "provisions for deferred taxes, legal disputes, product related claims, and organisational restructuring costs",
-        "object-type": "liability",
-        "more-info": "The company recognizes provisions for these types of liabilities."
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "assesses",
-        "object": "impairment for financial assets measured at amortised cost",
-        "object-type": "process",
-        "more-info": "The entity considers evidence of impairment for financial assets measured at amortised cost."
+        "object": "IKEA supply chain",
+        "object-type": "supply-chain",
+        "more-info": "together with its wholesale subsidiaries and external business partners"
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
-        "object": "Supply Chain Risk Insurance Policy",
+        "object": "Supply Chain Risk Insurance",
         "object-type": "insurance-policy",
-        "more-info": "The policy covers risks such as supply chain disruptions, pandemic, and transformation."
+        "more-info": "To mitigate risks associated with external suppliers, IKEA uses a supply chain risk insurance policy."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "requires",
+        "object": "Supplier Code of Conduct (IWAY)",
+        "object-type": "compliance-framework",
+        "more-info": "As part of its supply chain risk management, IKEA requires suppliers to adhere to the IWAY code of conduct."
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
-        "object": "Geopolitics and Supply Chain Disruption Insurance Policy",
-        "object-type": "insurance-policy",
-        "more-info": "The policy covers risks such as war in Ukraine, resource scarcity, and increasing cost of raw materials."
+        "object": "Risk Management Methodology",
+        "object-type": "risk-assessment-tool",
+        "more-info": "IKEA uses a common risk management methodology to identify and assess key risks, resulting in risk registers and action plans."
     },
     {
-        "subject": "IKEA",
-        "predicate": "uses",
-        "object": "Product Quality & Safety Insurance Policy",
-        "object-type": "insurance-policy",
-        "more-info": "The policy covers risks such as product defects, recalls, and reputation damage."
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "uses",
-        "object": "Business Ethics and Compliance Insurance Policy",
-        "object-type": "insurance-policy",
-        "more-info": "The policy covers risks such as non-compliance with regulatory requirements, fines, and reputational damage."
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "uses",
-        "object": "Digital, Information Security & Data Privacy Insurance Policy",
-        "object-type": "insurance-policy",
-        "more-info": "The policy covers risks such as data breaches, cyber attacks, and reputational damage."
+        "subject": "IKEA Suppliers",
+        "predicate": "responsible-for",
+        "object": "Environmental, Social, and Working Conditions",
+        "object-type": "compliance-requirements",
+        "more-info": "IKEA suppliers are responsible for ensuring compliance with environmental, social, and working conditions as outlined in the IWAY code of conduct."
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "uses",
-        "object": "information technology (IT)",
-        "object-type": "technology",
+        "object": "purchasing offices",
+        "object-type": "offices",
+        "more-info": "located close to where suppliers are"
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "manages",
+        "object": "supply chain",
+        "object-type": "supply-chain",
         "more-info": ""
     },
     {
         "subject": "IKEA Supply AG",
-        "predicate": "uses",
-        "object": "data and technology",
-        "object-type": "technology",
+        "predicate": "operates",
+        "object": "wholesale subsidiaries and external business partners",
+        "object-type": "business-partners",
         "more-info": ""
     },
     {
-        "subject": "IKEA Supply AG",
-        "predicate": "takes part in",
-        "object": "Power Purchase Agreements (PPAs)",
-        "object-type": "sustainability initiative",
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "100% renewable electricity through bundled frame agreements or Power Purchase Agreements",
+        "object-type": "renewable-energy",
         "more-info": ""
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
         "object": "data analytics",
-        "object-type": "method",
-        "more-info": "to identify high-risk journal entries and perform additional audit procedures"
+        "object-type": "tool",
+        "more-info": "to transform digital capabilities and improve data protection"
     },
     {
         "subject": "IKEA Supply AG",
         "predicate": "manages",
         "object": "supply chain",
         "object-type": "process",
-        "more-info": "through data analytics to ensure sustainability, traceability, and resilience"
+        "more-info": "through purchasing offices and wholesale subsidiaries"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "performs",
+        "object": "data analysis of high-risk journal entries",
+        "object-type": "process",
+        "more-info": "to identify risks and perform additional audit procedures"
     },
     {
         "subject": "IWAY",
         "predicate": "sets out",
-        "object": "minimum requirements on environmental, social, and working conditions",
+        "object": "minimum requirements on environmental, social and working conditions",
         "object-type": "standard",
-        "more-info": "for suppliers across the globe"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "invests",
-        "object": "significant resources",
-        "object-type": "amount",
-        "more-info": "to make IKEA more affordable, accessible, and sustainable for customers everywhere"
+        "more-info": "applicable to every supplier in the IKEA supply chain"
     },
     {
         "subject": "IKEA",
@@ -1345,17 +1294,10 @@
     },
     {
         "subject": "IKEA supply chain",
-        "predicate": "requires",
-        "object": "sustainable and energy-efficient production",
-        "object-type": "production-method",
+        "predicate": "prioritises",
+        "object": "agility, sustainability, traceability and resilience",
+        "object-type": "supply-chain-attributes",
         "more-info": ""
-    },
-    {
-        "subject": "IKEA suppliers",
-        "predicate": "must comply with",
-        "object": "IWAY code of conduct",
-        "object-type": "supplier-code-of-conduct",
-        "more-info": "sets out minimum requirements on environmental, social and working conditions"
     },
     {
         "subject": "IKEA",
@@ -1368,28 +1310,28 @@
         "subject": "IKEA",
         "predicate": "requires",
         "object": "cybersecurity measures",
-        "object-type": "risk management",
-        "more-info": "to prevent and detect fraud"
+        "object-type": "security measure",
+        "more-info": "from suppliers and franchisees"
     },
     {
         "subject": "IKEA",
         "predicate": "has",
-        "object": "Group-wide tax control framework",
-        "object-type": "financial infrastructure",
-        "more-info": "to simplify the Group structure and keep tax high on the agenda"
-    },
-    {
-        "subject": "IKEA",
-        "predicate": "invests",
-        "object": "in sustainable financial infrastructures",
-        "object-type": "financial infrastructure",
-        "more-info": "to continue to improve the way we protect and secure data"
+        "object": "risk management methodology",
+        "object-type": "methodology",
+        "more-info": "to identify and assess key risks"
     },
     {
         "subject": "IKEA",
         "predicate": "uses",
         "object": "IT services agreements",
-        "object-type": "contract",
+        "object-type": "agreement",
+        "more-info": "for IT services and cybersecurity"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "conducts",
+        "object": "audits and compliance reviews",
+        "object-type": "audit",
         "more-info": "to ensure compliance with regulatory requirements"
     }
 ]
