@@ -1,0 +1,1884 @@
+[
+    {
+        "subject": "Albert Heijn B.V.",
+        "predicate": "subsidiary",
+        "object": "Retail trade Europe",
+        "object-type": "subsidiary",
+        "more-info": "Zaandam, Netherlands"
+    },
+    {
+        "subject": "Ahold Delhaize Nederland B.V.",
+        "predicate": "subsidiary",
+        "object": "Netherlands",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Delhaize \u201cThe Lion\u201d Nederland B.V.",
+        "predicate": "subsidiary",
+        "object": "Zaandam, Netherlands",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "ADUSA Commercial Holdings, Inc.",
+        "predicate": "subsidiary",
+        "object": "United States",
+        "object-type": "country",
+        "more-info": "Salisbury, North Carolina"
+    },
+    {
+        "subject": "ADUSA Supply Chain Services, LLC",
+        "predicate": "subsidiary",
+        "object": "United States",
+        "object-type": "country",
+        "more-info": "Salisbury, North Carolina"
+    },
+    {
+        "subject": "Ahold Delhaize Coffee Company B.V.",
+        "predicate": "subsidiary",
+        "object": "Zaandam, Netherlands",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Europe Real Estate & Construction B.V.",
+        "predicate": "subsidiary",
+        "object": "Zaandam, Netherlands",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates",
+        "object": "Europe",
+        "object-type": "continent"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates",
+        "object": "Netherlands",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates",
+        "object": "Belgium",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates",
+        "object": "Czech Republic",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates",
+        "object": "Greece",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates",
+        "object": "Serbia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates",
+        "object": "Romania",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "headquarters",
+        "object": "Zaandam",
+        "object-type": "city"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "headquarters",
+        "object": "Netherlands",
+        "object-type": "country"
+    },
+    {
+        "subject": "The GIANT Company",
+        "predicate": "has",
+        "object": "manufacturing facilities",
+        "object-type": "country",
+        "more-info": "Pennsylvania, South Carolina, Tennessee, Virginia and West Virginia"
+    },
+    {
+        "subject": "Stop & Shop Supermarket Company LLC",
+        "predicate": "has",
+        "object": "manufacturing facilities",
+        "object-type": "state",
+        "more-info": "Connecticut, Massachusetts, New Jersey, New York and Rhode Island"
+    },
+    {
+        "subject": "The GIANT Company",
+        "predicate": "has",
+        "object": "manufacturing facilities",
+        "object-type": "state",
+        "more-info": "Maryland, Pennsylvania, Virginia and West Virginia"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "tea",
+        "object-type": "commodity",
+        "more-info": "from local and global farms"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "coffee",
+        "object-type": "commodity",
+        "more-info": "from local and global farms"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "cocoa",
+        "object-type": "commodity",
+        "more-info": "from local and global farms"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "palm oil",
+        "object-type": "commodity",
+        "more-info": "from local and global farms"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "soy",
+        "object-type": "commodity",
+        "more-info": "from local and global farms"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "wood fiber",
+        "object-type": "commodity",
+        "more-info": "from local and global farms"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "seafood",
+        "object-type": "commodity",
+        "more-info": "from local and global farms"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "distributes",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "distributes",
+        "object": "The Netherlands",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "distributes",
+        "object": "Belgium",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "distributes",
+        "object": "Greece",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "distributes",
+        "object": "Serbia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "distributes",
+        "object": "Romania",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "distributes",
+        "object": "Czech Republic",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has-retail-outlets-in",
+        "object": "United States",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has-retail-outlets-in",
+        "object": "Netherlands",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has-retail-outlets-in",
+        "object": "Belgium",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has-retail-outlets-in",
+        "object": "Luxembourg",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has-retail-outlets-in",
+        "object": "Czech Republic",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has-retail-outlets-in",
+        "object": "Greece",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has-retail-outlets-in",
+        "object": "Serbia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has-retail-outlets-in",
+        "object": "Romania",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates_in",
+        "object": "European Union",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates_in",
+        "object": "Netherlands",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates_in",
+        "object": "Belgium",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates_in",
+        "object": "Czech Republic",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates_in",
+        "object": "Greece",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates_in",
+        "object": "Serbia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "operates_in",
+        "object": "Romania",
+        "object-type": "country"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplier",
+        "object": "food supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "PepsiCo",
+        "predicate": "supplier",
+        "object": "beverage supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "supplier",
+        "object": "beverage supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplier",
+        "object": "consumer goods supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Mars Incorporated",
+        "predicate": "supplier",
+        "object": "food supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "L\u2019Or\u00e9al",
+        "predicate": "supplier",
+        "object": "cosmetics supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Amco",
+        "predicate": "supplier",
+        "object": "packaging supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Novamont",
+        "predicate": "supplier",
+        "object": "plastics supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Veolia",
+        "predicate": "supplier",
+        "object": "resource management supplier",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "sources",
+        "object": "Europe",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "sources",
+        "object": "Netherlands",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "sources",
+        "object": "Belgium",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "sources",
+        "object": "Czech Republic",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "sources",
+        "object": "Greece",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "sources",
+        "object": "Serbia",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "sources",
+        "object": "Romania",
+        "object-type": "country"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "uses",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": "from local and global farms"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "partners with",
+        "object": "farmers and local producers",
+        "object-type": "supplier",
+        "more-info": "to supply and process raw materials for high-quality own-brand products"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "requires",
+        "object": "packaging vendors to input information about their plastic packaging into software",
+        "object-type": "supplier",
+        "more-info": "and perform some validation of the data at brand level"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "depends on",
+        "object": "information received from suppliers",
+        "object-type": "data",
+        "more-info": "to capture frequent changes to packaging materials and product design"
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "evaluated",
+        "object": "through supplier questionnaires",
+        "object-type": "process"
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "evaluated",
+        "object": "by analyzing data received from third parties and suppliers",
+        "object-type": "process"
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "selected",
+        "object": "based on the accuracy of the data they provide to us",
+        "object-type": "criterion"
+    },
+    {
+        "subject": "Supplier",
+        "predicate": "evaluated",
+        "object": "through physical checks in Europe",
+        "object-type": "process"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "science-based targets",
+        "object-type": "supplier",
+        "more-info": "from suppliers to accelerate improvements in livestock farming, raw material sourcing, deforestation reduction, processing, food waste reduction, packaging and transport"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "provides",
+        "object": "open-source platforms with instructional videos and links to external resources",
+        "object-type": "supplier",
+        "more-info": "to support suppliers in setting their own emissions-reduction targets"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "measures",
+        "object": "% of healthy own-brand food sales as a proportion of total own-brand food sales",
+        "object-type": "KPI",
+        "more-info": "to track progress on customer health and nutrition"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "tracks",
+        "object": "percentage sustainable sourcing for seven commodities in our own-brand products",
+        "object-type": "KPI",
+        "more-info": "to measure the company's progress on sustainable sourcing"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "measures",
+        "object": "reduction in absolute GHG emissions from our value chain (scope 3) against a set baseline",
+        "object-type": "KPI",
+        "more-info": "to track progress on reducing the company's environmental footprint"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "supply chain finance arrangements",
+        "object-type": "supplier",
+        "more-info": "The Company does not anticipate that the application of these amendments will have a significant effect on the future consolidated financial statements."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "supply chain finance arrangements",
+        "object-type": "supplier",
+        "more-info": "Suppliers choose to enter into these arrangements, which provide them with the option of access to earlier payment at favorable interest rates from the bank based on Ahold Delhaize's credit rating."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "payment terms",
+        "object-type": "supplier",
+        "more-info": "The terms, including the payment terms, of the trade payables that are part of the supply chain finance arrangements are not substantially different from the terms of the Company's trade payables that are not part of the supply chain arrangement."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "credit risk assessment",
+        "object-type": "supplier",
+        "more-info": "Credit risk"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "uses",
+        "object": "clear policies and procedures",
+        "object-type": "quality-control-processes"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "verifies",
+        "object": "temperature and expiration dates",
+        "object-type": "product-parameters"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "conducts",
+        "object": "daily quality checks",
+        "object-type": "quality-control-processes"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "provides",
+        "object": "training to associates",
+        "object-type": "employee-training"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "takes",
+        "object": "corrective action",
+        "object-type": "quality-control-processes"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "works",
+        "object": "to ensure all products are safe to consume and use",
+        "object-type": "product-safety"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "maintains",
+        "object": "highest levels of product safety",
+        "object-type": "product-safety"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "The company relies on its suppliers for various commodities and products."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "supply chain disruption",
+        "object-type": "risk",
+        "more-info": "Disruption to the supply chain or critical business processes may result in non-availability of products for customers and have a significant adverse impact on commercial operations, revenues, reputation, and customer perception."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "cybersecurity issues",
+        "object-type": "risk",
+        "more-info": "Cybersecurity breaches could lead to material monetary penalties, loss of customers, and damage to the company's reputation."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "environmental risks",
+        "object-type": "risk",
+        "more-info": "The company faces environmental risks related to climate change, water availability, sourcing, and quality; food security; and extreme temperature changes affecting its premises, operations, supply chain, transport needs, and associate safety."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "social risks",
+        "object-type": "risk",
+        "more-info": "The company faces social risks related to human rights developments in the supply chain; disruption of operations and other factors negatively affecting its suppliers."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "geopolitical tensions",
+        "object-type": "risk",
+        "more-info": "Geopolitical tensions across the globe entail supply chain risks for commodities and products that the company's brands offer to customers."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "pandemics",
+        "object-type": "risk",
+        "more-info": "Pandemics can lead to supply chain disruption and have a significant adverse impact on commercial operations, revenues, reputation, and customer perception."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "tea",
+        "object-type": "commodity",
+        "more-info": "Own-brand supply chains"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "coffee",
+        "object-type": "commodity",
+        "more-info": "Own-brand supply chains"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "cocoa",
+        "object-type": "commodity",
+        "more-info": "Own-brand supply chains"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "palm oil",
+        "object-type": "commodity",
+        "more-info": "Own-brand supply chains"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "soy",
+        "object-type": "commodity",
+        "more-info": "Own-brand supply chains"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "wood fiber",
+        "object-type": "commodity",
+        "more-info": "Own-brand supply chains"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "seafood",
+        "object-type": "commodity",
+        "more-info": "Own-brand supply chains"
+    },
+    {
+        "subject": "Own-brand products",
+        "predicate": "uses",
+        "object": "Raw materials",
+        "object-type": "raw-material",
+        "more-info": "Partnering with farmers and local producers to supply and process raw materials for high-quality own-brand products."
+    },
+    {
+        "subject": "Local brands",
+        "predicate": "offers",
+        "object": "Plant-based products",
+        "object-type": "product",
+        "more-info": "Including 58 new products as alternatives to traditional products, with plans to add more items under this product line in the future."
+    },
+    {
+        "subject": "Own-brand products",
+        "predicate": "influences",
+        "object": "Customer choices",
+        "object-type": "customer",
+        "more-info": "Aiming to make a real impact by influencing what is offered, how it is produced, and where it comes from."
+    },
+    {
+        "subject": "Local brands",
+        "predicate": "sells",
+        "object": "8,500 products",
+        "object-type": "product",
+        "more-info": "Across European brands, with expectations to grow own-brand sales as a percentage of overall Group sales."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "data processing and storage services",
+        "object-type": "service"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "real estate, including retail spaces, office buildings and DCs",
+        "object-type": "property"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "outsources",
+        "object": "transportation services",
+        "object-type": "service"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "provides",
+        "object": "professional services in Human Resources (HR), Finance and Not-for-resale Sourcing",
+        "object-type": "service"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "offers",
+        "object": "customer service in stores, on the telephone and online",
+        "object-type": "service"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "conducts",
+        "object": "market research and customer surveys",
+        "object-type": "research"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "natural resources",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "ingredients",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "partners",
+        "object": "farmers and local producers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "maintains",
+        "object": "long-standing strategic partnerships",
+        "object-type": "relationship",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "selects",
+        "object": "best partners to supply and process raw materials",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Raw materials",
+        "predicate": "uses",
+        "object": "Natural resources and raw materials from local and global farms",
+        "object-type": "raw-material"
+    },
+    {
+        "subject": "Brands",
+        "predicate": "partner",
+        "object": "Farmers and local producers",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Products",
+        "predicate": "rely on",
+        "object": "Natural resources and raw materials from local and global farms",
+        "object-type": "raw-material"
+    },
+    {
+        "subject": "Own-brand products",
+        "predicate": "directed",
+        "object": "What is offered to customers, how it is produced, and where",
+        "object-type": "product"
+    },
+    {
+        "subject": "Brands",
+        "predicate": "maintain",
+        "object": "Long-standing strategic partnerships with farmers and local producers",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Products",
+        "predicate": "packaged",
+        "object": "Before being transported to our brands' warehouses",
+        "object-type": "product"
+    },
+    {
+        "subject": "Brands",
+        "predicate": "partner",
+        "object": "Suppliers",
+        "object-type": "supplier"
+    },
+    {
+        "subject": "Own-brand products",
+        "predicate": "aim to",
+        "object": "Make a real impact, influencing what is offered to customers, how it is produced, and where",
+        "object-type": "product"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "discounted cash flow projections",
+        "object-type": "method",
+        "more-info": "based on assets' highest and best use from a market participant's perspective"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "financial plans as approved by management",
+        "object-type": "plan",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "Level 3 valuation",
+        "object-type": "valuation method",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "straight-line method",
+        "object-type": "amortization method",
+        "more-info": "based on estimated useful lives"
+    },
+    {
+        "subject": "strawberries",
+        "predicate": "shelf-life",
+        "object": "3-7 days",
+        "object-type": "product",
+        "more-info": "The shelf life of strawberries varies depending on weather conditions."
+    },
+    {
+        "subject": "own-brand products",
+        "predicate": "packaging",
+        "object": "reusable, recyclable or compostable",
+        "object-type": "product",
+        "more-info": "Ahold Delhaize aims to achieve 100% reusable, recyclable or compostable own-brand primary plastic packaging by 2025."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "reusable, recyclable or compostable plastic packaging",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "designs",
+        "object": "packaging to be reusable, recyclable or compostable",
+        "object-type": "process",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "encourages",
+        "object": "suppliers to continuously improve the accuracy of data they provide",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "aims",
+        "object": "to contribute to a food system that ensures everyone has access to nutritious food for generations to come",
+        "object-type": "goal",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has",
+        "object": "three-pronged approach to driving circular economy",
+        "object-type": "approach",
+        "more-info": ""
+    },
+    {
+        "subject": "Deforestation",
+        "predicate": "uses",
+        "object": "land conversion",
+        "object-type": "raw-material"
+    },
+    {
+        "subject": "Food value chains",
+        "predicate": "impacts",
+        "object": "nature and biodiversity",
+        "object-type": "environmental-impact"
+    },
+    {
+        "subject": "Sustainable agriculture",
+        "predicate": "produces",
+        "object": "products with respect for the environment",
+        "object-type": "product"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "depends on",
+        "object": "natural ecosystems",
+        "object-type": "ecosystem"
+    },
+    {
+        "subject": "Food waste",
+        "predicate": "has negative impacts on",
+        "object": "human livelihoods, well-being, and the environment",
+        "object-type": "social-impact"
+    },
+    {
+        "subject": "Climate change",
+        "predicate": "degrades",
+        "object": "nature",
+        "object-type": "ecosystem"
+    },
+    {
+        "subject": "Sustainable production systems",
+        "predicate": "increases use of",
+        "object": "regenerative and sustainable agriculture",
+        "object-type": "practice"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "works on",
+        "object": "sustainable products with suppliers",
+        "object-type": "product-development"
+    },
+    {
+        "subject": "Renewable energy",
+        "predicate": "reduces carbon footprint by using",
+        "object": "renewable energy",
+        "object-type": "energy-source"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "achieves",
+        "object": "GFSI certification",
+        "object-type": "standard"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "Accepted Food Safety Assurance standards",
+        "object-type": "standard"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "utilizes",
+        "object": "Ahold Delhaize-approved standards",
+        "object-type": "standard"
+    },
+    {
+        "subject": "own-brand tea, coffee, cocoa, palm oil, soy, wood fiber, and seafood",
+        "predicate": "certified against",
+        "object": "Ahold Delhaize-approved standards",
+        "object-type": "standard"
+    },
+    {
+        "subject": "tea, coffee, and cocoa",
+        "predicate": "include",
+        "object": "Rainforest Alliance/UTZ Fair Trade USA/Fairtrade/FLOCERT/Fairtrade Sourcing Program or equivalent standards",
+        "object-type": "standard"
+    },
+    {
+        "subject": "palm oil",
+        "predicate": "include",
+        "object": "RSPO Principles and Criteria",
+        "object-type": "standard"
+    },
+    {
+        "subject": "seafood products",
+        "predicate": "include",
+        "object": "certification against a program recognized by the Global Sustainable Seafood Initiative (GSSI) and cover all Aquaculture Stewardship Council (ASC) farm standards",
+        "object-type": "standard"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "ADUSA Distribution",
+        "object-type": "logistics provider"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "ADUSA Transportation",
+        "object-type": "logistics provider"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "automated warehouses",
+        "object-type": "distribution-center",
+        "more-info": "enabling faster delivery"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "distributes",
+        "object": "products",
+        "object-type": "product",
+        "more-info": "to stores, e-commerce fulfillment centers, HSCs, pick-up points and customers' homes"
+    },
+    {
+        "subject": "ADUSA Distribution",
+        "predicate": "provides",
+        "object": "distribution services",
+        "object-type": "service",
+        "more-info": "to one of the largest grocery retail supply chains in the nation"
+    },
+    {
+        "subject": "Giant Food",
+        "predicate": "shifts",
+        "object": "logistics network",
+        "object-type": "network",
+        "more-info": "from centralized distribution to a localized, more efficient fulfillment model"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "electric vehicles",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "vehicles that use low-carbon-emissions fuels",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "The GIANT Company",
+        "predicate": "uses",
+        "object": "electric vehicles",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "makes transport",
+        "object": "100% emissions-free in four cities",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "trucks and delivery vans",
+        "object-type": "transportation"
+    },
+    {
+        "subject": "Company",
+        "predicate": "uses",
+        "object": "transportation services",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Company",
+        "predicate": "manages",
+        "object": "costs",
+        "object-type": "expense",
+        "more-info": "through restructuring and tight cost control"
+    },
+    {
+        "subject": "Company",
+        "predicate": "partially offsets",
+        "object": "transportation costs",
+        "object-type": "expense",
+        "more-info": "with strong operational excellence"
+    },
+    {
+        "subject": "Company",
+        "predicate": "moderates",
+        "object": "energy costs",
+        "object-type": "expense",
+        "more-info": "compared to 2022"
+    },
+    {
+        "subject": "Supply Chain Disruption",
+        "predicate": "poses",
+        "object": "Risk",
+        "object-type": "Operational Risk",
+        "more-info": "Disruption to our supply chain or critical business processes, due to a long-term or permanent loss of key suppliers, logistics, facilities, utilities, IT infrastructure, personnel, or commodity shortages, may result in non-availability of products for customers and have a significant adverse impact on commercial operations, revenues, reputation and customer perception."
+    },
+    {
+        "subject": "Geopolitical Tensions",
+        "predicate": "entails",
+        "object": "Supply Chain Risks",
+        "object-type": "Operational Risk",
+        "more-info": "The ongoing conflicts in Ukraine and Israel/Gaza and other geopolitical tensions across the globe entail supply chain risks for commodities and for products that our brands offer to customers."
+    },
+    {
+        "subject": "Legacy Systems",
+        "predicate": "depends on",
+        "object": "IT Infrastructure",
+        "object-type": "Operational Risk",
+        "more-info": "The diverse IT landscape throughout our brands' operations, with dependency on aging legacy systems and third-party service providers, continues to pose challenges and risks to business continuity."
+    },
+    {
+        "subject": "Labor Availability",
+        "predicate": "poses",
+        "object": "Challenge",
+        "object-type": "Operational Risk",
+        "more-info": "During 2023, labor availability continued to pose challenges but largely stabilized. Cost-of-living pressures, social issues and geopolitical tensions are causing an increase in stress and mental well-being issues among associates."
+    },
+    {
+        "subject": "Climate Change",
+        "predicate": "poses",
+        "object": "Risk",
+        "object-type": "Operational Risk",
+        "more-info": "As global climate change continues to evolve, businesses such as ours are confronted with an escalating array of physical risks and environmental hazards, with extreme weather events at the forefront."
+    },
+    {
+        "subject": "Company",
+        "predicate": "uses",
+        "object": "third-party providers",
+        "object-type": "supplier",
+        "more-info": "to reduce picking and delivery costs across our brands and regions"
+    },
+    {
+        "subject": "Company",
+        "predicate": "works together",
+        "object": "brands",
+        "object-type": "subsidiary",
+        "more-info": "and sharing best practices to find the optimal model in every region, in line with our great local brand philosophy"
+    },
+    {
+        "subject": "Giant Food",
+        "predicate": "increases focus on",
+        "object": "picking products from stores and third-party partners",
+        "object-type": "logistics network",
+        "more-info": "behind its Giant Delivers service, shifting from centralized distribution to a localized, more efficient fulfillment model"
+    },
+    {
+        "subject": "Company",
+        "predicate": "has exposure to",
+        "object": "exchange rate movements",
+        "object-type": "foreign currency exchange risks",
+        "more-info": "due to exchange rate movements in connection with the translation of its foreign subsidiaries' income, assets and liabilities into euros for inclusion in its consolidated financial statements"
+    },
+    {
+        "subject": "Company",
+        "predicate": "supports",
+        "object": "communities and gives aid to people in need",
+        "object-type": "charitable activities",
+        "more-info": "through the Save for Our Customers program, relentlessly focused on keeping prices as low as possible"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "achieves",
+        "object": "same-day delivery models",
+        "object-type": "delivery-method"
+    },
+    {
+        "subject": "Food Lion",
+        "predicate": "offers",
+        "object": "Food Lion To Go pickup or home delivery",
+        "object-type": "service"
+    },
+    {
+        "subject": "Giant Food",
+        "predicate": "increases focus on",
+        "object": "picking products from stores and third-party partners",
+        "object-type": "logistics-network"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "introduces enhancements for",
+        "object": "pickup and home delivery options across all stores",
+        "object-type": "service"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "serves",
+        "object": "63 million customers weekly",
+        "object-type": "customer"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "serves",
+        "object": "millions of customers online",
+        "object-type": "customer"
+    },
+    {
+        "subject": "Stop & Shop",
+        "predicate": "serves",
+        "object": "Connecticut, Massachusetts, New Jersey, New York and Rhode Island",
+        "object-type": "market-area"
+    },
+    {
+        "subject": "The GIANT Company",
+        "predicate": "serves",
+        "object": "Maryland, Pennsylvania, Virginia and West Virginia",
+        "object-type": "market-area"
+    },
+    {
+        "subject": "Hannaford",
+        "predicate": "serves",
+        "object": "Pennsylvania, South Carolina, Tennessee, Virginia and West Virginia",
+        "object-type": "market-area"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "helps",
+        "object": "customers make healthy, sustainable choices",
+        "object-type": "customer-choice"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "empowers",
+        "object": "customers and associates",
+        "object-type": "associate"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "offers",
+        "object": "healthy, quality, and delicious choices",
+        "object-type": "product"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "provides",
+        "object": "meaningful, highly personalized discounts",
+        "object-type": "discount"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "delivers",
+        "object": "personalized value through omnichannel loyalty programs",
+        "object-type": "loyalty-program"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "collects",
+        "object": "valuable data across channels on a wide range of shopping behaviors",
+        "object-type": "data"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "analyzes",
+        "object": "data to personalize and streamline digital and in-store services",
+        "object-type": "data-analysis"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "Customer surveys",
+        "object-type": "customer-feedback",
+        "more-info": "to collect information and improve customer experience"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "Focus groups",
+        "object-type": "customer-feedback",
+        "more-info": "to gather feedback from customers and understand their needs"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "Social media",
+        "object-type": "customer-feedback",
+        "more-info": "to engage with customers, respond to feedback, and provide personalized recommendations"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "Loyalty programs",
+        "object-type": "customer-feedback",
+        "more-info": "to reward sustainable choices and encourage customers to make environmentally friendly decisions"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "sells",
+        "object": "products",
+        "object-type": "product",
+        "more-info": "through various channels, including online and offline stores"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "distributes",
+        "object": "products",
+        "object-type": "product",
+        "more-info": "to customers through its own and third-party apps and websites"
+    },
+    {
+        "subject": "Ahold Delhaire",
+        "predicate": "offers",
+        "object": "own-brand products",
+        "object-type": "product",
+        "more-info": "across different price points and a relevant local assortment"
+    },
+    {
+        "subject": "Customer",
+        "predicate": "receives",
+        "object": "direct feedback",
+        "object-type": "communication"
+    },
+    {
+        "subject": "Customer",
+        "predicate": "provides",
+        "object": "feedback",
+        "object-type": "customer-survey"
+    },
+    {
+        "subject": "Customer",
+        "predicate": "engages",
+        "object": "with associates",
+        "object-type": "customer-support"
+    },
+    {
+        "subject": "Customer",
+        "predicate": "navigates",
+        "object": "planning to shopping",
+        "object-type": "customer-journey"
+    },
+    {
+        "subject": "Customer",
+        "predicate": "places",
+        "object": "click-and-collect order",
+        "object-type": "order-processing"
+    },
+    {
+        "subject": "Customer",
+        "predicate": "stops by",
+        "object": "store",
+        "object-type": "retail-store"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "invests",
+        "object": "in omnichannel experiences",
+        "object-type": "digital-capabilities"
+    },
+    {
+        "subject": "Albert",
+        "predicate": "expands",
+        "object": "online services",
+        "object-type": "e-commerce"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "achieves",
+        "object": "sustainable solutions",
+        "object-type": "initiative",
+        "more-info": "remodeling stores to shift to natural refrigerants, EV charging stations, and ability to choose to have stores audited for energy efficiency"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "achieves",
+        "object": "reduced energy consumption",
+        "object-type": "initiative",
+        "more-info": "through local teams across brands and partnering with suppliers to support sustainable change"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "achieves",
+        "object": "improved food waste reduction targets",
+        "object-type": "initiative",
+        "more-info": "through local teams across brands and partnering with suppliers to support sustainable change"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "sustainable agriculture practices",
+        "object-type": "method",
+        "more-info": "such as conserving natural resources, reducing land conversion and improving soil health"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "achieves",
+        "object": "net-zero GHG emissions across own operations by 2040 (scope 1 and 2)",
+        "object-type": "initiative",
+        "more-info": "and become net-zero businesses across the entire value chain, products"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "achieves",
+        "object": "reduced impact on climate through commitment to reach net-zero GHG emissions",
+        "object-type": "initiative",
+        "more-info": "across own operations and the value chain"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "sources",
+        "object": "sustainable commodities",
+        "object-type": "raw-material",
+        "more-info": "Across our brands, we focus our efforts on seven commodities in own-brand supply chains with elevated social and environmental risks: tea, coffee, cocoa, palm oil, soy, wood fiber and seafood."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "Speak Up lines",
+        "object-type": "process",
+        "more-info": "These enable each of our brand's associates, third parties within and connected to our supply chains and the public to raise concerns."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "data accuracy",
+        "object-type": "process",
+        "more-info": "We encourage our suppliers to continuously improve the accuracy of the data they provide to us."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "conducts",
+        "object": "human rights due diligence",
+        "object-type": "process",
+        "more-info": "This builds on our previous work on human rights due diligence, but this time, we expanded the scope to also include environmental topics."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has",
+        "object": "global GRC framework",
+        "object-type": "process",
+        "more-info": "This framework includes policies and controls that address and monitor key risks to our business."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "suppliers to comply with Standards of Engagement or an equivalent commitment",
+        "object-type": "supplier",
+        "more-info": "complying with applicable laws and regulations"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "observes",
+        "object": "applicable laws and regulations",
+        "object-type": "law",
+        "more-info": "in the country of operation"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "recognizes",
+        "object": "the right of associates to a workplace free from harassment and discrimination",
+        "object-type": "right",
+        "more-info": "in own operations and in supply chains"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "includes",
+        "object": "clear commitments and expectations on equal employment opportunities and respect in the workplace",
+        "object-type": "commitment",
+        "more-info": "in Code of Ethics, Position on Human Rights, and Standards of Engagement"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "develops",
+        "object": "methodology to help each brand explore how it impacts associates, customers, communities, and people in its supply chains",
+        "object-type": "methodology",
+        "more-info": "to include additional social and environmental impacts"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "suppliers to address child labor and forced labor",
+        "object-type": "supplier",
+        "more-info": "in Human Rights Report 2022"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "waste disposal contractors",
+        "object-type": "supplier",
+        "more-info": "to manage waste streams"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "recycles",
+        "object": "cardboard, paper, plastic, metal, glass, wood, electronics, cooking oil and food waste",
+        "object-type": "product",
+        "more-info": "through external partners"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "provides",
+        "object": "training for associates to ensure waste separation is done as accurately as possible",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "performs",
+        "object": "audits to check the quality of waste separation",
+        "object-type": "process",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "works with",
+        "object": "external partners to recycle and dispose of food waste",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "Giant Food",
+        "predicate": "partners with",
+        "object": "Divert to reduce the amount of organic waste going to landfill",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "invests in",
+        "object": "IT systems, particularly in reducing food waste",
+        "object-type": "technology",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "achieves",
+        "object": "net-zero GHG emissions across own operations by 2040 (scope 1 and 2)",
+        "object-type": "emission target"
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "achieves",
+        "object": "net-zero business across value chain, products, and services by 2050",
+        "object-type": "emission target"
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "reduces",
+        "object": "GHG emissions from own operations (scope 1 and 2) by 38% by 2025 and 50% by 2030, compared to the 2018 baseline",
+        "object-type": "emission reduction"
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "reduces",
+        "object": "carbon footprint of local brands' assortments in collaboration with suppliers",
+        "object-type": "emission reduction"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "provides",
+        "object": "transparent insight into the impact they have on people and the environment",
+        "object-type": "reporting requirements"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "initiates",
+        "object": "due diligence assessment to understand and update the range of topics that are material to stakeholders",
+        "object-type": "assessment"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "develops",
+        "object": "methodology to help each brand explore how it impacts associates, customers, communities, and people in its supply chains",
+        "object-type": "methodology"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "plans",
+        "object": "to perform at least two human rights impact assessments in 2024, focusing on understanding most salient human rights impacts in the supply chain",
+        "object-type": "assessments"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "verifies",
+        "object": "data received from third parties and suppliers through sanity checks, focusing on outliers and anomalies",
+        "object-type": "data quality"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "encourages",
+        "object": "suppliers to continuously improve the accuracy of the data they provide",
+        "object-type": "supplier engagement"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "supply chain",
+        "object-type": "supply-chain",
+        "more-info": "The company's supply chain is exposed to various risks."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "geopolitical tensions",
+        "object-type": "risk-factor",
+        "more-info": "Geopolitical tensions across the globe entail supply chain risks for commodities and products that our brands offer to customers."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "energy costs",
+        "object-type": "risk-factor",
+        "more-info": "High energy costs pose threats to operations, particularly in Europe."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "cybersecurity issues",
+        "object-type": "risk-factor",
+        "more-info": "The company is exposed to cybersecurity risks that could lead to material monetary penalties, loss of customers, and damage to corporate reputation."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "supply chain disruption",
+        "object-type": "risk-factor",
+        "more-info": "Disruption to our supply chain or critical business processes could result in non-availability of products for customers and have a significant adverse impact on commercial operations, revenues, reputation, and customer perception."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "climate change",
+        "object-type": "risk-factor",
+        "more-info": "As global climate change continues to evolve, businesses like ours are confronted with an escalating array of physical risks and environmental hazards."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "risks",
+        "object": "human rights developments",
+        "object-type": "risk-factor",
+        "more-info": "The company's supply chain is exposed to human rights risks, particularly in the sourcing of critical commodities."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "diversified supply chain approach",
+        "object-type": "supply-chain-strategy",
+        "more-info": "helps to provide some resilience to the impacts of climate change on particular areas"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "large physical store footprint",
+        "object-type": "physical-store-network",
+        "more-info": "provides some resilience to potential local flooding and hurricane hotspots"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has",
+        "object": "phased approach to understand the potential impact of climate change",
+        "object-type": "climate-change-impact-assessment",
+        "more-info": "helps to prioritize additional mitigation and adaptation efforts"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "engages",
+        "object": "with suppliers",
+        "object-type": "supplier-engagement",
+        "more-info": "to reduce GHG emissions within our supply chain"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "implements",
+        "object": "various adaptation measures",
+        "object-type": "climate-change-adaptation-measures",
+        "more-info": "aim to protect the business from climate change impacts"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "develops",
+        "object": "plans to mitigate any related risks and ensure the continuity of supply",
+        "object-type": "supply-chain-strategy"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "closely monitors",
+        "object": "relevant commodity markets",
+        "object-type": "commodity-markets"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "establishes",
+        "object": "global business continuity strategy, policy and governance structure",
+        "object-type": "business-continuity-strategy"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "activates",
+        "object": "crisis response protocols and reporting",
+        "object-type": "crisis-response-protocols"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "judgments and estimates",
+        "object-type": "supplier-insolvency-estimates",
+        "more-info": "to apply judgments and estimates, mainly relating to the timing of when performance obligations have been fulfilled"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "manages",
+        "object": "risks associated with rights retained in the underlying assets",
+        "object-type": "supplier-insolvency-risk-management",
+        "more-info": "by screening lessees for creditworthiness prior to entering into the lease agreement and following up on outstanding lease payments as part of debtor management"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "measures",
+        "object": "reinsurance contract assets and liabilities",
+        "object-type": "supplier-insolvency-measurement",
+        "more-info": "on a discounted basis using accepted actuarial methods"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "supply chain financing arrangements",
+        "object-type": "insurance policy",
+        "more-info": "The supply chain financing arrangements do not expose Ahold Delhaize to additional credit risk or provide Ahold Delhaize with a significant benefit of additional financing."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "insurance coverage",
+        "object-type": "insurance policy",
+        "more-info": "Our business continuity program includes insurance coverage in key areas and monitoring of vendors and third-party service providers."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "different types of insurance coverage",
+        "object-type": "insurance policy",
+        "more-info": "We further mitigate our risks in this area through different types of insurance coverage within our brands."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "robotic warehouses",
+        "object-type": "technology",
+        "more-info": "Albert Heijn opened a new, mechanized HSC in Barendrecht, the Netherlands, in November, where robots do the shopping."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "route optimization technology",
+        "object-type": "technology",
+        "more-info": "example, by converting transportation fleets to zero-carbon alternatives and reducing energy use through route optimization technology and improved fill mechanisms."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "automated warehouses",
+        "object-type": "technology",
+        "more-info": "example, through automated warehouses and fulfillment centers that enable faster delivery."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "data analytics",
+        "object-type": "method",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "analyzes",
+        "object": "data received from third parties and suppliers",
+        "object-type": "data",
+        "more-info": "through sanity checks, focusing on outliers and anomalies"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "verifies",
+        "object": "supplier data",
+        "object-type": "data",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "estimates",
+        "object": "emissions in our value chain with standard emission factors",
+        "object-type": "method",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "collects",
+        "object": "data on plastic packaging components, such as weight, type of plastic and color",
+        "object-type": "data",
+        "more-info": "through supplier questionnaires"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "requires",
+        "object": "packaging vendors to input information about their plastic packaging into software",
+        "object-type": "requirement",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "uses",
+        "object": "automated warehouses",
+        "object-type": "technology",
+        "more-info": "enabling faster delivery"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "develops",
+        "object": "proprietary technology solutions",
+        "object-type": "innovation",
+        "more-info": "converting transportation fleets to zero-carbon alternatives and reducing energy use through route optimization technology"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "partners",
+        "object": "suppliers",
+        "object-type": "company",
+        "more-info": "innovating supply chain management practices and ensuring customers can access products they need, when they need them"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "opens",
+        "object": "fulfillment centers",
+        "object-type": "location",
+        "more-info": "enabling faster delivery and pickup"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "shifts",
+        "object": "logistics network",
+        "object-type": "process",
+        "more-info": "from centralized distribution to localized, more efficient fulfillment model"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "begins",
+        "object": "picking products from stores and third-party partners",
+        "object-type": "process",
+        "more-info": "as part of Giant Food's Giant Delivers service"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "reduces",
+        "object": "energy consumption, refrigerant leakage, and transport in own operations",
+        "object-type": "process",
+        "more-info": "through local teams across brands"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "partners",
+        "object": "suppliers to support and incentivize sustainable change",
+        "object-type": "company",
+        "more-info": "reducing energy consumption, refrigerant leakage, and transport in own operations"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "invests",
+        "object": "sustainable agriculture",
+        "object-type": "process",
+        "more-info": "improving performance on food waste reduction targets"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "global Information Security organization",
+        "object-type": "organization",
+        "more-info": "to govern and define procedures for mitigating risks to information systems"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "has",
+        "object": "policy and control framework",
+        "object-type": "framework",
+        "more-info": "across all regions and brands that governs and defines procedures for mitigating risks to information systems"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "consistently improves",
+        "object": "cyber-defense capabilities",
+        "object-type": "capability",
+        "more-info": "to keep pace with the evolving threats facing our company"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "develops",
+        "object": "multi-year roadmap",
+        "object-type": "plan",
+        "more-info": "to ensure an effective and cost-efficient IT framework"
+    }
+]
