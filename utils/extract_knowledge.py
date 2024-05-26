@@ -67,11 +67,11 @@ Context:
 ------
 """)
 
-def split_text_into_chunks(text):
+def split_text_into_chunks(text, chunk_size=512, chunk_overlap=64):
     text_splitter = RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.
-        chunk_size=4000,
-        chunk_overlap=256,
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
         length_function=len,
         is_separator_regex=False,
     )
