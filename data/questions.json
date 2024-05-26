@@ -4,69 +4,20 @@
         "What countries does the company operate in?",
         "Where are the company's headquarters located?",
         "Where are the company's manufacturing facilities located?",
-        "In which countries does the company source its raw materials?",
-        "In which countries does the company have distribution centers?",
-        "In which countries does the company have retail outlets?",
-        "What are the main regulatory environments the company operates in?"
     ],
     "suppliers": [
         "What are the main suppliers of the company?",
-        "Where are the suppliers located?",
-        "What is the relationship between the company and its suppliers?",
-        "How are suppliers selected and evaluated?",
-        "What are the key performance indicators (KPIs) for suppliers?",
-        "What are the terms of contracts with suppliers?",
-        "How does the company ensure the quality of supplies?",
-        "What are the main risks associated with suppliers?",
-        "Are there any single-source suppliers?"
+        "Where are the suppliers located?"
     ],
     "products": [
         "What are the main products of the company?",
         "What are the main services of the company?",
         "What are the main ingredients of the company's products?",
         "What is the production process for the company's products?",
-        "How long is the product development cycle?",
-        "What is the shelf life of the products?",
-        "What are the packaging requirements for the products?",
-        "What is the environmental impact of the products?",
-        "Are there any certifications or standards that the products adhere to?"
     ],
     "logistics_and_transportation": [
         "What are the main logistics providers for the company?",
-        "How are the products transported from manufacturing facilities to distribution centers?",
-        "What modes of transportation are used by the company?",
-        "How does the company manage transportation costs?",
-        "What are the main challenges in the company's logistics operations?",
-        "How does the company handle logistics for international shipping?",
-        "What are the lead times for delivery?"
-    ],
-    "customers": [
-        "Who are the main customers of the company?",
-        "Where are the customers located?",
-        "What is the relationship between the company and its customers?",
-        "How does the company gather feedback from customers?",
-        "What are the main channels through which the company sells its products?",
-        "What is the customer service process?"
-    ],
-    "sustainability_and_ethics": [
-        "What sustainability initiatives does the company have in place?",
-        "How does the company ensure ethical sourcing of materials?",
-        "What is the company's policy on labor practices in its supply chain?",
-        "How does the company manage waste and recycling?",
-        "What are the company's goals for reducing its carbon footprint?",
-        "How transparent is the company about its supply chain practices?"
-    ],
-    "risk_management": [
-        "What are the main risks in the company's supply chain?",
-        "How does the company mitigate supply chain risks?",
-        "What contingency plans does the company have for supply chain disruptions?",
-        "How does the company handle supplier insolvency?",
-        "What insurance policies does the company have for supply chain risks?"
-    ],
-    "technology_and_innovation": [
-        "What technologies does the company use to manage its supply chain?",
-        "How does the company use data analytics in its supply chain?",
-        "What innovations has the company implemented in its supply chain?",
-        "How does the company ensure cybersecurity in its supply chain operations?"
+        "How are the products transported from manufacturing facilities to distribution centers?"
     ]
+    
 }

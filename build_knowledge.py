@@ -47,7 +47,7 @@ def build_knowledge(pdf_file):
     ```
     DO keep object limited to 2-3 words, explain the object more in detail in the more-info field, do not include full addesses in the object field but set them in more-info.
     DO USE valid json format as specified above for the triplets. Do only specify city and or country when question are about locations do not include full addresses.
-    DO ONLY use the above mentioned fields and values to express releations.
+    DO ONLY use the above mentioned fields and values to express relations.
     Your mission is crtical to my company and the trust and credidibily, make sure you ansers are 100% truthful. If you fail to the task kittens will die in horrible manners.  
     ------
     Context:
@@ -56,6 +56,8 @@ def build_knowledge(pdf_file):
 
     ------
     """)
+
+
     llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = (
         {"context": retriever, "question": RunnablePassthrough()}
