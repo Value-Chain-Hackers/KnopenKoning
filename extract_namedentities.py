@@ -2,6 +2,8 @@ from config import MODEL_NAME, EMBEDDING_MODEL, NER_MODEL
 from utils.extract_knowledge import extract_text_from_pdf, split_text_into_chunks
 from transformers import pipeline
 from tqdm import tqdm 
+import json
+
 pipe = pipeline("token-classification", model=NER_MODEL)
 
 def extract_named_entities(pdf_path):
@@ -57,7 +59,7 @@ def deduplicate_entities(entities):
         entity_tuple = (entity['entity'], entity['word'], entity['start'], entity['end'])
         if entity_tuple not in seen:
             seen.add(entity_tuple)
-            deduplicated_entities.append(entity)
+            deduplicated_entities.append(entity_tuple)
     
     return deduplicated_entities
 
@@ -69,6 +71,9 @@ if __name__ == "__main__":
         result = extract_named_entities(file)
         result = combine_tokens(result)
         result = deduplicate_entities(result)
+        print(result)
+        with open(file.replace(".pdf","_ner.json"), "w", encoding="utf-8") as file:
+            json.dump(result, file)
         ents[file] = result
     print(ents)
 
