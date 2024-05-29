@@ -9,7 +9,7 @@ from tqdm import tqdm
 from langchain_core.prompts import PromptTemplate
 from utils.build_knowledge import cikLookup
 from utils.extract_knowledge import extract_text_from_pdf, get_huggingface_model, get_records_manager, split_text_into_documents
-
+from db.session import engine, SessionLocal, Base
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -126,15 +126,20 @@ def build_knowledge(pdf_file):
 if __name__ == "__main__":
     #cik = cikLookup("Nestle")
     #print(cik)
-    pdf_files = [
-        "./data/alcoa.pdf",
-        "./data/cocacola.pdf",
-        "./data/danone.pdf",
-        "./data/unilever.pdf", 
-        "./data/ikea.pdf", 
-        "./data/nestle.pdf",
-        "./data/albertheijn.pdf",
-        "./data/scania.pdf"
-        ]
-    for file in pdf_files:
-        build_knowledge(file)
+    if not os.path.exists("./.cache"):
+        os.makedirs("./.cache")
+    hf = get_huggingface_model(EMBEDDING_MODEL)
+    companies = SessionLocal().query(Company).all()
+    for company in tqdm(companies, desc="Building RAG Indexes", unit="RAG", leave=False, position=0):
+        pdf_files = [
+            "./data/alcoa.pdf",
+            "./data/cocacola.pdf",
+            "./data/danone.pdf",
+            "./data/unilever.pdf", 
+            "./data/ikea.pdf", 
+            "./data/nestle.pdf",
+            "./data/albertheijn.pdf",
+            "./data/scania.pdf"
+            ]
+        for file in pdf_files:
+            build_knowledge(file)

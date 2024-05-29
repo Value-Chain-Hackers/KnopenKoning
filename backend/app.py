@@ -175,7 +175,6 @@ async def progress(id: str, db: Session = Depends(get_db)):
             await asyncio.sleep(1)
             question = processes[id]["question"]
             records = collect_base_information(company, db)
-            print(records)
             yield {
                 "event": "message",
                 "id": str(1),

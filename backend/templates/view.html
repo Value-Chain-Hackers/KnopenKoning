@@ -57,7 +57,7 @@
       ></span>
     </div>
     <div class="card-body collapse" id="card4">
-      <svg id="my_dataviz" width="400" height="800"></svg>
+      <svg id="my_dataviz" width="1150" height="800"></svg>
     </div>
   </div>
 </div>
@@ -91,6 +91,10 @@
   </div>
 </div>
 <style>
+  #my_dataviz{
+    width: 100%;
+    height: 100%;
+  }
   .chat-group {
     padding: 4px;
   }
@@ -365,6 +369,32 @@
   const svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
+    var markers = [
+  {long: 9.083, lat: 42.149, group: "A", size: 3}, // corsica
+  {long: 2.349, lat: 48.864, group: "B", size: 5}, // Paris
+  //40.7128° N, 74.0060° W New York
+  {long: -74.006, lat: 40.7128, group: "C", size: 22}, // New York
+  // Amsterdam 52.3676° N, 4.9041° E
+  {long: 4.9041, lat: 52.3676, group: "B", size: 12}, // Amsterdam
+  // london 51.5074° N, 0.1278° W
+  {long: -0.1278, lat: 51.5074, group: "C", size: 22}, // London
+  // Moscow 55.7558° N, 37.6176° E
+  {long: 37.6176, lat: 55.7558, group: "A", size: 16}, // Moscow
+  // Tokyo 35.6895° N, 139.6917° E
+  {long: 139.6917, lat: 35.6895, group: "B", size: 12}, // Tokyo
+  // Sydney 33.8688° S, 151.2093° E
+  {long: 151.2093, lat: -33.8688, group: "B", size: 12}, // Sydney
+  // Rio -22.9068, -43.1729
+  {long: -43.1729, lat: -22.9068, group: "A", size: 12}, // Rio
+  // Cape town -33.9249, 18.4241
+  {long: 18.4241, lat: -33.9249, group: "B", size: 12}, // Cape town
+  // port elizabeth -33.9608, 25.6022
+  {long: 25.6022, lat: -33.9608, group: "B", size: 33}, // port elizabeth
+  // Cairo 30.0444° N, 31.2357° E
+  {long: 31.2357, lat: 30.0444, group: "C", size: 12}, // Cairo
+  // Nairobi -1.286389, 36.817223
+  {long: 36.817223, lat: -1.286389, group: "B", size: 12}, // Nairobi
+];
 
   // Map and projection
   const projection = d3
@@ -376,6 +406,18 @@
   d3.json(
     "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
   ).then(function (data) {
+
+    // Create a color scale
+    var color = d3.scaleOrdinal()
+      .domain(["A", "B", "C" ])
+      .range([ "#400054", "#D18975", "#8FD175"])
+
+    // Add a scale for bubble size
+    var size = d3.scaleLinear()
+      .domain([1,100])  // What's in the data
+      .range([ 4, 50])  // Size in pixel
+
+
     // Draw the map
     svg
       .append("g")
@@ -385,6 +427,21 @@
       .attr("fill", "#69b3a2")
       .attr("d", d3.geoPath().projection(projection))
       .style("stroke", "#fff");
+
+      svg
+      .selectAll("myCircles")
+      .data(markers)
+      .enter()
+      .append("circle")
+        .attr("class" , function(d){ return d.group })
+        .attr("cx", function(d){ return projection([d.long, d.lat])[0] })
+        .attr("cy", function(d){ return projection([d.long, d.lat])[1] })
+        .attr("r", function(d){ return size(d.size) })
+        .style("fill", function(d){ return color(d.group) })
+        .attr("stroke", function(d){ return color(d.group) })
+        .attr("stroke-width", 3)
+        .attr("fill-opacity", .8)
+
   });
 </script>
 
