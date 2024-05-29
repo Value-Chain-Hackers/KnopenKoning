@@ -1,23 +1,38 @@
 {
     "countries": [
         "What are the companies subsidiaries?",
-        "What countries does the company operate in?",
-        "Where are the company's headquarters located?",
-        "Where are the company's manufacturing facilities located?",
+        "Where are the headquarters located?",
+        "Where are the manufacturing facilities located?",
+        "Where are the distribution centers located?",
+        "Where are the warehouses located?"
     ],
     "suppliers": [
-        "What are the main suppliers of the company?",
-        "Where are the suppliers located?"
+        "What are the suppliers of the company?",
+        "Where are the suppliers located?",
+        "Who are indirect suppliers of the company?",
+        "What are the main raw materials suppliers of the company?",
+        "Who are the suppliers of the company's suppliers?"
     ],
     "products": [
-        "What are the main products of the company?",
-        "What are the main services of the company?",
-        "What are the main ingredients of the company's products?",
-        "What is the production process for the company's products?",
+        "What are the product-lines of the company?",
+        "What are the brands of the company?",
+        "What are the products of the company?",
+        "What are the ingredients, materials, components of the company's products?",
+        "What is the production process for the company's products?"
     ],
     "logistics_and_transportation": [
+        "What are the main transportation providers for the company?",
+        "What are the main shipping providers for the company?",
+        "What are the main freight providers for the company?",
         "What are the main logistics providers for the company?",
-        "How are the products transported from manufacturing facilities to distribution centers?"
+        "How are the products transported from manufacturing facilities to distribution centers?",
+        "How are the products transported from distribution centers to warehouses?",
+        "How are the products transported from warehouses to retail stores?",
+        "How are the products transported from warehouses to customers?",
+        "What are the main transportation routes for the company?",
+        "What are the main shipping routes for the company?",
+        "What are the main freight routes for the company?",
+        "What are the main logistics routes for the company?"
     ]
     
 }

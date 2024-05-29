@@ -23,7 +23,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import StreamingResponse
 from utils.extract_knowledge import get_records_manager
 from jobs.information_gathering import collect_base_information
-from routers import agents, tasks
+from routers import agents, tasks, tools
 from config import EMBEDDING_MODEL
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
@@ -39,8 +39,8 @@ app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
 app.include_router(agents.router, prefix="/agents", tags=["agents"])
-
 app.include_router(tasks.router, prefix="/tasks", tags=["tasks"])
+app.include_router(tools.router, prefix="/tools", tags=["tools"])
 
 
 app.add_middleware(
@@ -104,7 +104,7 @@ async def upload_file(file: UploadFile = File(...)):
         f.write(contents)
     return {"filename": file.filename}
 
-from db import Company, Website, Records, Agents, Tasks
+from db import Company, Website, Records, Agents, Tasks, Tools
 from db.session import SessionLocal
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
@@ -125,10 +125,16 @@ async def get_companies(db: Session = Depends(get_db)):
 async def get_agents(db: Session = Depends(get_db)):
     agents = db.query(Agents).order_by(Agents.id).all()
     return agents
+
 @app.get("/api/tasks")
 async def get_tasks(db: Session = Depends(get_db)):
     agents = db.query(Tasks).order_by(Tasks.id).all()
     return agents
+
+@app.get("/api/tools")
+async def get_tools(db: Session = Depends(get_db)):
+    tools = db.query(Tools).order_by(Tools.name).all()
+    return tools
 
 @app.get("/{company:str}/")
 async def read_company(request: Request, company: str):
@@ -143,12 +149,13 @@ async def read_company(request: Request, company: str):
 async def read_admin(request: Request, db: Session = Depends(get_db)):
     agents = await get_agents(db)
     tasks = await get_tasks(db)
-
+    tools = await get_tools(db)
     context = {
         "request": request,  # Required for Jinja2 to work with FastAPI
         "title": "Admininstration",
         "agents": agents,
         "tasks": tasks,
+        "tools": tools
     }
     return templates.TemplateResponse("admin.html", context)
 
@@ -165,6 +172,7 @@ async def progress(id: str, db: Session = Depends(get_db)):
                 "id": str(1),
                 "data": f'{{"step": 1, "detail": "Collecting base information about {company}."}}'
             }
+            await asyncio.sleep(1)
             question = processes[id]["question"]
             records = collect_base_information(company, db)
             print(records)
@@ -175,7 +183,7 @@ async def progress(id: str, db: Session = Depends(get_db)):
             }
             await asyncio.sleep(2)
 
-        for step in range(1, 7):
+        for step in range(2, 7):
             await asyncio.sleep(2)
             yield {
                 "event": "message",
@@ -193,8 +201,6 @@ async def process(request: Request):
     uid = uuid.uuid4()
     processes[str(uid)] = {"company": company, "question": question}
     return {"company": company, "question": question, "uid": str(uid)}
-
-
 
 @app.get("/view/{company:str}")
 async def read_root(request: Request, company: str, db: Session = Depends(get_db)):

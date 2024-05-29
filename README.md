@@ -21,15 +21,75 @@ python -m pip install -r requirements.txt
 
 ## Building the rag index
 ```bash
-python utils/build_rag.py
+python build_rag.py
+python build_knowledge.py
 ```
 
 
 ## Running the app
 ```bash
-streamlit run app.py
+python backend/main.py
 ```
 
+
+```mermaid
+
+graph LR
+    subgraph Collect
+    PDF[PDF\nannual reports] --> Store
+    Crawling[
+        Crawling:\nWeb Site\nBrand Site\nProduct Pages
+    ] --> Store
+    SEC[
+        US SEC\nFilings\n10-K\n10-Q
+    ] --> Store
+    Wikipedia[Wiki\nCompany Pages\nIngrediens\nChemicals] --> Store
+
+    DuckDuckGo[Search\nDuckDuckGo] --> Store
+
+    Store --> Ingestion['Processing\nIngestion']
+    end
+    subgraph Ingest
+        Ingestion --> Transform <--> Extract[Extract:\n Nodes, Edges]
+        Transform <--> Structurize[Structurize:\n CSV, JSON, Markdown]
+        Transform --> Embeddings
+        Structurize --> Knowledge
+    end
+    subgraph Knowledge
+        Transform --> LLM
+        Extract <--> IndexGraph
+        Extract <--> IndexFact
+        LLM --> Structurize
+    end
+    RAG --> Retrievers
+    subgraph GraphDatabase
+        IndexGraph[Graph\nNodes\nLinks] --> Neo4j 
+        RAG --> Neo4j
+    end
+    subgraph FactDatabase
+        IndexFact --> Sqlite 
+        IndexFact --> Markdown
+        Markdown --> RAG
+        Sqlite --> RAG
+    end
+
+    subgraph VectorStores
+        Embeddings --> Faiss
+        Embeddings --> Chroma
+        Faiss --> RAG
+        Chroma --> RAG
+    end
+
+
+
+    subgraph UI
+       
+        UIAI --> Query --> Retrievers --> Results --> Visualize
+        Query --> Visualize
+    end
+
+
+```
 
 ### Welke Leverenciers leveren nou aan wie? Supplychain map.
 ### Een entiteit als node pakken, dat betekend unilever aanzich ook al een entiteit is. 

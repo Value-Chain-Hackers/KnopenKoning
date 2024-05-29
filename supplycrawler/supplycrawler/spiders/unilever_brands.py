@@ -25,7 +25,7 @@ class UnileverSpider(CrawlSpider):
                                 'title':         item.css('span.uol-c-link__label::text').get(),
                                 'link':          "https://www.unilever.com" + item.css('a::attr(href)').get(),
                                 'link-text':     item.css('a::text').get(),
-                                'picture':       item.css('img::attr(src)').get(),
+                                'picture':       "https://www.unilever.com" + item.css('img::attr(src)').get(),
                             }
                         else:
                             yield {
@@ -33,5 +33,5 @@ class UnileverSpider(CrawlSpider):
                                 'title':         item.css('span.uol-c-link__label::text').get(),
                                 'link':          "https://www.unilever.com" + item.css('a::attr(href)').get(),
                                 'link-text':     item.css('a::text').get(),
-                                'picture':       item.css('img::attr(src)').get(),
+                                'picture':       "https://www.unilever.com" +  item.css('img::attr(src)').get(),
                             }

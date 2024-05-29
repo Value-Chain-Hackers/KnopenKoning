@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content
 %} {% import 'includes/header.html' as header %}
 
+<script src="https://d3js.org/d3.v6.js"></script>
 <div class="container">
   {{ header.bar('username') }}
   <!-- Create an element where the map will take place -->
@@ -8,19 +9,13 @@
 <div class="sidebar_left">
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Card Title</h3>
+      <h3 class="card-title">Details</h3>
       <span class="collapse-toggle" onclick="toggleCollapse('card1')"
         ><i class="fas fa-chevron-down"></i
       ></span>
     </div>
     <div class="card-body" id="card1">
-      <p>This is the body of the card. It contains the main content.</p>
-    </div>
-    <div class="card-footer">
-      <div class="footer-actions">
-        <button>Action 1</button>
-        <button>Action 2</button>
-      </div>
+      <p id="details">Click a node to get more details.</p>
     </div>
   </div>
   <div class="card">
@@ -33,29 +28,36 @@
     <div class="card-body chat-group" id="card2">
       <div>
         <div class="chat-group-conversation"></div>
-      <textarea id="userMessage" style="width: 100%; height: 100%;"></textarea>
-      <button id="sendMessage">Send</button>
-    </div>
+        <textarea id="userMessage" style="width: 100%; height: 100%"></textarea>
+        <button id="sendMessage">Send</button>
+      </div>
     </div>
     <div class="card-footer">
-      <div class="footer-actions">
-       
-      </div>
+      <div class="footer-actions"></div>
     </div>
   </div>
 </div>
 <div class="maincontent">
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Card Title</h3>
+      <h3 class="card-title">Graph View</h3>
       <span class="collapse-toggle" onclick="toggleCollapse('card3')"
         ><i class="fas fa-chevron-up"></i
       ></span>
     </div>
     <div class="card-body" id="card3">
-      <svg id="my_dataviz" width="400" height="300"></svg>
-
       <div class="graphContainer"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">World Map</h3>
+      <span class="collapse-toggle" onclick="toggleCollapse('card4')"
+        ><i class="fas fa-chevron-up"></i
+      ></span>
+    </div>
+    <div class="card-body collapse" id="card4">
+      <svg id="my_dataviz" width="400" height="800"></svg>
     </div>
   </div>
 </div>
@@ -129,7 +131,7 @@
   }
 </style>
 <script>
-  document.getElementById("sendMessage").addEventListener("click",(e)=>{
+  document.getElementById("sendMessage").addEventListener("click", (e) => {
     const message = document.getElementById("userMessage").value;
     document.getElementById("userMessage").value = "";
     const chatGroup = document.querySelector(".chat-group-conversation");
@@ -145,16 +147,15 @@
 
       const reader = readableStream.getReader();
       const chunks = [];
-        let done, value;
-        decoder = new TextDecoder()
-        while (!done) {
-          ({ value, done } = await reader.read());
-          if (done) {
-          }
-          newMessage.textContent += decoder.decode(value);
-          chatGroup.scrollTop = chatGroup.scrollHeight;
-
+      let done, value;
+      decoder = new TextDecoder();
+      while (!done) {
+        ({ value, done } = await reader.read());
+        if (done) {
         }
+        newMessage.textContent += decoder.decode(value);
+        chatGroup.scrollTop = chatGroup.scrollHeight;
+      }
     }
 
     fetch("/ask", {
@@ -162,15 +163,14 @@
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ 'question': message, context:'<here>' }),
-    })
-      .then(async (response) => {
-        const newMessage = document.createElement("div");
-        newMessage.classList.add("chat-message");
-        newMessage.classList.add("bot");
-        await readAllChunks(response.body, chatGroup, newMessage)})      ;
+      body: JSON.stringify({ question: message, context: "<here>" }),
+    }).then(async (response) => {
+      const newMessage = document.createElement("div");
+      newMessage.classList.add("chat-message");
+      newMessage.classList.add("bot");
+      await readAllChunks(response.body, chatGroup, newMessage);
+    });
   });
-
 
   function toggleCollapse(id) {
     const element = document.getElementById(id);
@@ -186,35 +186,41 @@
   const nodes = [];
   const links = [];
   const nodeMap = {};
-
-
+  const lanes = ["root", "company", "country", "supplier", "materials"];
+  const laneWidth = Number(1024/lanes.length);
 
   fetch("/static/unilever.json")
     .then((response) => response.json())
     .then((data) => buildGraph(data));
 
   function buildGraph(input) {
-    // Build nodes and links from input
     input.forEach((entry) => {
       const { subject, predicate, object } = entry;
-      if (links.length > 90) return;
-
-      addNode(subject);
-      addNode(object);
+      if (links.length > 130) return;
+      addNode(subject, entry['object-type']);
+      addNode(object,  entry['object-type']);
       links.push({
         source: nodeMap[subject],
         target: nodeMap[object],
+        objectType:  entry['object-type'],
         value: 1,
-        type: "country",
+        type: predicate, // Use predicate as the link type
       });
     });
 
     createGraph();
   }
 
-  function addNode(name) {
+  function addNode(name, objectType) {
     if (!nodeMap[name]) {
-      const newNode = { id: name, group: nodes.length % 10, type: "root" };
+      console.log(name, objectType);
+      const laneIndex = lanes.indexOf(objectType) > -1 ? lanes.indexOf(objectType) : 0;
+      const newNode = {
+        id: name,
+        group: nodes.length % 10,
+        type: objectType,
+        lane: laneIndex,
+      };
       nodes.push(newNode);
       nodeMap[name] = newNode;
     }
@@ -228,6 +234,26 @@
       .attr("height", "90%")
       .call(d3.zoom().on("zoom", zoomed))
       .append("g");
+    // get actual width and height
+    const width = parseInt(svg.style("width"), 10);
+    const height = parseInt(svg.style("height"), 10);
+
+    const arrowMarkers = svg
+      .append("defs")
+      .selectAll("marker")
+      .data(["end"])
+      .enter()
+      .append("marker")
+      .attr("id", String)
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", 15)
+      .attr("refY", 0)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M0,-5L10,0L0,5")
+      .attr("fill", "#000");
 
     const link = svg
       .append("g")
@@ -237,7 +263,9 @@
       .enter()
       .append("line")
       .attr("class", "link")
-      .attr("stroke-width", (d) => Math.sqrt(d.value) * 2);
+      .attr("stroke-width",  2)
+      .attr("stroke", "#999")
+      .attr("marker-end", "url(#end)");
 
     const node = svg
       .append("g")
@@ -275,10 +303,18 @@
         d3
           .forceLink(links)
           .id((d) => d.id)
-          .distance(100)
+          .distance(200)
       )
       .force("charge", d3.forceManyBody())
-      .force("center", d3.forceCenter());
+      .force("center", d3.forceCenter())
+      .force(
+        "x",
+        d3
+          .forceX()
+          .x((d) => (d.lane+1) * laneWidth + laneWidth / 2)
+          .strength(1)
+      )
+      .force("y", d3.forceY().strength(0.1));
 
     simulation.nodes(nodes).on("tick", ticked);
 
@@ -315,7 +351,7 @@
 
     function showDetails(event, d) {
       const details = document.getElementById("details");
-      details.innerHTML = `<h3>${d.id}</h3><p>Group: ${d.group}</p>`;
+      details.innerHTML = `<h3>${d.id}</h3><p>Group: ${d.group}</p><p>Type: ${d.type}</p>`;
     }
 
     function zoomed(event) {

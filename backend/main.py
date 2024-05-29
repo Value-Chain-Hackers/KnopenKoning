@@ -39,6 +39,15 @@ if __name__ == "__main__":
         from db.records import Records
         from db.website import Website
         Base.metadata.create_all(bind=engine)
+        # get all companies and create their cache and data folders
+        companies = SessionLocal().query(Company).all()
+        for company in companies:
+            if not os.path.exists(f"./.cache/{company.company_name}"):
+                print(f"Creating cache folder for {company.company_name}")
+                os.makedirs(f"./.cache/{company.company_name}")
+            if not os.path.exists(f"./data/{company.company_name}"):
+                print(f"Creating data folder for {company.company_name}")
+                os.makedirs(f"./data/{company.company_name}")
 
 
         from uvicorn.supervisors.multiprocess import Multiprocess

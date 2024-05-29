@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+{% block title %}Admin{% endblock %} 
+{% import 'includes/card.html' as card %}
+
+{% block content %}
+{% import 'includes/header.html' as header %}
+
+<div class="sidebar_left">
+  {{ card.full('username') }}
+</div>
+<div class="maincontent">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Card Title</h3>
+      <span class="collapse-toggle" onclick="toggleCollapse('card3')">
+        <i class="fas fa-chevron-up"></i>
+      </span>
+    </div>
+    <div class="card-body" id="card3">
+      <div class="tab-container">
+        <div class="tabs">
+          <button class="tab-button active" onclick="openTab(event, 'tab1')">
+            Tab 1
+          </button>
+          <button class="tab-button" onclick="openTab(event, 'tab2')">
+            Tab 2
+          </button>
+          <button class="tab-button" onclick="openTab(event, 'tab3')">
+            Tab 3
+          </button>
+        </div>
+        <div class="tab-content" id="tab1">
+          <p>This is the content of Tab 1.</p>
+        </div>
+        <div class="tab-content" id="tab2" style="display: none">
+          <p>This is the content of Tab 2.</p>
+        </div>
+        <div class="tab-content" id="tab3" style="display: none">
+          <p>This is the content of Tab 3.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sidebar_right">
+  {{ card.full('a','b','c') }}
+  {{ card.full('username') }}
+
+  <div id="documents-widget" class="card" style="bottom: 0px">
+    <div class="card-body" id="card5">
+      <p>This is the body of the card. It contains the main content.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+ {{ header.bar('username') }}
+</div>
+
+{% endblock %}

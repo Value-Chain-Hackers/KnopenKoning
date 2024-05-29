@@ -2,21 +2,20 @@
 'includes/card.html' as card %} {% block content %} {% import
 'includes/header.html' as header %}
 
-<div class="sidebar_left">{{ card.full('username') }}</div>
+<div class="sidebar_left">{{ card.full('Jobs', body='No jobs running.') }}</div>
 <div class="maincontent">
   <div>
     <div class="tabs">
       <button class="tab-button active" onclick="openTab(event, 'tab1')">
-       <i class="fas fa-user-tie"></i><span>&nbsp;&nbsp; Agents</span>
+        <i class="fas fa-user-tie"></i><span>&nbsp;&nbsp;Agents</span>
       </button>
       <button class="tab-button" onclick="openTab(event, 'tab2')"><i class="fas fa-tasks"></i>&nbsp;&nbsp;Tasks</button>
       <button class="tab-button" onclick="openTab(event, 'tab3')"><i class="fas fa-toolbox"></i>&nbsp;&nbsp;Tools</button>
+      <button class="tab-button" onclick="openTab(event, 'tab4')"><i class="fas fa-toolbox"></i>&nbsp;&nbsp;Crews</button>
     </div>
   </div>
   <div class="card" style="height: 100%">
-    
     <div class="card-body" id="card3">
-
       <div class="tab-content active" id="tab1">
         <a href="/agents/new"><i class="fas fa-plus-circle"></i> New</a>
         <table>
@@ -68,7 +67,48 @@
         </table>
       </div>
       <div class="tab-content" id="tab3">
-        <p>This is the content of Tab 3.</p>
+        <a href="/tools/new"><i class="fas fa-plus-circle"></i> New</a>
+        <table>
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Output</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for tool in tools %}
+            <tr>
+              <td>{{ tool.name }}</td>
+              <td>{{ tool.output }}</td>
+              <td>{{ tool.status }}</td>
+              <td></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-content" id="tab4">
+        <a href="/crews/new"><i class="fas fa-plus-circle"></i> New</a>
+        <table>
+          <thead>
+            <tr>
+              <th>Crew</th>
+              <th>Objective</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for tool in tools %}
+            <tr>
+              <td>{{ tool.name }}</td>
+              <td>{{ tool.output }}</td>
+              <td>{{ tool.status }}</td>
+              <td></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

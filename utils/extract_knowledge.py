@@ -9,7 +9,7 @@ from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
 
-from config import MODEL_NAME, EMBEDDING_MODEL
+from config import MODEL_NAME, EMBEDDING_MODEL, CUDA_ENABLED, RECORDS_DATABASE
 
 knowledge_extraction_prompt = PromptTemplate.from_template("""\
 Please proceed to knowledge extraction from the provided text. Focus on the following aspects:
@@ -153,7 +153,7 @@ def extract_knowledge_graph(text, output_path):
     return knowledge
 
 
-def get_records_manager(namespace, database_filename = ".cache/record_manager_cache.db") -> SQLRecordManager:
+def get_records_manager(namespace, database_filename = RECORDS_DATABASE) -> SQLRecordManager:
 
     # if the file exists, load the record manager from the file
     if os.path.exists(database_filename):
@@ -173,7 +173,11 @@ def get_records_manager(namespace, database_filename = ".cache/record_manager_ca
 
 def get_huggingface_model(model_name):
     from langchain_community.embeddings import HuggingFaceEmbeddings
-    model_kwargs =  {'device': 'cuda'}
+    if CUDA_ENABLED:
+        model_kwargs =  {'device': 'cuda'}
+    else:
+        model_kwargs =  {'device': 'cpu'}
+    print(f"Loading Hugging Face model {model_name}")
     encode_kwargs = {'normalize_embeddings': False}
     hf = HuggingFaceEmbeddings(
         model_name=model_name,
