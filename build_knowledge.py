@@ -44,7 +44,9 @@ predicates = [
 knowledge_build_prompt = PromptTemplate.from_template(f"""\
 You are a **Knowledge Extraction Agent**
 
-Your task is to build a comprehensive knowledge graph from the provided text. The knowledge graph should capture all relevant information based on the specified question. Adhere strictly to the following guidelines:
+Your task is to build a comprehensive knowledge graph from the provided text. 
+The knowledge graph should capture all relevant information based on the specified question : {{question}} 
+Adhere strictly to the following guidelines:
 
 1. **Extraction Format**: Use the specified JSON format for each extracted triplet. Each triplet should include:
     - `subject`: The entity that is the source of a relationship.
@@ -78,13 +80,13 @@ Your task is to build a comprehensive knowledge graph from the provided text. Th
 ### Example Template:
 ```json
 [
-  {{
-    "subject": "...",
-    "predicate": "...", 
-    "object": "...",
-    "object-type": "...", 
+  {{{{
+    "subject": "...",       // the source node of the relationship
+    "predicate": "...",     // one of {', '.join(predicates)}
+    "object": "...",        // the target node of the relationship
+    "object-type": "...",   // one of {', '.join(object_types)}
     "more-info": "..."
-  }},
+  }}}},
   ...
 ]
 ```
@@ -93,12 +95,12 @@ Your task is to build a comprehensive knowledge graph from the provided text. Th
 
 **Context**:
 ```
-{context}
+{{context}}
 ```
 
 **Question**:
 ```
-{question}
+{{question}}
 ```
 
 ---
@@ -110,7 +112,7 @@ DO verify the accuracy and relevance of your extractions are critical to the suc
 hf = get_huggingface_model(EMBEDDING_MODEL)
 
 def get_chain(namespace, rag_folder):
-    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
+    llm = Ollama(model=MODEL_NAME, num_ctx=8192, num_predict=4048, temperature=0.2)
     chain = (
         {"context": get_retriever(namespace, rag_folder), "question": RunnablePassthrough()}
         | knowledge_build_prompt
@@ -153,15 +155,12 @@ def build_knowledge(company):
                     rejected.append(r)
                     continue
 
-                if "," in r["object"]:
-                    objects = r["object"].split(",")
-                    for obj in objects:
-                        relationships.append({"subject": r["subject"], "predicate": r["predicate"], "object": obj, "object-type": r["object-type"], "more-info": r["more-info"]})
-                else:
-                    relationships.append(r)
-
-
-            relationships.extend(result)
+                # if "," in r["object"]:
+                #     objects = r["object"].split(",")
+                #     for obj in objects:
+                #         relationships.append({"subject": r["subject"], "predicate": r["predicate"], "object": obj, "object-type": r["object-type"], "more-info": r.get("more-info","")})
+                # else:
+                relationships.append(r)
     
         with open(f"./data/{company.company_name}/knowledge_{topic}.json","w") as out:
             json.dump(relationships, out, indent=4)
