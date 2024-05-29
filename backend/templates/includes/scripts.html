@@ -1,0 +1,75 @@
+
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src="/static/back.js"></script>
+<script>
+  function toggleCollapse(id) {
+    const element = document.getElementById(id);
+    if (element.classList.contains("collapse")) {
+      element.classList.remove("collapse");
+      element.classList.add("expand");
+    } else {
+      element.classList.remove("expand");
+      element.classList.add("collapse");
+    }
+  }
+
+  setup();
+  draw();
+</script>
+<script>
+  const uploadContainer = document.getElementById("upload-container");
+  const fileInput = document.getElementById("file-input");
+  const uploadButton = document.getElementById("upload-button");
+
+  // Handle browse button click
+  uploadButton.addEventListener("click", () => {
+    fileInput.click();
+  });
+
+  // Handle file input change
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    if (file) {
+      uploadFile(file);
+    }
+  });
+
+  // Handle drag and drop
+  uploadContainer.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    uploadContainer.classList.add("dragover");
+  });
+
+  uploadContainer.addEventListener("dragleave", () => {
+    uploadContainer.classList.remove("dragover");
+  });
+
+  uploadContainer.addEventListener("drop", (event) => {
+    event.preventDefault();
+    uploadContainer.classList.remove("dragover");
+    const file = event.dataTransfer.files[0];
+    if (file) {
+      uploadFile(file);
+    }
+  });
+
+  // Function to upload file
+  function uploadFile(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    fetch("http://localhost:8000/uploadfile/", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("File uploaded successfully!");
+        console.log(data);
+      })
+      .catch((error) => {
+        alert("File upload failed.");
+        console.error("Error:", error);
+      });
+  }
+</script>

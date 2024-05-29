@@ -153,19 +153,23 @@ def extract_knowledge_graph(text, output_path):
     return knowledge
 
 
-def get_records_manager(database, namespace):
+def get_records_manager(namespace, database_filename = ".cache/record_manager_cache.db") -> SQLRecordManager:
 
     # if the file exists, load the record manager from the file
-    if os.path.exists(database):
+    if os.path.exists(database_filename):
         record_manager = SQLRecordManager(
-            namespace, db_url=f"sqlite:///{database}"
+            namespace, db_url=f"sqlite:///{database_filename}"
         )
         return record_manager
     else:
         record_manager = SQLRecordManager(
-            namespace, db_url=f"sqlite:///{database}"
+            namespace, db_url=f"sqlite:///{database_filename}"
         )
-        record_manager.create_schema()
+        try:
+            record_manager.create_schema()
+        except:
+            pass
+        return record_manager
 
 def get_huggingface_model(model_name):
     from langchain_community.embeddings import HuggingFaceEmbeddings

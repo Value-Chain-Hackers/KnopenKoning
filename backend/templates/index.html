@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content
+%}
+
+<div class="maincontent">
+  <div
+    class="card"
+    style="margin-left: auto; margin-right: auto; width: 600px; height: 300px"
+  >
+    <div class="card-body">
+        <div style="padding: 15px; padding-top: 40px;">
+      <a href="/"> <img class="avatar" src="/static/profile.webp" style="float: left" /></a>
+    </div>
+      <div style="margin-left: auto; width: 400px; margin-right: auto;">
+        <select id="companySelect" class="select">
+          {% for company in companies %}
+          <option value="{{ company.id }}">{{ company.company_name }}</option>
+          {% endfor %}
+        </select>
+        <input
+          id="questionInput"
+          type="text"
+          placeholder="Ask your question to the AI..."
+        />
+      </div>
+      <div>
+        <button id="goButton" class="select">Go</button>
+      </div>
+      <div id="stepper" class="stepper hidden">
+        <div class="step" id="step1">
+          <i class="fas fa-user"></i>
+          <p>Company Info</p>
+        </div>
+        <div class="step" id="step2">
+          <i class="fas fa-file-alt"></i>
+          <p>
+            Data
+            <span id="educationWarning" class="warning hidden">
+              <i
+                style="
+                  position: absolute;
+                  right: -2px;
+                  top: -2px;
+                  font-size: 100%;
+                  color: orange;
+                "
+                class="fas fa-exclamation-circle"
+              ></i>
+            </span>
+          </p>
+        </div>
+        <div class="step" id="step3">
+          <i class="fas fa-briefcase"></i>
+          <p>Business</p>
+        </div>
+        <div class="step" id="step4">
+          <i class="fas fa-truck"></i>
+          <p>Transportation</p>
+        </div>
+        <div class="step" id="step5">
+          <i class="fas fa-eye"></i>
+          <p>Analysis</p>
+        </div>
+        <div class="step" id="step6">
+          <i class="fas fa-check"></i>
+          <p>Reporting</p>
+        </div>
+      </div>
+      <div id="stepperMessage" class="stepper message"></div>
+      <div style="clear: both"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'includes/head.html' %}
+  </head>
+
+  <body>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    {% include 'includes/scripts.html' %}
+  </body>
+</html>
