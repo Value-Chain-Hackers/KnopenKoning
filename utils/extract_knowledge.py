@@ -77,10 +77,10 @@ def split_text_into_chunks(text, chunk_size=512, chunk_overlap=64):
     )
     return text_splitter.split_text(text)
 
-def extract_documents_from_pdf(pdf_path):
+def extract_documents_from_pdf(pdf_path, chunk_size=512, chunk_overlap=64):
     text = extract_text_from_pdf(pdf_path)
     basename = os.path.basename(pdf_path).replace(".pdf", "")
-    docs = split_text_into_documents(text, key=basename)
+    docs = split_text_into_documents(text, key=basename, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     for doc in docs:
         doc.metadata["source"] = pdf_path
     return docs

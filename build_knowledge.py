@@ -1,15 +1,21 @@
 import warnings
 warnings.filterwarnings("ignore")
 
+from logging import getLogger
+log = getLogger(__name__)
+
 from config import MODEL_NAME, EMBEDDING_MODEL
 from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
+import glob
 from tqdm import tqdm
 from langchain_core.prompts import PromptTemplate
 from utils.build_knowledge import cikLookup
 from utils.extract_knowledge import extract_text_from_pdf, get_huggingface_model, get_records_manager, split_text_into_documents
+
 from db.session import engine, SessionLocal, Base
+from db import Company
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -80,47 +86,46 @@ DO follow these instructions meticulously to extract and construct the knowledge
 DO verify the accuracy and relevance of your extractions are critical to the success of this task.
     """)
 
-model_name = EMBEDDING_MODEL
-print(f"Loading Hugging Face model {model_name}")
-hf = get_huggingface_model(model_name)
+hf = get_huggingface_model(EMBEDDING_MODEL)
 
-def get_chain(namespace, pdf_file):
+def get_chain(namespace, rag_folder):
     llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
     chain = (
-        {"context": get_retriever(namespace, pdf_file), "question": RunnablePassthrough()}
+        {"context": get_retriever(namespace, rag_folder), "question": RunnablePassthrough()}
         | knowledge_build_prompt
         | llm
         | JsonOutputParser()
     )
     return chain
 
-def get_retriever(namespace, pdf_file):
-    chroma = Chroma(namespace,  embedding_function=hf, persist_directory=f"./.cache/chroma/docs/{pdf_file}")
-    retriever = chroma.as_retriever(search_kwargs= {"k": 15})
+def get_retriever(namespace, rag_folder):
+    chroma = Chroma(namespace,  embedding_function=hf, persist_directory=rag_folder)
+    retriever = chroma.as_retriever(search_kwargs={"k": 6})
     return retriever
 
-def build_knowledge(pdf_file):
+def build_knowledge(company):
     if not os.path.exists("./.cache"):
         os.makedirs("./.cache")
-    print(f"Building knowledge for {pdf_file}")
-    namespace = f"rags/docs/{pdf_file}".replace("/","").replace(".","")
-    chain = get_chain( namespace, pdf_file)
+    #print(f"Building knowledge for {pdf_file}")
+    namespace = f"rags-docs-{company.company_name}".replace(" ","").replace("-","")
+    rag_folder = f"./.cache/{company.company_name}/chroma/docs/"
+    chain = get_chain(namespace, rag_folder)
 
-    print(f"Getting records manager for namespace {namespace} in db")
+    #print(f"Getting records manager for namespace {namespace} in db")
     topics = json.load(open("./data/questions.json", "r"))
     # Hack to only use the suppliers questions
     topics = {"suppliers": topics["suppliers"]}
-    print(f"Loaded {len(topics)} topics")
-    print(f"Extracting text from {pdf_file}")
+    #print(f"Loaded {len(topics)} topics")
+    #print(f"Extracting text from {pdf_file}")
     
     relationships = []
-    for topic in tqdm(topics):
-        for question in topics[topic]:
-            print(f"Question: {question}")
+    for topic in tqdm(topics, desc=f"Processing Topics for {company.company_name}", unit="topic", leave=False, position=1):
+        for question in tqdm(topics[topic], desc=f"Processing questions in {topic}", unit="question", leave=False, position=2):
+            #print(f"Question: {question}")
             result = chain.invoke(question)
             relationships.extend(result)
     
-        with open(f"{pdf_file.replace('.pdf','.json')}","w") as out:
+        with open(f"./data/{company.company_name}/knowledge_{topic}.json","w") as out:
             json.dump(relationships, out, indent=4)
 
 if __name__ == "__main__":
@@ -128,18 +133,6 @@ if __name__ == "__main__":
     #print(cik)
     if not os.path.exists("./.cache"):
         os.makedirs("./.cache")
-    hf = get_huggingface_model(EMBEDDING_MODEL)
     companies = SessionLocal().query(Company).all()
-    for company in tqdm(companies, desc="Building RAG Indexes", unit="RAG", leave=False, position=0):
-        pdf_files = [
-            "./data/alcoa.pdf",
-            "./data/cocacola.pdf",
-            "./data/danone.pdf",
-            "./data/unilever.pdf", 
-            "./data/ikea.pdf", 
-            "./data/nestle.pdf",
-            "./data/albertheijn.pdf",
-            "./data/scania.pdf"
-            ]
-        for file in pdf_files:
-            build_knowledge(file)
+    for company in tqdm(companies, desc="Building Knowledge Base", unit="RAG", leave=False, position=0):
+        build_knowledge(company)

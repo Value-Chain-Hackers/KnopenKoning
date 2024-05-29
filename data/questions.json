@@ -13,6 +13,26 @@
         "What are the main raw materials suppliers of the company?",
         "Who are the suppliers of the company's suppliers?"
     ],
+    "environment":[
+        "What are the company's environmental policies?",
+        "What are the company's sustainability initiatives?",
+        "What are the company's recycling programs?",
+        "What are the company's waste management programs?",
+        "What are the company's energy efficiency programs?",
+        "What are the company's water conservation programs?",
+        "What are the company's carbon footprint reduction programs?"
+    ],
+    "social_media":[
+        "What are the company's social media accounts?",
+        "What are the company's social media profiles?",
+        "What are the company's YouTube channels?",
+        "What are the company's Facebook pages?",
+        "What are the company's Twitter accounts?",
+        "What are the company's Instagram accounts?",
+        "What are the company's LinkedIn profiles?",
+        "What are the company's Pinterest accounts?",
+        "What are the company's Snapchat accounts?"
+    ],
     "products": [
         "What are the product-lines of the company?",
         "What are the brands of the company?",

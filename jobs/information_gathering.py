@@ -18,7 +18,7 @@ def collect_base_information(company_name: str, db: Session):
             page_summary = summary(result)
             page_result = page(result)
             
-            with open(f"./cache/{company_name}/{result}.md", "w") as f:
+            with open(f"./cache/{company.company_name}/{result}.md", "w") as f:
                 f.write(f"# {page_result.title}\n\n")
                 f.write(f"## Summary\n\n")
                 f.write(page_summary)
