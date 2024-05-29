@@ -2,6 +2,7 @@ apscheduler
 arxiv 
 beautifulsoup4 
 chroma
+crewai
 fastapi 
 jinja2
 langchain 

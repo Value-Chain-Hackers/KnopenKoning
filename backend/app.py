@@ -1,19 +1,13 @@
 # main.py
-import os
-import sys
-import time
 import asyncio
-
+import uuid
+import time
 import ollama
 
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from apscheduler.triggers.cron import CronTrigger
-import sqlite3
-import uuid
-import time
-import json
 from pathlib import Path
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -24,7 +18,7 @@ from fastapi.responses import StreamingResponse
 from utils.extract_knowledge import get_records_manager
 from jobs.information_gathering import collect_base_information
 from routers import agents, tasks, tools
-from config import EMBEDDING_MODEL
+
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
 scheduler = BackgroundScheduler()
@@ -104,7 +98,7 @@ async def upload_file(file: UploadFile = File(...)):
         f.write(contents)
     return {"filename": file.filename}
 
-from db import Company, Website, Records, Agents, Tasks, Tools
+from db import Company, Website, Records, Agents, Tasks, Tools, Crews
 from db.session import SessionLocal
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
@@ -158,6 +152,15 @@ async def read_admin(request: Request, db: Session = Depends(get_db)):
         "tools": tools
     }
     return templates.TemplateResponse("admin.html", context)
+
+@app.get("/crews/{name:str}/kickoff")
+async def kickoff(name: str, db: Session = Depends(get_db)):
+    from crewai import Crew, Agent, Task, tool
+    crew = db.query(Crews).filter(Crews.name == name).first()
+    if crew:
+
+        return {"status": "kicked off"}
+    return {"status": "not found"}
 
 
 processes = {}
