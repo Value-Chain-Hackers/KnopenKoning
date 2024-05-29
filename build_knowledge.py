@@ -23,26 +23,41 @@ import json
 from langchain_community.llms.ollama import Ollama
 
 object_types = [
-    "raw-material", "subsidiary", "product", "supplier", "customer", "plant", "warehouse", "store", "office", "factory", "equipment", "service", "brand", "partner", "competitor", "material", "ingredient", "component", "product-line", "division", "department", "team", "group", "organization",  "authority", "regulator", "industry", "sector", "segment", "region", "country", "continent", "world"
+    "raw-material", "supplier", "customer", "manufacting plant",
+    "warehouse", "distribution center", "store", "office", "factory",
+    "equipment", "service",
+    "product-line", "product", "brand",
+    "partner", "competitor", "subsidiary", 
+    "material", "ingredient", "component", "commodity", 
+#     "division", "department", "team", "group", "organization", 
+#    "authority", "regulator", "industry", "sector", "segment",
+    "location" ,"city", "region", "country", "continent"
+]
+predicates = [
+    'uses', 'has', 'owns', 'produces', 'makes', 'sells', 'supplies',
+    'is-a', 'is-located-in', 'is-part-of', 'contains', 'partners-with', 'collaborates-with',
+    'operates-in',
+    #'acquires',
+    #'employs', 'manufactures', 'distributes'
 ]
 
-knowledge_build_prompt = PromptTemplate.from_template("""\
+knowledge_build_prompt = PromptTemplate.from_template(f"""\
 You are a **Knowledge Extraction Agent**
 
 Your task is to build a comprehensive knowledge graph from the provided text. The knowledge graph should capture all relevant information based on the specified question. Adhere strictly to the following guidelines:
 
 1. **Extraction Format**: Use the specified JSON format for each extracted triplet. Each triplet should include:
-    - `subject`: The entity that performs or owns an action.
-    - `predicate`: The relationship or action, chosen from the predefined list.
-    - `object`: The entity that is affected by the action or relationship.
-    - `object-type`: The type of the entity, chosen from the predefined list.
-    - `more-info`: Additional details about the object. Include information like city, country, and descriptions, full addresses, links, or any other relevant details.
+    - `subject`: The entity that is the source of a relationship.
+    - `predicate`: The relationship type: {', '.join(predicates)}.
+    - `object`: The entity that is the target of the relationship.
+    - `object-type`: The type of the entity, chosen from the predefined list: {', '.join(object_types)}.
+    - `more-info`: Additional details about the object. Include information like descriptions, full addresses, links, or any other relevant details.
     DO NOT include any additional fields or change the field names.
     DO ALWAYS include the `more-info` field, even if it is empty.
                                                           
 2. **Predicates and Object Types**:
-    - **Predicates**: 'uses', 'is-a', 'is-located-in', 'is-part-of', 'contains', 'makes', 'sells', 'supplies', 'produces', 'operates-in', 'has', 'owns', 'acquires', 'partners-with', 'collaborates-with', 'employs', 'manufactures', 'distributes'.
-    - **Object Types**: 'raw-material', 'commodity', 'subsidiary', 'product', 'supplier', 'customer', 'plant', 'warehouse', 'store', 'office', 'factory', 'equipment', 'service', 'brand', 'partner', 'competitor', 'material', 'ingredient', 'component', 'product-line', 'division', 'department', 'team', 'group', 'organization',  'authority', 'regulator', 'industry', 'sector', 'segment', 'region', 'country', 'continent', 'world'.
+    - **Predicates**: {', '.join(predicates)}.
+    - **Object Types**: {', '.join(object_types)}.
     DO ONLY use the provided predicates and object types.
                                                           
 3. **Relevance**: Extract only the information relevant to the question. 
@@ -57,7 +72,7 @@ Your task is to build a comprehensive knowledge graph from the provided text. Th
 6. **Output**: The output should be valid JSON format, as specified.
     DO NOT include additional explanations or notes outside the JSON structure.
     DO NOT group several relations nodes into one, make individual nodes for each object(e.g: each country, commodity, supplier).
-    DO Normalize entity names and substitute designations such as 'The Company' with the real company name.
+    DO Normalize entity names. DO NOT use designations such as 'The Company', but DO replace them with the real company name.
 ---
 
 ### Example Template:
