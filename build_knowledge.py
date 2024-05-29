@@ -21,6 +21,11 @@ from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import RunnablePassthrough
 import json
 from langchain_community.llms.ollama import Ollama
+
+object_types = [
+    "raw-material", "subsidiary", "product", "supplier", "customer", "plant", "warehouse", "store", "office", "factory", "equipment", "service", "brand", "partner", "competitor", "material", "ingredient", "component", "product-line", "division", "department", "team", "group", "organization",  "authority", "regulator", "industry", "sector", "segment", "region", "country", "continent", "world"
+]
+
 knowledge_build_prompt = PromptTemplate.from_template("""\
 You are a **Knowledge Extraction Agent**
 
@@ -37,7 +42,7 @@ Your task is to build a comprehensive knowledge graph from the provided text. Th
                                                           
 2. **Predicates and Object Types**:
     - **Predicates**: 'uses', 'is-a', 'is-located-in', 'is-part-of', 'contains', 'makes', 'sells', 'supplies', 'produces', 'operates-in', 'has', 'owns', 'acquires', 'partners-with', 'collaborates-with', 'employs', 'manufactures', 'distributes'.
-    - **Object Types**: 'raw-material', 'subsidiary', 'product', 'supplier', 'customer', 'plant', 'warehouse', 'store', 'office', 'factory', 'equipment', 'service', 'brand', 'partner', 'competitor', 'material', 'ingredient', 'component', 'product-line', 'division', 'department', 'team', 'group', 'organization',  'authority', 'regulator', 'industry', 'sector', 'segment', 'region', 'country', 'continent', 'world'.
+    - **Object Types**: 'raw-material', 'commodity', 'subsidiary', 'product', 'supplier', 'customer', 'plant', 'warehouse', 'store', 'office', 'factory', 'equipment', 'service', 'brand', 'partner', 'competitor', 'material', 'ingredient', 'component', 'product-line', 'division', 'department', 'team', 'group', 'organization',  'authority', 'regulator', 'industry', 'sector', 'segment', 'region', 'country', 'continent', 'world'.
     DO ONLY use the provided predicates and object types.
                                                           
 3. **Relevance**: Extract only the information relevant to the question. 
@@ -51,7 +56,8 @@ Your task is to build a comprehensive knowledge graph from the provided text. Th
 
 6. **Output**: The output should be valid JSON format, as specified.
     DO NOT include additional explanations or notes outside the JSON structure.
-
+    DO NOT group several relations nodes into one, make individual nodes for each object(e.g: each country, commodity, supplier).
+    DO Normalize entity names and substitute designations such as 'The Company' with the real company name.
 ---
 
 ### Example Template:
@@ -114,19 +120,38 @@ def build_knowledge(company):
     #print(f"Getting records manager for namespace {namespace} in db")
     topics = json.load(open("./data/questions.json", "r"))
     # Hack to only use the suppliers questions
-    topics = {"suppliers": topics["suppliers"]}
+    #topics = {"suppliers": topics["suppliers"]}
     #print(f"Loaded {len(topics)} topics")
     #print(f"Extracting text from {pdf_file}")
     
     relationships = []
+    rejected = []
     for topic in tqdm(topics, desc=f"Processing Topics for {company.company_name}", unit="topic", leave=False, position=1):
         for question in tqdm(topics[topic], desc=f"Processing questions in {topic}", unit="question", leave=False, position=2):
             #print(f"Question: {question}")
             result = chain.invoke(question)
+            # if object contains ',' split it and create multiple relationships
+
+            for r in result:
+                # if the object type is not in the list of object types, skip it
+                if r["object-type"] not in object_types:
+                    rejected.append(r)
+                    continue
+
+                if "," in r["object"]:
+                    objects = r["object"].split(",")
+                    for obj in objects:
+                        relationships.append({"subject": r["subject"], "predicate": r["predicate"], "object": obj, "object-type": r["object-type"], "more-info": r["more-info"]})
+                else:
+                    relationships.append(r)
+
+
             relationships.extend(result)
     
         with open(f"./data/{company.company_name}/knowledge_{topic}.json","w") as out:
             json.dump(relationships, out, indent=4)
+        with open(f"./data/{company.company_name}/knowledge_{topic}_rejected.json","w") as out:
+            json.dump(rejected, out, indent=4)
 
 if __name__ == "__main__":
     #cik = cikLookup("Nestle")

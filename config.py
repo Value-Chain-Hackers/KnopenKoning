@@ -1,7 +1,7 @@
-MODEL_NAME = "llama3:latest"
+MODEL_NAME = "mistral:latest"
 EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
 NER_MODEL = "dslim/bert-large-NER"
-CUDA_ENABLED = False
+CUDA_ENABLED = True
 
 RAG_BATCH_SIZE = 32
 
