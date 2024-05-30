@@ -35,6 +35,15 @@ def build_rag():
             log.info(f"Extracted {len(parts)} splits of pdf docs from {pdf_file}")
             all_docs.extend(parts)
         
+        md_files = glob.glob(f"./.cache/{company.company_name}/**/*.md", recursive=True)
+        for md_file in tqdm(md_files, desc=f"Extracting Text from MD's of {company.company_name}", unit="md file", leave=False, position=1):
+            with open(md_file, "r") as f:
+                text = f.read()
+                parts = split_text_into_documents(text, md_file)
+                log.info(f"Extracted {len(parts)} splits of md docs from {md_file}")
+                all_docs.extend(parts)
+
+
         record_manager = get_records_manager(namespace)
         chroma = Chroma(namespace,  embedding_function=hf, persist_directory=rag_folder)
         log.info(f"Indexing {len(all_docs)} splits of {len(pdf_files)} pdf about {company.company_name}")

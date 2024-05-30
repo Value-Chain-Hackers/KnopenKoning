@@ -18,7 +18,7 @@ def collect_base_information(company_name: str, db: Session):
             page_summary = summary(result)
             page_result = page(result)
             
-            with open(f"./cache/{company.company_name}/{result}.md", "w") as f:
+            with open(f"./.cache/{company.company_name}/{result}.md", "w") as f:
                 f.write(f"# {page_result.title}\n\n")
                 f.write(f"## Summary\n\n")
                 f.write(page_summary)
@@ -53,3 +53,15 @@ def collect_base_information(company_name: str, db: Session):
         except Exception as e:
             continue
     return records
+
+if __name__ == "__main__":
+    from argparse import ArgumentParser
+    parser = ArgumentParser()
+    parser.add_argument("--company", type=str, required=True)
+    args = parser.parse_args()
+
+
+    from db.session import SessionLocal
+    db = SessionLocal()
+    collect_base_information(args.company, db)
+    db.close()

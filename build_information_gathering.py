@@ -27,6 +27,7 @@ if __name__ == "__main__":
     #print(cik)
     if not os.path.exists("./.cache"):
         os.makedirs("./.cache")
-    companies = SessionLocal().query(Company).all()
+    db = SessionLocal()
+    companies = db.query(Company).all()
     for company in tqdm(companies, desc="Building Knowledge Base", unit="RAG", leave=False, position=0):
-        collect_base_information(company.company_name)
+        collect_base_information(company.company_name, db)

@@ -23,7 +23,7 @@ class UnileverSpider(CrawlSpider):
 
 
 
-class UnileverSpider(CrawlSpider):
+class UnileverBrandsSpider(CrawlSpider):
     name = "unilever_brands"
     allowed_domains = ["unilever.com"]
     start_urls = ["https://www.unilever.com/brands/all-brands/?pageSize=48"]

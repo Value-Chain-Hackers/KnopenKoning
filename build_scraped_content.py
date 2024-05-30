@@ -3,7 +3,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
 # Import your spider class
-from supplycrawler.supplycrawler.spiders.unilever_brands import UnileverBrandsSpider
+from supplycrawler.supplycrawler.spiders.unilever import UnileverBrandsSpider
 
 # Optional: Configure logging
 logging.basicConfig(
@@ -14,17 +14,25 @@ logging.basicConfig(
 
 # Optional: Custom settings
 custom_settings = {
-    'LOG_LEVEL': 'DEBUG',
     'ITEM_PIPELINES': {
-        'myproject.pipelines.MyPipeline': 300,
-    }
+       "supplycrawler.supplycrawler.pipelines.SupplycrawlerPipeline": 300,
+    },
+    'FEEDS': {
+        'data/Unilever/crawler_output.json': {
+            'format': 'json',
+            'encoding': 'utf8',
+            'store_empty': False,
+            'indent': 4,
+        },
+    },
 }
 
 # Create a process with the project's settings
 process = CrawlerProcess({**get_project_settings(), **custom_settings})
 
 # Add your spider to the process
-process.crawl(ExampleSpider)
+process.crawl(UnileverBrandsSpider)
 
 # Start the crawling process
-process.start()
+result = process.start()
+print(result)
