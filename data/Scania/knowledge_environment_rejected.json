@@ -1,0 +1,114 @@
+[
+    {
+        "subject": "Scania",
+        "predicate": "assesses",
+        "object": "every sourcing nomination",
+        "object-type": "sourcing nomination",
+        "more-info": "through a thorough due diligence process"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "monitors",
+        "object": "Sustainability- and Financial risk ratings of suppliers",
+        "object-type": "rating",
+        "more-info": "on a monthly basis"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "uses",
+        "object": "ISO 14001",
+        "object-type": "standard",
+        "more-info": "Scania's environmental management system builds on ISO 14001 and is regulated in a global environmental policy."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "global environmental policy",
+        "object-type": "policy",
+        "more-info": "The purpose of the policy is to ensure that Scania operates according to the highest global standard in all relevant environmental areas and lies the foundation for the environmental work."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "product development certified according to ISO 14001",
+        "object-type": "certification",
+        "more-info": "Our product development and all our production sites are certified according to ISO 14001."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "production sites with permits that comply with national legislation",
+        "object-type": "permit",
+        "more-info": "All production sites have permits that comply with national legislation."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "strategic sustainability work within the area of 'internal footprint and supply chain decarbonisation'",
+        "object-type": "strategy",
+        "more-info": "One part of Scania's strategic sustainability work is within the area of 'internal footprint and supply chain decarbonisation', where we have a focus on reducing Scope 1 and 2 emissions in accordance with the Greenhouse Gas Protocol."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "six environmental objectives defined: climate change mitigation and adaptation, sustainable use and protection of water and marine resources, transition to a circular economy, pollution prevention and control, and protection and restoration of biodiversity and ecosystems",
+        "object-type": "objective",
+        "more-info": "For the financial year 2023, the Scania Group has for the first time included all six environmental objectives in its assessment, as required by the EU Taxonomy Regulation."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "core value 'elimination of waste' guiding continuous improvement processes",
+        "object-type": "value",
+        "more-info": "Our core value 'elimination of waste' guides us in our work to continuously improve our processes in areas such as CO2 emissions, energy, waste and water."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "uses",
+        "object": "18 sustainability indicators",
+        "object-type": "metric",
+        "more-info": "These indicators are linked to the company's most material areas, impact, risk, and product life cycle."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "energy waste reduction program",
+        "object-type": "program",
+        "more-info": "Eliminating energy waste through continuous improvements"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "renewable fuels transition program",
+        "object-type": "program",
+        "more-info": "Purchasing fossil-free electricity and transition to renewable fuels"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "optimizes",
+        "object": "heat, ventilation, lighting, and production processes",
+        "object-type": "processes",
+        "more-info": "Optimizing heat, ventilation, lighting, and production processes"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "uses",
+        "object": "science-based targets",
+        "object-type": "strategy",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "carbon emission reduction targets",
+        "object-type": "target",
+        "more-info": "50% reduction in CO2e emissions from land transport between 2016 and 2025 (CO2e)"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "global workshop facilities",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    }
+]

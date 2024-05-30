@@ -1,0 +1,114 @@
+[
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "Albert Heijn B.V.",
+        "object-type": "subsidiary",
+        "more-info": "*"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "Ahold Europe Real Estate & Construction B.V.",
+        "object-type": "subsidiary",
+        "more-info": "*"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "Ahold Finance U.S.A., LLC",
+        "object-type": "subsidiary",
+        "more-info": "*"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "Ahold Delhaize Nederland B.V.",
+        "object-type": "subsidiary",
+        "more-info": "*"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "bol.com holding N.V.",
+        "object-type": "subsidiary",
+        "more-info": "*"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "Delhaize \u201cThe Lion\u201d Nederland B.V.",
+        "object-type": "subsidiary",
+        "more-info": "*"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "ADUSA Commercial Holdings, Inc.",
+        "object-type": "subsidiary",
+        "more-info": "Salisbury, North Carolina, 100%"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "owns",
+        "object": "ADUSA Supply Chain Services, LLC",
+        "object-type": "subsidiary",
+        "more-info": "Salisbury, North Carolina, 100%"
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "is-located-in",
+        "object": "Zaandam",
+        "object-type": "location",
+        "more-info": "The Netherlands"
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "is-located-in",
+        "object": "Mountville, Pennsylvania",
+        "object-type": "location",
+        "more-info": "Frozen facility in test mode"
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "is-located-in",
+        "object": "Plainville, Connecticut",
+        "object-type": "location",
+        "more-info": "Planned to go live in H1 2024"
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "is-located-in",
+        "object": "Barendrecht, Netherlands",
+        "object-type": "location",
+        "more-info": "Opening of the first mechanized HSC in Q4 2023"
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "is-located-in",
+        "object": "York, Pennsylvania",
+        "object-type": "location",
+        "more-info": "automation-filled distribution center"
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "has",
+        "object": "DC in Chester, New York",
+        "object-type": "distribution center",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "has",
+        "object": "Chester, New York",
+        "object-type": "warehouse",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "has",
+        "object": "Mountville, Pennsylvania",
+        "object-type": "warehouse",
+        "more-info": ""
+    }
+]

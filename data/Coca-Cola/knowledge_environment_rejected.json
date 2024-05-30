@@ -1,0 +1,72 @@
+[
+    {
+        "subject": "Indianapolis, IN",
+        "predicate": "is-located-in",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Cincinnati, OH",
+        "predicate": "is-located-in",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Sandston, VA",
+        "predicate": "is-located-in",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "West Memphis, AR",
+        "predicate": "is-located-in",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Indianapolis, IN",
+        "predicate": "has",
+        "object": "1 manufacturing plant",
+        "object-type": "manufacturing plant",
+        "more-info": "400,000 square feet, owned"
+    },
+    {
+        "subject": "Sandston, VA",
+        "predicate": "has",
+        "object": "1 manufacturing plant",
+        "object-type": "manufacturing plant",
+        "more-info": "326,000 square feet, owned"
+    },
+    {
+        "subject": "West Memphis, AR",
+        "predicate": "has",
+        "object": "1 manufacturing plant",
+        "object-type": "manufacturing plant",
+        "more-info": "326,000 square feet, owned"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "complies with",
+        "object": "Environmental Response, Compensation and Liability Act",
+        "object-type": "legislation",
+        "more-info": ""
+    },
+    {
+        "subject": "The Company",
+        "predicate": "complies with",
+        "object": "Resource Conservation and Recovery Act",
+        "object-type": "legislation",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "works",
+        "object": "toward a more sustainable future",
+        "object-type": "goal",
+        "more-info": "This year, we worked to ensure our progress toward a more sustainable future."
+    }
+]

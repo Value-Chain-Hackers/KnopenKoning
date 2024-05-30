@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dendrogram</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+      .node {
+        cursor: pointer;
+      }
+
+      .node circle {
+        fill: #999;
+        stroke: #000;
+        stroke-width: 1.5px;
+      }
+
+      .node text {
+        font: 12px sans-serif;
+      }
+
+      .link {
+        fill: none;
+        stroke: #555;
+        stroke-opacity: 0.4;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      function buildGraph(data) {
+
+        // Convert flat data to hierarchical data
+        const root = {
+          name: "Scania",
+          children: [],
+        };
+
+        const nodeMap = {};
+        console.log('processing data', data.length)
+        data.forEach((d) => {
+
+         
+          if (!nodeMap[d.subject]) {
+            const newNode = { name: d.subject, children: [] };
+            nodeMap[d.subject] = newNode;
+            root.children.push(newNode);
+          }
+          const parentNode = nodeMap[d.subject];
+          const childNode = { name: d.object };
+          parentNode.children.push(childNode);
+        });
+
+        // Set up the SVG canvas dimensions
+        const width = 1150;
+        const height = 1200;
+        const margin = { top: 20, right: 120, bottom: 20, left: 120 };
+
+        const svg = d3
+          .select("#container")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .append("g")
+          .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        const tree = d3
+          .tree()
+          .size([
+            height - margin.top - margin.bottom,
+            width - margin.left - margin.right,
+          ]);
+        const rootHierarchy = d3.hierarchy(root);
+
+        tree(rootHierarchy);
+
+        const link = svg
+          .selectAll(".link")
+          .data(rootHierarchy.links())
+          .enter()
+          .append("path")
+          .attr("class", "link")
+          .attr(
+            "d",
+            d3
+              .linkHorizontal()
+              .x((d) => d.y)
+              .y((d) => d.x)
+          );
+
+        const node = svg
+          .selectAll(".node")
+          .data(rootHierarchy.descendants())
+          .enter()
+          .append("g")
+          .attr("class", "node")
+          .attr("transform", (d) => `translate(${d.y},${d.x})`);
+
+        node.append("circle").attr("r", 5);
+
+        node
+          .append("text")
+          .attr("dy", 3)
+          .attr("x", (d) => (d.children ? -8 : 8))
+          .style("text-anchor", (d) => (d.children ? "end" : "start"))
+          .text((d) => d.data.name);
+      }
+    
+      // Sample data
+      fetch("/static/scania.json").then((response) =>
+        {
+          console.log("fetching data")
+          return response.json();
+        }
+      ).then((data) => { buildGraph(data); });
+
+    
+    </script>
+  </body>
+</html>

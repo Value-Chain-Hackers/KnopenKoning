@@ -1,0 +1,548 @@
+[
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "has",
+        "object": "IKEA Supply AG",
+        "object-type": "subsidiary",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "is-located-in",
+        "object": "Europe",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "operates-from",
+        "object": "purchasing offices",
+        "object-type": "office",
+        "more-info": "located close to where the suppliers are"
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "is-located-in",
+        "object": "Europe",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "produces",
+        "object": "furniture components (screws, plugs, etc.)",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "operates-in",
+        "object": "South China",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "has",
+        "object": "distribution center",
+        "object-type": "distribution center",
+        "more-info": "located in South China"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "operates-in",
+        "object": "Europe",
+        "object-type": "region",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "is-located-in",
+        "object": "Europe",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "has",
+        "object": "factories",
+        "object-type": "manufacting plant",
+        "more-info": "producing furniture components (screws, plugs, etc.)"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "operates-in",
+        "object": "South China",
+        "object-type": "location",
+        "more-info": "distribution centre"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "has",
+        "object": "warehouses",
+        "object-type": "warehouse",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "supplies",
+        "object": "raw-materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "partners-with",
+        "object": "transporters",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "partners-with",
+        "object": "warehouse providers",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "partners-with",
+        "object": "custom brokers",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "operates",
+        "object": "purchasing offices",
+        "object-type": "location",
+        "more-info": "located close to where the suppliers are"
+    },
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "has",
+        "object": "wholesale subsidiaries",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "sources",
+        "object": "IKEA products",
+        "object-type": "product",
+        "more-info": "from external suppliers"
+    },
+    {
+        "subject": "IKEA Industry AB",
+        "predicate": "produces",
+        "object": "furniture components",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Components AB",
+        "predicate": "produces",
+        "object": "screws, plugs, etc.",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "distributes",
+        "object": "IKEA products",
+        "object-type": "product",
+        "more-info": "to IKEA franchisees"
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "uses",
+        "object": "external suppliers",
+        "object-type": "supplier",
+        "more-info": "Total value of EUR 3,714 million at 31 August 2023 (FY22: EUR 5,556 million)"
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "supplies",
+        "object": "IKEA products",
+        "object-type": "product",
+        "more-info": "Approximately 90% sourced from external suppliers"
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "supplies",
+        "object": "raw-materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Industry AB",
+        "predicate": "produces",
+        "object": "wood-based-furniture",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "supplies",
+        "object": "external suppliers",
+        "object-type": "supplier",
+        "more-info": "The operational relationships with these suppliers are operated through purchasing offices, located close to where the suppliers are."
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "sources",
+        "object": "IKEA products",
+        "object-type": "product",
+        "more-info": "The majority of IKEA products (approximately 90%) is sourced from external suppliers."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "raw materials and consumables",
+        "object-type": "commodity",
+        "more-info": "Cost of raw materials and consumables comprise of cost of manufacturing and procurement of finished goods, including transport, storage and handling costs."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "transport",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "storage",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "handling cost",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "Ikea",
+        "predicate": "supplies",
+        "object": "raw-material",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Ikea",
+        "predicate": "has",
+        "object": "components of a tangible fixed asset",
+        "object-type": "component",
+        "more-info": "These components are depreciated separately, taking into account differences in useful life or expected pattern of use."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "sustainable and safe home furnishing and food products",
+        "object-type": "product-line",
+        "more-info": "Product safety is a top priority and an important basis to build customer trust."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "supplies",
+        "object": "safe and secure working environments for co-workers across the value chain",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "sustainability strategy",
+        "object-type": "service",
+        "more-info": "The IKEA sustainability strategy is built around three global sustainability challenges: climate change, workplace inequality and unsustainable consumption."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "has",
+        "object": "ambitions and commitments",
+        "object-type": "material",
+        "more-info": "The strategy includes sustainability ambitions and commitments leading up to 2030, addressing the entire IKEA franchise system and value chain."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "produces",
+        "object": "sustainability reports",
+        "object-type": "product",
+        "more-info": "Progress on the People & Planet Positive strategy is communicated through the IKEA Sustainability Report and a separate IKEA Climate Report."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "partners-with",
+        "object": "suppliers",
+        "object-type": "partner",
+        "more-info": "The Group has a responsibility to secure good social, environmental and working conditions for suppliers."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "operates-in",
+        "object": "value chain",
+        "object-type": "location",
+        "more-info": "The IKEA sustainability agenda is described in the sustainability strategy \u201cPeople & Planet Positive\u201d. The strategy includes sustainability ambitions and commitments leading up to 2030, addressing the entire IKEA franchise system and value chain."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "develops",
+        "object": "new ways to shop",
+        "object-type": "service",
+        "more-info": "To make that happen, the Group invests in new ways to shop, more sustainable ways of working, and an inspiring, functional and affordable IKEA product range."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "invests-in",
+        "object": "innovation",
+        "object-type": "service",
+        "more-info": "The Group continues to invest significant resources to make IKEA more affordable, accessible and sustainable for customers everywhere with the ambition to reach and interact with 3 billion people."
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "bio-based alternatives",
+        "object-type": "raw-material",
+        "more-info": "to reduce fossil-based glue usage by 40%"
+    },
+    {
+        "subject": "IKEA Industry factory (Kazlu Ruda, Lithuania)",
+        "predicate": "uses",
+        "object": "glue system made of technical starch from corn",
+        "object-type": "equipment",
+        "more-info": "in large-scale production"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "sustainability tactics",
+        "object-type": "service",
+        "more-info": "to develop and integrate sustainability actions into their own business plans"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "produces",
+        "object": "glue solutions",
+        "object-type": "product",
+        "more-info": "to reduce the IKEA climate footprint"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "supplies",
+        "object": "sustainable products",
+        "object-type": "product-line",
+        "more-info": "to make IKEA more affordable, accessible and sustainable for customers everywhere"
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "100% renewable electricity",
+        "object-type": "service",
+        "more-info": "through bundled frame agreements or Power Purchase Agreements that the Group takes part in"
+    },
+    {
+        "subject": "Suppliers",
+        "predicate": "consumes",
+        "object": "100% renewable electricity",
+        "object-type": "service",
+        "more-info": "through bundled frame agreements or Power Purchase Agreements that the Group takes part in"
+    },
+    {
+        "subject": "Ikea",
+        "predicate": "uses",
+        "object": "water conservation programs",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "renewable electricity",
+        "object-type": "service",
+        "more-info": "through bundled frame agreements or Power Purchase Agreements that the Group takes part in"
+    },
+    {
+        "subject": "IKEA suppliers",
+        "predicate": "consumes",
+        "object": "renewable electricity",
+        "object-type": "service",
+        "more-info": "through bundled frame agreements or Power Purchase Agreements that the Group takes part in"
+    },
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "uses",
+        "object": "YouTube",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "uses",
+        "object": "@IKEA",
+        "object-type": "brand",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "has",
+        "object": "Instagram accounts",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "has",
+        "object": "LinkedIn profile",
+        "object-type": "brand",
+        "more-info": "https://www.linkedin.com/company/inter-ikea-holding-b-v/"
+    },
+    {
+        "subject": "IKEA of Sweden AB",
+        "predicate": "has",
+        "object": "LinkedIn profile",
+        "object-type": "product-line",
+        "more-info": "https://www.linkedin.com/company/ikea-of-sweden-ab/"
+    },
+    {
+        "subject": "Inter IKEA Systems B.V.",
+        "predicate": "produces",
+        "object": "IKEA home furnishings and food",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Supply AG",
+        "predicate": "sells",
+        "object": "IKEA products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Industry AB",
+        "predicate": "produces",
+        "object": "IKEA home furnishing products",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Systems B.V.",
+        "predicate": "uses",
+        "object": "IKEA Supply AG",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Systems B.V.",
+        "predicate": "owns",
+        "object": "IKEA Proprietary Rights (\u201cIP Rights\u201d)",
+        "object-type": "material",
+        "more-info": "relating to the IKEA trademark, protection rights, intellectual property rights and the rights to the IKEA catalogue"
+    },
+    {
+        "subject": "Inter IKEA Systems B.V.",
+        "predicate": "owns",
+        "object": "IKEA Delft store",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Systems B.V.",
+        "predicate": "owns",
+        "object": "33 IKEA furniture production units",
+        "object-type": "manufacting plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "produces",
+        "object": "Furniture and home goods",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "makes",
+        "object": "IKEA products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "forestry",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "uses",
+        "object": "sawmills",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "produces",
+        "object": "board material",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "produces",
+        "object": "wood components",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA",
+        "predicate": "produces",
+        "object": "furniture",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Components",
+        "predicate": "develops",
+        "object": "components",
+        "object-type": "product",
+        "more-info": "such as screws and wooden dowels"
+    },
+    {
+        "subject": "IKEA Components",
+        "predicate": "sources",
+        "object": "components",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Components",
+        "predicate": "packs",
+        "object": "components",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Components",
+        "predicate": "supplies",
+        "object": "components",
+        "object-type": "product",
+        "more-info": "that are used to assemble IKEA furniture"
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "produces",
+        "object": "IKEA home furnishing products",
+        "object-type": "product",
+        "more-info": "approximately 10% of the total IKEA range, with its main focus on wood-based furniture"
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "develops",
+        "object": "unique IKEA capabilities and capacities in relevant parts of the value chain",
+        "object-type": "service",
+        "more-info": ""
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "Responsible Suppliers Policy",
+        "object-type": "policy",
+        "more-info": "to define the mandatory requirements that all our supply chain partners must confirm they can meet."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests in",
+        "object": "Unilever Oleochemicals facility",
+        "object-type": "facility",
+        "more-info": "to source deforestation-free palm oil and palm kernel oil directly in the coming years."
+    },
+    {
+        "subject": "suppliers",
+        "predicate": "are verified by",
+        "object": "audits",
+        "object-type": "process",
+        "more-info": ""
+    }
+]

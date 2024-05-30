@@ -1,0 +1,758 @@
+[
+    {
+        "subject": "Unilever Alg\u00e9rie SPA",
+        "predicate": "is-a",
+        "object": "subsidiary",
+        "object-type": "subsidiary",
+        "more-info": "Algeria \u2013 Zone Industrielle Hassi Ameur Oran 31000"
+    },
+    {
+        "subject": "Unilever De Argentina S.A.",
+        "predicate": "is-a",
+        "object": "subsidiary",
+        "object-type": "subsidiary",
+        "more-info": "Argentina \u2013 Tucum\u00e1n 1, Piso 4\u00b0, Cdad. de Buenos Aires"
+    },
+    {
+        "subject": "Arisco S.A.",
+        "predicate": "is-a",
+        "object": "subsidiary",
+        "object-type": "subsidiary",
+        "more-info": "Argentina \u2013 Tucum\u00e1n 1, Piso 4\u00b0, Cdad. de Buenos Aires"
+    },
+    {
+        "subject": "Hindustan Unilever Limited (HUL)",
+        "predicate": "is-a",
+        "object": "subsidiary",
+        "object-type": "subsidiary",
+        "more-info": "Summary of significant non-controlling interest"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "is-located-in",
+        "object": "United Kingdom",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "operates-in",
+        "object": "Brazil",
+        "object-type": "location",
+        "more-info": "Our laundry detergent factory achieved the coveted World Economic Forum Lighthouse status for incorporating Fourth Industrial Revolution practices into its operations."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "operates-in",
+        "object": "UK",
+        "object-type": "location",
+        "more-info": "The scope of this data includes seven manufacturing sites and 11 non-manufacturing sites based in the UK."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "manufactures-at",
+        "object": "factory site",
+        "object-type": "manufacting plant",
+        "more-info": "Our Home Care factories are embracing automation and artificial intelligence to improve productivity."
+    },
+    {
+        "subject": "Binzagr Unilever Distribution Company Limited",
+        "predicate": "is-located-in",
+        "object": "Saudi Arabia \u2013 PO Box 22800, Jeddah 21416",
+        "object-type": "location",
+        "more-info": "PO Box 22800, Jeddah 21416"
+    },
+    {
+        "subject": "YOU Private Limited",
+        "predicate": "is-located-in",
+        "object": "Singapore \u2013 3 Phillip Street, #14-05 Royal Group Building, 048693",
+        "object-type": "location",
+        "more-info": "3 Phillip Street, #14-05 Royal Group Building, 048693"
+    },
+    {
+        "subject": "ESQA Corp Pte Ltd",
+        "predicate": "is-located-in",
+        "object": "Singapore \u2013 20A Tanjong Pagar Road, 088443",
+        "object-type": "location",
+        "more-info": "20A Tanjong Pagar Road, 088443"
+    },
+    {
+        "subject": "Al Gurg Unilever LLC",
+        "predicate": "is-located-in",
+        "object": "United Arab Emirates \u2013 PO Box 49, Dubai",
+        "object-type": "location",
+        "more-info": "PO Box 49, Dubai"
+    },
+    {
+        "subject": "SachaJuan Haircare AB",
+        "predicate": "is-located-in",
+        "object": "Sweden \u2013 Sturegatan 38, Stockholm, 11436",
+        "object-type": "location",
+        "more-info": "Sturegatan 38, Stockholm, 11436"
+    },
+    {
+        "subject": "Unilever Rus LLC",
+        "predicate": "is-located-in",
+        "object": "Russia \u2013 123022, Floor 7, Premise 19, Room 36, 13, Sergeya Makeeva Street, Moscow",
+        "object-type": "location",
+        "more-info": "Floor 7, Premise 19, Room 36, 13, Sergeya Makeeva Street, Moscow"
+    },
+    {
+        "subject": "Unilever de Centroamerica S.A.",
+        "predicate": "is-located-in",
+        "object": "Haiti \u2013 115, Rue Panamericaine, Estabissement N\u00famero 1, Petion Ville",
+        "object-type": "location",
+        "more-info": "115, Rue Panamericaine, Estabissement N\u00famero 1, Petion Ville"
+    },
+    {
+        "subject": "Unilever de Centroamerica S.A.",
+        "predicate": "is-located-in",
+        "object": "Honduras \u2013 Anillo Perif\u00e9rico 600 metros despu\u00e9s de la colonia, Residencial, Las Uvas contigua acceso de residencial Roble Oeste, Tegucigalpa M.D.C.",
+        "object-type": "location",
+        "more-info": "Anillo Perif\u00e9rico 600 metros despu\u00e9s de la colonia, Residencial, Las Uvas contigua acceso de residencial Roble Oeste, Tegucigalpa M.D.C."
+    },
+    {
+        "subject": "Blueair Asia Limited",
+        "predicate": "is-located-in",
+        "object": "Hong Kong \u2013 Suite 1106-8, 11/F, Tai Yau Building, 181 Johnston Road, Wanchai",
+        "object-type": "location",
+        "more-info": "Suite 1106-8, 11/F, Tai Yau Building, 181 Johnston Road, Wanchai"
+    },
+    {
+        "subject": "Unilever Oleo Ghana Limited",
+        "predicate": "is-located-in",
+        "object": "Ghana - Plot No. Ind/A/3A-4, Heavy Industrial Area, Tema, PO Box 721, Tema",
+        "object-type": "location",
+        "more-info": "Plot No. Ind/A/3A-4, Heavy Industrial Area, Tema, PO Box 721, Tema"
+    },
+    {
+        "subject": "Unilever de Centroamerica S.A.",
+        "predicate": "is-located-in",
+        "object": "Guatemala - Diagonal 6. 10-50 zona 10, Ciudad de Guatemala. Nivel 17 Torre Norte Ed. Interamericas World Financial Center",
+        "object-type": "location",
+        "more-info": "Diagonal 6. 10-50 zona 10, Ciudad de Guatemala. Nivel 17 Torre Norte Ed. Interamericas World Financial Center"
+    },
+    {
+        "subject": "Unilever Haiti S.A.",
+        "predicate": "is-located-in",
+        "object": "Haiti - Port-au-Prince",
+        "object-type": "location",
+        "more-info": "Port-au-Prince"
+    },
+    {
+        "subject": "Unilever India Limited",
+        "predicate": "is-located-in",
+        "object": "India - Unilever House, B. D. Sawant Marg, Chakala, Andheri (E), Mumbai 400 099",
+        "object-type": "location",
+        "more-info": "Unilever House, B. D. Sawant Marg, Chakala, Andheri (E), Mumbai 400 099"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "GroNext Technologies Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "Hourglass Cosmetics UK Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "Margarine Union (1930) Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "MBUK Trading Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "Mixhold Investments Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "ND4A Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "TIGI Holdings Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "Toni & Guy Products Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "UAC International Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "UML Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "Unidis Forty Nine Limited",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "57,000 supplier partners",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "operates-in",
+        "object": "150 countries",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Singapore",
+        "predicate": "is-located-in",
+        "object": "Unilever Asia Private Limited",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "South Africa",
+        "predicate": "is-located-in",
+        "object": "Unilever South Africa (Pty) Limited",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "Spain",
+        "predicate": "is-located-in",
+        "object": "Unilever Espana S.A.",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "Switzerland",
+        "predicate": "is-located-in",
+        "object": "Unilever Finance International AG",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "Thailand",
+        "predicate": "is-located-in",
+        "object": "Unilever Thai Trading Limited",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "Turkey",
+        "predicate": "is-located-in",
+        "object": "Unilever Sanayi ve Ticaret Turk A.S.",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "United States of America",
+        "predicate": "is-located-in",
+        "object": "ConopCo, Inc.",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "United States of America",
+        "predicate": "is-located-in",
+        "object": "Unilever Capital Corporation",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "United States of America",
+        "predicate": "is-located-in",
+        "object": "Unilever North America Supply Chain Company LLC",
+        "object-type": "supplier",
+        "more-info": "100%"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "palm oil and palm kernel oil",
+        "object-type": "raw-material",
+        "more-info": "deforestation-free"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "soy",
+        "object-type": "raw-material",
+        "more-info": "deforestation-free"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners-with",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Jovein Agriculture Industry J.S.C",
+        "predicate": "supplies",
+        "object": "raw materials",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Amlah Madani Iran",
+        "predicate": "supplies",
+        "object": "raw materials",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "raw-material suppliers",
+        "object-type": "supplier",
+        "more-info": "Around 57,000 supplier partners in 150 countries source materials and provide critical services for us."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works with",
+        "object": "key raw material suppliers",
+        "object-type": "supplier",
+        "more-info": "Our key raw material suppliers are externally certified and the materials received are monitored to ensure that they meet the rigorous quality standards that our products require."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "works with",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "We have helped 1.9 million small and medium-sized retailers grow by providing access to our digital commerce platforms such as Shikhar in India."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "raw materials",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "commodity derivatives",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "hedges",
+        "object": "future commodity purchases",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Raw materials and ingredients \u2013 Forest Land and Agriculture (FLAG)",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Raw materials and ingredients \u2013 Energy and Industrial (E&I)",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Packaging materials",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "raw materials and ingredients \u2013 Forest Land and Agriculture (FLAG)",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "raw materials and ingredients \u2013 Energy and Industrial (E&I)",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "packaging materials",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "indirect procurement",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "upstream transport and distribution (logistics)",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supplies",
+        "object": "ice cream cabinets",
+        "object-type": "equipment",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "renewable electricity",
+        "object-type": "equipment",
+        "more-info": "powering our factories with renewable electricity"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "teams of experts",
+        "object-type": "supplier",
+        "more-info": "focused on the sustainability agenda"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "develops",
+        "object": "relevant policies and procedures",
+        "object-type": "service",
+        "more-info": "e.g. responsible sourcing and metric definitions (scope and calculation methodologies)"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners-with",
+        "object": "Business Coalition for a Global Plastics Treaty",
+        "object-type": "partner",
+        "more-info": "campaigning for an ambitious and effective UN treaty to end plastic pollution"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "advocates-for",
+        "object": "establishment of well-designed extended producer responsibility (EPR) schemes",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "lower GHG alternative ingredients",
+        "object-type": "product",
+        "more-info": "We initiated a number of long-term partnerships to develop lower GHG alternative ingredients alongside a series of strategic investments through the Climate & Nature Fund."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "alternative packaging materials",
+        "object-type": "product",
+        "more-info": "We continue to explore alternative packaging materials and"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "recycled plastic",
+        "object-type": "material",
+        "more-info": "We aim to halve our use of virgin plastic by reducing usage and accelerating use of recycled plastic through the redesign of products and increasing our use of post-consumer recycled materials."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "recyclable rigid packaging formats",
+        "object-type": "product-line",
+        "more-info": "In 2023, the \u2018actual recyclability\u2019 rate of our plastic packaging portfolio was 53%, compared to 55% in 2022."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners-with",
+        "object": "Ellen MacArthur Foundation",
+        "object-type": "partner",
+        "more-info": "We are also collaborating with partners such as the Ellen MacArthur Foundation and the Consumer Goods Forum to advocate for the systemic changes that will help make reuse-refill models scalable and economically viable."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners-with",
+        "object": "Consumer Goods Forum",
+        "object-type": "partner",
+        "more-info": "We are also collaborating with partners such as the Ellen MacArthur Foundation and the Consumer Goods Forum to advocate for the systemic changes that will help make reuse-refill models scalable and economically viable."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "biodegradable alternatives",
+        "object-type": "material",
+        "more-info": "to replace ingredients that do not meet biodegradability standards"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "products with more biodegradable formulations",
+        "object-type": "product-line",
+        "more-info": "such as Dove Body Wash in the US and Canada, and Simple Facial Cleansers in India"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners-with",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "to build long-term partnerships and replace non-biodegradable ingredients with biodegradable alternatives"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "collects-and-processes",
+        "object": "plastic packaging waste",
+        "object-type": "material",
+        "more-info": "to reduce the amount of post-consumer plastic packaging waste going to landfill"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "renewable electricity",
+        "object-type": "service",
+        "more-info": "92% of our electricity came from renewable sources"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "energy efficiency improvements",
+        "object-type": "product-line",
+        "more-info": "reduced Scope 1 and 2 emissions by 74% versus our 2015 baseline"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "owns",
+        "object": "factories",
+        "object-type": "manufacting plant",
+        "more-info": "spent an additional \u20ac42 million of capital expenditure on sustainability investments in our factories, including energy efficiency and renewable energy projects"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "low-temperature washing laundry products",
+        "object-type": "product",
+        "more-info": "many of our laundry products are now low-temperature washing as standard"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "water conservation programs",
+        "object-type": "service",
+        "more-info": "Invested in buying palm oil directly from smaller suppliers to reduce certified palm oil volumes."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "13 water stewardship programmes",
+        "object-type": "material",
+        "more-info": "Implemented by the end of 2023 in more water-stressed areas."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "new products and formulations that work with less water, poor quality water or no water",
+        "object-type": "product-line",
+        "more-info": "Developed concentrated home care products which reduce water use at our sites."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners-with",
+        "object": "local communities",
+        "object-type": "partner",
+        "more-info": "To develop water stewardship programmes."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "monitors",
+        "object": "changing weather patterns",
+        "object-type": "service",
+        "more-info": "On a short-term basis and integrates weather system modelling into our forecasting process."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "eco-efficiency measures",
+        "object-type": "service",
+        "more-info": "to decarbonise our operations"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "produces",
+        "object": "renewable electricity",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "replaces",
+        "object": "climate-harmful refrigerants",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests",
+        "object": "new products and formulations",
+        "object-type": "product-line",
+        "more-info": "to work with less water, poor quality water, or no water"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "integrates",
+        "object": "weather system modelling",
+        "object-type": "service",
+        "more-info": "into forecasting process to consider impact on raw material availability and pricing"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "monitors",
+        "object": "government policy",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners-with",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "to build key climate capabilities and measure impact"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "supports",
+        "object": "Supplier Climate Programme",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "reaches",
+        "object": "100 suppliers",
+        "object-type": "supplier",
+        "more-info": "with around 80 delivering on our asks"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "accelerates",
+        "object": "GHG emissions reductions",
+        "object-type": "service",
+        "more-info": "in future years by scaling up Supplier Climate Programme, reaching a key milestone in deforestation-free goal, and continuing to develop lower-emission ingredients"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "continues",
+        "object": "Supplier Climate Programme",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Kantar",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "NielsenIQ",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Ipsos",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Kantar, NielsenIQ and Ipsos",
+        "object-type": "supplier",
+        "more-info": "regular surveys and panels as well as ad hoc research"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "consumer engagement platforms",
+        "object-type": "equipment",
+        "more-info": "annually engaging over three million consumers"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Ben & Jerry's Caramel Caf\u00e9 Sundae range",
+        "object-type": "product-line",
+        "more-info": "Launched on YouTube"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Magnum Vegan Raspberry Swirl",
+        "object-type": "product-line",
+        "more-info": "Launched on YouTube"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Instagram",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Pinterest",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Snapchat",
+        "object-type": "service",
+        "more-info": ""
+    }
+]

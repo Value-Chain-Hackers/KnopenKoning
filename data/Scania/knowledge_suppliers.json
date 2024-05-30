@@ -1,0 +1,352 @@
+[
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "Arver Lastbilar Aktiebolag",
+        "object-type": "subsidiary",
+        "more-info": "556557-9678, \u00d6rebro, Sweden"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "Bilmetro AB",
+        "object-type": "subsidiary",
+        "more-info": "556061-2789, G\u00e4vle, Sweden"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "Bilmetro Lastbilar i Hudiksvall AB",
+        "object-type": "subsidiary",
+        "more-info": "556564-2377, G\u00e4vle, Sweden"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "Fastighetsbolaget B\u00e4rgningsbilen 2 \u00d6rebro AB",
+        "object-type": "subsidiary",
+        "more-info": "556600-6416, Stockholm, Sweden"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "ScaValencia S.A.",
+        "object-type": "subsidiary",
+        "more-info": "A46332995, Spain"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "Telematics GmbH",
+        "object-type": "subsidiary",
+        "more-info": "HRB 203799, Germany"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "sennder GmbH",
+        "object-type": "subsidiary",
+        "more-info": "HRB 170455, Germany"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "owns",
+        "object": "Scantinel Photonics GmbH",
+        "object-type": "subsidiary",
+        "more-info": "HRB 739053, Germany"
+    },
+    {
+        "subject": "Scania Group",
+        "predicate": "is-located-in",
+        "object": "S\u00f6dert\u00e4lje, Sweden",
+        "object-type": "location",
+        "more-info": "SE-151 87 S\u00f6dert\u00e4lje, Sweden"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "is-located-in",
+        "object": "Europe",
+        "object-type": "continent",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "Sweden",
+        "object-type": "country",
+        "more-info": "Main site in S\u00f6dert\u00e4lje, Sweden"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "Argentina",
+        "object-type": "country",
+        "more-info": "Manufacturing of trucks, buses and industrial and marine engines occurs in Argentina"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": "Manufacturing of trucks, buses and industrial and marine engines occurs in Brazil"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "France",
+        "object-type": "country",
+        "more-info": "Manufacturing of trucks, buses and industrial and marine engines occurs in France"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "Netherlands",
+        "object-type": "country",
+        "more-info": "Manufacturing of trucks, buses and industrial and marine engines occurs in the Netherlands"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "Poland",
+        "object-type": "country",
+        "more-info": "Manufacturing of chassis production in S\u0142upsk, Poland; body production will be gradually ended by the first quarter of 2024"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "China",
+        "object-type": "country",
+        "more-info": "Factory in China is starting to take shape, and 1,000 Scania colleagues are now working in China, with more to come"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "operates-in",
+        "object": "Europe",
+        "object-type": "region",
+        "more-info": "Main markets are Spain, Great Britain, Sweden, Germany and France"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "operates-in",
+        "object": "Latin America",
+        "object-type": "region",
+        "more-info": "Main volumes in Mexico, Brazil and Colombia"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "operates-in",
+        "object": "Asia",
+        "object-type": "continent",
+        "more-info": "Mainly related to Taiwan, Malaysia and Indonesia"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "operates-in",
+        "object": "Africa",
+        "object-type": "continent",
+        "more-info": "Primarily related to C\u00f4te d\u2019Ivoire"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "operates-in",
+        "object": "Oceania",
+        "object-type": "continent",
+        "more-info": "Mainly explained by Australia"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "warehouse",
+        "object-type": "distribution center",
+        "more-info": "S\u00e3o Bernardo do Campo, Brazil"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "warehouse",
+        "object-type": "distribution center",
+        "more-info": "Sofia, Bulgaria"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "warehouse",
+        "object-type": "distribution center",
+        "more-info": "Victoria British Columbia, Canada"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "warehouse",
+        "object-type": "distribution center",
+        "more-info": "Santiago de Chile, Chile"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "warehouse",
+        "object-type": "distribution center",
+        "more-info": "Beihai, Guangxi Province, China"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "supplies",
+        "object": "over 1000 suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "works with",
+        "object": "partners in the Volkswagen Group",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "assesses",
+        "object": "every sourcing nomination",
+        "object-type": "supplier",
+        "more-info": "through a thorough due diligence process"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "monitors",
+        "object": "the Sustainability- and Financial risk ratings of suppliers",
+        "object-type": "supplier",
+        "more-info": "on a monthly basis"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "has",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "over 1000 suppliers in more than 100 countries"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "works with",
+        "object": "partners in the Volkswagen Group",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "suppliers",
+        "predicate": "located",
+        "object": "worldwide",
+        "object-type": "location",
+        "more-info": "Scania operations and our suppliers are located worldwide"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "uses",
+        "object": "over 1000 suppliers",
+        "object-type": "supplier",
+        "more-info": "in more than 100 countries"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "works with",
+        "object": "partners in the Volkswagen Group",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "monitors",
+        "object": "the Sustainability- and Financial risk ratings of suppliers",
+        "object-type": "supplier",
+        "more-info": "on a monthly basis"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "supplies",
+        "object": "mica",
+        "object-type": "raw-material",
+        "more-info": "The company has joined the Responsible Mica Initiative to promote transparency in the mica supply chain and ensure our paint suppliers source mica responsibly."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "supplies",
+        "object": "platinum",
+        "object-type": "raw-material",
+        "more-info": "The company has proactively scrutinised trends of further deterioration in suppliers who have a weak financial rating, specifically for platinum."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "assesses",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "The company assesses every sourcing nomination through a thorough due diligence process which includes Scania Sustainability Rating."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "monitors",
+        "object": "sustainability- and financial risk ratings of suppliers",
+        "object-type": "supplier",
+        "more-info": "The company monitors the Sustainability- and Financial risk ratings of suppliers on a monthly basis."
+    },
+    {
+        "subject": "Scania",
+        "predicate": "supplies",
+        "object": "over 1000 suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "works with",
+        "object": "Volkswagen Group",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "assesses",
+        "object": "every sourcing nomination",
+        "object-type": "supplier",
+        "more-info": "through a thorough due diligence process"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "supplies",
+        "object": "vehicles",
+        "object-type": "commodity",
+        "more-info": "SEK 1,855 m (1,062)"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "supplies",
+        "object": "value adjustment reserve",
+        "object-type": "commodity",
+        "more-info": "SEK \u20131,260 m (\u2013764)"
+    },
+    {
+        "subject": "Scania",
+        "predicate": "uses",
+        "object": "conflict minerals",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "uses",
+        "object": "carbon-intensive materials such as steel",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "supplies",
+        "object": "vehicle",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Scania",
+        "predicate": "supplies",
+        "object": "service",
+        "object-type": "service",
+        "more-info": ""
+    }
+]

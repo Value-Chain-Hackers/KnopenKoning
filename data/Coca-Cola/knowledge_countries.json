@@ -1,0 +1,149 @@
+[
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "owns",
+        "object": "Consolidated Beverage Co.",
+        "object-type": "subsidiary",
+        "more-info": "a wholly owned subsidiary"
+    },
+    {
+        "subject": "The Coca-Cola Company",
+        "predicate": "owns",
+        "object": "Sales & Services Company LLC",
+        "object-type": "subsidiary",
+        "more-info": ""
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "is-located-in",
+        "object": "4100 Coca-Cola Plaza, Charlotte, North Carolina 28211",
+        "object-type": "location",
+        "more-info": "Corporate Office"
+    },
+    {
+        "subject": "Coca-Cola",
+        "predicate": "has",
+        "object": "corporate headquarters",
+        "object-type": "office",
+        "more-info": "Leased until 2029"
+    },
+    {
+        "subject": "West Memphis, AR",
+        "predicate": "hosts",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacting plant",
+        "more-info": "326,000 square feet"
+    },
+    {
+        "subject": "Roanoke, VA",
+        "predicate": "hosts",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacting plant",
+        "more-info": "310,000 square feet"
+    },
+    {
+        "subject": "Twinsburg, OH",
+        "predicate": "hosts",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacting plant",
+        "more-info": "287,000 square feet"
+    },
+    {
+        "subject": "Baltimore, MD",
+        "predicate": "hosts",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacting plant",
+        "more-info": "155,000 square feet"
+    },
+    {
+        "subject": "Silver Spring, MD",
+        "predicate": "hosts",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacting plant",
+        "more-info": "104,000 square feet"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "has",
+        "object": "60 distribution centers",
+        "object-type": "distribution center",
+        "more-info": "Located across various regions"
+    },
+    {
+        "subject": "The Company",
+        "predicate": "owns",
+        "object": "47 distribution centers",
+        "object-type": "distribution center",
+        "more-info": ""
+    },
+    {
+        "subject": "Carolinas",
+        "predicate": "is-located-in",
+        "object": "Portions of North Carolina and South Carolina",
+        "object-type": "region",
+        "more-info": "Including Boone, Hickory, Mount Airy, Charlotte, Raleigh, Winston-Salem, Greensboro, Fayetteville, Greenville, New Bern, North Carolina, Conway, Marion, Charleston, Columbia, Greenville, Ridgeland, South Carolina and surrounding areas"
+    },
+    {
+        "subject": "Charlotte, NC",
+        "predicate": "is-located-in",
+        "object": "Distribution Center/Manufacturing Plant Combination",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Whitestown, IN",
+        "predicate": "is-located-in",
+        "object": "Distribution Center",
+        "object-type": "distribution center",
+        "more-info": ""
+    },
+    {
+        "subject": "Chester, VA",
+        "predicate": "is-located-in",
+        "object": "Warehouse",
+        "object-type": "warehouse",
+        "more-info": ""
+    },
+    {
+        "subject": "The Company",
+        "predicate": "owns",
+        "object": "47 distribution centers",
+        "object-type": "warehouse",
+        "more-info": ""
+    },
+    {
+        "subject": "The Company",
+        "predicate": "leases",
+        "object": "13 distribution centers",
+        "object-type": "warehouse",
+        "more-info": ""
+    },
+    {
+        "subject": "Charlotte, NC",
+        "predicate": "has",
+        "object": "1 distribution center/ manufacturing plant combination",
+        "object-type": "warehouse",
+        "more-info": "650,000 square feet, owned"
+    },
+    {
+        "subject": "Whitestown, IN",
+        "predicate": "has",
+        "object": "1 distribution center",
+        "object-type": "warehouse",
+        "more-info": "415,000 square feet, owned"
+    },
+    {
+        "subject": "Charlotte, NC",
+        "predicate": "has",
+        "object": "1 warehouse",
+        "object-type": "warehouse",
+        "more-info": "380,000 square feet, leased until 2028"
+    },
+    {
+        "subject": "Chester, VA",
+        "predicate": "has",
+        "object": "1 warehouse",
+        "object-type": "warehouse",
+        "more-info": "353,000 square feet, leased until 2028"
+    }
+]

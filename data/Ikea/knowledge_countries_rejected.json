@@ -1,0 +1,16 @@
+[
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "has",
+        "object": "Wholesale subsidiaries",
+        "object-type": "subsidiaries",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "divested",
+        "object": "4 Russian production units",
+        "object-type": "manufacturing plant",
+        "more-info": "concluding this process at the end of March 2023"
+    }
+]

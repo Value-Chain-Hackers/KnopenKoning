@@ -193,7 +193,18 @@
   const lanes = ["root", "company", "country", "supplier", "materials"];
   const laneWidth = Number(1024/lanes.length);
 
-  fetch("/static/unilever.json")
+  
+  // get last part of the url
+  const url = window.location.href;
+  const parts = url.split("/");
+  const lastSegment = parts.pop() || parts.pop();
+  // url decode
+  const decoded = decodeURIComponent(lastSegment);
+  
+  console.log(lastSegment);
+
+
+  fetch(`/static/${lastSegment}.json`)
     .then((response) => response.json())
     .then((data) => buildGraph(data));
 
@@ -307,7 +318,7 @@
         d3
           .forceLink(links)
           .id((d) => d.id)
-          .distance(200)
+          .distance(450)
       )
       .force("charge", d3.forceManyBody())
       .force("center", d3.forceCenter())
@@ -316,9 +327,9 @@
         d3
           .forceX()
           .x((d) => (d.lane+1) * laneWidth + laneWidth / 2)
-          .strength(1)
+          .strength(0.01)
       )
-      .force("y", d3.forceY().strength(0.1));
+      .force("y", d3.forceY().strength(0.01));
 
     simulation.nodes(nodes).on("tick", ticked);
 
