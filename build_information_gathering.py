@@ -29,5 +29,5 @@ if __name__ == "__main__":
         os.makedirs("./.cache")
     db = SessionLocal()
     companies = db.query(Company).all()
-    for company in tqdm(companies, desc="Building Knowledge Base", unit="RAG", leave=False, position=0):
+    for company in tqdm(companies, desc="Building Knowledge Base", unit="company", leave=False, position=0):
         collect_base_information(company.company_name, db)

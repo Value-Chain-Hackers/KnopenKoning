@@ -72,9 +72,10 @@ Adhere strictly to the following guidelines:
     DO double-check for any missing relevant details.
 
 6. **Output**: The output should be valid JSON format, as specified.
+    DO NOT invert relation directions (e.g: a plant, office, warehous is 'is-located-in' the object)
     DO NOT include additional explanations or notes outside the JSON structure.
     DO NOT group several relations nodes into one, make individual nodes for each object(e.g: each country, commodity, supplier).
-    DO Normalize entity names. DO NOT use designations such as 'The Company', but DO replace them with the real company name.
+    DO Normalize entity names. DO NOT use designations such as 'The Company', DO replace them with the real company name.
 ---
 
 ### Example Template:
@@ -112,7 +113,7 @@ DO verify the accuracy and relevance of your extractions are critical to the suc
 hf = get_huggingface_model(EMBEDDING_MODEL)
 
 def get_chain(namespace, rag_folder):
-    llm = Ollama(model=MODEL_NAME, num_ctx=8192, num_predict=4048, temperature=0.2)
+    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=.5)
     chain = (
         {"context": get_retriever(namespace, rag_folder), "question": RunnablePassthrough()}
         | knowledge_build_prompt
@@ -123,7 +124,7 @@ def get_chain(namespace, rag_folder):
 
 def get_retriever(namespace, rag_folder):
     chroma = Chroma(namespace,  embedding_function=hf, persist_directory=rag_folder)
-    retriever = chroma.as_retriever(search_kwargs={"k": 6})
+    retriever = chroma.as_retriever(search_kwargs={"k": 5})
     return retriever
 
 def build_knowledge(company):
@@ -141,15 +142,23 @@ def build_knowledge(company):
     #print(f"Loaded {len(topics)} topics")
     #print(f"Extracting text from {pdf_file}")
     
-    relationships = []
-    rejected = []
+
     for topic in tqdm(topics, desc=f"Processing Topics for {company.company_name}", unit="topic", leave=False, position=1):
+        relationships = []
+        rejected = []
         for question in tqdm(topics[topic], desc=f"Processing questions in {topic}", unit="question", leave=False, position=2):
             #print(f"Question: {question}")
-            result = chain.invoke(question)
-            # if object contains ',' split it and create multiple relationships
+            try:
+                result = chain.invoke(question)
+            except Exception as e:
+                print('error', e)
+                continue
 
             for r in result:
+                if r.get("object-type", None) is None:
+                    rejected.append(r)
+                    continue
+
                 # if the object type is not in the list of object types, skip it
                 if r["object-type"] not in object_types:
                     rejected.append(r)
@@ -162,8 +171,8 @@ def build_knowledge(company):
                 # else:
                 relationships.append(r)
     
-        with open(f"./data/{company.company_name}/knowledge_{topic}.json","w") as out:
-            json.dump(relationships, out, indent=4)
+            with open(f"./data/{company.company_name}/knowledge_{topic}.json","w") as out:
+                json.dump(relationships, out, indent=4)
         with open(f"./data/{company.company_name}/knowledge_{topic}_rejected.json","w") as out:
             json.dump(rejected, out, indent=4)
 
