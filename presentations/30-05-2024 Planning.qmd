@@ -1,0 +1,196 @@
+---
+title: "VHC sprint"
+format: 
+    revealjs: default
+---
+
+# VHC sprint 
+
+## Welcome & Introduction
+
+- Date: 30-5-2024
+- Last Demo: 22 - 5 - 2024
+- Presenter: Chris Verhoef
+- Objective: Review the progress of our AI Supply Chain Tool development, Plan next iteration. 
+
+## Last Time
+    - [x] Real-time data processing pipeline.
+    - [x] Real-time Systhesys of a company data map. That was in Markdown
+    - [x] User interface for data manipulation and adjustment.
+    - [x] Intergration into workbook with nice interface allows non-tech users to join the project.
+    - [x] Model overview Intergration allows us to watch A.I "think" in real time. 
+    - [x] Optimize the back-end processes to ensure that the visualization is generated within the 20-minute timeframe.
+    - [x] Complete the development of the initial visualization tool capable of representing power dynamics based solely on a company name.
+
+## PLanned tasks
+## Feedback and plan last time:
+- **Objectives**:
+    - Make sure the AI iterates over every part of the supplchain, nultitier Suppliers, 2,3,4-de 5de niveau toega. 
+    - Training the AI model to be specific; Unilever - ASML - 1ste lijns, tweede lijns. Derde Lijns.
+    - Add to the Product Limitation; (a razos blade of Philps) A Specific Product; 
+    - We want to see an improvement of the meeting; Can I see the an Improvement of the mapping. 
+    - Go back to the Graphical Display to map out the Supplychain
+- **Planned Tasks**:
+    - Collect more diverse data sets
+ 
+
+## Sprint Overview 
+
+- **Sprint Goals**: Visualize Power Dynamics Ecosystem: For the upcoming demo, develop a feature to visualize the entire ecosystem based on a company name within 20 minutes. 
+
+- [ ] Make sure the AI iterates over every part of the supplchain, nultitier Suppliers, 2,3,4-de 5de niveau toega. 
+- [x] Training the AI model to be specific; Unilever - ASML - 1ste lijns, tweede lijns. Derde Lijns.
+- [ ] Add to the Product Limitation; (a razos blade of Philps) A Specific Product; 
+- [x] We want to see an improvement of the meeting; Can I see the an Improvement of the mapping. 
+- [x] Go back to the Graphical Display to map out the Supplychain
+- [x] Making a more visual plan of the objective. 
+ **Planned Tasks**:
+    - [x] Collect more diverse data sets
+
+
+## Work Completed
+
+::: incremental
+
+- [x] Visual Design, back to the core of the mapping
+- [x] Multipule A.I system intergrated
+- [x] Now a Unified system with an graphical interface, A.I completly hidden
+- [x] A.I now uses more advanced models, though the most advanced are still out of scope
+- [x] Design and implement a user-friendly interface that allows users to easily input a company name and initiate the visualization process.
+- [x] Ensure the interface is intuitive and guides the user through the visualization generation.
+- [x] Crawler version one online
+- [x] A Data Cleansing process!!
+- [x] A data transformation process!!
+ 
+## Challanges Mitigated!
+
+- **this is no longer a problem!**:
+
+<style>
+  .reveal .slides section.present {
+    font-size: 40%; /* Adjust the percentage based on your preference */
+  }
+</style>
+<p>
+Sebastien helped witht he following problems:
+    - Inability for the A.I to produce a result that the previous visualization tool could correctly prase.
+    (Implementing a data cleansing process: DONE!)
+    - Initial model underperformance, Tokensize is very limited to 9000 characters.
+    - Hardware limitations, inability to train faster.
+    - Inability to parse data effectively into system
+    - AI model training takes significant time
+    - Chris does his best but he needs to be a data-engineer, ai-engineer, full stack programmer all in one.
+      - Creating presentations and formats in PowerPoint always take a very long time.
+    - Hard to keep head focused on a project that is very big where learning still needs to happen.
+    - "good Path" often changes mid-way due to discovery that it's impossible.
+    - Reality of time is different that real time, 6 days turns out to be 3.
+</p>
+
+
+## Challenges Faced, still a problem. 
+
+- **Significant Challenges**:
+
+<style>
+  .reveal .slides section.present {
+    font-size: 40%; /* Adjust the percentage based on your preference */
+  }
+</style>
+<p>
+    - Data inconsistency across sources.
+    - Inability for the A.I to produce a result that the previous visualization tool could correctly prase.
+    - Access to good data sources and an example
+    - AI model "Hallucinates"
+    - "good Path" often changes mid-way due to discovery that it's impossible.
+    - Significant stress due to "significant difference between what is promised and what is shown.
+
+    New: Ayoub had a long ontsteking, is er 2.5 week uit geweest;
+    New: Nikita kon niet goed genoeg A.I coderen. 
+</p>
+
+
+## Why Chain of Thoughts all of a sudden. 
+
+```{=html}
+<style>
+    table { font-size: 70%; }
+</style>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Chain of Thoughts</th>
+<th>Single LLM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complexity and Detail</strong></td>
+<td>Breaks down complexities into manageable insights, capturing detailed interdependencies.</td>
+<td>May overlook nuanced details due to generalized training data.</td>
+</tr>
+<tr>
+<td><strong>Adaptability and Flexibility</strong></td>
+<td>Allows iterative reassessment and refinements, crucial for dynamic environments.</td>
+<td>Constrained by initial training, less adaptive to new scenarios.</td>
+</tr>
+<tr>
+<td><strong>Risk Identification and Mitigation</strong></td>
+<td>Enables comprehensive risk analysis from multiple perspectives and scenarios.</td>
+<td>Potentially misses emerging or non-obvious risks, limited by training scope.</td>
+</tr>
+<tr>
+<td><strong>Customization and Specificity</strong></td>
+<td>Tailored analysis specific to operational needs and strategic goals.</td>
+<td>Generalizes based on broad datasets, may neglect organization-specific needs.</td>
+</tr>
+</tbody>
+</table>
+```
+
+## Next Sprint
+
+- **Sprint Goal 1**: Visualize Power Dynamics Ecosystem: For the upcoming demo, develop a feature to visualize the entire ecosystem based on a company name within 20 minutes. 
+
+# Subgoal:
+
+- [ ] RAG needs to go back and forth and prompt the same question multipule times
+- [ ] Load significantly more data into the model to parse
+- [ ] Spider Parse needs to be done more frequently
+- [ ] Rag needs to ask the Spider for more data
+- [ ] Chat system needs to work and update map upon prompt
+- [ ] Visual update on the buttons so that we can show how it will look in the near future
+- [ ] Crew A.I First version in the interface
+- [ ] First version of the Application online
+
+## Next Sprint (part 2)
+
+- **Sprint Goal 2**: the Setup of a community: Getting ready to recieve the students, setting up alliances and connections
+- [ ] Updating the Contacts sheet, making it into markdown so that everyone can read ORGANISATION
+- [ ] Creating a digital environment and bringint it online. INFRASTUCTURE
+- [ ] Setup of Linkedin Page, LEGITEMACY
+- [ ] Texten voor studenten, onboarding process for students. RECRUITMENT
+- [ ] Organisation Starting: Creation of a B.V or Non-Profit? LEGITEMACY
+- [ ] Setup Recruitment process for students, CRM. RECRUITMENT
+- [ ] Creation of Online content for students to learn, LMS
+- [ ] Filing for Public Grants, FUNDING
+- [ ] Going to Several Events on behalf of Value Chain Hackers, NETWORKING
+- [ ] Setup of Social Media for Value Chain Hackers, OUTREACH
+- [ ] Making a website , Getting a domain, INFRASTRUCTURE
+
+## Next Sprint (part 3)
+
+- [ ] Server Setup and config budget for Production. INFRASTUCTURE
+- [ ] Setup Scripts
+- [ ] Splitting the minds over multipule machines
+
+- **Sprint Goal 1**: Version 0.5 Online!
+
+## Feedback & Questions
+
+- **Questions Received**:
+   
+- **Feedback Incorporation**:
+    
+
+

@@ -1,0 +1,294 @@
+---
+title: "VHC sprint"
+format: 
+    revealjs: default
+---
+
+# VHC sprint 
+
+## Welcome & Introduction
+
+- Date: 22-5-2024
+- Presenter: Chris Verhoef
+- Objective: Review the progress of our AI Supply Chain Tool development
+
+## Sprint Overview
+
+- **Sprint Goals**: Visualize Power Dynamics Ecosystem: For the upcoming demo, develop a feature to visualize the entire ecosystem based on a company name within 20 minutes. 
+
+- Make sure the AI iterates over every part of the supplchain, nultitier Suppliers, 2,3,4-de 5de niveau toega. 
+- Training the AI model to be specific; Unilever - ASML - 1ste lijns, tweede lijns. Derde Lijns.
+- Add to the Product Limitation; (a razos blade of Philps) A Specific Product; 
+- We want to see an improvement of the meeting; Can I see the an Improvement of the mapping. 
+- Go back to the Graphical Display to map out the Supplychain
+
+
+maar je moet eerst op pen en papier neerlegger hoe de tussen stappen moeten werken en wat ze moeten outputten , text, json, csv ? wat moet daar in de colonnen die je moet hebben enz dan kan refinen
+
+## Prototype Development and Initial Testing
+
+- Develop an initial prototype for inputting a company name to generate an ecosystem visualization.
+- Model visualization needs somewhat accurate. 
+
+## Feature Enhancement and System Optimization
+
+- Enhance visualization features to include detailed ecosystem interactions.
+- Optimize backend processes to achieve visualization generation within the 20-minute target.
+
+## Interface Design and Requirement Analysis
+
+- Design a user-friendly interface for easy initiation of the visualization process.
+- Analyze requirements to accurately represent the ecosystem based on essential data points.
+
+## Integration and Final Preparations
+
+- Expand tool capabilities to integrate product data alongside company names.
+- Finalize the tool with stakeholder feedback, ensuring readiness for the demo.
+
+## Work Completed
+
+::: incremental
+
+- [x] Prototype to take company name and output a basic visualization of the ecosystem
+- [x] Test the prototype to ensure it meets the basic functional requirements.
+- [x] UI Enhancements: Improved dashboard for better user interaction.
+- [x] Enhance the visualization tool to include more detailed interactions and connections within the ecosystem.
+- [x] Optimize the back-end processes to ensure that the visualization is generated within the 20-minute timeframe.
+- [x] Complete the development of the initial visualization tool capable of representing power dynamics based solely on a company name.
+- [x] Expand the visualization tool to integrate product data along with the company name.
+- [x] Design and implement a user-friendly interface that allows users to easily input a company name and initiate the visualization process.
+- [x] Ensure the interface is intuitive and guides the user through the visualization generation.
+
+---
+
+
+## Key Achievements
+
+- **Major Achievement**: Successful prototype of supplychain mapping; 
+- **Impact on Project**: Allows us to see a first workable version of the program.
+- **Completed Product Increments**:
+    - [x] Real-time data processing pipeline.
+    - [x] Real-time Systhesys of a company data map.
+    - [x] User interface for data manipulation and adjustment.
+    - [x] Intergration into workbook with nice interface allows non-tech users to join the project.
+    - [x] Model overview Intergration allows us to watch A.I "think" in real time. 
+
+## Key Achievement 2
+
+- **Major Achievement: Reached Bedrock! This is something we can build upon!
+- **Impact on Project**: Chris will no longer need to make a whole new project every time he makes a small adjustment!
+- **Completed Project increments**:
+    - [x] Key tools and guides gathered for the good path.
+    - [x] Finally something workable.
+
+## Challenges Faced
+
+- **Significant Challenges**:
+
+<style>
+  .reveal .slides section.present {
+    font-size: 40%; /* Adjust the percentage based on your preference */
+  }
+</style>
+<p>
+    - Data inconsistency across sources.
+    - Inability for the A.I to produce a result that the previous visualization tool could correctly prase.
+    - Access to good data sources and an example
+    - Initial model underperformance, Tokensize is very limited to 9000 characters.
+    - Hardware limitations, inability to train faster.
+    - Inability to parse data effectively into system
+    - AI model training takes significant time
+    - AI model "Hallucinates"
+    - Chris does his best but he needs to be a data-engineer, ai-engineer, full stack programmer all in one.
+      - Creating presentations and formats in PowerPoint always take a very long time.
+    - Hard to keep head focused on a project that is very big where learning still needs to happen.
+    - "good Path" often changes mid-way due to discovery that it's impossible.
+    - Reality of time is different that real time, 6 days turns out to be 3.
+    - Significant stress due to "significant difference between what is promised and what is shown"
+</p>
+
+  
+## Mitigating and moving foward
+- **concerns addressed by**:
+    - Implementing a data cleansing process
+    - Now using a Programmer and Data engineering presenting style, you are looking at it!
+    - Juypter Notebook intergration directly into code; 
+    - Model overview tester to show differences
+    - Chain of Thought model prompting for more accurate results
+- **Remaining Concerns**: Adding significant data and parsing and inability to see how that will work, Chris needs to learn. 
+
+## Why Chain of Thoughts all of a sudden. 
+
+```{=html}
+<style>
+    table { font-size: 70%; }
+</style>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Chain of Thoughts</th>
+<th>Single LLM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complexity and Detail</strong></td>
+<td>Breaks down complexities into manageable insights, capturing detailed interdependencies.</td>
+<td>May overlook nuanced details due to generalized training data.</td>
+</tr>
+<tr>
+<td><strong>Adaptability and Flexibility</strong></td>
+<td>Allows iterative reassessment and refinements, crucial for dynamic environments.</td>
+<td>Constrained by initial training, less adaptive to new scenarios.</td>
+</tr>
+<tr>
+<td><strong>Risk Identification and Mitigation</strong></td>
+<td>Enables comprehensive risk analysis from multiple perspectives and scenarios.</td>
+<td>Potentially misses emerging or non-obvious risks, limited by training scope.</td>
+</tr>
+<tr>
+<td><strong>Customization and Specificity</strong></td>
+<td>Tailored analysis specific to operational needs and strategic goals.</td>
+<td>Generalizes based on broad datasets, may neglect organization-specific needs.</td>
+</tr>
+</tbody>
+</table>
+```
+
+## Chain of Thought Prompting
+
+```{mermaid}
+graph LR;
+    A[Process Inputs] --> B[Create Thoughts];
+    B --> C[Evaluate Pathways];
+    C --> D[Summarize Results];
+    D --> E[Formulate Conclusions];
+```
+
+```{=html}
+<style>
+  .reveal .slides section.present {
+    font-size: 80%; /* Adjust the percentage based on your preference */
+  }
+</style>
+<p>Step 1: Focus on acquiring and organizing all necessary inputs that will inform the subsequent stages of thinking.
+
+Step 2: Develop coherent thoughts that logically follow from the processed inputs.
+
+Step 3: Critically evaluate each pathway to determine its feasibility and relevance.
+
+Step 4: Aggregate and synthesize the results to provide a clear overview of what has been discovered or concluded so far.
+
+Step 5: Make informed decisions or conclusions that are supported by the summarized findings and ready to be implemented or communicated.</p>
+```
+
+
+## Product Demonstration
+
+- **Live Demo**: Showcasing the Chain of Thought one
+- **Feature Explanation**: Detailed overview of data inputs and machine learning outputs.
+- **Interaction Scenarios**: Taking a Present Data Supplychain set and mapping this out, to determine the relationship between them.
+-- **Question that is posed**: Between the characters of the "Miserables" what is the connection? 
+-- **Features shown**
+
+
+## Language Model Integration:
+
+The notebook integrates two language models, Ollama with enhanced context capabilities and OpenAIChat from OpenAI's GPT models, to process text inputs.
+
+### Data Processing and Visualization:
+
+A function, load_graph, loads data from a JSON file and converts it into a Mermaid graph format for visualization within the notebook.
+
+## Chain of Thoughts Processing:
+
+Implements a structured data processing approach that sequentially processes data through stages: input processing, thought creation, pathway evaluation, and conclusion formulation, using custom templates for each stage.
+
+### Custom Templates for Language Models:
+
+Uses ChatPromptTemplate and PromptTemplate to define structured prompts that guide the language models' responses, ensuring that each step of the process is contextually relevant to the previous outputs.
+
+### Dynamic Content Rendering:
+
+Outputs from language model processing are rendered as Markdown, allowing for dynamic presentation of both textual and graphical data in the notebook environment.
+Iterative and Conditional Processing:
+
+The notebook demonstrates the ability to loop over data iteratively and conditionally based on the outputs from each stage of the processing chain, refining the results with each iteration.
+
+## Synthesis of Complex Data:
+
+It synthesizes complex data from multiple processing steps into a coherent plan or conclusion, demonstrating advanced data handling and decision-making capabilities.
+
+### Interactive Markdown Display:
+
+Markdown is used extensively to display both code-generated graphics and language model outputs interactively, enhancing the readability and user engagement with the notebook content.
+
+## MAP
+```{dot}
+digraph ASML_Supply_Chain {
+    node[shape=box, style=filled];
+    "ASML" [label="ASML Holding N.V."];
+    "Intel" [label="Intel Corporation"];
+    "Samsung" [label="Samsung Electronics Co., Ltd."];
+    "TSMC" [label="Taiwan Semiconductor Manufacturing Company (TSMC)"];
+    "GlobalFoundries" [label="GlobalFoundries Inc."];
+    "Other Suppliers" [label="Various Other Suppliers"];
+
+    ASML -> Intel[label="Semiconductor Equipment Sales"];
+    ASML -> Samsung[label="Semiconductor Equipment Sales"];
+    ASML -> TSMC[label="Semiconductor Equipment Sales"];
+    ASML -> GlobalFoundries[label="Semiconductor Equipment Sales"];
+    Other Suppliers -> ASML[label="Components, Materials, and Services"];
+
+    "Specialty Chemicals" [label="Specialty Chemicals Inc."];
+    "Packaging Materials" [label="Packaging Materials Co., Ltd."];
+    "Assembly Services" [label="Assembly Services Inc."];
+
+    Other Suppliers -> Specialty Chemicals[label="Chemicals"];
+    Other Suppliers -> Packaging Materials[label="Packaging Materials"];
+    Other Suppliers -> Assembly Services[label="Assembly Services"];
+
+    Intel -> ASML[label="Semiconductor Equipment Purchases"];
+    Samsung -> ASML[label="Semiconductor Equipment Purchases"];
+    TSMC -> ASML[label="Semiconductor Equipment Purchases"];
+    GlobalFoundries -> ASML[label="Semiconductor Equipment Purchases"];
+}
+```
+
+## Feedback & Questions
+
+- **Questions Received**:
+    - Concerns about data privacy
+    - Questions about integration with existing ERP systems
+- **Feedback Incorporation**:
+    - Plan to enhance data encryption
+    - Roadmap for ERP integration by next quarter
+
+## Sprint Metrics
+
+- **Velocity Chart**: Display of completed story points over time.
+- **Burndown Chart**: Current sprint progress.
+- **Other Metrics**: Accuracy improvements of the forecasting model.
+
+## Plan for Next Sprint
+
+- **Objectives**:
+    - Make sure the AI iterates over every part of the supplchain, nultitier Suppliers, 2,3,4-de 5de niveau toega. 
+    - Training the AI model to be specific; Unilever - ASML - 1ste lijns, tweede lijns. Derde Lijns.
+    - Add to the Product Limitation; (a razos blade of Philps) A Specific Product; 
+    - We want to see an improvement of the meeting; Can I see the an Improvement of the mapping. 
+    - Go back to the Graphical Display to map out the Supplychain
+- **Planned Tasks**:
+    - Collect more diverse data sets
+    - Work on backend modifications for ERP integration
+- **Adjustments Based on Feedback**:
+    - Focus on data security enhancements
+
+## Conclusion
+
+- **Summary**: Reviewed the advancements made in our AI tool for enhancing supply chain efficiency.
+- **Next Steps**:
+    - Continue development and testing of the forecasting model
+    - Initiate stakeholder meetings for next-phase planning
+- **Thank You**: Special thanks to the team and stakeholders for ongoing support and feedback.
