@@ -100,8 +100,6 @@ format:
 - Inability for the A.I to produce a result that the previous visualization tool could correctly prase.
 - Access to good data sources and an example
 - AI model "Hallucinates"
-- "good Path" often changes mid-way due to discovery that it's impossible.
-- Significant stress due to "significant difference between what is promised and what is shown.
 New: Ayoub had a long ontsteking, is er 2.5 week uit geweest;
 New: Nikita kon niet goed genoeg A.I coderen. 
 </p>
@@ -148,17 +146,38 @@ New: Nikita kon niet goed genoeg A.I coderen.
 
 ## Next Sprint
 
-- **Sprint Goal 1**: Visualize Power Dynamics Ecosystem: For the upcoming demo, develop a feature to visualize the entire ecosystem based on a company name within 20 minutes. 
+**Sprint Goal 1**: Visualize Power Dynamics Ecosystem: For the upcoming demo, develop a feature to visualize the entire ecosystem based on a company name within 20 minutes. 
 
-# Subgoal:
+In order to do this: we need to build the ontology first; ontology to describe the supply chanin elements as a schema to help the AI structurize knowledge in a well defined way.
 
-- [ ] RAG needs to go back and forth and prompt the same question multipule times
+This will help to later help to query the knowledge in a structured way. 
+{UNTIL WE HAVE THIS, We cannot Draw the mapping in another way.}
+
+Even if you don't want to see the in between sets, we need to have this in order to map the graphs correct this. 
+
+https://www.ontotext.com/knowledgehub/fundamentals/what-is-sparql/
+
+![](./PowerDynamics.jpg)
+
+We will have this by the End of Next week!
+
+##
+
+![](./PowerDynamics.jpg)
+
+
+## Sub-Goals:
+- [ ] create a protocol to allow the ai to control the UI elements and dynamically render various visualisations.
+- [ ] Ask multipule A.I's and Multipule Prompts, to identify the which of the data is correct.
+To do reanforcement-learning: data set bouwen, zo that the A.I will always answer the correct information. 
+Example: I have 3 models and 3 examples, to have concrete examples; to Label them correctly, so that the error margin will get lower. 40% accurate, 70% accurate > 90% accurate.
+- [ ] CREWS need to start working; So that it can start crawling the internet for subquestions: "So it can say: Ah I need more information, go and search the internet".
+- [ ] Finetune: protocol to allow the ai to control the UI elements and dynamically render various visualisations
+- [ ] Need to build the task scheduler for the A.I Crews - >  so that you can see what tasks are running and what is going on. So you can see it "Build" Data.
+- [ ] Visual updates about the crews in the interface, so that we  can see what is running.
+- [ ] create an ontology to describe the supply chanin elements as a schema to help the AI structurize knowledge in a well defined way.
 - [ ] Load significantly more data into the model to parse
-- [ ] Spider Parse needs to be done more frequently
-- [ ] Rag needs to ask the Spider for more data
 - [ ] Chat system needs to work and update map upon prompt
-- [ ] Visual update on the buttons so that we can show how it will look in the near future
-- [ ] Crew A.I First version in the interface
 - [ ] First version of the Application online
 
 ## Next Sprint (part 2)
