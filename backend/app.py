@@ -1,9 +1,11 @@
 # main.py
 import asyncio
+from typing import Any, Dict, List, Optional
 import uuid
 import time
+from langchain_core.messages import BaseMessage
 import ollama
-
+import json
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
@@ -18,6 +20,9 @@ from fastapi.responses import StreamingResponse
 from utils.extract_knowledge import get_records_manager
 from jobs.information_gathering import collect_base_information
 from routers import agents, tasks, tools
+from langserve import add_routes
+from langchain_community.chat_models.ollama import ChatOllama
+from langchain.prompts import ChatPromptTemplate
 
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
@@ -88,6 +93,15 @@ async def records_manager():
 #     else:
 #         print(f"No job found with ID: {job_id}")
 
+model = ChatOllama(model="phi3:latest")
+prompt = ChatPromptTemplate.from_template("tell me a joke about {topic}")
+add_routes(
+    app,
+    prompt | model,
+    path="/joke",
+    playground_type="default"
+)
+
 
 
 @app.post("/uploadfile/")
@@ -130,7 +144,7 @@ async def get_tools(db: Session = Depends(get_db)):
     tools = db.query(Tools).order_by(Tools.name).all()
     return tools
 
-@app.get("/{company:str}/")
+@app.get("/view/{company:str}/")
 async def read_company(request: Request, company: str):
     context = {
         "request": request,  # Required for Jinja2 to work with FastAPI
@@ -153,14 +167,207 @@ async def read_admin(request: Request, db: Session = Depends(get_db)):
     }
     return templates.TemplateResponse("admin.html", context)
 
+from langchain_core.agents import AgentAction, AgentFinish, AgentStep
+from crewai.tasks.task_output import TaskOutput
+from langchain_core.callbacks import BaseCallbackHandler, BaseCallbackManager
+
+
+class customCallbackManager(BaseCallbackManager):
+    def __init__(self, handlers: List[BaseCallbackHandler], inheritable_handlers: List[BaseCallbackHandler] | None = None, parent_run_id: uuid.UUID | None = None, *, tags: List[str] | None = None, inheritable_tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, inheritable_metadata: Dict[str, Any] | None = None) -> None:
+        
+        super().__init__(handlers, inheritable_handlers, parent_run_id, tags=tags, inheritable_tags=inheritable_tags, metadata=metadata, inheritable_metadata=inheritable_metadata)
+    def on_tool_start(self, serialized: Dict[str, Any], input_str: str, *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, inputs: Dict[str, Any] | None = None, **kwargs: Any) -> Any:
+        print("***Tool Start: ", serialized)
+        return super().on_tool_start(serialized, input_str, run_id=run_id, parent_run_id=parent_run_id, tags=tags, metadata=metadata, inputs=inputs, **kwargs)
+    def on_llm_start(self, serialized: Dict[str, Any], prompts: List[str], *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, **kwargs: Any) -> Any:
+        print("***LLM Start: ", serialized)
+        return super().on_llm_start(serialized, prompts, run_id=run_id, parent_run_id=parent_run_id, tags=tags, metadata=metadata, **kwargs)
+    def on_chain_start(self, serialized: Dict[str, Any], inputs: Dict[str, Any], *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, **kwargs: Any) -> Any:
+        print("***Chain Start: ", serialized)
+        return super().on_chain_start(serialized, inputs, run_id=run_id, parent_run_id=parent_run_id, tags=tags, metadata=metadata, **kwargs)
+    
+
+class customCallback(BaseCallbackHandler):
+    def on_llm_start(self, serialized: Dict[str, Any], prompts: List[str], *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, **kwargs: Any) -> Any:
+        print("***LLM Start: ", serialized)
+        return super().on_llm_start(serialized, prompts, run_id=run_id, parent_run_id=parent_run_id, tags=tags, metadata=metadata, **kwargs)
+    
+    def on_agent_action(self, action: AgentAction, *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, **kwargs: Any) -> Any:
+        print("***Agent Action: ", action)
+        return super().on_agent_action(action, run_id=run_id, parent_run_id=parent_run_id, **kwargs)
+    
+
+    def on_chat_model_start(self, serialized: Dict[str, Any], messages: List[List[BaseMessage]], *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, **kwargs: Any) -> Any:
+        # print("***Chat Model Start: serialized: ", serialized)
+        # print("***Chat Model Start: messages: ", messages )
+        # print("***Chat Model Start: metadata: ", metadata )
+        print("***Chat Model Start: kwargs: ",  kwargs["invocation_params"]["model"])
+        return super().on_chat_model_start(serialized, messages, run_id=run_id, parent_run_id=parent_run_id, tags=tags, metadata=metadata, **kwargs)
+
+    def on_tool_start(self, serialized: Dict[str, Any], input_str: str, *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, inputs: Dict[str, Any] | None = None, **kwargs: Any) -> Any:
+        print("***Tool Start: ", serialized)
+        return super().on_tool_start(serialized, input_str, run_id=run_id, parent_run_id=parent_run_id, tags=tags, metadata=metadata, inputs=inputs, **kwargs)
+    
+    def on_tool_end(self, output: Any, *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, **kwargs: Any) -> Any:
+        print("***Tool End: ", output)
+        return super().on_tool_end(output, run_id=run_id, parent_run_id=parent_run_id, **kwargs)
+
+    def on_chain_start(self, serialized: Dict[str, Any], inputs: Dict[str, Any], *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, **kwargs: Any) -> Any:
+        print("***Chain Start: ", serialized)
+        return super().on_chain_start(serialized, inputs, run_id=run_id, parent_run_id=parent_run_id, tags=tags, metadata=metadata, **kwargs)
+
+    def on_chain_end(self, outputs: Dict[str, Any], *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, **kwargs: Any) -> Any:
+        print("***Chain End: ", outputs)
+        return super().on_chain_end(outputs, run_id=run_id, parent_run_id=parent_run_id, **kwargs)
+
+    def on_text(self, text: str, *, run_id: uuid.UUID, parent_run_id: uuid.UUID | None = None, **kwargs: Any) -> Any:
+        print("***Text: ", text)
+        return super().on_text(text, run_id=run_id, parent_run_id=parent_run_id, **kwargs)
+
+
+
+
 @app.get("/crews/{name:str}/kickoff")
 async def kickoff(name: str, db: Session = Depends(get_db)):
-    from crewai import Crew, Agent, Task, tool
-    crew = db.query(Crews).filter(Crews.name == name).first()
-    if crew:
+    from crewai import Crew, Agent, Task
+    from crewai.tools.agent_tools import AgentTools
+    from langchain_community.tools.ddg_search.tool import DuckDuckGoSearchResults
 
-        return {"status": "kicked off"}
-    return {"status": "not found"}
+    from backend.tools.wikipedia import WikipediaQueryRun
+    from langchain_community.utilities.wikipedia import WikipediaAPIWrapper
+    from backend.tools.search import DuckSearch
+
+    llm = ChatOllama(model="mistral:latest", num_ctx=4096, num_predict=2048, temperature=1)
+    crew = db.query(Crews).filter(Crews.name == name).first()
+    agents = db.query(Agents).all()
+    tasks = db.query(Tasks).all()
+    all_agents = []
+    for agent in agents:
+        print(agent)
+        a = Agent(
+            role=agent.role, 
+            backstory=agent.backstory, 
+            goal=agent.goal,
+            allow_delegation=agent.allow_delegation,
+            verbose=agent.verbose,
+            cache=agent.cache,
+            llm=llm,
+            memory=True,
+            tools = [DuckSearch(), WikipediaQueryRun(verbose=True, api_wrapper=WikipediaAPIWrapper())],
+            )
+        all_agents.append(a)
+    all_tasks = []
+    for task in tasks:
+        print(task)
+        t = Task(
+            description=task.description,
+            expected_output=task.expected_output,
+            agent=all_agents[0],
+            
+        )
+        all_tasks.append(t)
+    
+    all_results = []
+    
+        
+    def task_callback(args):
+        if isinstance(args, TaskOutput):
+            print("--- TASK OUTPUT ---", args.json(),"\n----\n")
+            all_results.append(args.model_dump_json())
+        else:
+            with open("./crew_output.json", "a", encoding="utf-8") as f:
+                f.write(args.json())
+            all_results.append(args)
+            print("\n\nTASK ::: ",args, end="\n---------------------\n")
+
+    def step_callback(args):
+        # if args is list:
+        if isinstance(args, list):
+            for arg in args:
+                # if arg is tuple:
+                if isinstance(arg, tuple):
+                    for a in arg:
+                        if isinstance(a, AgentAction):
+                            print("--- AGENT ACTION ---", a.json(),"\n----\n")
+                            all_results.append(a.json())
+                        elif isinstance(a, AgentFinish):
+                            print("--- AGENT FINISH ---", a.json(),"\n----\n")
+                            all_results.append(a.json())
+                        elif isinstance(a, AgentStep):
+                            print("--- AGENT STEP ---", a.json(),"\n----\n")
+                            all_results.append(a.json())
+                        else:
+                            print("--- UNK AGENT STEP ---", type(a),"\n----\n")
+                            with open("./crew_output.json", "a", encoding="utf-8") as f:
+                                f.write(a)
+                            all_results.append(json.dumps({"data": a , "type": "AgentStepData"}, ensure_ascii=False))
+                else:
+                    with open("./crew_output.json", "a") as f:
+                        f.write(arg.json())
+                    all_results.append(arg.json())
+                    print("\n\nSTEPq ::: ",arg, end="\n---------------------\n")
+        elif isinstance(args, AgentAction):
+            all_results.append(args.json())
+            print("--- AGENT ACTION1 ---", args.json(),"\n----\n")
+        elif isinstance(args, AgentFinish):
+            all_results.append(args.json())
+            print("--- AGENT FINISH1 ---", args.json(),"\n----\n")
+        elif isinstance(args, AgentStep):
+            all_results.append(args.json())
+            print("--- AGENT STEP1 ---", args.json(),"\n----\n")
+        else: 
+            all_results.append(args.json())
+            with open("./crew_output.json", "a", encoding="utf-8") as f:
+                f.write(args.json())
+            print("\n\nSTEPw ::: ",args, end="\n---------------------")
+
+
+    
+    c = Crew(
+        tasks=all_tasks,
+        agents=all_agents,
+        full_output=True,
+        verbose=True,
+        output_log_file="./crew_output.log",
+        task_callback=task_callback,
+        step_callback=step_callback,
+        
+        manager_llm=llm
+        
+    )
+   
+    async def event_generator(c):
+        # Run kickoff in non-blocking mode and yield elements from task_callback and step_callback
+        from concurrent.futures import ThreadPoolExecutor
+        import threading
+        yield {"event": "message", "id": str(1), "data": f'{{"step": 1, "detail": "Starting the crew.", "type": "CrewStart"}}'}
+        def kickoff_thread():
+        
+            with open("./data/supplychain.rdf", "r") as f:
+                data = f.read()
+        
+            try:    
+                c.kickoff(inputs={'company': 'Coca-Cola', 'ontology': data})
+            except Exception as e:
+                print("Error: ", e)
+        # Using a thread to run the blocking kickoff method
+        executor = ThreadPoolExecutor(max_workers=1)
+        future = executor.submit(kickoff_thread)
+        # Continuously check if the kickoff call is complete
+        msgCount = 1
+        while not future.done():
+           # pop the first element from the results list
+            if all_results and len(all_results) > 0:
+                msgCount += 1
+                yield {"event": "message", "id": str(msgCount), "data": all_results.pop(0) }
+            else:
+                await asyncio.sleep(3   )
+        msgCount += 1
+        yield {"event": "message", "id": str(msgCount), "data": f'{{"step": 1, "detail": "Crew Completed."}}'}
+        # Close the executor
+        executor.shutdown()
+
+    return EventSourceResponse(event_generator(c))
 
 
 processes = {}
