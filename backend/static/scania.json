@@ -1,0 +1,627 @@
+[
+    {
+    "subject": "Scania",
+    "predicate": "sources from",
+    "object": "Volvo Construction Equipment",
+    "object-type": "supplier",
+    "more-info": "axles and gearboxes"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "sources from",
+    "object": "Bosch",
+    "object-type": "supplier",
+    "more-info": "fuel injection systems"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "sources from",
+    "object": "Continental AG",
+    "object-type": "supplier",
+    "more-info": "brake systems"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "sources from",
+    "object": "ZF Friedrichshafen",
+    "object-type": "supplier",
+    "more-info": "transmissions"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "sources from",
+    "object": "Mahle",
+    "object-type": "supplier",
+    "more-info": "engine components"
+  },
+  {
+    "subject": "Volvo Construction Equipment",
+    "predicate": "sources from",
+    "object": "SSAB",
+    "object-type": "supplier",
+    "more-info": "steel alloys"
+  },
+  {
+    "subject": "Bosch",
+    "predicate": "sources from",
+    "object": "Infineon Technologies",
+    "object-type": "supplier",
+    "more-info": "semiconductors"
+  },
+  {
+    "subject": "Continental AG",
+    "predicate": "sources from",
+    "object": "Honeywell International",
+    "object-type": "supplier",
+    "more-info": "sensors and electronics"
+  },
+  {
+    "subject": "ZF Friedrichshafen",
+    "predicate": "sources from",
+    "object": "Schaeffler Group",
+    "object-type": "supplier",
+    "more-info": "bearings and components"
+  },
+  {
+    "subject": "Mahle",
+    "predicate": "sources from",
+    "object": "BASF",
+    "object-type": "supplier",
+    "more-info": "chemicals and coatings"
+  },
+  {
+    "subject": "Honeywell International",
+    "predicate": "sources from",
+    "object": "3M",
+    "object-type": "supplier",
+    "more-info": "adhesives and materials"
+  },
+  {
+    "subject": "Honeywell International",
+    "predicate": "sources from",
+    "object": "DuPont",
+    "object-type": "supplier",
+    "more-info": "chemicals and materials"
+  },
+  {
+    "subject": "Honeywell International",
+    "predicate": "sources from",
+    "object": "Amphenol",
+    "object-type": "supplier",
+    "more-info": "interconnect systems"
+  },
+  {
+    "subject": "Honeywell International",
+    "predicate": "sources from",
+    "object": "TE Connectivity",
+    "object-type": "supplier",
+    "more-info": "connectors and sensors"
+  },
+  {
+    "subject": "Honeywell International",
+    "predicate": "sources from",
+    "object": "Corning Incorporated",
+    "object-type": "supplier",
+    "more-info": "glass and ceramics"
+  },
+  {
+    "subject": "SSAB",
+    "predicate": "sources from",
+    "object": "LKAB",
+    "object-type": "supplier",
+    "more-info": "iron ore"
+  },
+  {
+    "subject": "SSAB",
+    "predicate": "sources from",
+    "object": "Norsk Hydro",
+    "object-type": "supplier",
+    "more-info": "aluminum"
+  },
+  {
+    "subject": "SSAB",
+    "predicate": "sources from",
+    "object": "Yara International",
+    "object-type": "supplier",
+    "more-info": "fertilizers and chemicals"
+  },
+  {
+    "subject": "Infineon Technologies",
+    "predicate": "sources from",
+    "object": "Sumco Corporation",
+    "object-type": "supplier",
+    "more-info": "silicon wafers"
+  },
+  {
+    "subject": "Infineon Technologies",
+    "predicate": "sources from",
+    "object": "Mitsui Mining & Smelting",
+    "object-type": "supplier",
+    "more-info": "copper and metals"
+  },
+  {
+    "subject": "Infineon Technologies",
+    "predicate": "sources from",
+    "object": "Air Products",
+    "object-type": "supplier",
+    "more-info": "gases and chemicals"
+  },
+  {
+    "subject": "Honeywell International",
+    "predicate": "sources from",
+    "object": "3M",
+    "object-type": "supplier",
+    "more-info": "adhesives and materials"
+  },
+  {
+    "subject": "Honeywell International",
+    "predicate": "sources from",
+    "object": "DuPont",
+    "object-type": "supplier",
+    "more-info": "chemicals and materials"
+  },
+  {
+    "subject": "Honeywell International",
+    "predicate": "sources from",
+    "object": "Amphenol",
+    "object-type": "supplier",
+    "more-info": "interconnect systems"
+  },
+  {
+    "subject": "Schaeffler Group",
+    "predicate": "sources from",
+    "object": "ThyssenKrupp",
+    "object-type": "supplier",
+    "more-info": "steel and metals"
+  },
+  {
+    "subject": "Schaeffler Group",
+    "predicate": "sources from",
+    "object": "BASF",
+    "object-type": "supplier",
+    "more-info": "chemicals and coatings"
+  },
+  {
+    "subject": "Schaeffler Group",
+    "predicate": "sources from",
+    "object": "Fuchs Petrolub",
+    "object-type": "supplier",
+    "more-info": "lubricants and oils"
+  },
+  {
+    "subject": "Schaeffler Group",
+    "predicate": "sources from",
+    "object": "ThyssenKrupp",
+    "object-type": "supplier",
+    "more-info": "steel and metals"
+  },
+  {
+    "subject": "Schaeffler Group",
+    "predicate": "sources from",
+    "object": "BASF",
+    "object-type": "supplier",
+    "more-info": "chemicals and coatings"
+  },
+  {
+    "subject": "Schaeffler Group",
+    "predicate": "sources from",
+    "object": "Fuchs Petrolub",
+    "object-type": "supplier",
+    "more-info": "lubricants and oils"
+  },
+  {
+    "subject": "BASF",
+    "predicate": "sources from",
+    "object": "Evonik Industries",
+    "object-type": "supplier",
+    "more-info": "specialty chemicals"
+  },
+  {
+    "subject": "BASF",
+    "predicate": "sources from",
+    "object": "Linde plc",
+    "object-type": "supplier",
+    "more-info": "industrial gases"
+  },
+  {
+    "subject": "BASF",
+    "predicate": "sources from",
+    "object": "Solvay",
+    "object-type": "supplier",
+    "more-info": "specialty polymers"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has distribution center",
+    "object": "Scania Logistics Europe",
+    "object-type": "distribution center",
+    "more-info": "located in Opglabbeek, Belgium"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has distribution center",
+    "object": "Scania Parts Center",
+    "object-type": "distribution center",
+    "more-info": "located in Södertälje, Sweden"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has distribution center",
+    "object": "Scania Distribution Center Americas",
+    "object-type": "distribution center",
+    "more-info": "located in Jamestown, Indiana, USA"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has distribution center",
+    "object": "Scania Asia Distribution Center",
+    "object-type": "distribution center",
+    "more-info": "located in Singapore"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has distribution center",
+    "object": "Scania Latin America Distribution Center",
+    "object-type": "distribution center",
+    "more-info": "located in São Paulo, Brazil"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has dealership",
+    "object": "Scania UK",
+    "object-type": "dealership",
+    "more-info": "located in Milton Keynes, UK"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has dealership",
+    "object": "Scania Australia",
+    "object-type": "dealership",
+    "more-info": "located in Melbourne, Australia"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has dealership",
+    "object": "Scania Deutschland",
+    "object-type": "dealership",
+    "more-info": "located in Berlin, Germany"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has dealership",
+    "object": "Scania France",
+    "object-type": "dealership",
+    "more-info": "located in Paris, France"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has dealership",
+    "object": "Scania USA",
+    "object-type": "dealership",
+    "more-info": "located in Chicago, Illinois, USA"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has manufacturing plant",
+    "object": "Scania AB, Södertälje",
+    "object-type": "manufacturing plant",
+    "more-info": "located in Södertälje, Sweden, produces trucks and buses"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has manufacturing plant",
+    "object": "Scania Latin America Ltda.",
+    "object-type": "manufacturing plant",
+    "more-info": "located in São Bernardo do Campo, Brazil, produces trucks and buses"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has manufacturing plant",
+    "object": "Scania Production Angers",
+    "object-type": "manufacturing plant",
+    "more-info": "located in Angers, France, produces bus bodies"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has manufacturing plant",
+    "object": "Scania Manufacturing Thailand",
+    "object-type": "manufacturing plant",
+    "more-info": "located in Bangkok, Thailand, produces trucks and buses"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has manufacturing plant",
+    "object": "Scania India Pvt. Ltd.",
+    "object-type": "manufacturing plant",
+    "more-info": "located in Narasapura, India, produces trucks and buses"
+  }
+,
+{
+    "subject": "Scania",
+    "predicate": "has subsidiary",
+    "object": "Scania-Bus GmbH",
+    "object-type": "subsidiary",
+    "more-info": "located in Salzgitter, Germany, produces bus bodies"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has subsidiary",
+    "object": "Scania Finance Great Britain Ltd.",
+    "object-type": "subsidiary",
+    "more-info": "located in Milton Keynes, UK, provides financial services"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has subsidiary",
+    "object": "Scania Latin America Financial Services Ltda.",
+    "object-type": "subsidiary",
+    "more-info": "located in São Paulo, Brazil, provides financial services"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has subsidiary",
+    "object": "Scania Fleet Management B.V.",
+    "object-type": "subsidiary",
+    "more-info": "located in Amsterdam, Netherlands, provides fleet management services"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "has subsidiary",
+    "object": "Scania Insurance Sweden AB",
+    "object-type": "subsidiary",
+    "more-info": "located in Södertälje, Sweden, provides insurance services"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "competes with",
+    "object": "Volvo Trucks",
+    "object-type": "competitor",
+    "more-info": "Swedish manufacturer of trucks, buses, and construction equipment"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "competes with",
+    "object": "Daimler Trucks",
+    "object-type": "competitor",
+    "more-info": "German manufacturer of trucks, buses, and vans"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "competes with",
+    "object": "MAN SE",
+    "object-type": "competitor",
+    "more-info": "German manufacturer of trucks, buses, and vans"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "competes with",
+    "object": "Iveco",
+    "object-type": "competitor",
+    "more-info": "Italian manufacturer of trucks, buses, and construction equipment"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "competes with",
+    "object": "Renault Trucks",
+    "object-type": "competitor",
+    "more-info": "French manufacturer of trucks and buses"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "produces",
+    "object": "Scania P-series",
+    "object-type": "truck model",
+    "more-info": "range of trucks for distribution, construction, and regional haulage"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "produces",
+    "object": "Scania R-series",
+    "object-type": "truck model",
+    "more-info": "range of trucks for long-haulage, construction, and heavy haulage"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "produces",
+    "object": "Scania S-series",
+    "object-type": "truck model",
+    "more-info": "range of trucks for long-haulage, construction, and heavy haulage"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "produces",
+    "object": "Scania G-series",
+    "object-type": "truck model",
+    "more-info": "range of trucks for construction, regional haulage, and distribution"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "produces",
+    "object": "Scania K-series",
+    "object-type": "bus model",
+    "more-info": "range of buses for urban and suburban transport"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "developed",
+    "object": "Scania One",
+    "object-type": "digital platform",
+    "more-info": "integrated digital platform for fleet management and data analysis"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "introduced",
+    "object": "Scania City Door",
+    "object-type": "bus door system",
+    "more-info": "improved safety and accessibility for bus passengers"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "developed",
+    "object": "Scania Zone Management",
+    "object-type": "fleet management system",
+    "more-info": "real-time monitoring and control for fleet operators"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "introduced",
+    "object": "Scania Ecolution",
+    "object-type": "fuel-saving technology",
+    "more-info": "improved fuel efficiency and reduced emissions for trucks"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "developed",
+    "object": "Scania Autonomous Transport Solutions",
+    "object-type": "autonomous vehicle technology",
+    "more-info": "self-driving trucks for mining, construction, and logistics"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "partnered with",
+    "object": "Ericsson",
+    "object-type": "telecommunications company",
+    "more-info": "collaboration on 5G network for industrial applications"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "collaborated with",
+    "object": "Rio Tinto",
+    "object-type": "mining company",
+    "more-info": "autonomous haulage trucks for mining operations"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "teamed up with",
+    "object": "IKEA",
+    "object-type": "furniture retailer",
+    "more-info": "electric and hybrid trucks for sustainable logistics"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "joined forces with",
+    "object": "HSSMI",
+    "object-type": "innovation consultancy",
+    "more-info": "development of autonomous and connected vehicles"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "partnered with",
+    "object": "SENKO",
+    "object-type": "logistics company",
+    "more-info": "electric trucks for sustainable urban logistics"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "owns",
+    "object": "Scania Bus",
+    "object-type": "bus manufacturing subsidiary",
+    "more-info": "produces city buses, coaches, and bus chassis"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "owns",
+    "object": "Scania Finance",
+    "object-type": "financial services subsidiary",
+    "more-info": "provides financial solutions for Scania customers"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "owns",
+    "object": "Scania IT",
+    "object-type": "IT services subsidiary",
+    "more-info": "provides IT solutions and services for Scania"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "owns",
+    "object": "Scania Parts Industry",
+    "object-type": "parts manufacturing subsidiary",
+    "more-info": "produces spare parts for Scania vehicles"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "owns",
+    "object": "Scania Vehicle Accessories",
+    "object-type": "accessory manufacturing subsidiary",
+    "more-info": "produces accessories for Scania vehicles"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "manufactures",
+    "object": "Trucks",
+    "object-type": "heavy-duty trucks",
+    "more-info": "range of trucks for long-haulage, construction, and urban transport"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "manufactures",
+    "object": "Buses",
+    "object-type": "city buses and coaches",
+    "more-info": "range of buses for public transport and tourism"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "offers",
+    "object": "Scania Services",
+    "object-type": "vehicle maintenance and repair services",
+    "more-info": "range of services for vehicle maintenance, repair, and optimization"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "provides",
+    "object": "Scania Fleet Management",
+    "object-type": "fleet management solutions",
+    "more-info": "range of solutions for fleet management and optimization"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "develops",
+    "object": "Autonomous Vehicles",
+    "object-type": "autonomous driving technology",
+    "more-info": "research and development of autonomous driving technology"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "headquartered",
+    "object": "Södertälje, Sweden",
+    "object-type": "headquarters location",
+    "more-info": "global headquarters located in Södertälje, Sweden"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "operates",
+    "object": "manufacturing facilities",
+    "object-type": "production sites",
+    "more-info": "operates manufacturing facilities in Europe, South America, and Asia"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "employs",
+    "object": "approximately 50,000 people",
+    "object-type": "workforce size",
+    "more-info": "employs around 50,000 people globally"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "sells",
+    "object": "products and services",
+    "object-type": "product offerings",
+    "more-info": "sells a range of products and services, including trucks, buses, and services"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "operates",
+    "object": "dealerships and workshops",
+    "object-type": "distribution network",
+    "more-info": "operates a global network of dealerships and workshops"
+  },
+  {
+    "subject": "Scania",
+    "predicate": "merged",
+    "object": "Vabis",
+    "object-type": "merger partner",
+    "more-info": "merged with Vabis in 1911 to form Scania-Vabis"
+  }
+
+]

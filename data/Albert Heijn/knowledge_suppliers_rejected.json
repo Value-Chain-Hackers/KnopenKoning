@@ -1,0 +1,30 @@
+[
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "has",
+        "object": "fully automated freezer in Mountville, Pennsylvania",
+        "object-type": "facility",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "collaborates-with",
+        "object": "Foundation",
+        "object-type": "organization",
+        "more-info": "To realize the common vision with strict monitoring by the Foundation"
+    },
+    {
+        "subject": "packaging vendor",
+        "predicate": "inputs",
+        "object": "information about plastic packaging",
+        "object-type": "data",
+        "more-info": ""
+    },
+    {
+        "subject": "brand",
+        "predicate": "performs",
+        "object": "validation of data at brand level",
+        "object-type": "process",
+        "more-info": ""
+    }
+]

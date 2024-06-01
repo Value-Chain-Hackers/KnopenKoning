@@ -1,0 +1,44 @@
+[
+    {
+        "subject": "Inter IKEA Holding B.V.",
+        "predicate": "has",
+        "object": "Wholesale subsidiaries",
+        "object-type": "subsidiaries",
+        "more-info": ""
+    },
+    {
+        "subject": "IKEA Industry",
+        "predicate": "divested",
+        "object": "4 Russian production units",
+        "object-type": "manufacturing plant",
+        "more-info": "concluding this process at the end of March 2023"
+    },
+    {
+        "subject": "Ikea",
+        "predicate": "uses",
+        "object": "tangible fixed assets",
+        "object-type": "asset",
+        "more-info": ""
+    },
+    {
+        "subject": "Ikea",
+        "predicate": "depreciates",
+        "object": "each item of the tangible fixed assets",
+        "object-type": "asset",
+        "more-info": "Depreciation starts as soon as the asset is available for its intended use, and is recognised in the profit and loss account on a straight-line basis over the estimated useful lives of each item."
+    },
+    {
+        "subject": "Ikea",
+        "predicate": "capitalises",
+        "object": "expenditure that extends the useful life of the asset",
+        "object-type": "expense",
+        "more-info": "Expenditure is only capitalised when it extends the useful life of the asset."
+    },
+    {
+        "subject": "Ikea",
+        "predicate": "applies",
+        "object": "the component approach for tangible fixed assets",
+        "object-type": "approach",
+        "more-info": ""
+    }
+]

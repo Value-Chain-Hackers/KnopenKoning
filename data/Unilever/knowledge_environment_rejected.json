@@ -1,0 +1,128 @@
+[
+    {
+        "subject": "Unilever",
+        "predicate": "has",
+        "object": "Responsible Suppliers Policy",
+        "object-type": "policy",
+        "more-info": "to define the mandatory requirements that all our supply chain partners must confirm they can meet."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "invests in",
+        "object": "Unilever Oleochemicals facility",
+        "object-type": "facility",
+        "more-info": "to source deforestation-free palm oil and palm kernel oil directly in the coming years."
+    },
+    {
+        "subject": "suppliers",
+        "predicate": "are verified by",
+        "object": "audits",
+        "object-type": "process",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "owns",
+        "object": "factories",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "sets-targets",
+        "object": "Zero GHG emissions in our operations by 2030",
+        "object-type": "goal",
+        "more-info": ""
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Climate",
+        "object-type": "pillar",
+        "more-info": "The Company will focus its sustainability efforts on areas of critical importance with the aim of achieving greater impact in a shorter time, the pillars of this focus being Climate, Nature, Plastics and Livelihoods."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Nature",
+        "object-type": "pillar",
+        "more-info": "The Company will focus its sustainability efforts on areas of critical importance with the aim of achieving greater impact in a shorter time, the pillars of this focus being Climate, Nature, Plastics and Livelihoods."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Plastics",
+        "object-type": "pillar",
+        "more-info": "The Company will focus its sustainability efforts on areas of critical importance with the aim of achieving greater impact in a shorter time, the pillars of this focus being Climate, Nature, Plastics and Livelihoods."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "uses",
+        "object": "Livelihoods",
+        "object-type": "pillar",
+        "more-info": "The Company will focus its sustainability efforts on areas of critical importance with the aim of achieving greater impact in a shorter time, the pillars of this focus being Climate, Nature, Plastics and Livelihoods."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "partners-with",
+        "object": "experts in sustainability agenda",
+        "object-type": "team",
+        "more-info": "In addition, included within the Supply Chain, R&D and Finance corporate functions, we have teams of experts who are focused on the sustainability agenda which includes climate-related matters."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "exploring",
+        "object": "new technology to reduce palm-derived ingredients",
+        "object-type": "technology",
+        "more-info": "We are exploring new technology which has the potential to reduce the amount of palm-derived ingredients in our soap bars as well as lowering GHG emissions \u2013 without compromising"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "focuses",
+        "object": "four key priorities: climate, nature, plastics and livelihoods",
+        "object-type": "strategy",
+        "more-info": "We are more certain than ever that it is the right time to focus our sustainability efforts on the four key priorities where we are best placed to drive impact: climate, nature, plastics and livelihoods."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "collaborates-with",
+        "object": "World Economic Forum's Consumers Beyond Waste initiative",
+        "object-type": "initiative",
+        "more-info": "And with the World Economic Forum's Consumers Beyond Waste initiative, we are developing a standardised approach for reuse measurement and reporting to inform future policy."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "aims-to",
+        "object": "100% of plastic packaging is reusable, recyclable or compostable by 2025",
+        "object-type": "goal",
+        "more-info": "We have committed to ensuring 100% of our plastic packaging is reusable, recyclable or compostable by 2025 and are working with partners and consumers to raise awareness and find solutions to improve the recycling infrastructure for plastics."
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "aims-to",
+        "object": "100% of plastic packaging being reusable, recyclable or compostable by 2025",
+        "object-type": "goal",
+        "more-info": "working with partners and consumers to raise awareness and find solutions"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "collaborates-with",
+        "object": "Ellen MacArthur Foundation and the Consumer Goods Forum",
+        "object-type": "organization",
+        "more-info": "to advocate for systemic changes that will help make reuse-refill models scalable and economically viable"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "owns",
+        "object": "factories",
+        "object-type": "manufacturing plant",
+        "more-info": "powered by renewable electricity"
+    },
+    {
+        "subject": "Unilever",
+        "predicate": "receives",
+        "object": "240 Product Carbon Footprint (PCF) data points",
+        "object-type": "data",
+        "more-info": "from suppliers that meet industry standards and can be incorporated into GHG measurement in the future"
+    }
+]

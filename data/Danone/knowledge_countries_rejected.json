@@ -1,0 +1,16 @@
+[
+    {
+        "subject": "Carrefour",
+        "predicate": "partners-with",
+        "object": "Danone",
+        "object-type": "company",
+        "more-info": "Collects products close to expiration date from Carrefour sites for redistribution to community groups."
+    },
+    {
+        "subject": "Carrefour",
+        "predicate": "partners-with",
+        "object": "Red Argentina de Bancos de Alimentos",
+        "object-type": "organization",
+        "more-info": "collects products close to expiration date from Carrefour sites for redistribution to community groups"
+    }
+]

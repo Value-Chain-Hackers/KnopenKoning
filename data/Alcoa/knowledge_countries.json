@@ -1,0 +1,268 @@
+[
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "201 Isabella Street, Suite 500, Pittsburgh, Pennsylvania 15212-5858",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Iceland",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Norway",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Spain",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "United States",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Willowdale",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Huntly",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Pinjarra",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Wagerup",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Kwinana",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Portland",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Po\u00e7os de Caldas",
+        "predicate": "is-part-of",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "S\u00e3o Lu\u00eds (Alumar)",
+        "predicate": "is-part-of",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Juruti",
+        "predicate": "is-part-of",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Baie-Comeau",
+        "predicate": "is-part-of",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Deschambault",
+        "predicate": "is-part-of",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "B\u00e9cancour",
+        "predicate": "is-part-of",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Fjar\u00f0a\u00e1l",
+        "predicate": "is-part-of",
+        "object": "Iceland",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Lista",
+        "predicate": "is-part-of",
+        "object": "Norway",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Mosj\u00f8en",
+        "predicate": "is-part-of",
+        "object": "Norway",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "San Cipri\u00e1n",
+        "predicate": "is-part-of",
+        "object": "Spain",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Willowdale, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Huntly, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Pinjarra, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Wagerup, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Kwinana, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Portland, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Po\u00e7os de Caldas, Brazil",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "S\u00e3o Lu\u00eds (Alumar), Brazil",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Juruti, Brazil",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Baie-Comeau, Canada",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Deschambault, Canada",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "B\u00e9cancour, Canada",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Myara",
+        "predicate": "is-located-in",
+        "object": "Darling Range",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Larego",
+        "predicate": "is-located-in",
+        "object": "Willowdale mining center",
+        "object-type": "location",
+        "more-info": ""
+    }
+]

@@ -1,0 +1,1486 @@
+[
+    {
+        "subject": "Nestle",
+        "predicate": "partners-with",
+        "object": "PAI Partners",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9 S.A.",
+        "predicate": "is-located-in",
+        "object": "Zugerstrasse 8",
+        "object-type": "location",
+        "more-info": "CH-6330 Cham (Switzerland)"
+    },
+    {
+        "subject": "Nestl\u00e9 S.A.",
+        "predicate": "has",
+        "object": "Avenue Nestl\u00e9 55",
+        "object-type": "location",
+        "more-info": "CH-1800 Vevey (Switzerland)"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "is-located-in",
+        "object": "North America (NA)",
+        "object-type": "region",
+        "more-info": "Canada, United States"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "is-located-in",
+        "object": "Europe (EUR)",
+        "object-type": "region",
+        "more-info": "Belgium, Bulgaria"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "United States",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Belgium",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Bulgaria",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9 Coffee Brands",
+        "predicate": "operates-in",
+        "object": "Lodge Farm, Suffolk, UK",
+        "object-type": "location",
+        "more-info": "LENs farm implementing regenerative agricultural management practices"
+    },
+    {
+        "subject": "Milo and Koko Krunch brands",
+        "predicate": "uses",
+        "object": "reusable and refillable dispenser",
+        "object-type": "equipment",
+        "more-info": "pilot project in Indonesia for single-serve reusable packaging"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "South-East Asia",
+        "object-type": "region",
+        "more-info": "posted mid single-digit growth, led by the Philippines"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "India",
+        "object-type": "country",
+        "more-info": "recorded strong double-digit growth across most categories"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Middle East and Africa",
+        "object-type": "region",
+        "more-info": "saw double-digit growth, with particular strength for affordable offerings in Maggi, NAN and Milo"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Japan",
+        "object-type": "country",
+        "more-info": "reported mid single-digit growth"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "is-located-in",
+        "object": "Switzerland",
+        "object-type": "country",
+        "more-info": "Avenue Nestl\u00e9 55, CH-1800 Vevey (Switzerland), tel. +41 (0)21 924 21 11"
+    },
+    {
+        "subject": "Nestl\u00e9 Hamburg factory",
+        "predicate": "is-located-in",
+        "object": "Hamburg, Germany",
+        "object-type": "city",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9 Sofia factory",
+        "predicate": "is-located-in",
+        "object": "Sofia, Bulgaria",
+        "object-type": "city",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "raw-materials",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "partners-with",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Argentina",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Chile",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Colombia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Cuba",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Dominican Republic",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Ecuador",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Guatemala",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Mexico",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Nicaragua",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Panama",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Peru",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Trinidad and Tobago",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Uruguay",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Israel",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Japan",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Jordan",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Kenya",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Lebanon",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Malaysia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Morocco",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "New Zealand",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Nigeria",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Pakistan",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Papua New Guinea",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Philippines",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Qatar",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Senegal",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Singapore",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "South Africa",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Sri Lanka",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Thailand",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "United Arab Emirates",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Vietnam",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Zimbabwe",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "raw materials",
+        "object-type": "material",
+        "more-info": "cereals and grains; cocoa; coconut; coffee; dairy; fish and seafood; hazelnuts; meat, poultry and eggs; palm oil; pulp and paper; soy; spices; sugar; and vegetables"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "sells",
+        "object": "products",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "partners-with",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": "over 7000 active suppliers in over 40 markets"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "cereals and grains",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "cocoa",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "coconut",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "coffee",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "dairy",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "fish and seafood",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "hazelnuts",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "meat, poultry and eggs",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "palm oil",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "pulp and paper",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "soy",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "spices",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "sugar",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "vegetables",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "raw materials",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "AI technologies",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9 Supplier Portal",
+        "predicate": "supports",
+        "object": "quality document management",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9 Supplier Portal",
+        "predicate": "supports",
+        "object": "sustainability data collection",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9 Supplier Portal",
+        "predicate": "supports",
+        "object": "supplier performance management",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "over 7000 active suppliers",
+        "predicate": "are-supplied-by",
+        "object": "Nestl\u00e9",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "14 priority raw materials",
+        "predicate": "require-requirements-from",
+        "object": "suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "raw-materials",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "ingredients",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "packaging",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "cereals and grains",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "cocoa",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "coconut",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "coffee",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "dairy",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "fish and seafood",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "hazelnuts",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "meat, poultry and eggs",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "palm oil",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "pulp and paper",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "soy",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "spices",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "sugar",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "vegetables",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "cereals and grains",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "coconut",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "coffee",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "dairy",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "fish and seafood",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "hazelnuts",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "meat, poultry and eggs",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "palm oil",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "pulp and paper",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "soy",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "spices",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "sugar",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "vegetables",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "water stewardship initiatives",
+        "object-type": "service",
+        "more-info": "Caring for Water plan to implement water stewardship initiatives"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "produces",
+        "object": "renewable energy sources",
+        "object-type": "raw-material",
+        "more-info": "Transition to renewable energy sources"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "air emissions reduction",
+        "object-type": "service",
+        "more-info": "Reduction in air emissions"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "ESG/sustainability reporting",
+        "object-type": "service",
+        "more-info": "Regularly reviews all aspects of our governance"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "partners-with",
+        "object": "Taskforce on Nature-related Financial Disclosures",
+        "object-type": "partner",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "renewable energy sources",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "produces",
+        "object": "water regeneration projects",
+        "object-type": "service",
+        "more-info": "Over 40 water regeneration projects are now underway around our water bottling sites. Each one is tailored to local challenges and based on a mix of natural and technical solutions for improving the quality and quantity of water available."
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "supply chain",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "reduces",
+        "object": "greenhouse gas (GHG) emissions",
+        "object-type": "material",
+        "more-info": "We aim to reduce our greenhouse gas (GHG) emissions by 20% by 2025 and 50% by 2030 from 2018 levels, on the road to net zero by 2050 at the latest"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "reusable shipping boxes",
+        "object-type": "equipment",
+        "more-info": "cutting plastic use by 100 tonnes annually in China"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "partners-with",
+        "object": "partners",
+        "object-type": "partner",
+        "more-info": "on packaging solutions, including a pilot of reusable stainless-steel packaging for Nesquik in over 60 German grocery stores"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "produces",
+        "object": "Purina Go-Cat cat food and Nestl\u00e9 Original Shredded Wheat cereal",
+        "object-type": "product-line",
+        "more-info": "with ingredients sourced from farmers involved with the LENs program"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "designs",
+        "object": "reusable stainless-steel packaging for Nesquik",
+        "object-type": "product",
+        "more-info": "for pilot in over 60 German grocery stores"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "produces",
+        "object": "Malher Bouillon jars",
+        "object-type": "product",
+        "more-info": "with a format that is easy to recycle in local systems in Guatemala, saving 156 tonnes of plastic annually"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "implements",
+        "object": "water regeneration projects",
+        "object-type": "service",
+        "more-info": "around our water bottling sites, with over 40 projects underway"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "adopts",
+        "object": "regenerative agriculture practices",
+        "object-type": "service",
+        "more-info": "for dairy farmers to enable sustainable farming for generations to come"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "collaborates-with",
+        "object": "start-ups and retail partners",
+        "object-type": "partner",
+        "more-info": "to pilot a reusable and refillable dispenser, and single-serve reusable packaging for Milo and Koko Krunch brands in Indonesia"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "reduces",
+        "object": "single-serve sticks packaging",
+        "object-type": "product",
+        "more-info": "for Nescaf\u00e9, saving 44 tonnes of plastic annually in Latin America"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "reusable stainless-steel packaging",
+        "object-type": "equipment",
+        "more-info": "for Nesquik in over 60 German grocery stores"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "reusable shipping boxes",
+        "object-type": "equipment",
+        "more-info": "and reusable pallet bands that replace plastic shrink wrap, cutting plastic use by 100 tonnes annually in China"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "reduced packaging",
+        "object-type": "product-line",
+        "more-info": "for Malher Bouillon, saving 156 tonnes of plastic annually with a format that is easy to recycle in local systems in Guatemala"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "partners-with",
+        "object": "farmers involved with the LENs program",
+        "object-type": "supplier",
+        "more-info": "for Purina Go-Cat cat food and Nestl\u00e9 Original Shredded Wheat cereal"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "regenerative agriculture practices",
+        "object-type": "service",
+        "more-info": "to reduce GHG emissions, enhance farmer income and improve social and environmental conditions"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "produces",
+        "object": "Nescaf\u00e9 Plan 2030",
+        "object-type": "product-line",
+        "more-info": "to support farmers to use regenerative agriculture practices"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "operates-in",
+        "object": "countries",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "makes",
+        "object": "new recipe optimization tool",
+        "object-type": "equipment",
+        "more-info": "to help product developers better manage tradeoffs between ingredients, nutrition, cost and sustainability"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "produces",
+        "object": "Nescaf\u00e9 Dolce Gusto Neo coffee system",
+        "object-type": "product",
+        "more-info": "with optimized manufacturing process"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "water regeneration projects",
+        "object-type": "service",
+        "more-info": "Over 40 water regeneration projects are now underway around our water bottling sites."
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "tailored solutions for improving the quality and quantity of water available",
+        "object-type": "service",
+        "more-info": "Each one is tailored to local challenges and based on a mix of natural and technical solutions."
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "produces",
+        "object": "healthy hydration and enhancing quality of life while contributing to a sustainable future",
+        "object-type": "product-line",
+        "more-info": "Our water business is dedicated to providing healthy hydration and enhancing quality of life while contributing to a sustainable future."
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "supplies",
+        "object": "international premium mineral water brands as well as healthy beverages",
+        "object-type": "product-line",
+        "more-info": "The strategic focus is on international premium mineral water brands as well as healthy beverages."
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "partners-with",
+        "object": "Earthworm Foundation and the Ministry of Water and Forests in C\u00f4te d\u2019Ivoire",
+        "object-type": "partner",
+        "more-info": "Since 2020, a partnership with the Ministry of Water and Forests in C\u00f4te d\u2019Ivoire and the Earthworm Foundation has led to..."
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "regenerative agriculture practices",
+        "object-type": "service",
+        "more-info": "Bronze, Silver, and Gold levels of regenerative agriculture practices"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "produces",
+        "object": "digital technologies (AI)",
+        "object-type": "equipment",
+        "more-info": "Supports sharper decision-making and increased efficiency"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "reduces",
+        "object": "greenhouse gas emissions",
+        "object-type": "material",
+        "more-info": "Aims to reduce by 20% by 2025 and 50% by 2030 from 2018 levels"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "partners-with",
+        "object": "experts",
+        "object-type": "partner",
+        "more-info": "Develops solutions in areas of plant science, agricultural systems, and dairy livestock"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "www.nestle.com",
+        "object-type": "location",
+        "more-info": "The official website of Nestl\u00e9"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "www.nestle.com/csv",
+        "object-type": "location",
+        "more-info": "The official website for Creating Shared Value"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "YouTube",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "@Nestle",
+        "object-type": "brand",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "LinkedIn profiles",
+        "object-type": "service",
+        "more-info": "www.linkedin.com/company/nestle"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "uses",
+        "object": "Pinterest",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "Snapchat",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "produces",
+        "object": "products for people at all life stages",
+        "object-type": "product-line",
+        "more-info": "that can be consumed as part of a balanced diet"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "produces",
+        "object": "nutritious products that support people\u2019s well-being",
+        "object-type": "product-line",
+        "more-info": "to develop and deliver sustainable, profitable growth"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "produces",
+        "object": "products for nearly-life and therapeutic nutrition",
+        "object-type": "product-line",
+        "more-info": "as part of our high-growth categories"
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "produces",
+        "object": "alternative proteins and coffee and systems technology",
+        "object-type": "product-line",
+        "more-info": "as part of our innovation capabilities"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "KitKat",
+        "object-type": "brand",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "Milo",
+        "object-type": "brand",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "Aero Truffle",
+        "object-type": "brand",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "Maggi Veg",
+        "object-type": "brand",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "Totole Recipe Solutions",
+        "object-type": "brand",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "Damak",
+        "object-type": "brand",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "produces",
+        "object": "milk products and ice cream",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "offers",
+        "object": "ambient dairy, plant-based alternatives and coffee creamers",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "delivers",
+        "object": "nutritious meals every day",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "develops",
+        "object": "nutritious products that support people\u2019s well-being",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "provides",
+        "object": "confectionery, pet care, and nutrition and health science products",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "cow's milk",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "beneficial prebiotic fibers",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9 N3 milk",
+        "predicate": "contains",
+        "object": "proteins, vitamins and minerals",
+        "object-type": "component",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "specialized enzymes",
+        "object-type": "equipment",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "sources",
+        "object": "paper; soy; spices; sugar; and vegetables",
+        "object-type": "raw-material",
+        "more-info": "responsibly sourced by end of 2030"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "produces",
+        "object": "products",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "innovates",
+        "object": "new products",
+        "object-type": "product",
+        "more-info": "through rapid innovation"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "renovates",
+        "object": "existing products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "launches",
+        "object": "new products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "micronutrient fortifies",
+        "object": "products",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "reduces sugar and salt content",
+        "object": "products",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "increases use of plant-based ingredients",
+        "object": "recipes",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "transportation providers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "supply chain",
+        "object-type": "manufacting plant",
+        "more-info": "global digital collaboration platform, supports quality document management, sustainability data collection and supplier performance management"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "shipping providers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "supply chain",
+        "object-type": "manufacting plant",
+        "more-info": "Supply chain stewardship"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "multiple supply options",
+        "object-type": "supplier",
+        "more-info": "including localized sourcing where relevant"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "over 40 markets",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "multiple supply options",
+        "object-type": "supplier",
+        "more-info": "including localized sourcing where relevant"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "over 7000 active suppliers",
+        "object-type": "supplier",
+        "more-info": "in over 40 markets, covering almost three-quarters of our direct material spend"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "manufacturing facilities",
+        "object-type": "factory",
+        "more-info": ""
+    },
+    {
+        "subject": "manufacturing facilities",
+        "predicate": "produces",
+        "object": "products",
+        "object-type": "product-line",
+        "more-info": ""
+    },
+    {
+        "subject": "products",
+        "predicate": "transports",
+        "object": "distribution centers",
+        "object-type": "distribution center",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "distribution centers",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "transports",
+        "object": "products",
+        "object-type": "product",
+        "more-info": "from distribution centers to warehouses"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "warehouses",
+        "object-type": "warehouse",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "distribution centers",
+        "object-type": "distribution center",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "stores",
+        "object-type": "store",
+        "more-info": ""
+    },
+    {
+        "subject": "Nescaf\u00e9",
+        "predicate": "uses",
+        "object": "warehouses",
+        "object-type": "warehouse",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "supplies",
+        "object": "products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "warehouses",
+        "predicate": "contains",
+        "object": "products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "distribution centers",
+        "predicate": "partners-with",
+        "object": "warehouses",
+        "object-type": "warehouse",
+        "more-info": ""
+    },
+    {
+        "subject": "stores",
+        "predicate": "receives",
+        "object": "products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "customers",
+        "predicate": "buys",
+        "object": "products",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "transportation",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "supply chain",
+        "object-type": "material",
+        "more-info": "Raw material sourcing, transport, and/or internal or external manufacturing facilities"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Europe",
+        "object-type": "continent",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Latin America (LATAM)",
+        "object-type": "region",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "operates-in",
+        "object": "Europe",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "has",
+        "object": "manufacturing plants",
+        "object-type": "manufacting plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestle",
+        "predicate": "supplies",
+        "object": "raw materials",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "uses",
+        "object": "raw-materials",
+        "object-type": "raw-material",
+        "more-info": "cereals and grains; cocoa; coconut; coffee; dairy; fish and seafood; hazelnuts; meat, poultry and eggs; palm oil; pulp and paper; soy; spices; sugar; and vegetables"
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "has",
+        "object": "manufacturing facilities",
+        "object-type": "factory",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "operates-in",
+        "object": "Europe",
+        "object-type": "region",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9",
+        "predicate": "partners-with",
+        "object": "Airbus",
+        "object-type": "partner",
+        "more-info": "to pilot Airbus\u2019s new Pl\u00e9iades Neo satellites"
+    }
+]

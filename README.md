@@ -91,6 +91,76 @@ graph LR
 
 ```
 
+
+Current Status
+
+
+
+```mermaid
+
+graph LR
+    style Collect fill:#ff6347,stroke:#333,stroke-width:2px
+    style Ingest fill:#ffa500,stroke:#333,stroke-width:2px
+    style Knowledge fill:#ffff00,stroke:#333,stroke-width:2px
+    style GraphDatabase fill:#008000,stroke:#333,stroke-width:2px
+    style FactDatabase fill:#0000ff,stroke:#333,stroke-width:2px
+    style VectorStores fill:#40e0d0,stroke:#333,stroke-width:2px
+    style UI fill:#1e90ff,stroke:#333,stroke-width:2px
+
+    subgraph Collect
+    PDF[PDF\nannual reports] --> Store
+    Crawling[
+        Crawling:\nWeb Site\nBrand Site\nProduct Pages
+    ] --> Store
+    SEC[
+        US SEC\nFilings\n10-K\n10-Q
+    ] --> Store
+    Wikipedia[Wiki\nCompany Pages\nIngrediens\nChemicals] --> Store
+
+    DuckDuckGo[Search\nDuckDuckGo] --> Store
+
+    Store --> Ingestion['Processing\nIngestion']
+    end
+    subgraph Ingest
+        Ingestion --> Transform <--> Extract[Extract:\n Nodes, Edges]
+        Transform <--> Structurize[Structurize:\n CSV, JSON, Markdown]
+        Transform --> Embeddings
+        Structurize --> Knowledge
+    end
+    subgraph Knowledge
+        Transform --> LLM
+        Extract <--> IndexGraph
+        Extract <--> IndexFact
+        LLM --> Structurize
+    end
+    RAG --> Retrievers
+    subgraph GraphDatabase
+        IndexGraph[Graph\nNodes\nLinks] --> Neo4j 
+        RAG --> Neo4j
+    end
+    subgraph FactDatabase
+        IndexFact --> Sqlite 
+        IndexFact --> Markdown
+        Markdown --> RAG
+        Sqlite --> RAG
+    end
+
+    subgraph VectorStores
+        Embeddings --> Faiss
+        Embeddings --> Chroma
+        Faiss --> RAG
+        Chroma --> RAG
+    end
+
+    subgraph UI
+        UIAI --> Query --> Retrievers --> Results --> Visualize
+        Query --> Visualize
+    end
+
+
+```
+
+
 ### Welke Leverenciers leveren nou aan wie? Supplychain map.
 ### Een entiteit als node pakken, dat betekend unilever aanzich ook al een entiteit is. 
 ### Formele juridische leverancier, maar je hebt ook de phyzieke leverancier. De administratie en de financiele stroom hoeft niet dezelfde mapping te hoeven zijn, een andere lens die je erover legt, kijk je naar de goederenstroom of de financiele stroom, dat maakt ook uit. 

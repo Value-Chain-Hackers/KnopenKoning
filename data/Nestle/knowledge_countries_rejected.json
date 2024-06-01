@@ -1,0 +1,30 @@
+[
+    {
+        "subject": "Nestle",
+        "predicate": "owns",
+        "object": "Palforzia",
+        "object-type": "subsidary",
+        "more-info": "Peanut allergy treatment business"
+    },
+    {
+        "subject": "Nestl\u00e9 S.A.",
+        "predicate": "has",
+        "object": "tel. +41 (0)21 924 21 11",
+        "object-type": "contact-information",
+        "more-info": ""
+    },
+    {
+        "subject": "Nestl\u00e9 S.A.",
+        "predicate": "has",
+        "object": "tel. +41 (0)41 785 20 20",
+        "object-type": "contact-information",
+        "more-info": ""
+    },
+    {
+        "subject": "Nescaf\u00e9",
+        "predicate": "reduces",
+        "object": "single-serve sticks packaging",
+        "object-type": "packaging",
+        "more-info": "saving 44 tonnes of plastic annually in Latin America"
+    }
+]

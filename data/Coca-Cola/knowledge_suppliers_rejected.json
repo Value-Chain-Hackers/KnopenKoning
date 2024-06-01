@@ -1,0 +1,51 @@
+[
+    {
+        "subject": "Indianapolis, IN",
+        "predicate": "is-located-in",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Cincinnati, OH",
+        "predicate": "is-located-in",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Sandston, VA",
+        "predicate": "is-located-in",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "West Memphis, AR",
+        "predicate": "is-located-in",
+        "object": "Manufacturing Plant",
+        "object-type": "manufacturing plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Indianapolis, IN",
+        "predicate": "has",
+        "object": "1 manufacturing plant",
+        "object-type": "manufacturing plant",
+        "more-info": "400,000 square feet, owned"
+    },
+    {
+        "subject": "Sandston, VA",
+        "predicate": "has",
+        "object": "1 manufacturing plant",
+        "object-type": "manufacturing plant",
+        "more-info": "326,000 square feet, owned"
+    },
+    {
+        "subject": "West Memphis, AR",
+        "predicate": "has",
+        "object": "1 manufacturing plant",
+        "object-type": "manufacturing plant",
+        "more-info": "326,000 square feet, owned"
+    }
+]

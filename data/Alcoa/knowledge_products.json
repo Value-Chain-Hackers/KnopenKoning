@@ -1,0 +1,709 @@
+[
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "201 Isabella Street, Suite 500, Pittsburgh, Pennsylvania 15212-5858",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Iceland",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Norway",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "Spain",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "is-located-in",
+        "object": "United States",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Willowdale",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Huntly",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Pinjarra",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Wagerup",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Kwinana",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Portland",
+        "predicate": "is-part-of",
+        "object": "Australia",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Po\u00e7os de Caldas",
+        "predicate": "is-part-of",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "S\u00e3o Lu\u00eds (Alumar)",
+        "predicate": "is-part-of",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Juruti",
+        "predicate": "is-part-of",
+        "object": "Brazil",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Baie-Comeau",
+        "predicate": "is-part-of",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Deschambault",
+        "predicate": "is-part-of",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "B\u00e9cancour",
+        "predicate": "is-part-of",
+        "object": "Canada",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Fjar\u00f0a\u00e1l",
+        "predicate": "is-part-of",
+        "object": "Iceland",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Lista",
+        "predicate": "is-part-of",
+        "object": "Norway",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Mosj\u00f8en",
+        "predicate": "is-part-of",
+        "object": "Norway",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "San Cipri\u00e1n",
+        "predicate": "is-part-of",
+        "object": "Spain",
+        "object-type": "country",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Willowdale, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Huntly, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Pinjarra, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Wagerup, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Kwinana, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Portland, Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Po\u00e7os de Caldas, Brazil",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "S\u00e3o Lu\u00eds (Alumar), Brazil",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Juruti, Brazil",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Baie-Comeau, Canada",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Deschambault, Canada",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "B\u00e9cancour, Canada",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Myara",
+        "predicate": "is-located-in",
+        "object": "Darling Range",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Larego",
+        "predicate": "is-located-in",
+        "object": "Willowdale mining center",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "uses",
+        "object": "bauxite suppliers",
+        "object-type": "supplier",
+        "more-info": "Multiple suppliers from Guinea, Australia, and Brazil, among other countries"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "sells",
+        "object": "third-party customers",
+        "object-type": "customer",
+        "more-info": "Approximately 17% of Alcoa's bauxite shipments"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "competes-with",
+        "object": "Rio Tinto",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "competes-with",
+        "object": "Hangzhou Jinjiang Group",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "competes-with",
+        "object": "Norsk Hydro ASA",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "supplies",
+        "object": "bauxite",
+        "object-type": "raw-material",
+        "more-info": "from third-party suppliers under competitively priced supply contracts or bidding arrangements"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "sells",
+        "object": "alumina",
+        "object-type": "product",
+        "more-info": "to Alcoa refineries and approximately 17% of Alcoa's bauxite shipments were sold to third-party customers"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "competes-with",
+        "object": "Rio Tinto",
+        "object-type": "supplier",
+        "more-info": "in the third-party alumina market and the third-party bauxite market"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "competes-with",
+        "object": "Hangzhou Jinjiang Group",
+        "object-type": "supplier",
+        "more-info": "in the third-party alumina market and the third-party bauxite market"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "competes-with",
+        "object": "South32",
+        "object-type": "supplier",
+        "more-info": "in the third-party alumina market and the third-party bauxite market"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "competes-with",
+        "object": "Norsk Hydro ASA",
+        "object-type": "supplier",
+        "more-info": "in the third-party alumina market and the third-party bauxite market"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "uses",
+        "object": "bauxite",
+        "object-type": "raw-material",
+        "more-info": "purchased from third-party suppliers under competitively priced supply contracts or bidding arrangements"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "supplies",
+        "object": "alumina",
+        "object-type": "product",
+        "more-info": "sold in the form of smelter grade alumina"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "supplies",
+        "object": "bauxite",
+        "object-type": "raw-material",
+        "more-info": "Various aluminum hydroxide minerals"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "uses",
+        "object": "alumina",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "supplies",
+        "object": "bauxite",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "uses",
+        "object": "third-party suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "third-party suppliers",
+        "predicate": "supply",
+        "object": "bauxite",
+        "object-type": "raw-material",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "uses",
+        "object": "multiple suppliers",
+        "object-type": "supplier",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "supplies",
+        "object": "aluminum",
+        "object-type": "commodity",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "supplies",
+        "object": "raw materials",
+        "object-type": "material",
+        "more-info": "purchased from third-party suppliers under competitively priced supply contracts or bidding arrangements"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "uses",
+        "object": "raw materials",
+        "object-type": "material",
+        "more-info": "Substantially all of the raw materials required to manufacture our products are available from more than one supplier."
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "purchases",
+        "object": "third-party suppliers",
+        "object-type": "supplier",
+        "more-info": "Generally, materials are purchased from third-party suppliers under competitively priced supply contracts or bidding arrangements."
+    },
+    {
+        "subject": "Primary aluminum",
+        "predicate": "consists-of",
+        "object": "base metal component",
+        "object-type": "raw-material",
+        "more-info": "based on quoted prices from the LME"
+    },
+    {
+        "subject": "Primary aluminum",
+        "predicate": "consists-of",
+        "object": "regional premium",
+        "object-type": "component",
+        "more-info": "incremental price over the base LME component"
+    },
+    {
+        "subject": "Primary aluminum",
+        "predicate": "consists-of",
+        "object": "product premium",
+        "object-type": "component",
+        "more-info": "incremental price for receiving physical metal in a particular shape or alloy"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "produces",
+        "object": "alumina refining",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "partners-with",
+        "object": "stakeholders",
+        "object-type": "partner",
+        "more-info": "relating to environmental, social, and governance considerations"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "operates-in",
+        "object": "Western Australia",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "uses",
+        "object": "post-consumer aluminum scrap",
+        "object-type": "raw-material",
+        "more-info": "beneficiate up to high purity levels that exceed what is produced at most primary aluminum smelters operating today, permitting use in high tolerance applications."
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "produces",
+        "object": "high purity aluminum",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "uses",
+        "object": "environmental assessments and cleanups",
+        "object-type": "service",
+        "more-info": "at several locations, including currently or previously owned or operated facilities and adjoining properties, and waste sites"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "participates in",
+        "object": "Superfund (Comprehensive Environmental Response, Compensation and Liability Act (CERCLA)) sites",
+        "object-type": "location",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "manages",
+        "object": "environmental assessments and cleanups",
+        "object-type": "service",
+        "more-info": "at approximately 60 locations, including currently owned or operated facilities and adjoining properties"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "uses",
+        "object": "enhanced protections for drinking water",
+        "object-type": "service",
+        "more-info": "accelerated forest rehabilitation, increased distances from reservoirs, and biodiversity"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "supplies",
+        "object": "approximately $40 over the next three and half years",
+        "object-type": "raw-material",
+        "more-info": "from asset retirement obligations already recorded for accelerated forest rehabilitation"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "partners-with",
+        "object": "Western Australian Environmental Protection Authority (WA EPA)",
+        "object-type": "partner",
+        "more-info": "to assess the environmental impact of parts of the MMP, following a third party's referral"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "provides",
+        "object": "bank guarantee for approximately $68 (A$100)",
+        "object-type": "service",
+        "more-info": "demonstrating Alcoa's confidence that its operations will not impair drinking water supplies"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "produces",
+        "object": "EcoDuraTM aluminum (recycled content)",
+        "object-type": "product",
+        "more-info": "made with lower carbon emissions"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "produces",
+        "object": "EcoLumTM aluminum (low carbon)",
+        "object-type": "product",
+        "more-info": "made with lower carbon emissions"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "produces",
+        "object": "EcoSourceTM alumina (also low carbon)",
+        "object-type": "product",
+        "more-info": "made with lower carbon emissions"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "partners-with",
+        "object": "Computershare Investor Services",
+        "object-type": "service",
+        "more-info": "www.computershare.com"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "has",
+        "object": "YouTube channel",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "partners-with",
+        "object": "Computershare Investor Services",
+        "object-type": "service",
+        "more-info": "www.computershare.com"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "uses",
+        "object": "Twitter",
+        "object-type": "service",
+        "more-info": "Visit www.alcoa.com for Securities and Exchange Commission filings, quarterly earnings reports and other company news."
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "uses",
+        "object": "Instagram",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "uses",
+        "object": "www.alcoa.com",
+        "object-type": "location",
+        "more-info": "Company website"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "partners-with",
+        "object": "Computershare Investor Services",
+        "object-type": "partner",
+        "more-info": "Stock transfer agent and registrar"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "uses",
+        "object": "Snapchat",
+        "object-type": "service",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "produces",
+        "object": "aluminum products",
+        "object-type": "product-line",
+        "more-info": "primary aluminum products for use in fabrication operations, which produce products primarily for the transportation, building and construction, packaging, wire, and other industrial markets"
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "produces",
+        "object": "aluminum powder",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "produces",
+        "object": "scrap",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "has",
+        "object": "brand",
+        "object-type": "brand",
+        "more-info": "The name 'Alcoa' and the Alcoa symbol are registered trademarks."
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "uses",
+        "object": "ELYSIS",
+        "object-type": "product-line",
+        "more-info": "ELYSIS is a joint venture between Alcoa and Rio Tinto, which produces oxygen and eliminates direct greenhouse gas emissions from the traditional aluminum smelting process."
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "partners-with",
+        "object": "RONAL Group",
+        "object-type": "supplier",
+        "more-info": "Alcoa supplies wheels to RONAL Group for the Audi eTron GT."
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "supplies",
+        "object": "Apple Inc.",
+        "object-type": "customer",
+        "more-info": "Alcoa supplies metal to Apple Inc. for use in some of its products such as the 16-inch MacBook Pro and the iPhone SE."
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "produces",
+        "object": "primary aluminum products",
+        "object-type": "product",
+        "more-info": "used in fabrication operations, primarily for transportation, building and construction, packaging, wire, and other industrial markets"
+    },
+    {
+        "subject": "Alcoa Corporation",
+        "predicate": "sells",
+        "object": "aluminum powder and scrap",
+        "object-type": "product",
+        "more-info": ""
+    },
+    {
+        "subject": "Alumina",
+        "predicate": "uses",
+        "object": "bauxite",
+        "object-type": "raw-material",
+        "more-info": "Bauxite is the principal raw material used to produce alumina and contains various aluminum hydroxide minerals, the most important of which are"
+    },
+    {
+        "subject": "Alumina",
+        "predicate": "produces",
+        "object": "alumina",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "aluminum products",
+        "predicate": "uses",
+        "object": "steel, titanium, plastics, composites, ceramics, and glass",
+        "object-type": "raw-material",
+        "more-info": "Use of such materials could reduce the demand for aluminum products, which may reduce our profitability and cash flow"
+    },
+    {
+        "subject": "aluminum powder and scrap",
+        "predicate": "produces",
+        "object": "aluminum powder and scrap",
+        "object-type": "material",
+        "more-info": ""
+    },
+    {
+        "subject": "Alcoa",
+        "predicate": "produces",
+        "object": "primary aluminum products",
+        "object-type": "product",
+        "more-info": "nearly all of which are sold to external customers and traders"
+    }
+]

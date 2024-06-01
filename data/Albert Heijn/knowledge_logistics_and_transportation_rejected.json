@@ -1,0 +1,170 @@
+[
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "has",
+        "object": "fully automated freezer in Mountville, Pennsylvania",
+        "object-type": "facility",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "collaborates-with",
+        "object": "Foundation",
+        "object-type": "organization",
+        "more-info": "To realize the common vision with strict monitoring by the Foundation"
+    },
+    {
+        "subject": "packaging vendor",
+        "predicate": "inputs",
+        "object": "information about plastic packaging",
+        "object-type": "data",
+        "more-info": ""
+    },
+    {
+        "subject": "brand",
+        "predicate": "performs",
+        "object": "validation of data at brand level",
+        "object-type": "process",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "uses",
+        "object": "renewable energy",
+        "object-type": "energy-source",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "partners-with",
+        "object": "NGOs",
+        "object-type": "organization",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "operates-in",
+        "object": "manufacturing plants",
+        "object-type": "manufacting-plant",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "aims-to",
+        "object": "net-zero GHG emissions across own operations by 2040 (scope 1 and 2)",
+        "object-type": "goal",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "commits-to",
+        "object": "become net-zero businesses across the entire value chain, products",
+        "object-type": "goal",
+        "more-info": ""
+    },
+    {
+        "subject": "Giant Food",
+        "predicate": "participates-in",
+        "object": "waste food recycling program",
+        "object-type": "program",
+        "more-info": "In June 2022, Divert launched a waste food recycling program with Giant Food to reduce the amount of organic waste going to landfill."
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "uses",
+        "object": "Facebook",
+        "object-type": "social-media-platform",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "uses",
+        "object": "Twitter",
+        "object-type": "social-media-platform",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "uses",
+        "object": "Instagram",
+        "object-type": "social-media-platform",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "Instagram",
+        "object-type": "platform",
+        "more-info": "We also launched new career websites for eight of our European brands, along with a new Ahold Delhaize Instagram careers page."
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "native apps",
+        "object-type": "platform",
+        "more-info": "PDL rolled out new native apps this year to four of our U.S. brands: The GIANT Company, Giant Food, Stop & Shop and Food Lion."
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "uses",
+        "object": "Facebook",
+        "object-type": "platform",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "uses",
+        "object": "Instagram",
+        "object-type": "platform",
+        "more-info": ""
+    },
+    {
+        "subject": "Albert Heijn",
+        "predicate": "uses",
+        "object": "Pinterest",
+        "object-type": "platform",
+        "more-info": ""
+    },
+    {
+        "subject": "Company",
+        "predicate": "analyzes",
+        "object": "data",
+        "object-type": "company",
+        "more-info": "Internally through sanity checks, focusing on outliers and anomalies"
+    },
+    {
+        "subject": "Partnerships",
+        "predicate": "drive down",
+        "object": "GHG emissions",
+        "object-type": "emission",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize",
+        "predicate": "uses",
+        "object": "ADUSA Transportation",
+        "object-type": "transportation service",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "owns",
+        "object": "ADUSA Distribution and ADUSA Transportation",
+        "object-type": "company",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "owns",
+        "object": "ADUSA Distribution and ADUSA Transportation",
+        "object-type": "company",
+        "more-info": ""
+    },
+    {
+        "subject": "Ahold Delhaize USA",
+        "predicate": "owns",
+        "object": "ADUSA Transportation",
+        "object-type": "company",
+        "more-info": ""
+    }
+]
