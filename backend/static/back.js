@@ -696,7 +696,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (step === 6) {
       const select = document.getElementById("companySelect");
       const selected = select.options[select.selectedIndex].text;
-      window.location = `/${selected.trim().toLowerCase()}`;
+      window.location = `/view/${selected.trim().toLowerCase()}`;
     }
   }
   const adminButton = document.getElementById("adminButton");

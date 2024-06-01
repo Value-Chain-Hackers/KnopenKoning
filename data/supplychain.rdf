@@ -1,209 +1,378 @@
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-         xmlns:supplyChain="http://example.com/supplyChain#">
+<rdf:RDF xmlns="http://chainwise.ai/supplyChainMapping#"
+     xml:base="http://chainwise.ai/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
+<owl:Ontology rdf:ID="SupplyChainMapping">
+    <!-- Classes -->
+    <owl:Class rdf:ID="Supplier" />
+    <owl:Class rdf:ID="Office" />
+    <owl:Class rdf:ID="Plant" />
+    <owl:Class rdf:ID="Warehouse" />
+    <owl:Class rdf:ID="Brand" />
+    <owl:Class rdf:ID="ProductLine" />
+    <owl:Class rdf:ID="Product" />
+    <owl:Class rdf:ID="Distributor" />
+    <owl:Class rdf:ID="Partner" />
+    <owl:Class rdf:ID="Store" />
+    <owl:Class rdf:ID="SupplyChainEvent" />
+    <owl:Class rdf:ID="RawMaterial" />
+    <owl:Class rdf:ID="Inventory" />
+    <owl:Class rdf:ID="Order" />
+    <owl:Class rdf:ID="Shipment" />
+    <owl:Class rdf:ID="Delivery" />
+    <owl:Class rdf:ID="Payment" />
+    <owl:Class rdf:ID="Transportation" />
+    <owl:Class rdf:ID="Logistics" />
+    <owl:Class rdf:ID="QualityControl" />
+    <owl:Class rdf:ID="SafetyCompliance" />
+    <owl:Class rdf:ID="EnvironmentalImpact" />
+    <owl:Class rdf:ID="ProductionSchedule" />
+    <owl:Class rdf:ID="Machine" />
+    <owl:Class rdf:ID="ProductionLine" />
+    <owl:Class rdf:ID="Operator" />
+    <owl:Class rdf:ID="MaintenanceEvent" />
+    <owl:Class rdf:ID="Employee" />
+    <owl:Class rdf:ID="Customer" />
+    <owl:Class rdf:ID="Equipment" />
+    <owl:Class rdf:ID="TransportationMode" />
+    <owl:Class rdf:ID="FinancialTransaction" />
+    <owl:Class rdf:ID="ComplianceStandard" />
+    <owl:Class rdf:ID="EnvironmentalStandard" />
+    <owl:Class rdf:ID="SafetyStandard" />
+    <owl:Class rdf:ID="SupplyChainEventType" />
+    <owl:Class rdf:ID="RiskManagement" />
+    <owl:Class rdf:ID="IncidentReport" />
+    <owl:Class rdf:ID="Region" />
+    <owl:Class rdf:ID="Route" />
+    <owl:Class rdf:ID="ProductionBatch" />
+    <owl:Class rdf:ID="QualityInspection" />
+    <owl:Class rdf:ID="MaintenanceSchedule" />
+    <owl:Class rdf:ID="Invoice" />
+    <owl:Class rdf:ID="PaymentTerms" />
 
-  <!-- Define the ontology -->
-  <owl:Ontology rdf:about="http://example.com/supplyChain"/>
+    <!-- Properties -->
+    <owl:ObjectProperty rdf:ID="supplies">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="ProductLine" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="manufactures">
+        <rdfs:domain rdf:Resource="Plant" />
+        <rdfs:range rdf:Resource="ProductLine" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="stores">
+        <rdfs:domain rdf:Resource="Warehouse" />
+        <rdfs:range rdf:Resource="Product" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="distributes">
+        <rdfs:domain rdf:Resource="Distributor" />
+        <rdfs:range rdf:Resource="Product" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="partnersWith">
+        <rdfs:domain rdf:Resource="Partner" />
+        <rdfs:range rdf:Resource="Supplier" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="owns">
+        <rdfs:domain rdf:Resource="Office" />
+        <rdfs:range rdf:Resource="Plant" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="mapsTo">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="Warehouse" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="shipsFrom">
+        <rdfs:domain rdf:Resource="Warehouse" />
+        <rdfs:range rdf:Resource="Distributor" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="receivesFrom">
+        <rdfs:domain rdf:Resource="Distributor" />
+        <rdfs:range rdf:Resource="Product" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="storesIn">
+        <rdfs:domain rdf:Resource="Warehouse" />
+        <rdfs:range rdf:Resource="Product" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="retailsThrough">
+        <rdfs:domain rdf:Resource="Store" />
+        <rdfs:range rdf:Resource="Product" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="transports">
+        <rdfs:domain rdf:Resource="Distributor" />
+        <rdfs:range rdf:Resource="Product" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="tracks">
+        <rdfs:domain rdf:Resource="Office" />
+        <rdfs:range rdf:Resource="SupplyChainEvent" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="uses">
+        <rdfs:domain rdf:Resource="Plant" />
+        <rdfs:range rdf:Resource="RawMaterial" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="hasInventory">
+        <rdfs:domain rdf:Resource="Warehouse" />
+        <rdfs:range rdf:Resource="Inventory" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="placesOrder">
+        <rdfs:domain rdf:Resource="Distributor" />
+        <rdfs:range rdf:Resource="Order" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="ships">
+        <rdfs:domain rdf:Resource="Warehouse" />
+        <rdfs:range rdf:Resource="Shipment" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="delivers">
+        <rdfs:domain rdf:Resource="Distributor" />
+        <rdfs:range rdf:Resource="Delivery" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="makesPayment">
+        <rdfs:domain rdf:Resource="Partner" />
+        <rdfs:range rdf:Resource="Payment" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="transportsVia">
+        <rdfs:domain rdf:Resource="Distributor" />
+        <rdfs:range rdf:Resource="Transportation" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="manages">
+        <rdfs:domain rdf:Resource="Office" />
+        <rdfs:range rdf:Resource="Logistics" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="implements">
+        <rdfs:domain rdf:Resource="Plant" />
+        <rdfs:range rdf:Resource="QualityControl" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="compliesWith">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="SafetyCompliance" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="hasImpactOn">
+        <rdfs:domain rdf:Resource="ProductLine" />
+        <rdfs:range rdf:Resource="EnvironmentalImpact" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="schedules">
+        <rdfs:domain rdf:Resource="Plant" />
+        <rdfs:range rdf:Resource="ProductionSchedule" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="operates">
+        <rdfs:domain rdf:Resource="Operator" />
+        <rdfs:range rdf:Resource="Machine" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="maintains">
+        <rdfs:domain rdf:Resource="Operator" />
+        <rdfs:range rdf:Resource="Machine" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="oversees">
+        <rdfs:domain rdf:Resource="ProductionLine" />
+        <rdfs:range rdf:Resource="Operator" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="experiences">
+        <rdfs:domain rdf:Resource="Machine" />
+        <rdfs:range rdf:Resource="MaintenanceEvent" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="employs">
+        <rdfs:domain rdf:Resource="Office" />
+        <rdfs:range rdf:Resource="Employee" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="sellsTo">
+        <rdfs:domain rdf:Resource="Distributor" />
+        <rdfs:range rdf:Resource="Customer" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="usesEquipment">
+        <rdfs:domain rdf:Resource="Plant" />
+        <rdfs:range rdf:Resource="Equipment" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="transportedBy">
+        <rdfs:domain rdf:Resource="Shipment" />
+        <rdfs:range rdf:Resource="TransportationMode" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="conducts">
+        <rdfs:domain rdf:Resource="Partner" />
+        <rdfs:range rdf:Resource="FinancialTransaction" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="conformsTo">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="ComplianceStandard" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="adheresTo">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="EnvironmentalStandard" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="meets">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="SafetyStandard" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="classifiedAs">
+        <rdfs:domain rdf:Resource="SupplyChainEvent" />
+        <rdfs:range rdf:Resource="SupplyChainEventType" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="mitigates">
+        <rdfs:domain rdf:Resource="Office" />
+        <rdfs:range rdf:Resource="RiskManagement" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="reports">
+        <rdfs:domain rdf:Resource="Office" />
+        <rdfs:range rdf:Resource="IncidentReport" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="locatedIn">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="Region" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="follows">
+        <rdfs:domain rdf:Resource="Shipment" />
+        <rdfs:range rdf:Resource="Route" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="producedIn">
+        <rdfs:domain rdf:Resource="Product" />
+        <rdfs:range rdf:Resource="ProductionBatch" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="inspectedBy">
+        <rdfs:domain rdf:Resource="Product" />
+        <rdfs:range rdf:Resource="QualityInspection" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="maintainedOn">
+        <rdfs:domain rdf:Resource="Machine" />
+        <rdfs:range rdf:Resource="MaintenanceSchedule" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="issuedBy">
+        <rdfs:domain rdf:Resource="Payment" />
+        <rdfs:range rdf:Resource="Invoice" />
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="basedOn">
+        <rdfs:domain rdf:Resource="Payment" />
+        <rdfs:range rdf:Resource="PaymentTerms" />
+    </owl:ObjectProperty>
 
-  <!-- Define Classes -->
-  <owl:Class rdf:about="&supplyChain;Entity"/>
-  <owl:Class rdf:about="&supplyChain;Organization"/>
-  <owl:Class rdf:about="&supplyChain;Supplier"/>
-  <owl:Class rdf:about="&supplyChain;Manufacturer"/>
-  <owl:Class rdf:about="&supplyChain;Distributor"/>
-  <owl:Class rdf:about="&supplyChain;LogisticsProvider"/>
-  <owl:Class rdf:about="&supplyChain;Customer"/>
-  <owl:Class rdf:about="&supplyChain;Resource"/>
-  <owl:Class rdf:about="&supplyChain;Material"/>
-  <owl:Class rdf:about="&supplyChain;Information"/>
-  <owl:Class rdf:about="&supplyChain;Financial"/>
-  <owl:Class rdf:about="&supplyChain;Process"/>
-  <owl:Class rdf:about="&supplyChain;Procurement"/>
-  <owl:Class rdf:about="&supplyChain;Manufacturing"/>
-  <owl:Class rdf:about="&supplyChain;Distribution"/>
-  <owl:Class rdf:about="&supplyChain;SalesAndMarketing"/>
-  <owl:Class rdf:about="&supplyChain;Activity"/>
-  <owl:Class rdf:about="&supplyChain;Transportation"/>
-  <owl:Class rdf:about="&supplyChain;InventoryManagement"/>
-  <owl:Class rdf:about="&supplyChain;SupplyChainPlanning"/>
-  <owl:Class rdf:about="&supplyChain;Relationship"/>
-  <owl:Class rdf:about="&supplyChain;Flow"/>
-  <owl:Class rdf:about="&supplyChain;Dependency"/>
-  <owl:Class rdf:about="&supplyChain;PerformanceMetric"/>
-  <owl:Class rdf:about="&supplyChain;Efficiency"/>
-  <owl:Class rdf:about="&supplyChain;Effectiveness"/>
-  <owl:Class rdf:about="&supplyChain;Cost"/>
-  <owl:Class rdf:about="&supplyChain;ExternalFactor"/>
-  <owl:Class rdf:about="&supplyChain;Regulation"/>
-  <owl:Class rdf:about="&supplyChain;MarketCondition"/>
-  <owl:Class rdf:about="&supplyChain;Risk"/>
+    <!-- DataTypes -->
+    <owl:Datatype rdf:ID="location" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="quantity" rdf:datatype="xsd:integer" />
+    <owl:Datatype rdf:ID="supplyChainEventDate" rdf:datatype="xsd:date" />
+    <owl:Datatype rdf:ID="materialType" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="orderDate" rdf:datatype="xsd:date" />
+    <owl:Datatype rdf:ID="shipmentDate" rdf:datatype="xsd:date" />
+    <owl:Datatype rdf:ID="deliveryDate" rdf:datatype="xsd:date" />
+    <owl:Datatype rdf:ID="paymentDate" rdf:datatype="xsd:date" />
+    <owl:Datatype rdf:ID="amount" rdf:datatype="xsd:decimal" />
+    <owl:Datatype rdf:ID="transportationMode" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="logisticsStrategy" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="qualityControlStandard" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="safetyComplianceStandard" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="environmentalImpactScore" rdf:datatype="xsd:decimal" />
+    <owl:Datatype rdf:ID="lat" rdf:datatype="xsd:decimal" />
+    <owl:Datatype rdf:ID="long" rdf:datatype="xsd:decimal" />
+    <owl:Datatype rdf:ID="scheduleDate" rdf:datatype="xsd:date" />
+    <owl:Datatype rdf:ID="machineID" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="maintenanceDate" rdf:datatype="xsd:date" />
+    <owl:Datatype rdf:ID="operationHours" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="capacity" rdf:datatype="xsd:integer" />
+    <owl:Datatype rdf:ID="contactInfo" rdf:datatype="xsd:string" />
+    <owl:Datatype rdf:ID="cost" rdf:datatype="xsd:decimal" />
+    <owl:Datatype rdf:ID="performanceMetric" rdf:datatype="xsd:string" />
 
-  <!-- Define Class Hierarchy -->
-  <rdf:Description rdf:about="&supplyChain;Organization">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
-  </rdf:Description>
-
-  <rdf:Description rdf:about="&supplyChain;Supplier">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Manufacturer">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
-  </rdf:Description>
-
-  <rdf:Description rdf:about="&supplyChain;Distributor">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;LogisticsProvider">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
-  </rdf:Description>
-
-  <rdf:Description rdf:about="&supplyChain;Customer">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Organization"/>
-  </rdf:Description>
-
-  <rdf:Description rdf:about="&supplyChain;Resource">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Material">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Resource"/>
-  </rdf:Description>
-
-  <rdf:Description rdf:about="&supplyChain;Information">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Resource"/>
-  </rdf:Description>
-
-  <rdf:Description rdf:about="&supplyChain;Financial">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Resource"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Process">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Procurement">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Process"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Manufacturing">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Process"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Distribution">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Process"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;SalesAndMarketing">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Process"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Activity">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Transportation">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Activity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;InventoryManagement">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Activity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;SupplyChainPlanning">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Activity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Relationship">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Flow">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Relationship"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Dependency">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Relationship"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;PerformanceMetric">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Efficiency">
-    <rdfs:subClassOf rdf:resource="&supplyChain;PerformanceMetric"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Effectiveness">
-    <rdfs:subClassOf rdf:resource="&supplyChain;PerformanceMetric"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Cost">
-    <rdfs:subClassOf rdf:resource="&supplyChain;PerformanceMetric"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;ExternalFactor">
-    <rdfs:subClassOf rdf:resource="&supplyChain;Entity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Regulation">
-    <rdfs:subClassOf rdf:resource="&supplyChain;ExternalFactor"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;MarketCondition">
-    <rdfs:subClassOf rdf:resource="&supplyChain;ExternalFactor"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;Risk">
-    <rdfs:subClassOf rdf:resource="&supplyChain;ExternalFactor"/>
-  </rdf:Description>
-
-  <!-- Define Properties -->
-  <owl:ObjectProperty rdf:about="&supplyChain;hasEntity"/>
-  <owl:ObjectProperty rdf:about="&supplyChain;hasResource"/>
-  <owl:ObjectProperty rdf:about="&supplyChain;hasProcess"/>
-  <owl:ObjectProperty rdf:about="&supplyChain;hasActivity"/>
-  <owl:ObjectProperty rdf:about="&supplyChain;hasRelationship"/>
-  <owl:ObjectProperty rdf:about="&supplyChain;hasPerformanceMetric"/>
-  <owl:ObjectProperty rdf:about="&supplyChain;hasExternalFactor"/>
-  
-  <!-- Define Property Domains and Ranges -->
-  <rdf:Description rdf:about="&supplyChain;hasEntity">
-    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
-    <rdfs:range rdf:resource="&supplyChain;Entity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;hasResource">
-    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
-    <rdfs:range rdf:resource="&supplyChain;Resource"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;hasProcess">
-    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
-    <rdfs:range rdf:resource="&supplyChain;Process"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;hasActivity">
-    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
-    <rdfs:range rdf:resource="&supplyChain;Activity"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;hasRelationship">
-    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
-    <rdfs:range rdf:resource="&supplyChain;Relationship"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;hasPerformanceMetric">
-    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
-    <rdfs:range rdf:resource="&supplyChain;PerformanceMetric"/>
-  </rdf:Description>
-  
-  <rdf:Description rdf:about="&supplyChain;hasExternalFactor">
-    <rdfs:domain rdf:resource="&supplyChain;Entity"/>
-    <rdfs:range rdf:resource="&supplyChain;ExternalFactor"/>
-  </rdf:Description>
-  
+    <!-- Attributes -->
+    <owl:DatatypeProperty rdf:ID="locationAttribute">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="location" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="quantityAttribute">
+        <rdfs:domain rdf:Resource="ProductLine" />
+        <rdfs:range rdf:Resource="quantity" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="eventDateAttribute">
+        <rdfs:domain rdf:Resource="SupplyChainEvent" />
+        <rdfs:range rdf:Resource="supplyChainEventDate" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="materialTypeAttribute">
+        <rdfs:domain rdf:Resource="RawMaterial" />
+        <rdfs:range rdf:Resource="materialType" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="orderDateAttribute">
+        <rdfs:domain rdf:Resource="Order" />
+        <rdfs:range rdf:Resource="orderDate" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="shipmentDateAttribute">
+        <rdfs:domain rdf:Resource="Shipment" />
+        <rdfs:range rdf:Resource="shipmentDate" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="deliveryDateAttribute">
+        <rdfs:domain rdf:Resource="Delivery" />
+        <rdfs:range rdf:Resource="deliveryDate" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="paymentDateAttribute">
+        <rdfs:domain rdf:Resource="Payment" />
+        <rdfs:range rdf:Resource="paymentDate" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="amountAttribute">
+        <rdfs:domain rdf:Resource="Payment" />
+        <rdfs:range rdf:Resource="amount" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="transportationModeAttribute">
+        <rdfs:domain rdf:Resource="Transportation" />
+        <rdfs:range rdf:Resource="transportationMode" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="logisticsStrategyAttribute">
+        <rdfs:domain rdf:Resource="Logistics" />
+        <rdfs:range rdf:Resource="logisticsStrategy" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="qualityControlStandardAttribute">
+        <rdfs:domain rdf:Resource="QualityControl" />
+        <rdfs:range rdf:Resource="qualityControlStandard" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="safetyComplianceStandardAttribute">
+        <rdfs:domain rdf:Resource="SafetyCompliance" />
+        <rdfs:range rdf:Resource="safetyComplianceStandard" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="environmentalImpactScoreAttribute">
+        <rdfs:domain rdf:Resource="EnvironmentalImpact" />
+        <rdfs:range rdf:Resource="environmentalImpactScore" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="latAttribute">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="lat" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="longAttribute">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="long" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="latAttribute">
+        <rdfs:domain rdf:Resource="Warehouse" />
+        <rdfs:range rdf:Resource="lat" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="longAttribute">
+        <rdfs:domain rdf:Resource="Warehouse" />
+        <rdfs:range rdf:Resource="long" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="scheduleDateAttribute">
+        <rdfs:domain rdf:Resource="ProductionSchedule" />
+        <rdfs:range rdf:Resource="scheduleDate" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="machineIDAttribute">
+        <rdfs:domain rdf:Resource="Machine" />
+        <rdfs:range rdf:Resource="machineID" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="maintenanceDateAttribute">
+        <rdfs:domain rdf:Resource="MaintenanceEvent" />
+        <rdfs:range rdf:Resource="maintenanceDate" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="operationHoursAttribute">
+        <rdfs:domain rdf:Resource="Plant" />
+        <rdfs:range rdf:Resource="operationHours" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="capacityAttribute">
+        <rdfs:domain rdf:Resource="Warehouse" />
+        <rdfs:range rdf:Resource="capacity" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="contactInfoAttribute">
+        <rdfs:domain rdf:Resource="Supplier" />
+        <rdfs:range rdf:Resource="contactInfo" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="costAttribute">
+        <rdfs:domain rdf:Resource="RawMaterial" />
+        <rdfs:range rdf:Resource="cost" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="performanceMetricAttribute">
+        <rdfs:domain rdf:Resource="QualityControl" />
+        <rdfs:range rdf:Resource="performanceMetric" />
+    </owl:DatatypeProperty>
+</owl:Ontology>
 </rdf:RDF>

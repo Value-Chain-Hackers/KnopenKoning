@@ -1,0 +1,261 @@
+<html>
+  <body>
+    <style>
+      .search {
+        z-index: 10;
+        display: block;
+        align-items: center;
+        position: fixed;
+        margin-left: 25% 25%;
+        margin-bottom: 1rem;
+      }
+      .profile {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #242121;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #1a1717;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      /* HTML: <div class="loader"></div> */
+      .loader {
+        width: 90px;
+        height: 14px;
+        box-shadow: 0 3px 0 #fff;
+        position: relative;
+        clip-path: inset(-40px 0 -5px);
+      }
+      .loader:before {
+        content: "";
+        position: absolute;
+        inset: auto calc(50% - 17px) 0;
+        height: 50px;
+        --g: no-repeat linear-gradient(#ccc 0 0);
+        background: var(--g), var(--g), var(--g), var(--g);
+        background-size: 16px 14px;
+        animation: l7-1 2s infinite linear, l7-2 2s infinite linear;
+      }
+      @keyframes l7-1 {
+        0%,
+        100% {
+          background-position: 0 -50px, 100% -50px;
+        }
+        17.5% {
+          background-position: 0 100%, 100% -50px, 0 -50px, 100% -50px;
+        }
+        35% {
+          background-position: 0 100%, 100% 100%, 0 -50px, 100% -50px;
+        }
+        52.5% {
+          background-position: 0 100%, 100% 100%, 0 calc(100% - 16px),
+            100% -50px;
+        }
+        70%,
+        98% {
+          background-position: 0 100%, 100% 100%, 0 calc(100% - 16px),
+            100% calc(100% - 16px);
+        }
+      }
+      @keyframes l7-2 {
+        0%,
+        70% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(200%);
+        }
+      }
+      .hidden {
+        display: none;
+      }
+      .logMessage {
+        background-color: #413838;
+        color: #f5f5f5;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        &.crewstart{
+          background-color: #413838;
+          color: #2fe01f;
+          padding: 10px;
+          margin: 5px;
+          border-radius: 5px;
+        }
+        &.agentstepdata textarea{
+          background-color: #7e7171;
+          color: #f5f5f5;
+          width: 100%;
+          height: 100px;
+          border: 1px solid #f5f5f5;
+          border-radius: 12px;
+        }
+      }
+
+      .logError {
+        color: #ff0000;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+
+      .tool {
+        font-weight: bold;
+      }
+    </style>
+    <button id="kickoff">KickOff</button>
+    <div class="loader hidden"></div>
+    <div id="agentLog" style="width: 100%; height: 100%">abc</div>
+  </body>
+  <script type="text/template" id="message-template">
+    <div class="message-container">
+        <h1>{{ title }}</h1>
+      <p>{{ content }}</p>
+    </div>
+  </script>
+  <script>
+    document.getElementById("kickoff").addEventListener("click", function () {
+      // remove the hidden class from the loader
+      document.querySelector(".loader").classList.remove("hidden");
+
+      const eventSource = new EventSource("/crews/s/kickoff");
+      eventSource.onmessage = function (event) {
+        const jsonData = JSON.parse(event.data);
+
+        if (jsonData["type"]) {
+          console.log(jsonData["type"] + " message: ", jsonData);
+          type = jsonData["type"];
+          const newDiv = document.createElement("div");
+          newDiv.classList.add("logMessage");
+          newDiv.classList.add(String(type).toLowerCase());
+          document.getElementById("agentLog").appendChild(newDiv);
+          switch (type) {
+            case "CrewStart":
+              const startContent = document.createTextNode(jsonData["detail"]);
+              newDiv.appendChild(startContent);
+              break;
+            case "AgentAction":
+              const tool = jsonData["tool"];
+              const toolInput = JSON.parse(jsonData["tool_input"]);
+              const newContent = document.createTextNode(tool);
+              newDiv.appendChild(newContent);
+
+              // for each key, value pair in the toolInput object add a div
+              for (const [key, value] of Object.entries(toolInput)) {
+                const newContentToolInput = document.createElement("div");
+                newContentToolInput.textContent = `${key} : ${value}`;
+                newDiv.appendChild(newContentToolInput);
+              }
+
+              break;
+            case "AgentStepData":
+              const stepData = jsonData["data"];
+              const newContentStepData = document.createElement("textarea");
+              newContentStepData.textContent = stepData;
+              newDiv.appendChild(newContentStepData);
+              break;
+            default:
+              const newContent2 = document.createTextNode(JSON.stringify(jsonData));
+              newDiv.appendChild(newContent2);
+              console.log("Unkown message:", jsonData);
+          }
+
+        } else {
+          console.log("Unkown message:", jsonData);
+        }
+        // jsondata has an attribute called toolInput
+        // if (jsonData["tool"]) {
+        //   const toolInput = JSON.parse(jsonData["tool_input"]);
+        //   console.log("toolInput", toolInput);
+        //   // create a new div element and give it some content
+        //   const newDiv = document.createElement("div");
+        //   newDiv.classList.add("logMessage");
+
+        //   const toolDiv = document.createElement("div");
+        //   toolDiv.classList.add("tool");
+        //   toolDiv.textContent = jsonData.tool;
+        //   newDiv.appendChild(toolDiv);
+
+        //   if (String(jsonData.tool).startsWith("duckduckgo")) {
+        //     const newContent = document.createElement("div");
+        //     newContent.classList.add("task");
+        //     newContent.textContent = toolInput.query;
+        //     newDiv.appendChild(newContent); //add the text node to the newly created div.
+        //   }
+
+        //   if (toolInput["coworker"]) {
+        //     const coWorkerDiv = document.createElement("div");
+        //     coWorkerDiv.classList.add("coworker");
+        //     coWorkerDiv.textContent = toolInput.coworker;
+        //     toolDiv.appendChild(coWorkerDiv);
+        //   }
+
+        //   if (toolInput["task"]) {
+        //     const newContent = document.createElement("div");
+        //     newContent.classList.add("task");
+        //     newContent.textContent = toolInput.task;
+        //     newDiv.appendChild(newContent); //add the text node to the newly created div.
+        //   }
+
+        //   if (toolInput["context"]) {
+        //     const newContentContext = document.createElement("div");
+        //     newContentContext.classList.add("context");
+        //     newContentContext.textContent = toolInput.context;
+        //     newDiv.appendChild(newContentContext); //add the text node to the newly created div.
+        //   }
+        // } else if (jsonData["type"]) {
+        //   const newDiv = document.createElement("div");
+        //   newDiv.classList.add("logMessage");
+        //   if (jsonData["return_values"]) {
+        //     const newContent = document.createTextNode(
+        //       jsonData["return_values"]["output"]
+        //     );
+        //     newDiv.appendChild(newContent);
+        //     document.getElementById("agentLog").appendChild(newDiv);
+        //   } else {
+        //     const newContent = document.createTextNode(jsonData.log);
+        //     newDiv.appendChild(newContent);
+        //     document.getElementById("agentLog").appendChild(newDiv);
+        //   }
+        // } else {
+        //   const newDiv = document.createElement("div");
+        //   newDiv.classList.add("logMessage");
+        //   const newContent = document.createTextNode(
+        //     jsonData.data ?? jsonData.detail
+        //   );
+        //   newDiv.appendChild(newContent);
+        //   console.log("jsonData", jsonData);
+        //   document.getElementById("agentLog").appendChild(newDiv);
+        // }
+
+        console.log("EventSource message:", event.data);
+      };
+      eventSource.onerror = function (event) {
+        console.error("EventSource failed:", event);
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("logError");
+        const newContent = document.createTextNode(
+          "An error occured. Crew finished."
+        );
+        newDiv.appendChild(newContent);
+        document.getElementById("agentLog").appendChild(newDiv);
+        eventSource.close();
+      };
+    });
+  </script>
+</html>

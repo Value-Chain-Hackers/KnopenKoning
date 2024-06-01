@@ -193,14 +193,28 @@
   const lanes = ["root", "company", "country", "supplier", "materials"];
   const laneWidth = Number(1024/lanes.length);
 
-  fetch("/static/unilever.json")
+  // get last part of the url
+  const url = window.location.href;
+  const parts = url.split("/");
+  const lastSegment = parts.pop() || parts.pop();
+  // url decode
+  const decoded = decodeURIComponent(lastSegment);
+  
+  console.log(lastSegment);
+
+
+  fetch(`/static/${lastSegment}.json`)
     .then((response) => response.json())
     .then((data) => buildGraph(data));
 
   function buildGraph(input) {
     input.forEach((entry) => {
       const { subject, predicate, object } = entry;
-      if (links.length > 130) return;
+      const types = ["plant", "company", "country", "supplier", "region", "partner", "commodity", "product", "brand", "product-line", "warehouse", "distribution center", "office", "offices","materials", "facility", "company", "city", "raw-material" ];
+      // if none of subject or object are of type above, skip
+      if (!types.includes(entry['object-type'])) return;
+      
+
       addNode(subject, entry['object-type']);
       addNode(object,  entry['object-type']);
       links.push({
@@ -307,18 +321,14 @@
         d3
           .forceLink(links)
           .id((d) => d.id)
-          .distance(200)
+          .distance(250)
       )
       .force("charge", d3.forceManyBody())
       .force("center", d3.forceCenter())
       .force(
-        "x",
-        d3
-          .forceX()
-          .x((d) => (d.lane+1) * laneWidth + laneWidth / 2)
-          .strength(1)
+        "x", d3.forceX().strength(.001)
       )
-      .force("y", d3.forceY().strength(0.1));
+      .force("y", d3.forceY().strength(.001));
 
     simulation.nodes(nodes).on("tick", ticked);
 
