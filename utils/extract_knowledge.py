@@ -1,71 +1,19 @@
+import concurrent.futures
 from config import MODEL_NAME, EMBEDDING_MODEL
 import fitz  # PyMuPDF
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.llms.ollama import Ollama
 from langchain_core.prompts import PromptTemplate
-from langchain_core.output_parsers import StrOutputParser
+from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 from langchain_core.documents import Document
 from langchain_chroma import Chroma
 from langchain.indexes import SQLRecordManager, index
 import os
-
+import re
+from langchain.text_splitter import MarkdownHeaderTextSplitter
+from langchain_core.documents import Document
+from langchain_core.runnables import RunnablePassthrough
 from config import MODEL_NAME, EMBEDDING_MODEL, CUDA_ENABLED, RECORDS_DATABASE
-
-knowledge_extraction_prompt = PromptTemplate.from_template("""\
-Please proceed to knowledge extraction from the provided text. Focus on the following aspects:
-    1. Identify the key suppliers and customers of the company.
-    2. Identify the raw materials used by the company and their sources.
-    3. Idenitfy the locations of the company's manufacturing plants.
-    4. Identify the routes used by the company to distribute its products.
-    5. Identify the sustainability practices of the company.
-    6. Identify the use of poluants and environmentally impactful materials.
-    7. Identify the company's carbon footprint and energy consumption.
-    8. Identify the company's waste management practices.
-    9. Identify the company's recycling practices.
-    10. Identify the company's water usage and management practices.
-    11. Identify the company's social responsibility practices.
-    12. Identify the company's labor practices.
-    13. Identify the company's human rights practices.
-
-If none of the above aspects are present in the text, please respond with "Not relevant".
-Keep your answers concise and to the point. 
-Do not include any irrelevant information, nor any information that is not present in the text.
------
-Context:
-                                      
-{chunk}
-
------ 
-""")
-
-knowledge_summary_prompt = PromptTemplate.from_template("""\
-Please proceed to summarizing the knowledge extracted from the text.
-Remove all duplicate information and keep the summary concise.
-Make sure you retain all the key information.
------
-Context:
-                                      
-{chunk}
-
------                                                     
-""")
-
-knowledge_build_prompt = PromptTemplate.from_template("""\
-Given the knowledge extracted from the text, please proceed to build a knowledge graph.
-The knowledge graph should include all the key information extracted from the text.
-Create triples in the following format:
-    1. Entity1 -> Relation -> Entity2
-    2. Entity1 -> Relation -> Value
-    3. Entity1 -> Attribute -> Value
-DO NOT include any irrelevant information, nor any information that is not present in the text.
-DO ONLY use json-ld format as output.
-------
-Context:
-                                    
-{chunk}
-
-------
-""")
 
 def split_text_into_chunks(text, chunk_size=512, chunk_overlap=64):
     text_splitter = RecursiveCharacterTextSplitter(
@@ -114,44 +62,6 @@ def extract_text_from_pdf(pdf_path):
     
     return text
 
-def extract_all_knowledge_from_pdf(pdf_path, output_path):
-    text = extract_text_from_pdf(pdf_path)
-    chunks = split_text_into_chunks(text)
-    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
-    chain = knowledge_extraction_prompt | llm | StrOutputParser()
-    knowledge = []
-    with open(output_path, "a", encoding='utf-8') as f:
-        for chunk in chunks:
-            response = chain.invoke({"chunk": chunk})
-            knowledge.append(response)
-            f.write(response + "\n")
-            f.write("-----\n")
-
-    return knowledge
-
-def summarize_all_text(text, output_path):
-    chunks = split_text_into_chunks(text)
-    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
-    chain = knowledge_summary_prompt | llm | StrOutputParser()
-    knowledge = []
-    with open(output_path, "a", encoding='utf-8') as f:
-        for chunk in chunks:
-            response = chain.invoke({"chunk": chunk})
-            knowledge.append(response)
-    
-    return knowledge
-
-def extract_knowledge_graph(text, output_path):
-    chunks = split_text_into_chunks(text)
-    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=0.1)
-    chain = knowledge_build_prompt | llm | StrOutputParser()
-    knowledge = []
-    with open(output_path, "a", encoding='utf-8') as f:
-        for chunk in chunks:
-            response = chain.invoke({"chunk": chunk})
-            knowledge.append(response)
-    return knowledge
-
 
 def get_records_manager(namespace, database_filename = RECORDS_DATABASE) -> SQLRecordManager:
 
@@ -186,3 +96,298 @@ def get_huggingface_model(model_name):
     )
     return hf
     
+
+from abc import ABC, abstractmethod
+
+class CallbackManager(ABC):
+    @abstractmethod
+    def on_start(self):
+        """Called when the process starts."""
+        pass
+
+    @abstractmethod
+    def on_finish(self):
+        """Called when the process finishes."""
+        pass
+
+    @abstractmethod
+    def on_error(self, error):
+        """Called when an error occurs.
+        
+        Args:
+            error (Exception): The exception that was raised.
+        """
+        pass
+
+    @abstractmethod
+    def on_progress(self, progress):
+        """Called to report progress.
+        
+        Args:
+            progress (float): The current progress as a percentage.
+        """
+        pass
+
+    @abstractmethod
+    def on_step_starting(self, phase, step, chunk_id, data):
+        """Called once a preprocess step has been completed.
+        
+        Args:
+            phase (str): PreProcess, Extract, Validate
+            step (int): The number of the step/pass.
+            chunk_id: The Id if the chunk being processed.
+            data (str): The actual text resulting from this stp.
+        """
+        pass
+
+    @abstractmethod
+    def on_step_completed(self, phase, step, chunk_id, data):
+        """Called once a preprocess step has been completed.
+        
+        Args:
+            phase (str): PreProcess, Extract, Validate
+            step (int): The number of the step/pass.
+            chunk_id: The Id if the chunk being processed.
+            data (str): The actual text resulting from this stp.
+        """
+       
+        pass
+
+    @abstractmethod
+    def on_tuple_created(self, tuple):
+        """Called once a node is ready to integrate the graph"""
+        pass
+
+class NullCallbackManager(CallbackManager):
+    def __init__(self):
+        super().__init__()
+    def on_start(self):
+        pass
+
+    def on_finish(self):
+        pass
+
+    def on_error(self, error):
+        pass
+
+    def on_progress(self, progress):
+        pass
+
+    def on_step_starting(self, phase, step, chunk_id, data):
+        pass
+
+    def on_step_completed(self, phase, step, chunk_id, data):
+        pass
+
+    def on_tuple_created(self, tuple):
+        pass
+class FileDumpCallbackManager(NullCallbackManager):
+    def __init__(self, workdir):
+        super().__init__()
+        self.workdir = workdir
+        if not os.path.exists(workdir):
+            os.makedirs(workdir)
+  
+    def on_step_completed(self, phase, step, chunk_id, data):
+        """Called once a preprocess step has been completed.
+        
+        Args:
+            phase (str): PreProcess, Extract, Validate
+            step (int): The number of the step/pass.
+            chunk_id: The Id if the chunk being processed.
+            data (str): The actual text resulting from this stp.
+        """
+        with open(f"{self.workdir}/tmp_{phase}_{step}.dump", "w", encoding="utf-8") as file:
+            print(phase, step, len(data))
+            file.write(data)
+        pass
+
+    def on_tuple_created(self, tuple):
+        """Called once a node is ready to integrate the graph"""
+        pass
+
+
+prompt = PromptTemplate.from_template("""\
+                                      
+## Input:
+                                                      
+{context}
+
+""")
+from langchain_community.callbacks.labelstudio_callback import (
+    LabelStudioCallbackHandler,
+)
+from rdflib import Graph
+import pathlib
+class KnowledgeExtractor():
+    _ontology_graph = Graph()
+    _raw_chunks: list[str] = []
+    _pre_processed_chunks: list[str] = []
+    _pre_process_chain = None
+    _prompts = {}
+    _llms = {}
+    _extraction_callbacks: CallbackManager
+    _num_workers = 1
+    _progressbars = True
+    _ontology :str = None
+    _code_block_pattern = r"```(RDF|rdf|turtle|ttl|xml)\s+([\s\S]+?)\s+```"
+    _workdir: str = None
+
+    def __init__(self, model, num_workers = 6, chunk_size = 512, chunk_size_overlap = 64, work_dir = None, extraction_callbacks: CallbackManager = NullCallbackManager()) -> None:
+        self._workdir = work_dir   
+
+        if(work_dir and not pathlib.Path(work_dir).exists()):
+            pathlib.Path(work_dir).mkdir(parents=True, exist_ok=True)
+    
+        self.chunk_size = chunk_size
+        self.chunk_size_overlap = chunk_size_overlap
+        self._extraction_callbacks = extraction_callbacks
+
+        self._num_workers = num_workers
+        self.model = model
+        self.load_ontology("./data/supplychain.ttl")
+
+        self.load_prompts()
+        from langfuse.callback import CallbackHandler
+        langfuse_handler = CallbackHandler( secret_key="sk-lf-fe133c9a-1387-4680-920c-ab01879f8e45",
+        public_key="pk-lf-d5dec24a-00a7-4006-adb8-27ab0b749ac9",
+        host="http://localhost:3000")
+        self.llm_preprocess = Ollama(model=self.model, 
+            temperature=0, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["preprocess"], callbacks=[langfuse_handler], tags=["preprocess"])#, callbacks=[LabelStudioCallbackHandler(project_name="xpreprocess")])
+        self.llm_extract = Ollama(model=self.model, 
+            temperature=0, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["extraction"], callbacks=[langfuse_handler], tags=["extraction"])#, callbacks=[LabelStudioCallbackHandler(project_name="xextraction")])
+        self.llm_validate = Ollama(model=self.model, 
+            temperature=0, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["validation"], callbacks=[langfuse_handler], tags=["validation"])#, callbacks=[LabelStudioCallbackHandler(project_name="xvalidation")])
+        
+        self._pre_process_chain = prompt | self.llm_preprocess
+        
+        self.embeddings = get_huggingface_model(EMBEDDING_MODEL)
+
+    def __progress(self, iterable, **kwargs):
+        if(self._progressbars):
+            from tqdm import tqdm 
+            return iter(tqdm(iterable, **kwargs))
+        else:
+            return iter(iterable)
+
+    def load_prompts(self):
+        knowledge_preprocess = ""
+        with open("prompts\\knowledge_preprocess.md","r", encoding="utf-8") as f:
+            knowledge_preprocess = f.read()
+        self._prompts["preprocess"] = knowledge_preprocess
+
+        knowledge_extraction = ""
+        with open("prompts\\knowledge_extraction.md","r", encoding="utf-8") as f:
+            knowledge_extraction = f.read()
+        self._prompts["extraction"] = knowledge_extraction
+
+        knowledge_validation = ""
+        with open("prompts\\knowledge_validate.md","r", encoding="utf-8") as f:
+            knowledge_validation = f.read()
+        self._prompts["validation"] = knowledge_validation
+
+        return self._prompts
+
+    def load_ontology(self, file_path):
+        with open(file_path,"r", encoding="utf-8") as f:
+            self._ontology = f.read()
+        self._ontology_graph.parse(data=self._ontology)
+
+    def chunkify(self, large_text, chunk_size = 512, chunk_size_overlap = 64):
+        return split_text_into_chunks(large_text, chunk_size=chunk_size, chunk_overlap=chunk_size_overlap)
+
+    def _do_preprocess(self, id, text):
+        return self._pre_process_chain.invoke({"context": text},config={"tags":[str(id)]})
+    
+    def preprocess(self, large_text):
+        print(f'Initial text length {len(large_text)}')
+        self._raw_chunks = self.chunkify(large_text, self.chunk_size, self.chunk_size_overlap)[0:15]
+        print(f'Initial Raw Chunks {len(self._raw_chunks)} using chunk size:{self.chunk_size} with overlap {self.chunk_size_overlap}.')
+        pre_processed_chunks = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_workers) as executor:
+            futures = []
+
+            for id, text in enumerate(self._raw_chunks):
+                futures.append(executor.submit(self._do_preprocess, id, text))
+            
+            for future in self.__progress(concurrent.futures.as_completed(futures), desc=f"Processing raw chunks.", unit=" chunk", total=len(futures)):
+                pre_processed_chunks.append(future.result())
+
+        executor.shutdown()
+
+        self._pre_processed_chunks = pre_processed_chunks
+
+        all_preprocess = "\n".join(self._pre_processed_chunks)
+        print(f'Pre-processed text size {len(all_preprocess)} reduction {len(all_preprocess)/len(large_text)}')
+
+        self._pre_processed_chunks = self.chunkify(all_preprocess, self.chunk_size, self.chunk_size_overlap)
+        print(f'Pre-processed chunks {len(self._pre_processed_chunks)} using chunk size:{self.chunk_size} with overlap {self.chunk_size_overlap}.')
+
+        self._extraction_callbacks.on_step_completed("preprocess", 1, None, "\n".join(self._pre_processed_chunks))
+
+        new_chunks = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_workers) as executor:
+            futures = []
+
+            for id, text in enumerate(self._raw_chunks):
+                futures.append(executor.submit(self._do_preprocess, id, text))
+            
+            for future in self.__progress(concurrent.futures.as_completed(futures), desc=f"Fusion pre-processed chunks", unit=" chunk", total=len(futures)):
+                new_chunks.append(future.result())
+        
+        executor.shutdown()
+
+        all_preprocess = "\n".join(new_chunks)
+
+        self._pre_processed_chunks = new_chunks
+
+        print(f'Final preprocessed text length {len(all_preprocess)} reduction {len(all_preprocess)/len(large_text)}')
+        
+        self._extraction_callbacks.on_step_completed("preprocess", 2, None, all_preprocess)
+
+        
+        splitter = MarkdownHeaderTextSplitter([
+            ('#', "Top"),
+            ('##', "Section"),
+            ('###', "SubSection"),
+        ])
+
+        self.splits = splitter.split_text(all_preprocess)
+
+    def extract(self):
+        vector_database = Chroma(embedding_function=self.embeddings)
+        for index in self.__progress(range(0, len(self._raw_chunks), 16), desc="Adding document batches to vectorstore"):
+            vector_database.add_texts(self._raw_chunks[index:index + 16])
+        retriever = vector_database.as_retriever()
+        
+        def format_docs(docs):
+            return "\n\n".join(doc.page_content for doc in docs)
+
+        self._extract_chain = {"documents": retriever | format_docs, "context": RunnablePassthrough()} | prompt | self.llm_extract 
+        all_extracted = []
+        self.all_extracted_nodes = []
+        for id, split in enumerate(self.splits):
+            output = self._extract_chain.invoke(split.page_content)
+            matches = re.findall(self._code_block_pattern, output)
+            if not matches or len(matches) == 0:
+                print("No codeblock found")
+                print(output[0:250])
+                print(output[-250:])
+
+            self._extraction_callbacks.on_step_completed("extraction", 1, id, output)
+            new_entities = []
+            for match in matches:
+                language, code = match
+                # remove all prefixes from the extracted data
+                all_extracted.append(code)
+                code = re.sub(r"@prefix.*\n", "", code)
+                entities = code.strip('`').split("\n\n")
+                if isinstance(entities, str):
+                    entities = [entities]
+                new_entities.extend(entities)
+                self.all_extracted_nodes.extend(entities)
+
+
+            self._extraction_callbacks.on_step_completed("extraction", 2, id, "\n\n".join(new_entities))
+        print(F"Finished Extracting {len(self.all_extracted_nodes)} nodes")
+

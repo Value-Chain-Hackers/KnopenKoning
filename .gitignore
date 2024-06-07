@@ -2,3 +2,6 @@
 .cache/
 __pycache__/
 .scrapy/
+data/**/chunk_*.txt
+data/**/*.ttl
+docs/_site/*

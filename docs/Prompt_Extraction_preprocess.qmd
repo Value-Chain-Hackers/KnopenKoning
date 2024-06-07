@@ -1,0 +1,8 @@
+---
+title: "Pre-Processing prompt"
+
+---
+
+## Extraction Preprocess Prompt
+
+{{< include ../prompts/knowledge_preprocess.md >}}

@@ -23,7 +23,7 @@ from routers import agents, tasks, tools
 from langserve import add_routes
 from langchain_community.chat_models.ollama import ChatOllama
 from langchain.prompts import ChatPromptTemplate
-
+from fastapi.responses import PlainTextResponse
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
 scheduler = BackgroundScheduler()
@@ -70,6 +70,24 @@ async def records_manager():
     records_manager = get_records_manager("None")
     return records_manager.list_keys()
 
+from utils.ontology_parser import GraphVisitor
+graphVisitor = GraphVisitor()
+graphVisitor.parse("./data/supplychain.ttl", "text/turtle")
+
+
+@app.get("/supplychain")
+def read_entity_empt(request: Request):
+    return templates.TemplateResponse("show_class.html", {"request": request, "class": []})
+
+
+@app.get("/supplychain/{class_id:str}", response_class=PlainTextResponse)
+def read_entity(class_id: str, request: Request):
+    print("read entity")
+    class_id = graphVisitor.graph.namespace_manager.absolutize(class_id)
+    gClass = graphVisitor.build_class(class_id)
+    if gClass is None:
+        raise HTTPException(status_code=404, detail="Class not found")
+    return graphVisitor.rdf_to_markdown()
 
 
 # # Schedule jobs

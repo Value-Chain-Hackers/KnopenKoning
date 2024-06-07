@@ -20,7 +20,10 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import RunnablePassthrough
 import json
-from langchain_community.llms.ollama import Ollama
+from langchain_community.chat_models.ollama import ChatOllama
+
+# 
+
 
 object_types = [
     "raw-material", "supplier", "customer", "manufacting plant",
@@ -113,7 +116,7 @@ DO verify the accuracy and relevance of your extractions are critical to the suc
 hf = get_huggingface_model(EMBEDDING_MODEL)
 
 def get_chain(namespace, rag_folder):
-    llm = Ollama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=.5)
+    llm = ChatOllama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=.5)
     chain = (
         {"context": get_retriever(namespace, rag_folder), "question": RunnablePassthrough()}
         | knowledge_build_prompt
@@ -127,16 +130,49 @@ def get_retriever(namespace, rag_folder):
     retriever = chroma.as_retriever(search_kwargs={"k": 5})
     return retriever
 
+
+
 def build_knowledge(company):
+    topics = json.load(open("./data/questions.json", "r"))
+
     if not os.path.exists("./.cache"):
         os.makedirs("./.cache")
+
+    pdfs = glob.glob(f"./data/{company.company_name}/*.pdf")
+    pdf_file = pdfs[0]
+    pdfText = extract_text_from_pdf(pdf_file)
+    chunk_size = 8000
+    llm = ChatOllama(model=MODEL_NAME, num_ctx=chunk_size, num_predict=4096, temperature=.2)
+    chain = knowledge_build_prompt | llm | JsonOutputParser()
+    print(len(pdfText))
+    for topic in tqdm(topics, desc=f"Processing Topics for {company.company_name}", unit="topic", leave=False, position=1):
+        relationships = []
+        for question in tqdm(topics[topic], desc=f"Processing questions in {topic}", unit="question", leave=False, position=2):
+            for i in range(0, len(pdfText), chunk_size//2):
+                result =  chain.invoke({"context": pdfText[i:i+chunk_size//2], "question": question})
+                print("chunk", i, len(pdfText), result)
+                for r in result:
+                    if r.get("object-type", None) is None:
+                        continue
+
+                    # if the object type is not in the list of object types, skip it
+                    if r["object-type"] not in object_types:
+                        continue
+
+                    relationships.append(r)
+        
+            #result = chain.invoke()
+            print(company.company_name, len(result))
+        with open(f"./data/{company.company_name}/knowledge_{topic}.json","w") as out:
+            json.dump(relationships, out, indent=4)
+    return
     #print(f"Building knowledge for {pdf_file}")
-    namespace = f"rags-docs-{company.company_name}".replace(" ","").replace("-","")
-    rag_folder = f"./.cache/{company.company_name}/chroma/docs/"
-    chain = get_chain(namespace, rag_folder)
+    #namespace = f"rags-docs-{company.company_name}".replace(" ","").replace("-","")
+    #rag_folder = f"./.cache/{company.company_name}/chroma/docs/"
+    #chain = get_chain(namespace, rag_folder)
 
     #print(f"Getting records manager for namespace {namespace} in db")
-    topics = json.load(open("./data/questions.json", "r"))
+   
     # Hack to only use the suppliers questions
     #topics = {"suppliers": topics["suppliers"]}
     #print(f"Loaded {len(topics)} topics")
@@ -182,5 +218,6 @@ if __name__ == "__main__":
     if not os.path.exists("./.cache"):
         os.makedirs("./.cache")
     companies = SessionLocal().query(Company).all()
-    for company in tqdm(companies, desc="Building Knowledge Base", unit="RAG", leave=False, position=0):
+    #for company in tqdm(companies, desc="Building Knowledge Base", unit="RAG", leave=False, position=0):
+    for company in companies:
         build_knowledge(company)

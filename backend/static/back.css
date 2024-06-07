@@ -2,7 +2,6 @@
 body {
   margin: 0;
   background: rgb(25, 25, 25);
-  overflow: hidden;
   min-height: 100%;
   font-family: "Ubuntu Mono", monospace;
 }
@@ -52,7 +51,6 @@ canvas {
   right: 415px;
   bottom: 15px;
   color: white;
-  overflow-y: hidden;
   z-index: 1000;
 }
 

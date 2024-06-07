@@ -1,0 +1,8 @@
+---
+title: "Knowledge Extraction Prompt"
+
+---
+
+## Extraction Prompt
+
+{{< include ../prompts/knowledge_extraction.md >}}

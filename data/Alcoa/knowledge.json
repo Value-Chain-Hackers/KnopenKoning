@@ -1,0 +1,408 @@
+[
+    {
+        "more-info": "aimed at reducing environmental impact",
+        "object": "package recovery",
+        "object-type": "service",
+        "predicate": "uses",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "Forklift",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Buddy Smithwick"
+    },
+    {
+        "more-info": "",
+        "object": "multiple locations (New Bern, Lexington, LaVergne, Memphis, Johnson City, Mt. Airy, Staunton)",
+        "object-type": "location",
+        "predicate": "operates-in",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "1. Josh Farnham (New Bern), 2. Chad Brooks (Staunton), 3. Brian Mickle (Mt. Airy)",
+        "object": "rearload",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "United States of America",
+        "object-type": "country",
+        "predicate": "operates-in",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "42,000-square-foot expansion at our regional cold drink equipment remanufacturing center in Monroe, North Carolina",
+        "object": "regional cold drink equipment remanufacturing center",
+        "object-type": "manufacting plant",
+        "predicate": "uses",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "distributing beverages of The Coca-Cola Company and other partner companies",
+        "object": "multiple locations (New Bern, Lexington, Memphis, Johnson City, Mt. Airy)",
+        "object-type": "location",
+        "predicate": "operates-in",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "Coca-Cola Consolidated",
+        "object-type": "partner",
+        "predicate": "partners-with",
+        "subject": "The Ohio State University"
+    },
+    {
+        "more-info": "welcomed into the portfolio",
+        "object": "Bang Energy",
+        "object-type": "energy drink",
+        "predicate": "produces",
+        "subject": "Coca-Cola"
+    },
+    {
+        "more-info": "",
+        "object": "Forklift",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Buddy Smithwick (New Bern)"
+    },
+    {
+        "more-info": "includes Coke Zero Sugar, Sprite Zero Sugar, and Fresca",
+        "object": "sparkling zero sugar category",
+        "object-type": "product-line",
+        "predicate": "produces",
+        "subject": "Coca-Cola"
+    },
+    {
+        "more-info": "",
+        "object": "Josh Farnham (New Bern)",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Rearload"
+    },
+    {
+        "more-info": "",
+        "object": "social media",
+        "object-type": "service",
+        "predicate": "uses",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "Teammate",
+        "object-type": "employee",
+        "predicate": "is-a",
+        "subject": "Jagger Baker"
+    },
+    {
+        "more-info": "",
+        "object": "nonprofit organizations",
+        "object-type": "organization",
+        "predicate": "partners-with",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "1. Buddy Smithwick (New Bern), 2. Billy Hood (Lexington), 3. Kyle Spasoff (LaVergne)",
+        "object": "forklift",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "aimed at reducing environmental impact through climate protection and water leadership initiatives",
+        "object": "innovative solutions",
+        "object-type": "service",
+        "predicate": "has",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "nearly 13,000 backpacks and teacher totes at schools across our territory",
+        "object": "backpacks and teacher totes",
+        "object-type": "product",
+        "predicate": "produces",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "provided nearly 13,000 at schools across our territory",
+        "object": "backpacks and teacher totes",
+        "object-type": "product-line",
+        "predicate": "uses",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "aimed at reducing our environmental impact through climate protection and water leadership initiatives",
+        "object": "package recovery",
+        "object-type": "service",
+        "predicate": "has",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "1. Zach Arthur, 2. Dustin Snyder, 3. Douglas Murphy",
+        "object": "sideload",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "at large venues and events across our territory",
+        "object": "closed-loop recycling programs",
+        "object-type": "service",
+        "predicate": "has",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "terrritory",
+        "object-type": "location",
+        "predicate": "operates-in",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "with closed-loop recycling programs",
+        "object": "large venues and events across our territory",
+        "object-type": "location",
+        "predicate": "operates-in",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "backpacks",
+        "object-type": "product",
+        "predicate": "uses",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "",
+        "object": "large venues",
+        "object-type": "location",
+        "predicate": "operates-in",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "",
+        "object": "Pallet Jack",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Jagger Baker (Lexington)"
+    },
+    {
+        "more-info": "",
+        "object": "Buddy Smithwick (New Bern)",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Forklift"
+    },
+    {
+        "more-info": "The Ohio State University",
+        "object": "Coca-Cola",
+        "object-type": "company",
+        "predicate": "collaborates-with",
+        "subject": "Ohio State University"
+    },
+    {
+        "more-info": "expanding support to military service members and their families",
+        "object": "Coca-Cola Consolidated",
+        "object-type": "partner",
+        "predicate": "partners-with",
+        "subject": "Hiring Our Heroes"
+    },
+    {
+        "more-info": "19% volume growth",
+        "object": "Fanta sparkling fruit flavors",
+        "object-type": "product",
+        "predicate": "produces",
+        "subject": "Coca-Cola"
+    },
+    {
+        "more-info": "400,000-square-foot distribution and warehouse facility in Columbus, Ohio",
+        "object": "distribution and warehouse facility",
+        "object-type": "manufacting plant",
+        "predicate": "uses",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "",
+        "object": "Hiring Our Heroes",
+        "object-type": "partner",
+        "predicate": "uses",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "Pallet Jack",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Jagger Baker"
+    },
+    {
+        "more-info": "serves more than 60,000 customers",
+        "object": "myCoke.com digital portal",
+        "object-type": "customer",
+        "predicate": "supplies",
+        "subject": "Coca-Cola"
+    },
+    {
+        "more-info": "package recovery, climate protection and water leadership initiatives",
+        "object": "innovative solutions",
+        "object-type": "service",
+        "predicate": "has",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "Makes, sells and distributes beverages of The Coca-Cola Company and other partner companies in multiple countries.",
+        "object": "multiple countries",
+        "object-type": "country",
+        "predicate": "operates-in",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "long-standing",
+        "object": "Coca-Cola Consolidated's commitment to support and employ members of the military community",
+        "object-type": "statement",
+        "predicate": "states",
+        "subject": "Christine Motherwell, Senior Vice President, Human Resources"
+    },
+    {
+        "more-info": "serves more than 60,000 customers",
+        "object": "myCoke.com digital portal",
+        "object-type": "service",
+        "predicate": "uses",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "",
+        "object": "Senior Vice President, Human Resources",
+        "object-type": "office",
+        "predicate": "has-role",
+        "subject": "Christine Motherwell"
+    },
+    {
+        "more-info": "enabling others and helping them achieve their full potential",
+        "object": "a culture of diverse Servant Leaders",
+        "object-type": "culture",
+        "predicate": "fosters",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "The Ohio State University",
+        "object-type": "university",
+        "predicate": "collaborates-with",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "designed to reduce our overall manufacturing intensity ratio",
+        "object": "facility improvements",
+        "object-type": "equipment",
+        "predicate": "has",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "enabling Teammates to grow and develop",
+        "object": "culture of diverse Servant Leaders",
+        "object-type": "service",
+        "predicate": "fosters",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "Jagger Baker (Lexington)",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Pallet Jack"
+    },
+    {
+        "more-info": "For The Coca-Cola Company and other partner companies",
+        "object": "beverages",
+        "object-type": "product",
+        "predicate": "makes",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "The Coca-Cola Company",
+        "object-type": "brand",
+        "predicate": "is-part-of",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "1. Jagger Baker (Lexington), 2. Michael Hennaghon (Memphis), 3. Cleveland Main (Johnson City)",
+        "object": "pallet jack",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "Alcoa",
+        "object-type": "supplier",
+        "predicate": "supplies",
+        "subject": "Bang Energy"
+    },
+    {
+        "more-info": "designed to reduce manufacturing intensity ratio",
+        "object": "facility improvements",
+        "object-type": "service",
+        "predicate": "has",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "Teammates",
+        "object-type": "supplier",
+        "predicate": "contains",
+        "subject": "Safety Hall of Fame"
+    },
+    {
+        "more-info": "",
+        "object": "United States",
+        "object-type": "country",
+        "predicate": "is-located-in",
+        "subject": "Coca-Cola"
+    },
+    {
+        "more-info": "",
+        "object": "the importance of helping our Teammates grow and develop",
+        "object-type": "statement",
+        "predicate": "states",
+        "subject": "Stephanie Little, Director, The Center of Support"
+    },
+    {
+        "more-info": "",
+        "object": "Teammate",
+        "object-type": "employee",
+        "predicate": "is-a",
+        "subject": "Buddy Smithwick"
+    },
+    {
+        "more-info": "",
+        "object": "Zach Arthur",
+        "object-type": "equipment",
+        "predicate": "uses",
+        "subject": "Side Load"
+    },
+    {
+        "more-info": "",
+        "object": "nonprofit organizations",
+        "object-type": "partner",
+        "predicate": "partners-with",
+        "subject": "Alcoa"
+    },
+    {
+        "more-info": "A partnership to support military service members and their families",
+        "object": "Hiring Our Heroes",
+        "object-type": "organization",
+        "predicate": "partners-with",
+        "subject": "Coca-Cola Consolidated"
+    },
+    {
+        "more-info": "",
+        "object": "teacher totes",
+        "object-type": "product",
+        "predicate": "produces",
+        "subject": "Alcoa"
+    }
+]

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY cmns-av "https://www.omg.org/spec/Commons/AnnotationVocabulary/">
+	<!ENTITY dcterms "http://purl.org/dc/terms/">
+	<!ENTITY fibo-be-le-cb "https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/">
+	<!ENTITY fibo-be-le-fbo "https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/FormalBusinessOrganizations/">
+	<!ENTITY fibo-be-le-lp "https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/LegalPersons/">
+	<!ENTITY fibo-fnd-acc-cur "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/">
+	<!ENTITY fibo-fnd-gao-obj "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/">
+	<!ENTITY fibo-fnd-law-cor "https://spec.edmcouncil.org/fibo/ontology/FND/Law/LegalCore/">
+	<!ENTITY fibo-fnd-law-jur "https://spec.edmcouncil.org/fibo/ontology/FND/Law/Jurisdiction/">
+	<!ENTITY fibo-fnd-rel-rel "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/">
+	<!ENTITY fibo-fnd-utl-av "https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"
+	xmlns:cmns-av="https://www.omg.org/spec/Commons/AnnotationVocabulary/"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:fibo-be-le-cb="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"
+	xmlns:fibo-be-le-fbo="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/FormalBusinessOrganizations/"
+	xmlns:fibo-be-le-lp="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/LegalPersons/"
+	xmlns:fibo-fnd-acc-cur="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/"
+	xmlns:fibo-fnd-gao-obj="https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/"
+	xmlns:fibo-fnd-law-cor="https://spec.edmcouncil.org/fibo/ontology/FND/Law/LegalCore/"
+	xmlns:fibo-fnd-law-jur="https://spec.edmcouncil.org/fibo/ontology/FND/Law/Jurisdiction/"
+	xmlns:fibo-fnd-rel-rel="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/"
+	xmlns:fibo-fnd-utl-av="https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/">
+		<rdfs:label>Corporate Bodies Ontology</rdfs:label>
+		<dcterms:abstract>This ontology defines the basic mechanisms that establish legal personhood for judicial or artificial persons, specifically those that are corporate bodies, including bodies incorporated by equity, by guarantee, and by agreement.</dcterms:abstract>
+		<dcterms:license rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/MIT</dcterms:license>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/BE/LegalEntities/FormalBusinessOrganizations/"/>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/BE/LegalEntities/LegalPersons/"/>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Accounting/CurrencyAmount/"/>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/GoalsAndObjectives/Objectives/"/>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Law/Jurisdiction/"/>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Law/LegalCore/"/>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Organizations/FormalOrganizations/"/>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Relations/Relations/"/>
+		<owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/FND/Utilities/AnnotationVocabulary/"/>
+		<owl:imports rdf:resource="https://www.omg.org/spec/Commons/AnnotationVocabulary/"/>
+		<owl:versionIRI rdf:resource="https://spec.edmcouncil.org/fibo/ontology/master/latest/BE/LegalEntities/CorporateBodies/"/>
+		<skos:changeNote>The http://www.omg.org/spec/EDMC-FIBO/BE/20160201/LegalEntities/CorporateBodies.rdf version of this ontology was modified per the FIBO 2.0 RFC to address issues including elimination of missing labels and comments, integration with LCC, and replacing min 1 QCRs with someValuesFrom.</skos:changeNote>
+		<skos:changeNote>The http://www.omg.org/spec/EDMC-FIBO/BE/20180801/LegalEntities/CorporateBodies.rdf version of this ontology was modified to simplify / merge the legal person and formal organization class hierarchies.</skos:changeNote>
+		<skos:changeNote>The https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies.rdf version of the ontology was modified to use the Commons Ontology Library (Commons) Annotation Vocabulary rather than the OMG&apos;s Specification Metadata vocabulary.</skos:changeNote>
+		<skos:changeNote>The https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies.rdf version of this ontology was modified per the issue resolutions identified in the FIBO BE 1.0 FTF report.</skos:changeNote>
+		<skos:changeNote>The https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies.rdf version of this ontology was modified to eliminate &apos;body incorporated with guarantee&apos;, it&apos;s child, and &apos;body incorporated by agreement&apos;, which either don&apos;t exist or duplicate other kinds of organizations, such as private companies with limited liability.</skos:changeNote>
+		<skos:changeNote>The https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies.rdf version of this ontology was modified to eliminate a now duplicate and overly constrained restriction on isDomiciledIn.</skos:changeNote>
+		<skos:changeNote>The https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies.rdf version of this ontology was modified to eliminate unnecessary references, including those that have incorrect datatypes, and remove a reference that doesn&apos;t resolve.</skos:changeNote>
+		<skos:changeNote>The https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies.rdf version of this ontology was modified to reflect the move of hasObjective to FND to enable higher level reuse and eliminate deprecated elements.</skos:changeNote>
+		<skos:changeNote>The https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies.rdf version of this ontology was modified to revise a dead link.</skos:changeNote>
+		<fibo-fnd-utl-av:hasMaturityLevel rdf:resource="&fibo-fnd-utl-av;Release"/>
+		<cmns-av:copyright>Copyright (c) 2013-2023 EDM Council, Inc.</cmns-av:copyright>
+		<cmns-av:copyright>Copyright (c) 2013-2023 Object Management Group, Inc.</cmns-av:copyright>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&fibo-be-le-cb;BenefitCorporation">
+		<rdfs:subClassOf rdf:resource="&fibo-be-le-cb;NotForProfitCorporation"/>
+		<rdfs:label>benefit corporation</rdfs:label>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<skos:definition>not-for-profit corporation set up under specific state legislation, typically to provide some social benefit, without an obligation to maximize shareholder return</skos:definition>
+		<cmns-av:explanatoryNote>This is a US-specific type of non-profit corporation defined in recent legislation in a number of states. In California, for example, benefit corporations may be defined as public benefit or mutual benefit corporations, depending on their purpose.</cmns-av:explanatoryNote>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&fibo-be-le-cb;CommonInterestDevelopmentCorporation">
+		<rdfs:subClassOf rdf:resource="&fibo-be-le-cb;NotForProfitCorporation"/>
+		<rdfs:label>common interest development corporation</rdfs:label>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<skos:definition>not-for-profit corporation set up under specific state legislation as a business entity for homeowners&apos; associations</skos:definition>
+		<skos:example rdf:datatype="&xsd;anyURI">http://www.dre.ca.gov/files/pdf/re39.pdf</skos:example>
+		<cmns-av:explanatoryNote>A common interest development is typically a type of housing, composed of individually owned units, such as condominiums, townhouses, or single-family homes, that share ownership of common areas, such as swimming pools, landscaping, and parking. Common interest developments (also known as community interest developments or CIDs) are managed by homeowners&apos; associations.</cmns-av:explanatoryNote>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&fibo-be-le-cb;Corporation">
+		<rdfs:subClassOf rdf:resource="&fibo-be-le-lp;LegalEntity"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&fibo-be-le-cb;isConstitutedBy"/>
+				<owl:onClass rdf:resource="&fibo-be-le-cb;InstrumentOfIncorporation"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&fibo-be-le-cb;isIncorporatedIn"/>
+				<owl:onClass rdf:resource="&fibo-fnd-law-jur;Jurisdiction"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&fibo-fnd-rel-rel;hasLegalName"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label xml:lang="en">corporation</rdfs:label>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<skos:definition>formal organization that is a legal entity (artificial person) distinct from its owners, created under the jurisdiction of the laws of a state or nation</skos:definition>
+		<cmns-av:explanatoryNote>A corporation has three distinguishing characteristics: (1) separation of ownership from management and general liability, i.e., its liability to creditors is limited to its resources, unlike some partnerships and sole proprietorships, (2) the ability to negotiate contracts and own property, and (3) transferable ownership, irrespective of changes in membership or the lifetimes of its stockholders.</cmns-av:explanatoryNote>
+		<cmns-av:explanatoryNote>A corporation is managed by or under the direction of a board of directors, which generally determines corporate policy. Officers manage the day-to-day affairs of the corporation.</cmns-av:explanatoryNote>
+		<cmns-av:synonym>body corporate</cmns-av:synonym>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&fibo-be-le-cb;ForProfitCorporation">
+		<rdfs:subClassOf rdf:resource="&fibo-be-le-cb;Corporation"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&fibo-fnd-gao-obj;hasObjective"/>
+				<owl:someValuesFrom rdf:resource="&fibo-be-le-lp;ProfitObjective"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label>for profit corporation</rdfs:label>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<owl:disjointWith rdf:resource="&fibo-be-le-cb;NotForProfitCorporation"/>
+		<skos:definition>corporation whose objective is to make money, i.e., to ensure realization of a financial benefit such that the amount of revenue gained from a business activity exceeds the expenses, costs and taxes needed to sustain that activity</skos:definition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&fibo-be-le-cb;IncorporationGuarantee">
+		<rdfs:subClassOf rdf:resource="&fibo-fnd-law-cor;Constitution"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&fibo-fnd-rel-rel;isProvidedBy"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&fibo-fnd-acc-cur;hasNotionalAmount"/>
+				<owl:onClass rdf:resource="&fibo-fnd-acc-cur;MonetaryAmount"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label>incorporation guarantee</rdfs:label>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<skos:definition>guarantee that is part of the financial basis by which some legal entity is incorporated</skos:definition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&fibo-be-le-cb;InstrumentOfIncorporation">
+		<rdfs:subClassOf rdf:resource="&fibo-fnd-law-cor;Constitution"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&fibo-fnd-rel-rel;isGovernedBy"/>
+				<owl:onClass rdf:resource="&fibo-fnd-law-jur;Jurisdiction"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label>instrument of incorporation</rdfs:label>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<skos:definition>memorandum and articles of association by which some legal entity is established</skos:definition>
+		<cmns-av:explanatoryNote>This may be the issuance of shares, the existence of some agreement, guaranties and so on.</cmns-av:explanatoryNote>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&fibo-be-le-cb;NotForProfitCorporation">
+		<rdfs:subClassOf rdf:resource="&fibo-be-le-cb;Corporation"/>
+		<rdfs:subClassOf rdf:resource="&fibo-be-le-fbo;NotForProfitOrganization"/>
+		<rdfs:label>not-for-profit corporation</rdfs:label>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<skos:definition>corporation approved by its jurisdictional oversight and tax authorities as operating for educational, charitable, social, religious, civic or humanitarian purposes</skos:definition>
+		<cmns-av:explanatoryNote>A not-for-profit corporation is formed by incorporators, and has a board of directors and officers, but no shareholders. These incorporators, directors and officers may not receive a distribution of (any money from) profits, but officers and management may be paid reasonable salaries for services to the corporation.</cmns-av:explanatoryNote>
+		<cmns-av:synonym>non-profit corporation</cmns-av:synonym>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&fibo-be-le-cb;StockCorporation">
+		<rdfs:subClassOf rdf:resource="&fibo-be-le-cb;Corporation"/>
+		<rdfs:label xml:lang="en">stock corporation</rdfs:label>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<skos:definition>corporation that has shareholders, each of whom receives a portion of the ownership of the corporation through shares of stock</skos:definition>
+		<cmns-av:adaptedFrom rdf:datatype="&xsd;anyURI">https://www.oecd.org/corporate/OECD-Corporate-Governance-Factbook.pdf</cmns-av:adaptedFrom>
+		<cmns-av:explanatoryNote>The shares in a stock corporation may receive a return on their investment in the form of dividends. Shares are used for voting on matters of corporate policy or to elect directors, at the corporation&apos;s annual meeting and at other meetings of the corporation.</cmns-av:explanatoryNote>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&fibo-be-le-cb;isConstitutedBy">
+		<rdfs:label>is constituted by</rdfs:label>
+		<rdfs:domain rdf:resource="&fibo-be-le-cb;Corporation"/>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<rdfs:range rdf:resource="&fibo-fnd-law-cor;Constitution"/>
+		<skos:definition>the instrument by which an entity is incorporated</skos:definition>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&fibo-be-le-cb;isIncorporatedIn">
+		<rdfs:subPropertyOf rdf:resource="&fibo-be-le-lp;isOrganizedIn"/>
+		<rdfs:label>is incorporated in</rdfs:label>
+		<rdfs:domain rdf:resource="&fibo-be-le-cb;Corporation"/>
+		<rdfs:isDefinedBy rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/"/>
+		<rdfs:range rdf:resource="&fibo-fnd-law-jur;Jurisdiction"/>
+		<skos:definition>the legal jurisdiction under which the legal entity is incorporated</skos:definition>
+		<cmns-av:explanatoryNote>It is the laws of this jurisdiction that cause and allow the legal entity to exist and to incur debt and be sued at law as a legal entity.</cmns-av:explanatoryNote>
+	</owl:ObjectProperty>
+
+</rdf:RDF>

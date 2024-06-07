@@ -1,0 +1,39 @@
+---
+title: "Knowledge Extraction Pipeline"
+
+---
+
+Extracting knowledge from large text documents is not a single step.
+To retrieve valuable information from these a large document or corpus needs to be chuncked and the task needs to be subdivided in multiple sub-tasks.
+
+```{mermaid}
+graph LR
+    Chunks ---> Preprocess ---> Extract
+    Extract ---> Validate ---> Ingest
+```
+
+## Chunks : Chunkin a large document in pieces
+
+This step will take a large document and chuck it in parts using some overlap to ensure that paragraph that would be cut in their middle are also present in the next chunk of text.
+
+## Preprocess : Remove the grease
+
+This step will tranform the larger text chunks to sentences that are focused on facts, named entities, take-aways and essential points removing the grease of what is not relevant to the extraction process, but present in the textual form of the document.
+
+[Pre-Process Prompt](./Prompt_Extraction_preprocess.qmd)
+
+## Extract : Get tuples of knowledge from the text
+
+With the reduced text now the model will attempt to make tuples and nodes according to the ontology. Here too `divide and conquer` will be used, in order to reduce hallucianations it's better to invoke the model multiple times using a subset of the ontlogy each time. This will yield better results and avoid the model to try to makeup nodes for each class of the ontology.
+
+[Extracting Prompt](./Prompt_Extraction.qmd)
+
+## Validate : Check facts, deduplicate ensure proper syntax
+
+Now we have extracted nodes, we will invoke antoher model to do a quality check on each node, by adding a rag on the actual document this step is able to search back in the document and coroborate different pieces of the document to make the most complete set of tuples and nodes, suppressing normally any hallucinated facts that might have produced by previous steps.
+
+[Validation Prompt](./Prompt_Extraction_validation.qmd)
+
+## Ingest : Incorporate tuples and nodes to the global graph
+
+With our appured nodes being now filtered and checked for quality we will now query the graph for each of them and add them if they are not a perfect duplicate and reject the nodes that might be too similar using cosine similarity and clustering techniques.

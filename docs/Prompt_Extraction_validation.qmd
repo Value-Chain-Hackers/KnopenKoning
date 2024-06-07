@@ -1,0 +1,8 @@
+---
+title: "Validation prompt"
+
+---
+
+## Validation Prompt
+
+{{< include ../prompts/knowledge_validate.md >}}
