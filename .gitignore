@@ -5,3 +5,5 @@ __pycache__/
 data/**/chunk_*.txt
 data/**/*.ttl
 docs/_site/*
+data/**/*.txt
+docs/*_files/*
