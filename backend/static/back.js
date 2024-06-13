@@ -675,7 +675,7 @@ function mouseDragged() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  function updateStepper(step) {
+  function updateStepper(step, processId) {
     console.log(step);
     const stepperMessage = document.getElementById("stepperMessage");
     stepperMessage.innerHTML = `Step ${step}`;
@@ -696,7 +696,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (step === 6) {
       const select = document.getElementById("companySelect");
       const selected = select.options[select.selectedIndex].text;
-      window.location = `/view/${selected.trim().toLowerCase()}`;
+      window.location = `/view/${selected.trim().toLowerCase()}/${processId}`;
     }
   }
   const adminButton = document.getElementById("adminButton");
@@ -706,50 +706,51 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   const searchButton = document.getElementById("goButton");
-  if (searchButton) {
-    searchButton.addEventListener("click", function () {
-      searchButton.classList.add("hidden");
-      const stepper = document.getElementById("stepper");
-      stepper.classList.remove("hidden");
+    if (searchButton) {
+      searchButton.addEventListener("click", function () {
+        searchButton.classList.add("hidden");
+        const stepper = document.getElementById("stepper");
+        stepper.classList.remove("hidden");
 
-      const searchInput = document.getElementById("questionInput");
-      const question = searchInput.value;
-      const companySelect = document.getElementById("companySelect");
-      const company = companySelect.options[companySelect.selectedIndex].text;
-      const data = {
-        question: question,
-        company: company,
-      };
-      fetch("/process", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error("Network response was not ok.");
+        const searchInput = document.getElementById("questionInput");
+        const question = searchInput.value;
+        const companySelect = document.getElementById("companySelect");
+        const company = companySelect.options[companySelect.selectedIndex].text;
+        const data = {
+          question: question,
+          company: company,
+        };
+        fetch("/process", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         })
-        .then((data) => {
-          console.log(data);
-          const eventSource = new EventSource("/progress/" + data.uid);
-          eventSource.onmessage = function (event) {
-            const data = JSON.parse(event.data);
-            updateStepper(data.step);
-          };
-          eventSource.onerror = function (event) {
-            console.error("EventSource failed:", event);
-          };
-        })
-        .catch((error) => {
-          console.error(
-            "There has been a problem with your fetch operation:",
-            error
-          );
-        });
-    });
-  }
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Network response was not ok.");
+          })
+          .then((data) => {
+            console.log(data);
+            const eventSource = new EventSource("/progress/" + data.uid);
+            const dd = data.uid;
+            eventSource.onmessage = function (event) {
+              const data = JSON.parse(event.data);
+              updateStepper(data.step, dd);
+            };
+            eventSource.onerror = function (event) {
+              console.error("EventSource failed:", event);
+            };
+          })
+          .catch((error) => {
+            console.error(
+              "There has been a problem with your fetch operation:",
+              error
+            );
+          });
+      });
+    }
 });

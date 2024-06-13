@@ -4,27 +4,27 @@
 <div class="maincontent">
   <div
     class="card"
-    style="margin-left: auto; margin-right: auto; width: 600px; height: 300px"
+    style="margin-left: auto; margin-right: auto; width: 600px; height: 400px"
   >
     <div class="card-body">
-        <div style="padding: 15px; padding-top: 10px;">
-      <a href="/"> <img class="avatar" src="/static/profile.webp" style="float: left" /></a>
-    </div>
-      <div style="margin-left: auto; width: 400px; margin-right: auto;">
-        <select id="companySelect" class="select">
-          {% for company in companies %}
-          <option value="{{ company.id }}">{{ company.company_name }}</option>
-          {% endfor %}
-        </select>
-        <input
-          id="questionInput"
-          type="text"
-          placeholder="Ask your question to the AI..."
-        />
+      <div style="margin-left: auto; width: 400px; margin-right: auto">
+        <div style="width: 75%;">
+          <select id="companySelect" class="select">
+            {% for company in companies %}
+            <option value="{{ company.id }}">{{ company.company_name }}</option>
+            {% endfor %}
+          </select>
+          <input
+            id="questionInput"
+            type="text"
+            placeholder="Ask your question to the AI..."
+          />
+        </div>
+        <div style="margin-left: 75ù; width: 25%;">
+          <button id="goButton" class="select">Go</button>
+        </div>
       </div>
-      <div>
-        <button id="goButton" class="select">Go</button>
-      </div>
+
       <div id="stepper" class="stepper hidden">
         <div class="step" id="step1">
           <i class="fas fa-user"></i>

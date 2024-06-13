@@ -19,7 +19,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import StreamingResponse
 from utils.extract_knowledge import get_records_manager
 from jobs.information_gathering import collect_base_information
-from routers import agents, tasks, tools
+from routers import agents, tasks, tools, ai, ui, graph
 from langserve import add_routes
 from langchain_community.chat_models.ollama import ChatOllama
 from langchain.prompts import ChatPromptTemplate
@@ -27,6 +27,7 @@ from fastapi.responses import PlainTextResponse
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
 scheduler = BackgroundScheduler()
+processes = {}
 
 
 # Define a simple job
@@ -40,7 +41,9 @@ templates = Jinja2Templates(directory=BASE_DIR / "templates")
 app.include_router(agents.router, prefix="/agents", tags=["agents"])
 app.include_router(tasks.router, prefix="/tasks", tags=["tasks"])
 app.include_router(tools.router, prefix="/tools", tags=["tools"])
-
+app.include_router(ai.router, prefix="/ai", tags=["ai"])
+app.include_router(ui.router, prefix="/ui", tags=["ui"])
+app.include_router(graph.router, prefix="/graph", tags=["graph"])
 
 app.add_middleware(
     CORSMiddleware,
@@ -50,18 +53,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/ask")
-async def ask(request: Request):
-    data = await request.json()
-    question = data.get("question")
-    context = data.get("context")
-    result = ollama.generate(model="phi3:latest", prompt=question, system="You are a helpfull assitant, helping the user to create dashboards and visualizations of supply chains.", stream=True)
-    def generate(toStream):
-        for r in toStream:
-            yield r["response"]
-  
-    
-    return StreamingResponse(generate(result), media_type="plain/text")
 
 
 
@@ -388,11 +379,12 @@ async def kickoff(name: str, db: Session = Depends(get_db)):
     return EventSourceResponse(event_generator(c))
 
 
-processes = {}
 
 @app.get("/progress/{id:str}")
 async def progress(id: str, db: Session = Depends(get_db)):
+    global processes
     async def event_generator(db: Session):
+        global processes
         if id in processes:
             company = processes[id]["company"]
             yield {
@@ -408,9 +400,21 @@ async def progress(id: str, db: Session = Depends(get_db)):
                 "id": str(1),
                 "data": f'{{"step": 1, "detail": "Collected {len(records)} for {company}."}}'
             }
+            await asyncio.sleep(1)
+
+            question = processes[id]["question"]
+            from utils.uielements import UIElementsBuilder
+            builder = UIElementsBuilder()
+            elements = builder.answer(question)
+            processes[id]["elements"] = elements
+            yield {
+                "event": "message",
+                "id": str(2),
+                "data": f'{{"step": 2, "detail": "Collected {len(records)} for {company}.", elements: {elements} }}'
+            }
             await asyncio.sleep(2)
 
-        for step in range(2, 7):
+        for step in range(3, 7):
             await asyncio.sleep(2)
             yield {
                 "event": "message",
@@ -422,6 +426,7 @@ async def progress(id: str, db: Session = Depends(get_db)):
 
 @app.post("/process")
 async def process(request: Request):
+    global processes
     data = await request.json()
     company = data.get("company")
     question = data.get("question")
@@ -429,13 +434,17 @@ async def process(request: Request):
     processes[str(uid)] = {"company": company, "question": question}
     return {"company": company, "question": question, "uid": str(uid)}
 
-@app.get("/view/{company:str}")
-async def read_root(request: Request, company: str, db: Session = Depends(get_db)):
+@app.get("/view/{company:str}/{process_id:str}")
+async def read_root(request: Request, company: str, process_id: str, db: Session = Depends(get_db)):
+    global processes
     companies = db.query(Company).order_by(Company.company_name).filter(Company.company_name == company).first()
+    print(processes[process_id])
     context = {
         "request": request,  # Required for Jinja2 to work with FastAPI
         "title": "ChainWise",
-        "company": companies
+        "company": companies,
+        "process_id": process_id,
+        "elements": processes[process_id].get("elements")
     }
     return templates.TemplateResponse("view.html", context)
 

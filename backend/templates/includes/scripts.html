@@ -1,7 +1,5 @@
-
-<script src="https://d3js.org/d3.v6.js"></script>
-<script src="/static/back.js"></script>
 <script>
+
   function toggleCollapse(id) {
     const element = document.getElementById(id);
     if (element.classList.contains("collapse")) {
@@ -12,6 +10,58 @@
       element.classList.add("collapse");
     }
   }
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    const leftSidebar = document.getElementById('leftSidebar');
+    const rightSidebar = document.getElementById('rightSidebar');
+    const leftSidebarToggle = document.getElementById('leftSidebarToggle');
+    const rightSidebarToggle = document.getElementById('rightSidebarToggle');
+
+    const mainContent = document.getElementById('mainContent');
+
+    const resizeSidebars = () => {
+        if (leftSidebar.classList.contains('show-left-sidebar')) {
+            mainContent.style.marginLeft = '240px';
+        }else{
+            mainContent.style.marginLeft = '40px';
+        }
+        if (rightSidebar.classList.contains('show-right-sidebar')) {
+            mainContent.style.marginRight = '240px';
+        }else{
+            mainContent.style.marginRight = '40px';
+        }
+    };  
+
+    window.addEventListener('resize', resizeSidebars);
+    resizeSidebars();
+
+    // Toggle left sidebar
+    leftSidebarToggle.addEventListener('click', () => {
+        if (leftSidebar.classList.contains('show-left-sidebar')) {
+            leftSidebar.classList.remove('show-left-sidebar');
+            mainContent.style.marginLeft = '40px';
+        } else {
+            leftSidebar.classList.add('show-left-sidebar');
+            mainContent.style.marginLeft = '240px';
+        }
+    });
+
+    // Toggle right sidebar
+    rightSidebarToggle.addEventListener('click', () => {
+        if (rightSidebar.classList.contains('show-right-sidebar')) {
+            rightSidebar.classList.remove('show-right-sidebar');
+            mainContent.style.marginRight = '40px';
+        } else {
+            rightSidebar.classList.add('show-right-sidebar');
+            mainContent.style.marginRight = '240px';
+        }
+    });
+
+    
+
+});
+
+
 
   setup();
   draw();

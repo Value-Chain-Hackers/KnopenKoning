@@ -1,242 +1,38 @@
 {% extends 'base.html' %} {% block title %}Admin{% endblock %} {% import
-'includes/card.html' as card %} {% block content %} {% import
-'includes/header.html' as header %}
+'includes/card.html' as card %} {% block content %}
+  <!-- {% include 'includes/tabs.html' %} -->
 
-<div class="sidebar_left">{{ card.full('Jobs', body='No jobs running.') }}</div>
-<div class="maincontent">
-  <div>
-    <div class="tabs">
-      <button class="tab-button active" onclick="openTab(event, 'tab1')">
-        <i class="fas fa-user-tie"></i><span>&nbsp;&nbsp;Agents</span>
-      </button>
-      <button class="tab-button" onclick="openTab(event, 'tab2')"><i class="fas fa-tasks"></i>&nbsp;&nbsp;Tasks</button>
-      <button class="tab-button" onclick="openTab(event, 'tab3')"><i class="fas fa-toolbox"></i>&nbsp;&nbsp;Tools</button>
-      <button class="tab-button" onclick="openTab(event, 'tab4')"><i class="fas fa-toolbox"></i>&nbsp;&nbsp;Crews</button>
-    </div>
-  </div>
-  <div class="card" style="height: 100%">
-    <div class="card-body" id="card3">
-      <div class="tab-content active" id="tab1">
-        <a href="/agents/new"><i class="fas fa-plus-circle"></i> New</a>
-        <table>
-          <thead>
-            <tr>
-              <th>Role</th>
-              <th>Goal</th>
-              <th>Backstory</th>
-              <th>Tools</th>
-              <th>LLM</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for agent in agents %}
-            <tr>
-              <td>{{ agent.role }}</td>
-              <td>{{ agent.goal }}</td>
-              <td>{{ agent.backstory }}</td>
-              <td>{{ agent.tools }}</td>
-              <td>{{ agent.llm }}</td>
-              <td></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      <div class="tab-content" id="tab2">
-        <a href="/tasks/new"><i class="fas fa-plus-circle"></i> New</a>
-        <table>
-          <thead>
-            <tr>
-              <th>Task</th>
-              <th>Expected Output</th>
-              <th>Tools</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for task in tasks %}
-            <tr>
-              <td>{{ task.description }}</td>
-              <td>{{ task.expected_output }}</td>
-              <td>{{ task.tools }}</td>
-              <td></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      <div class="tab-content" id="tab3">
-        <a href="/tools/new"><i class="fas fa-plus-circle"></i> New</a>
-        <table>
-          <thead>
-            <tr>
-              <th>Tool</th>
-              <th>Output</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for tool in tools %}
-            <tr>
-              <td>{{ tool.name }}</td>
-              <td>{{ tool.output }}</td>
-              <td>{{ tool.status }}</td>
-              <td></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      <div class="tab-content" id="tab4">
-        <a href="/crews/new"><i class="fas fa-plus-circle"></i> New</a>
-        <table>
-          <thead>
-            <tr>
-              <th>Crew</th>
-              <th>Objective</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for tool in tools %}
-            <tr>
-              <td>{{ tool.name }}</td>
-              <td>{{ tool.output }}</td>
-              <td>{{ tool.status }}</td>
-              <td></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="wrapper" class="form-container"></div>
 
-<div class="sidebar_right">
-  <div id="documents-widget" class="card" style="bottom: 0px">
-    <div class="card-body" id="card5">
-      <p>This is the body of the card. It contains the main content.</p>
-    </div>
-  </div>
-</div>
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-  }
-  thead {
-    background-color: rgba(51, 51, 51, 0.9);
-    color: white;
-    & th {
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-    }
-  }
-  tbody {
-    & tr {
-      &:nth-child(even) {
-        background-color: rgba(51, 51, 51, 0.9);
-      }
-      &:nth-child(odd) {
-        background-color: rgba(51, 51, 51, 0.7);
-      }
-      & td {
-        text-align: right;
-        padding: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+  <script>
+    new window.gridjs.Grid({
+    columns: ["Name", "Email", "Phone Number"],
+    data: [
+      ["John", "john@example.com", "(353) 01 222 3333"],
+      ["Mark", "mark@gmail.com", "(01) 22 888 4444"],
+      ["Eoin", "eoin@gmail.com", "0097 22 654 00033"],
+      ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"],
+      ["Afshin", "afshin@mail.com", "(353) 22 87 8356"]
+    ],
+    sort: true,
+    search: true,
+    style: {
+      table: {
+        border: '1px solid rgba(255, 255, 255, 0.4)'
+      },
+      th: {
+        'background-color': 'rgba(0, 0, 0, 0.1)',
+        color: '#FFF',
+        'border-bottom': '1px solid rgba(255, 255, 255, 0.4)',
+        'text-align': 'center'
+      },
+      td: {
+        'text-align': 'center',
+        color: '#FFF',
+        'background-color': 'rgba(51, 51, 51, 0.9)'
       }
     }
-  }
+  }).render(document.getElementById("wrapper"));
+  </script>
 
-  .tabs {
-    display: flex;
-  }
-  .tab-button {
-    color: white;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    text-align: center;
-    width: 150px;
-    z-index: 99;
-    transition: background-color 0.3s;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    margin-bottom: -3px;
-    top: 4px;
-    border-bottom: none;
-    border-radius: 12px 12px 0 0;
-    background-color: rgba(
-      51,
-      51,
-      51,
-      0.9
-    ); /* Slightly transparent background */
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.4); /* Light border for beveled effect */
-    &:hover,
-    &.active {
-      background-color: rgba(51, 51, 51, 0.9);
-      border-bottom: none;
-    }
-  }
-
-  .tab-content {
-    z-index: 200;
-    display: none;
-    height: 100%;
-  }
-  .tab-content.active {
-    z-index: 200;
-    display: block;
-    height: 100%;
-  }
-</style>
-<div class="container">{{ header.bar('Admin') }}</div>
-
-<script>
-  function openTab(event, tabId) {
-    // Remove active class from all tab buttons
-    var tabButtons = document.getElementsByClassName("tab-button");
-    for (var i = 0; i < tabButtons.length; i++) {
-      tabButtons[i].classList.remove("active");
-    }
-
-    // Hide all tab contents
-    var tabContents = document.getElementsByClassName("tab-content");
-    for (var i = 0; i < tabContents.length; i++) {
-      tabContents[i].classList.remove("active");
-    }
-
-    // Add active class to the clicked tab button
-    event.currentTarget.classList.add("active");
-
-    // Show the corresponding tab content
-    document.getElementById(tabId).classList.add("active");
-  }
-
-  function toggleCollapse(cardId) {
-    var cardBody = document.getElementById(cardId);
-    if (cardBody.style.display === "none" || cardBody.style.display === "") {
-      cardBody.style.display = "block";
-      document
-        .querySelector(".collapse-toggle i")
-        .classList.remove("fa-chevron-down");
-      document
-        .querySelector(".collapse-toggle i")
-        .classList.add("fa-chevron-up");
-    } else {
-      cardBody.style.display = "none";
-      document
-        .querySelector(".collapse-toggle i")
-        .classList.remove("fa-chevron-up");
-      document
-        .querySelector(".collapse-toggle i")
-        .classList.add("fa-chevron-down");
-    }
-  }
-</script>
 {% endblock %}

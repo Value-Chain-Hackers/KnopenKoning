@@ -1,0 +1,90 @@
+{% macro box(title='') -%}
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">{{title}}</h3>
+  </div>
+  <div  class="chat-body chat-group" id="card1">
+      <div id="chatConversation" class="chat-group-conversation">
+          <div class="chat-message">
+              <div class="chat-message-content">
+                  <div class="chat-message-text">
+                      Hi, how can I help you today?
+                  </div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="card-footer">
+    <div class="input-container">
+        <i class="fas fa-paperclip fa-2x input-icon"></i>
+        <textarea id="userMessage" class="chat-input" placeholder="Type your message..."></textarea>
+        <button id="sendMessage" class="btn btn-success"><i class="fas fa-arrow-up"></i></button>
+    </div>
+  </div>
+</div>
+<script>
+  async function readAllChunks(readableStream, messageBox) {
+    console.log(readableStream);
+    const reader = readableStream.getReader();
+    const chunks = [];
+    const decoder = new TextDecoder()
+    let done, value;
+    while (!done) {
+      ({ value, done } = await reader.read());
+      messageBox.textContent += decoder.decode(value);
+      if (done) {
+        return chunks;
+      }
+      chunks.push(value);
+    }
+  }
+
+
+
+  document.getElementById('sendMessage').addEventListener('click', async function() {
+    const userMessage = document.getElementById('userMessage').value;
+    if (userMessage.trim() !== '') {
+        addMessage(userMessage, 'user');
+        document.getElementById('userMessage').value = '';
+        const responseDoc = addMessage("", 'ai');
+        const resp = fetch('/ai/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: userMessage
+            })
+        }).then(async response => {
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let done, value;
+            while (!done) {
+                ({ value, done } = await reader.read());
+                responseDoc.textContent += decoder.decode(value);
+            }
+        });
+    }
+});
+
+function addMessage(message, type) {
+    const chatConversation = document.getElementById('chatConversation');
+
+    const chatMessage = document.createElement('div');
+    chatMessage.classList.add('chat-message', type);
+
+    const chatMessageContent = document.createElement('div');
+    chatMessageContent.classList.add('chat-message-content');
+
+    const chatMessageText = document.createElement('div');
+    chatMessageText.classList.add('chat-message-text');
+    chatMessageText.innerHTML = `${message}`;
+
+    chatMessageContent.appendChild(chatMessageText);
+    chatMessage.appendChild(chatMessageContent);
+    chatConversation.appendChild(chatMessage);
+    return chatMessageText;
+}
+
+</script>
+{%- endmacro %}

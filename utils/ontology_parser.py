@@ -1,6 +1,9 @@
 from rdflib import Graph, RDF, RDFS, OWL, URIRef
 import os
+import sqlite3
 import rdflib
+from rdflib.namespace import RDF, RDFS, OWL, XSD
+
 from jinja2 import Environment, FileSystemLoader
 
 class GraphProperty():
@@ -165,10 +168,14 @@ class GraphRenderer():
         subjects = {}
         for s in self.graph.subjects():
             subjects[s] = {
+                'graph_uri': s,
+                'prefix': s.split('#')[-1].split('/')[-1],
                 'subClasses': list(self.graph.objects(s, RDFS.subClassOf)),
                 'superClasses': list(self.graph.subjects(RDFS.subClassOf, s)),
                 'annotations': {p: list(self.graph.objects(s, p)) for p in self.graph.predicates(s, None)},
                 'properties': {p: list(self.graph.objects(s, p)) for p in self.graph.predicates(s, RDF.Property)},
+                'type': list(self.graph.objects(s, RDF.type)),
+                'relations': list(self.graph.objects(s, None)),
                 URIRef :URIRef
             }
 
@@ -194,18 +201,133 @@ class GraphRenderer():
             with open(output_file, 'w', encoding="utf-8") as f:
                 f.write(rendered)
 
+            # if it is a class, create a model template
+            if RDFS.Class in details['annotations'].get(RDF.type, []):
+                template = env.get_template('model_template.py')
+                rendered = template.render(
+                    subject=subject,
+                    subClasses=details['subClasses'],
+                    superClasses=details['superClasses'],
+                    annotations=details['annotations'],
+                    properties=details['properties']
+                )
+                # Save the rendered Markdown to a file
+                output_file = os.path.join(output_dir, f"{subject.split('#')[-1].split('/')[-1]}.py")
+                with open(output_file, 'w', encoding="utf-8") as f:
+                    f.write(rendered)
+            
+
         # Generate an index page
         index_template = env.get_template('index_template.md')
         index_rendered = index_template.render(subjects=subjects)
         with open(os.path.join(output_dir, 'index.md'), 'w') as f:
             f.write(index_rendered)
 
+
+class DatabaseOntologyWriter():
+    def __init__(self) -> None:
+        pass
+            
+    def write_ontology(self, db_path, ontology_path, namespace):
+
+        # Define your namespaces
+        xmlns = rdflib.Namespace(namespace)
+
+        # Connect to the SQLite database
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+
+        # Create an RDF graph
+        g = rdflib.Graph()
+
+        # Bind the namespace
+        g.bind("ai", xmlns)
+
+        # Get all tables
+        tables_query = "SELECT name FROM sqlite_master WHERE type='table';"
+        cursor.execute(tables_query)
+        tables = cursor.fetchall()
+
+        for table_name in tables:
+            table_name = table_name[0]
+            table_uri = rdflib.URIRef(namespace + table_name)
+            
+            # Add table to the graph
+            g.add((table_uri, RDF.type, AI.DatabaseTable))
+            g.add((table_uri, RDFS.label, rdflib.Literal(table_name)))
+            
+            # Get all columns for this table
+            columns_query = f"PRAGMA table_info({table_name});"
+            cursor.execute(columns_query)
+            columns = cursor.fetchall()
+            
+            for column in columns:
+                column_name = column[1]
+                column_type = column[2]
+                column_uri = rdflib.URIRef(namespace + table_name + "_" + column_name)
+                
+                # Add column to the graph
+                g.add((column_uri, RDF.type, xmlns.DatabaseColumn))
+                g.add((column_uri, RDFS.label, rdflib.Literal(column_name)))
+                g.add((column_uri, xmlns.hasType, rdflib.Literal(column_type)))
+                
+                # Link column to table
+                g.add((table_uri, xmlns.hasColumn, column_uri))
+            
+            # Get all primary keys for this table
+            primary_key_query = f"PRAGMA table_info({table_name});"
+            cursor.execute(primary_key_query)
+            primary_keys = [col[1] for col in cursor.fetchall() if col[5]]  # col[5] is the primary key flag
+            
+            if primary_keys:
+                primary_key_uri = rdflib.URIRef(namespace + table_name + "_PrimaryKey")
+                g.add((primary_key_uri, RDF.type, xmlns.PrimaryKey))
+                g.add((table_uri, xmlns.hasPrimaryKey, primary_key_uri))
+                
+                for pk in primary_keys:
+                    pk_column_uri = rdflib.URIRef(namespace + table_name + "_" + pk)
+                    g.add((primary_key_uri, xmlns.hasColumn, pk_column_uri))
+            
+            # Get all foreign keys for this table
+            foreign_key_query = f"PRAGMA foreign_key_list({table_name});"
+            cursor.execute(foreign_key_query)
+            foreign_keys = cursor.fetchall()
+            
+            for fk in foreign_keys:
+                fk_table = fk[2]
+                fk_from = fk[3]
+                fk_to = fk[4]
+                
+                foreign_key_uri = rdflib.URIRef(namespace + table_name + "_" + fk_from + "_ForeignKey")
+                g.add((foreign_key_uri, RDF.type, xmlns.ForeignKey))
+                
+                fk_from_uri = rdflib.URIRef(namespace + table_name + "_" + fk_from)
+                fk_to_uri = rdflib.URIRef(namespace + fk_table + "_" + fk_to)
+                
+                g.add((foreign_key_uri, xmlns.hasColumn, fk_from_uri))
+                g.add((table_uri, xmlns.hasForeignKey, foreign_key_uri))
+                g.add((foreign_key_uri, xmlns.connectsTo, fk_to_uri))
+
+        # Save the graph to a file
+        g.serialize(f"{ontology_path}.ttl", format="turtle")
+
+        # Close the database connection
+        conn.close()
+
+
 if __name__ == "__main__":
+
+    # db_writer = DatabaseOntologyWriter()
+    # db_writer.write_ontology("data/companies.db", "./data/companiesdb.ttl", "http://chainwise.ai/app/")
+
     ontology = ""
     with open("./data/supplychain.ttl", "r", encoding='utf-8') as file:
         ontology = file.read()
     gv = GraphVisitor()
     gv.parse("./data/supplychain.ttl","text/turtle")
+    gv.parse("./ontologies/ai.ttl","text/turtle")
+    gv.parse("./ontologies/ai.ttl","text/turtle")
+    gv.parse("./ontologies/app.ttl","text/turtle")
     renderer = GraphRenderer(gv.graph)
     renderer.render()
     print("Done")

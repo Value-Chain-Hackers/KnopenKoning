@@ -1,458 +1,56 @@
 {% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content
-%} {% import 'includes/header.html' as header %}
+%} {% for task in elements %}
 
-<script src="https://d3js.org/d3.v6.js"></script>
-<div class="container">
-  {{ header.bar('username') }}
-  <!-- Create an element where the map will take place -->
+<div class="card" style="margin-left: auto; margin-right: auto; width: 80%">
+  <div class="card-header">
+    <h3>
+      <i
+        class="{{task.icon}}"
+        style="padding-left: 20px; padding-right: 14px"
+      ></i
+      >{{ task.title }}
+    </h3>
+  </div>
+  <div class="card-body">
+    {% if task.type == 'Text' %}
+    <div class="markdown">{{task.content}}</div>
+    {% endif %} {% if task.type == 'DataGrid' %}
+    <div class="datagrid">
+      <table style="width: 100%; border: 1px solid white">
+        <tr>
+          {% for column in task.columns %}
+          <th>{{ column }}</th>
+          {% endfor %}
+        </tr>
+      </table>
+    </div>
+    {% endif %}
+    <code> {{ task.query }} </code>
+  </div>
+  {% if task.followup %}
+  <div class="card-footer">
+    Want to know more?
+    <ul class="followup">
+      {% for followup in task.followup %}
+      <li>{{ followup }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 </div>
-<div class="sidebar_left">
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Details</h3>
-      <span class="collapse-toggle" onclick="toggleCollapse('card1')"
-        ><i class="fas fa-chevron-down"></i
-      ></span>
-    </div>
-    <div class="card-body" id="card1">
-      <p id="details">Click a node to get more details.</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Ask the AI</h3>
-      <span class="collapse-toggle" onclick="toggleCollapse('card2')"
-        ><i class="fas fa-chevron-up"></i
-      ></span>
-    </div>
-    <div class="card-body chat-group" id="card2">
-      <div>
-        <div class="chat-group-conversation"></div>
-        <textarea id="userMessage" style="width: 100%; height: 100%"></textarea>
-        <button id="sendMessage">Send</button>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="footer-actions"></div>
-    </div>
-  </div>
-</div>
-<div class="maincontent">
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Graph View</h3>
-      <span class="collapse-toggle" onclick="toggleCollapse('card3')"
-        ><i class="fas fa-chevron-up"></i
-      ></span>
-    </div>
-    <div class="card-body" id="card3">
-      <div class="graphContainer"></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">World Map</h3>
-      <span class="collapse-toggle" onclick="toggleCollapse('card4')"
-        ><i class="fas fa-chevron-up"></i
-      ></span>
-    </div>
-    <div class="card-body collapse" id="card4">
-      <svg id="my_dataviz" width="1150" height="800"></svg>
-    </div>
-  </div>
-</div>
-<div class="sidebar_right">
-  <div id="details-widget" class="card">
-    <div class="card-header">
-      <h3 class="card-title">Card Title</h3>
-      <span class="collapse-toggle" onclick="toggleCollapse('card4')"
-        ><i class="fas fa-chevron-up"></i
-      ></span>
-    </div>
-    <div class="card-body collapse" id="card4">
-      <p>This is the body of the card. It contains the main content.</p>
-    </div>
-    <div class="card-footer">
-      <div class="footer-actions">
-        <button>Action 1</button>
-        <button>Action 2</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="documents-widget" class="card" style="bottom: 0px">
-    <div class="card-body" id="card5">
-      <div id="upload-container">
-        <p>Drag & drop your file here, or</p>
-        <button id="upload-button">Browse</button>
-        <input type="file" id="file-input" />
-      </div>
-    </div>
-  </div>
-</div>
+{% endfor %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("div .markdown").forEach((block) => {
+      const htmlContent = marked.parse(block.textContent); // Convert Markdown to HTML
+      block.innerHTML = htmlContent;
+    });
+  });
+</script>
 <style>
-  #my_dataviz{
-    width: 100%;
-    height: 100%;
-  }
-  .chat-group {
-    padding: 4px;
-  }
-  .chat-group-conversation {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 8px;
-    background-color: rgba(125, 125, 125, 0.9);
-    color: white;
-    border-radius: 5px;
-    overflow-y: auto;
-    height: 400px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.1);
-  }
-
-  .chat-message {
-    padding: 8px;
-    background-color: rgba(25, 25, 25, 0.9);
-    color: white;
-    border-radius: 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .chat-group input,
-  .chat-group textarea,
-  .chat-group button,
-  .chat-group select {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    background-color: rgba(25, 25, 25, 0.9);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    appearance: none;
+  ul.followup > li:hover {
+    cursor: pointer;
+    font-weight: bold;
   }
 </style>
-<script>
-  document.getElementById("sendMessage").addEventListener("click", (e) => {
-    const message = document.getElementById("userMessage").value;
-    document.getElementById("userMessage").value = "";
-    const chatGroup = document.querySelector(".chat-group-conversation");
-    const newMessage = document.createElement("div");
-    newMessage.classList.add("chat-message");
-    newMessage.classList.add("human");
-    newMessage.textContent = message;
-    chatGroup.appendChild(newMessage);
-    chatGroup.scrollTop = chatGroup.scrollHeight;
-
-    async function readAllChunks(readableStream, chatGroup, newMessage) {
-      chatGroup.appendChild(newMessage);
-
-      const reader = readableStream.getReader();
-      const chunks = [];
-      let done, value;
-      decoder = new TextDecoder();
-      while (!done) {
-        ({ value, done } = await reader.read());
-        if (done) {
-        }
-        newMessage.textContent += decoder.decode(value);
-        chatGroup.scrollTop = chatGroup.scrollHeight;
-      }
-    }
-
-    fetch("/ask", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ question: message, context: "<here>" }),
-    }).then(async (response) => {
-      const newMessage = document.createElement("div");
-      newMessage.classList.add("chat-message");
-      newMessage.classList.add("bot");
-      await readAllChunks(response.body, chatGroup, newMessage);
-    });
-  });
-
-  function toggleCollapse(id) {
-    const element = document.getElementById(id);
-    if (element.classList.contains("collapse")) {
-      element.classList.remove("collapse");
-      element.classList.add("expand");
-    } else {
-      element.classList.remove("expand");
-      element.classList.add("collapse");
-    }
-  }
-  // Convert input to graph format
-  const nodes = [];
-  const links = [];
-  const nodeMap = {};
-  const lanes = ["root", "company", "country", "supplier", "materials"];
-  const laneWidth = Number(1024/lanes.length);
-
-  // get last part of the url
-  const url = window.location.href;
-  const parts = url.split("/");
-  const lastSegment = parts.pop() || parts.pop();
-  // url decode
-  const decoded = decodeURIComponent(lastSegment);
-  
-  console.log(lastSegment);
-
-
-  fetch(`/static/${lastSegment}.json`)
-    .then((response) => response.json())
-    .then((data) => buildGraph(data));
-
-  function buildGraph(input) {
-    input.forEach((entry) => {
-      const { subject, predicate, object } = entry;
-      const types = ["plant", "company", "country", "supplier", "region", "partner", "commodity", "product", "brand", "product-line", "warehouse", "distribution center", "office", "offices","materials", "facility", "company", "city", "raw-material" ];
-      // if none of subject or object are of type above, skip
-      if (!types.includes(entry['object-type'])) return;
-      
-
-      addNode(subject, entry['object-type']);
-      addNode(object,  entry['object-type']);
-      links.push({
-        source: nodeMap[subject],
-        target: nodeMap[object],
-        objectType:  entry['object-type'],
-        value: 1,
-        type: predicate, // Use predicate as the link type
-      });
-    });
-
-    createGraph();
-  }
-
-  function addNode(name, objectType) {
-    if (!nodeMap[name]) {
-      console.log(name, objectType);
-      const laneIndex = lanes.indexOf(objectType) > -1 ? lanes.indexOf(objectType) : 0;
-      const newNode = {
-        id: name,
-        group: nodes.length % 10,
-        type: objectType,
-        lane: laneIndex,
-      };
-      nodes.push(newNode);
-      nodeMap[name] = newNode;
-    }
-  }
-
-  function createGraph() {
-    const svg = d3
-      .select(".graphContainer")
-      .append("svg")
-      .attr("width", "100%")
-      .attr("height", "90%")
-      .call(d3.zoom().on("zoom", zoomed))
-      .append("g");
-    // get actual width and height
-    const width = parseInt(svg.style("width"), 10);
-    const height = parseInt(svg.style("height"), 10);
-
-    const arrowMarkers = svg
-      .append("defs")
-      .selectAll("marker")
-      .data(["end"])
-      .enter()
-      .append("marker")
-      .attr("id", String)
-      .attr("viewBox", "0 -5 10 10")
-      .attr("refX", 15)
-      .attr("refY", 0)
-      .attr("markerWidth", 6)
-      .attr("markerHeight", 6)
-      .attr("orient", "auto")
-      .append("path")
-      .attr("d", "M0,-5L10,0L0,5")
-      .attr("fill", "#000");
-
-    const link = svg
-      .append("g")
-      .attr("class", "links")
-      .selectAll("line")
-      .data(links)
-      .enter()
-      .append("line")
-      .attr("class", "link")
-      .attr("stroke-width",  2)
-      .attr("stroke", "#999")
-      .attr("marker-end", "url(#end)");
-
-    const node = svg
-      .append("g")
-      .attr("class", "nodes")
-      .selectAll("circle")
-      .data(nodes)
-      .enter()
-      .append("circle")
-      .attr("class", "node")
-      .attr("r", 10)
-      .on("click", (event, d) => showDetails(event, d))
-      .attr("fill", (d) => d3.schemeCategory10[d.group % 10])
-      .call(
-        d3
-          .drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended)
-      );
-
-    const labels = svg
-      .append("g")
-      .attr("class", "labels")
-      .selectAll("text")
-      .data(nodes)
-      .enter()
-      .append("text")
-      .attr("dy", -15)
-      .text((d) => d.id);
-
-    const simulation = d3
-      .forceSimulation(nodes)
-      .force(
-        "link",
-        d3
-          .forceLink(links)
-          .id((d) => d.id)
-          .distance(250)
-      )
-      .force("charge", d3.forceManyBody())
-      .force("center", d3.forceCenter())
-      .force(
-        "x", d3.forceX().strength(.001)
-      )
-      .force("y", d3.forceY().strength(.001));
-
-    simulation.nodes(nodes).on("tick", ticked);
-
-    simulation.force("link").links(links);
-
-    function ticked() {
-      link
-        .attr("x1", (d) => d.source.x)
-        .attr("y1", (d) => d.source.y)
-        .attr("x2", (d) => d.target.x)
-        .attr("y2", (d) => d.target.y);
-
-      node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
-
-      labels.attr("x", (d) => d.x).attr("y", (d) => d.y);
-    }
-
-    function dragstarted(event, d) {
-      if (!event.active) simulation.alphaTarget(0.3).restart();
-      d.fx = d.x;
-      d.fy = d.y;
-    }
-
-    function dragged(event, d) {
-      d.fx = event.x;
-      d.fy = event.y;
-    }
-
-    function dragended(event, d) {
-      if (!event.active) simulation.alphaTarget(0);
-      d.fx = null;
-      d.fy = null;
-    }
-
-    function showDetails(event, d) {
-      const details = document.getElementById("details");
-      details.innerHTML = `<h3>${d.id}</h3><p>Group: ${d.group}</p><p>Type: ${d.type}</p>`;
-    }
-
-    function zoomed(event) {
-      svg.attr("transform", event.transform);
-    }
-  }
-</script>
-
-<script>
-  // The svg
-  const svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
-    var markers = [
-  {long: 9.083, lat: 42.149, group: "A", size: 3}, // corsica
-  {long: 2.349, lat: 48.864, group: "B", size: 5}, // Paris
-  //40.7128° N, 74.0060° W New York
-  {long: -74.006, lat: 40.7128, group: "C", size: 22}, // New York
-  // Amsterdam 52.3676° N, 4.9041° E
-  {long: 4.9041, lat: 52.3676, group: "B", size: 12}, // Amsterdam
-  // london 51.5074° N, 0.1278° W
-  {long: -0.1278, lat: 51.5074, group: "C", size: 22}, // London
-  // Moscow 55.7558° N, 37.6176° E
-  {long: 37.6176, lat: 55.7558, group: "A", size: 16}, // Moscow
-  // Tokyo 35.6895° N, 139.6917° E
-  {long: 139.6917, lat: 35.6895, group: "B", size: 12}, // Tokyo
-  // Sydney 33.8688° S, 151.2093° E
-  {long: 151.2093, lat: -33.8688, group: "B", size: 12}, // Sydney
-  // Rio -22.9068, -43.1729
-  {long: -43.1729, lat: -22.9068, group: "A", size: 12}, // Rio
-  // Cape town -33.9249, 18.4241
-  {long: 18.4241, lat: -33.9249, group: "B", size: 12}, // Cape town
-  // port elizabeth -33.9608, 25.6022
-  {long: 25.6022, lat: -33.9608, group: "B", size: 33}, // port elizabeth
-  // Cairo 30.0444° N, 31.2357° E
-  {long: 31.2357, lat: 30.0444, group: "C", size: 12}, // Cairo
-  // Nairobi -1.286389, 36.817223
-  {long: 36.817223, lat: -1.286389, group: "B", size: 12}, // Nairobi
-];
-
-  // Map and projection
-  const projection = d3
-    .geoNaturalEarth1()
-    .scale(width / 1.3 / Math.PI)
-    .translate([width / 2, height / 2]);
-
-  // Load external data and boot
-  d3.json(
-    "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
-  ).then(function (data) {
-
-    // Create a color scale
-    var color = d3.scaleOrdinal()
-      .domain(["A", "B", "C" ])
-      .range([ "#400054", "#D18975", "#8FD175"])
-
-    // Add a scale for bubble size
-    var size = d3.scaleLinear()
-      .domain([1,100])  // What's in the data
-      .range([ 4, 50])  // Size in pixel
-
-
-    // Draw the map
-    svg
-      .append("g")
-      .selectAll("path")
-      .data(data.features)
-      .join("path")
-      .attr("fill", "#69b3a2")
-      .attr("d", d3.geoPath().projection(projection))
-      .style("stroke", "#fff");
-
-      svg
-      .selectAll("myCircles")
-      .data(markers)
-      .enter()
-      .append("circle")
-        .attr("class" , function(d){ return d.group })
-        .attr("cx", function(d){ return projection([d.long, d.lat])[0] })
-        .attr("cy", function(d){ return projection([d.long, d.lat])[1] })
-        .attr("r", function(d){ return size(d.size) })
-        .style("fill", function(d){ return color(d.group) })
-        .attr("stroke", function(d){ return color(d.group) })
-        .attr("stroke-width", 3)
-        .attr("fill-opacity", .8)
-
-  });
-</script>
-
 {% endblock %}

@@ -6,11 +6,32 @@
   </head>
 
   <body>
+    {% include 'includes/header.html' %}
     <main>
-      {% block content %}
-      {% endblock %}
+      <div class="sidebar left-sidebar" id="leftSidebar">
+        <div class="sidebar-content">
+          <!-- Your left sidebar content -->
+        </div>
+        <div class="sidebar-toggle" id="leftSidebarToggle">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+      </div>
+
+      <div class="sidebar right-sidebar" id="rightSidebar">
+        <div class="sidebar-content">
+          <!-- Your right sidebar content -->
+        </div>
+        <div class="sidebar-toggle" id="rightSidebarToggle">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+
+      <div class="main-content" id="mainContent">{% block content %} {% endblock %}</div>
     </main>
 
+    <footer class="footer" id="footer">
+      <span>Status: Ready</span>
+    </footer>
     {% include 'includes/scripts.html' %}
   </body>
 </html>

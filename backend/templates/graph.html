@@ -1,0 +1,422 @@
+{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content
+%}
+
+<div id="nodeDetails" style="margin-left: 27px;">
+  <div class="node-details">
+    <h2>Node Details</h2>
+    <dl class="node-details-content">
+     <dt>Id:</dt>
+      <dd id="nodeId"></dd>
+      <dt>Label:</dt>
+      <dd id="nodeLabel"></dd>
+      <dt>Description:</dt>
+      <dd id="nodeDescription"></dd>
+
+      <dt>Type:</dt>
+      <dd id="nodeType"></dd>
+      <dt>Properties:</dt>
+      <dd id="nodeProperties"></dd>
+      <dt>Relations:</dt>
+      <dd id="nodeRelations"></dd>
+
+    </dl>
+  </div>
+</div>
+
+<div class="graph-container">
+  <ul id="prefixList"></ul>
+  <div class="graph-controls">
+    <button id="zoomIn" class="btn"><i class="fas fa-search-plus"></i></button>
+    <button id="zoomOut" class="btn">
+      <i class="fas fa-search-minus"></i>
+    </button>
+    <button id="fitContent" class="btn"><i class="fas fa-expand"></i></button>
+    <button id="refreshButton" class="btn">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+  </div>
+  <div id="graphCanvas">
+    <!-- D3 Graph will be rendered here -->
+  </div>
+</div>
+<style>
+  #prefixList {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(51, 51, 51, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+      /* Outside shadow */ inset 0 1px 3px rgba(255, 255, 255, 0.2); /* Inside shadow */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for beveled effect */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Add this line if you want the items to wrap to the next line if they overflow */
+  }
+
+  #prefixList li {
+    margin: 5px; /* Adjust margin as needed */
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: black;
+    font-size: 14px;
+  }
+  #prefixList li.disabled {
+    background-color: gray !important;
+  }
+
+  .graph-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .graph-controls {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 70px;
+    width: 30px;
+    left: 12px;
+
+    background: rgba(51, 51, 51, 0.9);
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+      /* Outside shadow */ inset 0 1px 3px rgba(255, 255, 255, 0.2); /* Inside shadow */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for beveled effect */
+  }
+
+  .graph-controls .btn {
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .graph-controls .btn-top {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .graph-controls .btn-bottom {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  #graphCanvas,
+  #graphCanvas svg {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 2px double rgba(255, 251, 251, 0.6); /* Light border for beveled effect */
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.4
+    ); /* Light border for beveled effect */
+  }
+</style>
+<script>
+  let simulation;
+  let nodes, validLinks, context, prefixes;
+let lookupMap = {};
+const colorMapping = {};
+const enabledPrefixes = {};
+
+// Generate distinct colors
+function getColor(index, total) {
+    const hue = (index / total) * 360;
+    return `hsl(${hue}, 100%, 50%)`;
+}
+
+// Get label for a node
+function getLabel(id) {
+    const node = lookupMap[id];
+    if (node && node["rdfs:label"]) {
+        // Handle array of labels with different languages
+        if (Array.isArray(node["rdfs:label"])) {
+            return node["rdfs:label"][0]["@value"];
+        } else {
+            return node["rdfs:label"]["@value"];
+        }
+    }
+    return id;
+}
+
+// Extract links from nodes
+function extractLinks(nodes) {
+    lookupMap = createLookupMap(nodes);
+    const links = [];
+
+    nodes.forEach((node) => {
+        if (node["rdfs:subClassOf"]) {
+            links.push({
+                source: node["@id"],
+                target: node["rdfs:subClassOf"]["@id"],
+                type: "subClassOf",
+            });
+        }
+    });
+
+    const validLinks = links.filter(
+        (link) => lookupMap[link.source] && lookupMap[link.target]
+    );
+
+    console.log("Links:", validLinks.length);
+    return validLinks;
+}
+
+// Create a lookup map for nodes
+function createLookupMap(nodes) {
+    lookupMap = {};
+    nodes.forEach((node) => {
+        lookupMap[node["@id"]] = node;
+    });
+    return lookupMap;
+}
+
+// Update node details in the sidebar
+function updateNodeDetails(node) {
+    document.getElementById("nodeId").textContent = node["@id"];
+    document.getElementById("nodeLabel").textContent = getLabel(node["@id"]);
+    document.getElementById("nodeDescription").textContent = node["rdfs:comment"]
+        ? node["rdfs:comment"]["@value"]
+        : "";
+    document.getElementById("nodeType").textContent = node["@type"];
+
+    let properties = Object.entries(node).filter(
+        ([key, value]) => !["@id", "@type"].includes(key)
+    );
+    properties = properties.filter(
+        ([key, value]) => !["x", "y", "vx", "vy", "fx", "fy"].includes(key)
+    );
+
+    const nodeProperties = document.getElementById("nodeProperties");
+    nodeProperties.innerHTML = ""; // Clear previous properties
+    properties.forEach(([key, value]) => {
+        const dt = document.createElement("dt");
+        dt.textContent = key;
+        const dd = document.createElement("dd");
+        dd.textContent = value;
+        nodeProperties.appendChild(dt);
+        nodeProperties.appendChild(dd);
+    });
+
+    document.getElementById("nodeRelations").textContent = JSON.stringify(
+        extractLinks([node]),
+        null,
+        2
+    );
+}
+
+// Update the graph visualization
+function updateGraph(svg, simulation) {
+    const filteredNodes = nodes.filter((node) => {
+        const prefix = node["@id"].split(":")[0];
+        return enabledPrefixes[prefix];
+    });
+
+    const validLinks = extractLinks(filteredNodes);
+
+    svg.selectAll("*").remove(); // Clear existing elements
+
+    // Draw links
+    const link = svg
+        .append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(validLinks)
+        .enter()
+        .append("line")
+        .attr("stroke-width", 2)
+        .attr("stroke", "#333")
+        .attr("marker-end", "url(#arrowhead)");
+
+    // Draw nodes
+    const node = svg
+        .append("g")
+        .attr("class", "nodes")
+        .selectAll("circle")
+        .data(filteredNodes)
+        .enter()
+        .append("circle")
+        .attr("r", 15)
+        .attr("stroke-width", 2)
+        .attr("stroke", "#000")
+        .attr("fill", (d) => {
+            const prefix = d["@id"].split(":")[0];
+            return colorMapping[prefix] || "#69b3a2";
+        })
+        .on("click", (event, d) => {
+            updateNodeDetails(d);
+        })
+        .call(
+            d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended)
+        );
+
+    // Add labels
+    const label = svg
+        .append("g")
+        .attr("class", "labels")
+        .selectAll("text")
+        .data(filteredNodes)
+        .enter()
+        .append("text")
+        .attr("dy", -3)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 10)
+        .text((d) => getLabel(d["@id"]));
+
+    // Update the simulation
+    console.log("Filtered Nodes:", filteredNodes);
+    console.log("Valid Links:", validLinks);
+    simulation.nodes(filteredNodes);
+    simulation.force("link").links(validLinks);
+
+    simulation.on("tick", () => {
+        link
+            .attr("x1", (d) => d.source.x)
+            .attr("y1", (d) => d.source.y)
+            .attr("x2", (d) => d.target.x)
+            .attr("y2", (d) => d.target.y);
+
+        node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
+
+        label.attr("x", (d) => d.x).attr("y", (d) => d.y - 15);
+    });
+}
+
+// Fetch data and draw the initial graph
+function fetchDataAndDrawGraph(svg, simulation) {
+    fetch("/graph/query").then(async (response) => {
+        const data = await response.json();
+
+        console.log("Data received:", data);
+
+        nodes = data["nodes"];
+        const graph = nodes["@graph"];
+        context = nodes["@context"];
+        nodes = graph;
+
+        // Extract and display prefixes with distinct colors
+        prefixes = Object.entries(context);
+        Object.keys(colorMapping).forEach((key) => delete colorMapping[key]);
+        Object.keys(enabledPrefixes).forEach((key) => delete enabledPrefixes[key]);
+
+        const prefixListElement = document.getElementById("prefixList");
+        prefixListElement.innerHTML = ""; // Clear previous prefix list
+
+        prefixes.forEach(([prefix, uri], index) => {
+            const color = getColor(index, prefixes.length);
+            colorMapping[prefix] = color;
+            enabledPrefixes[prefix] = true;
+            const listItem = document.createElement("li");
+            listItem.textContent = `${prefix}`;
+            listItem.style.backgroundColor = color;
+            listItem.addEventListener("click", () => {
+                enabledPrefixes[prefix] = !enabledPrefixes[prefix];
+                listItem.classList.toggle("disabled", !enabledPrefixes[prefix]);
+                updateGraph(svg, simulation);
+            });
+            prefixListElement.appendChild(listItem);
+        });
+
+        nodes.forEach((node) => {
+            const prefix = node["@id"].split(":")[0];
+            if (!colorMapping[prefix]) {
+                const color = getColor(Object.keys(colorMapping).length, prefixes.length + 1);
+                colorMapping[prefix] = color;
+                enabledPrefixes[prefix] = true;
+                const listItem = document.createElement("li");
+                listItem.textContent = `${prefix}`;
+                listItem.style.backgroundColor = color;
+                listItem.addEventListener("click", () => {
+                    enabledPrefixes[prefix] = !enabledPrefixes[prefix];
+                    listItem.classList.toggle("disabled", !enabledPrefixes[prefix]);
+                    updateGraph(svg, simulation);
+                });
+                prefixListElement.appendChild(listItem);
+            }
+        });
+
+        console.log("Nodes:", nodes);
+
+        const links = extractLinks(nodes);
+        validLinks = links.filter(
+            (link) => lookupMap[link.source] && lookupMap[link.target]
+        );
+
+        console.log("Valid Links:", validLinks);
+
+        nodes = nodes.filter((node) => node["@id"]);
+
+        updateGraph(svg, simulation);
+    });
+}
+
+// Drag functions for node movement
+function dragstarted(event, d) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+}
+
+function dragged(event, d) {
+    d.fx = event.x;
+    d.fy = event.y;
+}
+
+function dragended(event, d) {
+    if (!event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+}
+
+// Initialize the graph and fetch data
+document.addEventListener("DOMContentLoaded", function () {
+    const svg = d3.select("#graphCanvas")
+        .append("svg")
+        .attr("width", window.innerWidth)
+        .attr("height", window.innerHeight)
+        .call(d3.zoom().on("zoom", function (event) {
+            svg.attr("transform", event.transform);
+        }))
+        .append("g");
+
+    simulation = d3.forceSimulation()
+        .force("link", d3.forceLink().id((d) => d["@id"]).distance(100))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(
+            svg.node().parentElement.clientWidth / 2,
+            svg.node().parentElement.clientHeight / 2
+        ))
+        .force("collide", d3.forceCollide().radius(50));
+
+    fetchDataAndDrawGraph(svg, simulation);
+
+    document.getElementById("refreshButton").addEventListener("click", () => {
+        updateGraph(svg, simulation);
+    });
+});
+
+// Move nodeDetails to the right sidebar
+const details = document.getElementById("nodeDetails");
+details.remove();
+document.getElementById("rightSidebar").appendChild(details);
+
+</script>
+{% endblock %}

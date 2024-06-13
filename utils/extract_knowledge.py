@@ -208,17 +208,26 @@ class FileDumpCallbackManager(NullCallbackManager):
 
 
 prompt = PromptTemplate.from_template("""\
-                                      
+
 ## Input:
                                                       
 {context}
 
 """)
+
+from langchain_community.chat_message_histories import ChatMessageHistory
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_core.chat_history import BaseChatMessageHistory
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationKGMemory
 from langchain_community.callbacks.labelstudio_callback import (
     LabelStudioCallbackHandler,
 )
 from rdflib import Graph
 import pathlib
+import json
 class KnowledgeExtractor():
     _ontology_graph = Graph()
     _raw_chunks: list[str] = []
@@ -252,16 +261,30 @@ class KnowledgeExtractor():
         langfuse_handler = CallbackHandler( secret_key="sk-lf-fe133c9a-1387-4680-920c-ab01879f8e45",
         public_key="pk-lf-d5dec24a-00a7-4006-adb8-27ab0b749ac9",
         host="http://localhost:3000")
+
+        self.store  = {}
+
         self.llm_preprocess = Ollama(model=self.model, 
-            temperature=0, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["preprocess"], callbacks=[langfuse_handler], tags=["preprocess"])#, callbacks=[LabelStudioCallbackHandler(project_name="xpreprocess")])
-        self.llm_extract = Ollama(model=self.model, 
-            temperature=0, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["extraction"], callbacks=[langfuse_handler], tags=["extraction"])#, callbacks=[LabelStudioCallbackHandler(project_name="xextraction")])
+            temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["preprocess"], 
+            callbacks=[langfuse_handler], tags=["preprocess"])#, callbacks=[LabelStudioCallbackHandler(project_name="xpreprocess")])
+        
+        self.llm_extract = Ollama(model="llama3:70b", 
+            temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["extraction"], 
+            callbacks=[langfuse_handler], tags=["extraction"])#, callbacks=[LabelStudioCallbackHandler(project_name="xextraction")])
+        
         self.llm_validate = Ollama(model=self.model, 
-            temperature=0, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["validation"], callbacks=[langfuse_handler], tags=["validation"])#, callbacks=[LabelStudioCallbackHandler(project_name="xvalidation")])
+            temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["validation"], 
+            callbacks=[langfuse_handler], tags=["validation"])#, callbacks=[LabelStudioCallbackHandler(project_name="xvalidation")])
         
         self._pre_process_chain = prompt | self.llm_preprocess
         
         self.embeddings = get_huggingface_model(EMBEDDING_MODEL)
+      
+
+    def get_session_history(self, session_id: str) -> BaseChatMessageHistory:
+        if session_id not in self.store:
+            self.store[session_id] = ChatMessageHistory()
+        return self.store[session_id]
 
     def __progress(self, iterable, **kwargs):
         if(self._progressbars):
@@ -294,14 +317,14 @@ class KnowledgeExtractor():
         self._ontology_graph.parse(data=self._ontology)
 
     def chunkify(self, large_text, chunk_size = 512, chunk_size_overlap = 64):
-        return split_text_into_chunks(large_text, chunk_size=chunk_size, chunk_overlap=chunk_size_overlap)
+        return split_text_into_chunks(large_text, chunk_size=chunk_size, chunk_overlap=chunk_size_overlap)[0:20]
 
     def _do_preprocess(self, id, text):
         return self._pre_process_chain.invoke({"context": text},config={"tags":[str(id)]})
     
     def preprocess(self, large_text):
         print(f'Initial text length {len(large_text)}')
-        self._raw_chunks = self.chunkify(large_text, self.chunk_size, self.chunk_size_overlap)[0:15]
+        self._raw_chunks = self.chunkify(large_text, self.chunk_size, self.chunk_size_overlap)
         print(f'Initial Raw Chunks {len(self._raw_chunks)} using chunk size:{self.chunk_size} with overlap {self.chunk_size_overlap}.')
         pre_processed_chunks = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=self._num_workers) as executor:
@@ -359,35 +382,47 @@ class KnowledgeExtractor():
         for index in self.__progress(range(0, len(self._raw_chunks), 16), desc="Adding document batches to vectorstore"):
             vector_database.add_texts(self._raw_chunks[index:index + 16])
         retriever = vector_database.as_retriever()
-        
+        prompt = PromptTemplate.from_template("""\
+## Documents:
+{documents}
+
+## Context:
+{context}
+
+""")
         def format_docs(docs):
-            return "\n\n".join(doc.page_content for doc in docs)
+            return [doc.page_content + '\n\n' for doc in docs]
 
         self._extract_chain = {"documents": retriever | format_docs, "context": RunnablePassthrough()} | prompt | self.llm_extract 
+
         all_extracted = []
         self.all_extracted_nodes = []
         for id, split in enumerate(self.splits):
             output = self._extract_chain.invoke(split.page_content)
-            matches = re.findall(self._code_block_pattern, output)
-            if not matches or len(matches) == 0:
-                print("No codeblock found")
-                print(output[0:250])
-                print(output[-250:])
+            print(output)
+            self.all_extracted_nodes.append(output)
+          
+            # matches = re.findall(self._code_block_pattern, output)
+            # if not matches or len(matches) == 0:
+            #     print("No codeblock found")
+            #     print(output[0:250])
+            #     print(output[-250:])
 
-            self._extraction_callbacks.on_step_completed("extraction", 1, id, output)
-            new_entities = []
-            for match in matches:
-                language, code = match
-                # remove all prefixes from the extracted data
-                all_extracted.append(code)
-                code = re.sub(r"@prefix.*\n", "", code)
-                entities = code.strip('`').split("\n\n")
-                if isinstance(entities, str):
-                    entities = [entities]
-                new_entities.extend(entities)
-                self.all_extracted_nodes.extend(entities)
+            # self._extraction_callbacks.on_step_completed("extraction", 1, id, output)
+            # new_entities = []
+            # for match in matches:
+            #     language, code = match
+            #     # remove all prefixes from the extracted data
+            #     all_extracted.append(code)
+            #     code = re.sub(r"@prefix.*\n", "", code)
+            #     entities = code.strip('`').split("\n\n")
+            #     if isinstance(entities, str):
+            #         entities = [entities]
+            #     new_entities.extend(entities)
+            #     self.all_extracted_nodes.extend(entities)
 
+        with open(f"{self._workdir}/extracted_nodes.txt", "w", encoding="utf-8") as file:
+            json.dump(self.all_extracted_nodes, file)   
 
-            self._extraction_callbacks.on_step_completed("extraction", 2, id, "\n\n".join(new_entities))
         print(F"Finished Extracting {len(self.all_extracted_nodes)} nodes")
 

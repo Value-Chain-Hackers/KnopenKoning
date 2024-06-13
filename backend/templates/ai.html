@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Ontology{% endblock %}
+{% import 'includes/chat.html' as chat %} 
+{% block content %}
+
+<div class="maincontent" style="width: 100%;">
+  <div style=" margin-left: auto; margin-right: auto; margin-top: 25px; overflow: auto; height: 400px; max-height: 400px;">
+   {{ chat.box('Chat with the AI') }}
+  </div>
+</div>
+
+<div class="form-container">
+  <button class="btn btn-info">Info Button</button>
+  <button class="btn btn-success">Success Button</button>
+  <button class="btn btn-error">Error Button</button>
+  <button class="btn btn-active">Active Button</button>
+  <button class="btn btn-disabled" disabled>Disabled Button</button>
+</div>
+
+
+{% endblock %}
