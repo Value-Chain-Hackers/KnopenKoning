@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    environment:
+      - OLLAMA_MAX_LOADED_MODELS=3
+      - OLLAMA_NUM_PARALLEL=4
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama:rw
+
+  frontend:
+    image: vch:latest
+    environment:
+      - OLLAMA_URL=ollama:11434
+    ports:
+      - "18000:18000"
+    depends_on:
+      - ollama
+      - mysql
+      - virtuoso
+      - mongodb
+      - redis
+    volumes:
+      - shared_data:/shared_data:rw
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: zSzd29qIwpkaA3xe4A4d8cqdscbAuzK8
+      MYSQL_DATABASE: vch
+      MYSQL_USER: vch_user
+      MYSQL_PASSWORD: rQMK5oLIg5i7KBiyk7uhy7uQqVg3cyjx
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql:rw
+      - shared_data:/shared_data:ro
+
+  virtuoso:
+    image: openlink/virtuoso-opensource-7:latest
+    environment:
+      SPARQL_UPDATE: "true"
+      DEFAULT_GRAPH: "http://localhost:8890/DAV"
+      DBA_PASSWORD: "dba_password"
+    ports:
+      - "8890:8890"
+      - "1111:1111"
+    volumes:
+      - virtuoso_data:/opt/virtuoso-opensource/database:rw
+      - shared_data:/shared_data:ro
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: kpnBCdiAFamV5InlXPvaq7X2M5TsDOEd
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data:rw
+      - shared_data:/shared_data:ro
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+volumes:
+  mysql_data:
+    driver: local
+  virtuoso_data:
+    driver: local
+  shared_data:
+    driver: local
+  mongodb_data:
+    driver: local
+  ollama_data:
+    driver: local
