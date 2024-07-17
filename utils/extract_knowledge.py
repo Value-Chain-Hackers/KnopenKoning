@@ -26,12 +26,19 @@ def split_text_into_chunks(text, chunk_size=512, chunk_overlap=64):
     return text_splitter.split_text(text)
 
 def extract_documents_from_pdf(pdf_path, chunk_size=512, chunk_overlap=64):
-    text = extract_text_from_pdf(pdf_path)
+    document = fitz.open(pdf_path)
     basename = os.path.basename(pdf_path).replace(".pdf", "")
-    docs = split_text_into_documents(text, key=basename, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
-    for doc in docs:
-        doc.metadata["source"] = pdf_path
-    return docs
+    all_docs = []
+    # Iterate through each page
+    for page_num in range(len(document)):
+        page = document.load_page(page_num)  # Load the page
+        text = page.get_text()  # Extract text from the page
+        docs = split_text_into_documents(text, key=basename, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+        for doc in docs:
+            doc.metadata["source"] = pdf_path
+            doc.metadata["page"] = page_num
+        all_docs.extend(docs)
+    return all_docs
 
 def split_text_into_documents(text, key, chunk_size=512, chunk_overlap=64):
     text_splitter = RecursiveCharacterTextSplitter(
@@ -47,6 +54,11 @@ def split_text_into_documents(text, key, chunk_size=512, chunk_overlap=64):
     splitcount = 0
     for sdoc in all_docs:
         sdoc.metadata["key"] = doc.metadata["key"] + f"-split{splitcount}"
+        sdoc.metadata["parent_key"] = doc.metadata["key"]
+        sdoc.metadata["start"] = splitcount * chunk_size
+        sdoc.metadata["end"] = (splitcount + 1) * chunk_size
+        sdoc.metadata["length"] = len(sdoc.text)
+        sdoc.metadata["split"] = splitcount
         splitcount += 1
     return all_docs
 
@@ -264,15 +276,15 @@ class KnowledgeExtractor():
 
         self.store  = {}
 
-        self.llm_preprocess = Ollama(model=self.model, 
+        self.llm_preprocess = Ollama(model=self.model, base_url="http://ollama:11434/", 
             temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["preprocess"], 
             callbacks=[langfuse_handler], tags=["preprocess"])#, callbacks=[LabelStudioCallbackHandler(project_name="xpreprocess")])
         
-        self.llm_extract = Ollama(model="llama3:70b", 
+        self.llm_extract = Ollama(model="llama3:8b", base_url="http://ollama:11434/", 
             temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["extraction"], 
             callbacks=[langfuse_handler], tags=["extraction"])#, callbacks=[LabelStudioCallbackHandler(project_name="xextraction")])
         
-        self.llm_validate = Ollama(model=self.model, 
+        self.llm_validate = Ollama(model=self.model, base_url="http://ollama:11434/", 
             temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["validation"], 
             callbacks=[langfuse_handler], tags=["validation"])#, callbacks=[LabelStudioCallbackHandler(project_name="xvalidation")])
         

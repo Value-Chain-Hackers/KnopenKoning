@@ -1,0 +1,25 @@
+project:
+  title: "Docs"
+  type: website
+
+
+website:
+  title: "Supply Chain Mapping"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - href: Docs.qmd
+        text: Home
+      - href: KnowledgeExtraction.qmd
+        text: "Extract Knowledge"
+        contents:
+        - href: Prompt_Extraction_preprocess.qmd
+          text: "Exrtaction Preprocess"
+        - href: Prompt_Extraction.qmd
+          text: "Extraction RDF"
+        - href: Prompt_Extraction_validation.qmd
+          text: "Prompt Extraction validation"
+
+
+

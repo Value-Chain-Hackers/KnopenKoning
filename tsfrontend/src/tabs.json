@@ -1,0 +1,24 @@
+[
+    {
+      "type": "Graph",
+      "title": "Graph Tab"
+    },
+    {
+      "type": "Chart",
+      "title": "Chart Tab"
+    },
+    {
+      "type": "Text",
+      "title": "Text Tab",
+      "content": "This is some text content."
+    },
+    {
+      "type": "DataGrid",
+      "title": "DataGrid Tab",
+      "data": [
+        { "id": 1, "name": "John Doe", "age": 28 },
+        { "id": 2, "name": "Jane Smith", "age": 34 }
+      ]
+    }
+  ]
+  

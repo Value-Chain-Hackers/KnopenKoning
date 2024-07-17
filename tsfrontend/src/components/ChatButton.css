@@ -1,0 +1,4 @@
+/* ChatButton.css */
+.chat-button {
+  @apply fixed bottom-4 right-4 bg-blue-500 text-white rounded-full w-16 h-16 flex items-center justify-center z-50 hover:bg-blue-700;
+}

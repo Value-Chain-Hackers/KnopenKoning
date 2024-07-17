@@ -1,0 +1,18 @@
+endpoints:
+  - name: completions
+    endpoint_type: llm/v1/completions
+    model:
+      provider: openai
+      name: phi3
+      config:
+        openai_api_key: ollama
+        openai_api_base: https://ollama.lab.local/v1
+
+  - name: chat
+    endpoint_type: llm/v1/chat
+    model:
+      provider: openai
+      name: phi3
+      config:
+        openai_api_key: ollama
+        openai_api_base: https://ollama.lab.local/v1

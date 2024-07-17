@@ -1,0 +1,23 @@
+.tab-control {
+  width: 100%;
+  min-height: 600px;
+}
+
+.tab-header {
+  display: flex;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.tab-button.active {
+  border-bottom: 4px inset #007bff;
+}
+
+.tab-panel-content {
+  padding: 20px;
+  min-height: 600px;
+}

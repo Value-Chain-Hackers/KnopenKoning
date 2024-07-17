@@ -1,16 +1,20 @@
 # main.py
 import os
 import sys
+import uvicorn
+
+from pathlib import Path
+from dotenv import load_dotenv
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from config import EMBEDDING_MODEL
-
-import uvicorn
-from fastapi import FastAPI
-from config import EMBEDDING_MODEL
-
 if __name__ == "__main__":
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    print("BASE_DIR: ", BASE_DIR)
+    load_dotenv(BASE_DIR / ".env")
+
+    print(" 🚀 Starting the backend server...")
+    print(" 📡 Listening on http://0.0.0.0:18000/")
     if sys.platform == "win32":
         # Based on Eryk Sun's code: https://stackoverflow.com/a/43095532
         import ctypes
@@ -38,7 +42,11 @@ if __name__ == "__main__":
         from db.company import Company
         from db.records import Records
         from db.website import Website
-        Base.metadata.create_all(bind=engine)
+        try:
+            Base.metadata.create_all(bind=engine)
+            print("Tables created successfully!")
+        except Exception as e:
+            print(e)
         # get all companies and create their cache and data folders
         companies = SessionLocal().query(Company).all()
         for company in companies:
@@ -72,4 +80,4 @@ if __name__ == "__main__":
             return ret
         Multiprocess.startup = uvicorn_multiprocess_startup
 
-    uvicorn.run("backend.app:app", workers=1)
+    uvicorn.run("backend.app:app", host="0.0.0.0", port=18000 , workers=1)

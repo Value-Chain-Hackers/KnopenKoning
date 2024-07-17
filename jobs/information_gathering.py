@@ -1,6 +1,11 @@
 from wikipedia import search, page, summary
+from duckduckgo_search import DDGS
 from db import Company, Records, Website
 from sqlalchemy.orm import Session
+
+
+
+
 def collect_base_information(company_name: str, db: Session):
     company = db.query(Company).filter(Company.company_name == company_name).first()
     records = db.query(Records).filter(Records.company_id == company.id).all()
@@ -53,6 +58,26 @@ def collect_base_information(company_name: str, db: Session):
         except Exception as e:
             continue
     return records
+
+class InformationQueryBuilder():
+    
+    def __init__(self, db: Session):
+        self.db = db
+        self.duckduckgo = DDGS()
+
+    def get_company_records(self, company_name: str):
+        company = self.db.query(Company).filter(Company.company_name == company_name).first()
+        records = self.db.query(Records).filter(Records.company_id == company.id).all()
+        return records
+    
+    def get_company_websites(self, company_name: str):
+        company = self.db.query(Company).filter(Company.company_name == company_name).first()
+        websites = self.db.query(Website).filter(Website.company_id == company.id).all()
+        return websites
+    
+    def get_company_information(self, company_name: str):
+        self.duckduckgo.s
+
 
 if __name__ == "__main__":
     from argparse import ArgumentParser

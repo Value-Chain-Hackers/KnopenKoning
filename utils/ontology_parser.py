@@ -180,7 +180,7 @@ class GraphRenderer():
             }
 
         # Create output directory
-        output_dir = 'docs/ontology'
+        output_dir = '.cache/docs/ontology'
         os.makedirs(output_dir, exist_ok=True)
 
         # Initialize Jinja2 environment
@@ -196,25 +196,28 @@ class GraphRenderer():
                 annotations=details['annotations'],
                 properties=details['properties']
             )
+            # suppress all \n that occure more than 2 times
+            rendered = '\n'.join([line for line in rendered.split('\n') if line.strip() or line.strip() == '\n'])
+
             # Save the rendered Markdown to a file
             output_file = os.path.join(output_dir, f"{subject.split('#')[-1].split('/')[-1]}.md")
             with open(output_file, 'w', encoding="utf-8") as f:
                 f.write(rendered)
 
             # if it is a class, create a model template
-            if RDFS.Class in details['annotations'].get(RDF.type, []):
-                template = env.get_template('model_template.py')
-                rendered = template.render(
-                    subject=subject,
-                    subClasses=details['subClasses'],
-                    superClasses=details['superClasses'],
-                    annotations=details['annotations'],
-                    properties=details['properties']
-                )
-                # Save the rendered Markdown to a file
-                output_file = os.path.join(output_dir, f"{subject.split('#')[-1].split('/')[-1]}.py")
-                with open(output_file, 'w', encoding="utf-8") as f:
-                    f.write(rendered)
+            # if RDFS.Class in details['annotations'].get(RDF.type, []):
+            #     template = env.get_template('model_template.py')
+            #     rendered = template.render(
+            #         subject=subject,
+            #         subClasses=details['subClasses'],
+            #         superClasses=details['superClasses'],
+            #         annotations=details['annotations'],
+            #         properties=details['properties']
+            #     )
+            #     # Save the rendered Markdown to a file
+            #     output_file = os.path.join(output_dir, f"{subject.split('#')[-1].split('/')[-1]}.py")
+            #     with open(output_file, 'w', encoding="utf-8") as f:
+            #         f.write(rendered)
             
 
         # Generate an index page
@@ -320,14 +323,15 @@ if __name__ == "__main__":
     # db_writer = DatabaseOntologyWriter()
     # db_writer.write_ontology("data/companies.db", "./data/companiesdb.ttl", "http://chainwise.ai/app/")
 
-    ontology = ""
-    with open("./data/supplychain.ttl", "r", encoding='utf-8') as file:
-        ontology = file.read()
     gv = GraphVisitor()
-    gv.parse("./data/supplychain.ttl","text/turtle")
-    gv.parse("./ontologies/ai.ttl","text/turtle")
-    gv.parse("./ontologies/ai.ttl","text/turtle")
-    gv.parse("./ontologies/app.ttl","text/turtle")
+    #gv.parse("./data/supplychain.ttl","text/turtle")
+    gv.parse("./ontologies/SupplyChain.rdf","xml")
+   # gv.parse("./ontologies/Iof.AnnotationVocabulary.rdf","xml")
+    #v.parse("./ontologies/Corporations.rdf","xml")
+    #gv.parse("./ontologies/ai.ttl","text/turtle")
+    #gv.parse("./ontologies/db.ttl","text/turtle")
+    #gv.parse("./ontologies/docs.ttl","text/turtle")
+   # gv.parse("./ontologies/app.ttl","text/turtle")
     renderer = GraphRenderer(gv.graph)
     renderer.render()
     print("Done")

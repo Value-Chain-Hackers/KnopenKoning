@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono");
+
+html {
+  height: 100%;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.9);
+
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+footer,
+.footer {
+  position: fixed;
+  bottom: 0;
+  padding-top: 0px;
+  align-content: center;
+  text-align: center;
+  width: 700px;
+  font-size: 80%;
+  height: 20px;
+  background: rgba(51, 51, 51, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+    /* Outside shadow */ inset 0 1px 3px rgba(255, 255, 255, 0.2); /* Inside shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for beveled effect */
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 25px 25px 0 0;
+  z-index: 1001;
+  text-align: center;
+  & span {
+    color: #61dafb;
+    /* center  */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}

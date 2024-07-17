@@ -1,0 +1,17 @@
+[
+    {
+      "type": "Graph",
+      "title": "Graph Tab"
+    },
+    {
+      "type": "Chart",
+      "title": "Chart Tab"
+    },
+    {
+      "type": "Text",
+      "title": "Text Tab",
+      "content": "This is some text content."
+    }
+   
+  ]
+  

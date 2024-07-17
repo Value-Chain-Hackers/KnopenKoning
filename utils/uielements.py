@@ -4,6 +4,8 @@ from langchain_community.llms.ollama import Ollama
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 class UIElementsBuilder():
+    def __init__(self, host="http://ollama:11434"):
+        self.host = host
 
     def answer(self, question):
         prompt=  PromptTemplate.from_template("""\
@@ -26,7 +28,7 @@ Each element should have a 'followup' field that contains a JSON array strings w
 The followups should not propose filters or other ways to manipulate the data, but rather other points of interest that can be explored.
 Only return a valid JSON array of UI elements.
 """)
-        chain = prompt | Ollama(model="qwen2:72b-instruct") | JsonOutputParser()
+        chain = prompt | Ollama(model="llama3:8b", base_url=self.host) | JsonOutputParser()
         elements = chain.invoke({'question': question})
         for element in elements:
             type = element.get('type')
@@ -42,6 +44,6 @@ The answer should be text based and should fullfill the following description:
 The element is titled '{title}' and is described as '{description}'.
 The ouput should be a text string in markdown format.
 """)
-        chain = prompt | Ollama(model="qwen2:72b-instruct")
+        chain = prompt | Ollama(model="llama3:8b", base_url=self.host)
         elements = chain.invoke({'question': question, 'title': title, 'description': description})
         return elements

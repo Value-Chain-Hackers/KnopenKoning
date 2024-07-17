@@ -116,7 +116,7 @@ DO verify the accuracy and relevance of your extractions are critical to the suc
 hf = get_huggingface_model(EMBEDDING_MODEL)
 
 def get_chain(namespace, rag_folder):
-    llm = ChatOllama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=.5)
+    llm = ChatOllama(model=MODEL_NAME, num_ctx=4096, num_predict=2048, temperature=.5, base_url="http://ollama:11434/")
     chain = (
         {"context": get_retriever(namespace, rag_folder), "question": RunnablePassthrough()}
         | knowledge_build_prompt
@@ -142,7 +142,7 @@ def build_knowledge(company):
     pdf_file = pdfs[0]
     pdfText = extract_text_from_pdf(pdf_file)
     chunk_size = 8000
-    llm = ChatOllama(model=MODEL_NAME, num_ctx=chunk_size, num_predict=4096, temperature=.2)
+    llm = ChatOllama(model=MODEL_NAME, num_ctx=chunk_size, num_predict=4096, temperature=.2, base_url="http://ollama:11434/")
     chain = knowledge_build_prompt | llm | JsonOutputParser()
     print(len(pdfText))
     for topic in tqdm(topics, desc=f"Processing Topics for {company.company_name}", unit="topic", leave=False, position=1):

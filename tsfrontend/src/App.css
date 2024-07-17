@@ -1,0 +1,96 @@
+
+.App {
+  text-align: center;
+  width: 95% !important;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+
+  border-radius: 10px 10px 10px 10px;
+}
+
+#root, .app-container, .main-content {
+  height: 100%;
+}
+
+/* Add these styles to your existing App.css or create a new CSS file and import it */
+.form-container {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-container form {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 21px;
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #3b82f6; /* Tailwind CSS blue-500 color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #2563eb; /* Tailwind CSS blue-600 color */
+  }
+
+}
+
+.main-content {
+  @apply p-4;
+}
+
+.chat-open .main-content {
+  margin-right: 20rem; /* Adjust to the width of the chat dialog */
+}
+
+.App-container {
+  @apply w-full h-screen overflow-hidden;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+   border-radius: 10px 10px 10px 10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

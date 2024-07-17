@@ -4,3 +4,377 @@ title: "Supply Chain Mapping"
 ---
 
 ## Map Supply Chains using ontologies
+
+## What are Ontologies?
+- **Structured Framework:** A formal representation of knowledge with concepts, relationships, and rules.
+- **Semantic Clarity:** Provides clear definitions and relationships between terms.
+
+## Advantages
+
+### Improved Data Integration
+- **Consistent Vocabulary:** Ensures uniform terminology across various data sources.
+- **Interoperability:** Facilitates seamless integration of diverse systems and datasets.
+
+-----
+
+### Enhanced Data Quality
+- **Error Reduction:** Reduces ambiguities and inconsistencies in data.
+- **Validation:** Enables automated checking against predefined rules and relationships.
+
+### Better Decision-Making
+- **Contextual Understanding:** Provides richer, context-aware insights.
+- **Inference Capabilities:** Allows for advanced reasoning and predictive analytics.
+
+-----
+
+### Flexibility and Scalability
+- **Evolving Needs:** Easily adaptable to changes in the supply chain environment.
+- **Modularity:** Supports incremental updates and expansions.
+
+### Comprehensive Visibility
+- **End-to-End Mapping:** Offers a holistic view of the supply chain.
+- **Transparency:** Improves traceability and accountability across all stages.
+
+----
+
+### Enhancing LLMs with Fine-Tuning for Specific Ontologies
+
+- **Objective:** 
+  - Reduce prompt sizes.
+  - Strengthen reasoning about specific ontologies.
+- **Overview:**
+  - Introduction to fine-tuning.
+  - Benefits of ontology-specific fine-tuning.
+  - Steps involved in the process.
+
+---
+
+## Understanding Fine-Tuning
+
+- **Definition:** 
+  - Fine-tuning involves adjusting a pre-trained LLM on a smaller, specialized dataset.
+- **Purpose:** 
+  - Tailor the model to perform better on specific tasks or domains.
+- **Benefits:**
+  - Improved performance on targeted queries.
+  - Enhanced accuracy and relevancy.
+
+---
+
+## Benefits of Fine-Tuning with Specific Ontologies
+
+- **Advantages:**
+  - **Reduced Prompt Sizes:** 
+    - Less need for extensive explanations.
+  - **Enhanced Reasoning:** 
+    - Improved understanding of domain-specific concepts and relationships.
+  - **Efficiency:** 
+    - Faster, more accurate responses.
+
+---
+
+## Steps for Fine-Tuning LLMs
+
+1. **Data Collection:**
+   - Gather domain-specific data.
+   - Ensure high-quality, question and answers aligned with the ontology.
+2. **Preprocessing:**
+   - Clean and preprocess the data.
+   - Convert data into a format suitable for training.
+3. **Model Selection:**
+   - Choose a pre-trained LLM as the base model.
+4. **Training:**
+   - Fine-tune the model using the collected data.
+   - Use appropriate hyperparameters and training techniques.
+5. **Evaluation:**
+   - Test the fine-tuned model on domain-specific tasks.
+   - Evaluate performance and make adjustments as needed.
+
+---
+
+## Training and Evaluation
+
+- **Training:**
+  - Adjusting model parameters using domain-specific data.
+  - Techniques: supervised learning, DPO, etc.
+- **Evaluation:**
+  - Testing on specific queries and tasks.
+  - Metrics: accuracy, precision, recall, etc.
+- **Refinement:**
+  - Iterative improvements based on evaluation results.
+
+----
+
+# First-Order Logic in AI and Supply Chain Mapping
+
+## What is First-Order Logic (FOL)?
+- **Formal Language:** A powerful framework for representing and reasoning about propositions.
+- **Components:** Includes objects, relations, functions, and quantifiers.
+
+## Usage of FOL
+
+### Knowledge Representation
+- **Expressiveness:** Can describe complex relationships and properties within a domain.
+- **Formal Definitions:** Precisely defines concepts, rules, and constraints.
+
+### Reasoning and Inference
+- **Deductive Reasoning:** Derives conclusions from known premises using logical rules.
+- **Automated Theorem Proving:** Supports algorithmic verification and problem-solving.
+
+----
+
+### Querying and Information Retrieval
+- **Structured Queries:** Formulates specific and complex queries about the knowledge base.
+- **Data Retrieval:** Efficiently extracts relevant information and insights.
+
+### Constraint Satisfaction
+- **Problem Solving:** Defines and solves constraint satisfaction problems (CSPs).
+- **Optimization:** Finds optimal solutions within specified constraints.
+
+-----
+
+## Benefits of FOL
+
+- **Unambiguous Definitions:** Removes ambiguities, ensuring clear understanding of terms and relationships.
+- **Formalism:** Provides a solid foundation for rigorous reasoning.
+- **Universality:** Applies to a wide range of domains and problems.
+- **Abstraction:** Simplifies complex systems into manageable representations.
+
+----
+
+### Automation
+- **Algorithmic Implementation:** Supports the development of automated reasoning systems.
+- **Consistency Checking:** Ensures data consistency and integrity.
+
+----
+
+### Scalability and Modularity
+- **Modular Design:** Facilitates building complex systems from simpler components.
+- **Scalable Solutions:** Adapts to large-scale and dynamic environments.
+
+---- 
+
+### Enhanced Decision-Making
+- **Logical Inference:** Provides a basis for making sound and logical decisions.
+- **Predictive Analytics:** Enhances predictive capabilities through formal reasoning.
+
+----
+
+### Understanding FOL in Supply Chains
+
+- **Definition:**
+  - A formal system for defining relationships and making inferences.
+
+----
+
+
+- **Components:**
+  - **Variables:** x, y, z
+  - **Constants:** Specific elements like Socrates
+  - **Predicates:** Functions returning true/false (e.g., IsSupplier(x))
+  - **Functions:** Mapping elements to elements (e.g., WarehouseOf(x))
+  - **Quantifiers:** ∀ (forall), ∃ (exists)
+  - **Logical Connectives:** ∧ (and), ∨ (or), ¬ (not), → (implies), ↔ (if and only if)
+
+----
+
+### FOL Symbols
+
+- **Variables (x, y, z):** Represent elements in the domain.
+- **Constants (a, b, c):** Specific, unchanging elements.
+- **Predicates (P(x), Q(x, y)):** Properties or relations.
+- **Functions (f(x), g(x, y)):** Map elements to other elements.
+
+----
+
+### Key FOL Symbols
+
+- **Quantifiers:**
+  - **Universal Quantifier (∀):** Applies to all elements.
+  - **Existential Quantifier (∃):** Applies to at least one element.
+- **Logical Connectives:**
+  - **And (∧)**
+  - **Or (∨)**
+  - **Not (¬)**
+  - **Implies (→)**
+  - **If and Only If (↔)**
+
+----
+
+### Deductive Reasoning
+
+- **Premises:**
+  1. All humans are mortal. (∀x (Human(x) → Mortal(x)))
+  2. Socrates is a human. (Human(Socrates))
+- **Inference:**
+    - Socrates is mortal. (Mortal(Socrates))
+    - By applying the rule that all humans are mortal to the specific instance of Socrates being a human, we deduce that Socrates must be mortal.
+
+----
+
+### Modus Ponens
+
+
+- **Premises:**
+  1. If it rains, the ground will be wet. (Rain(x) → Wet(Ground))
+  2. It is raining. (Rain(Today))
+- **Inference:**
+  - The ground will be wet today. (Wet(Ground)) 
+  - Using Modus Ponens, we infer that since it is raining today, the ground will be wet.
+
+-----
+
+### Syllogism
+
+- **Premises:**
+  1. All men are mortal. (∀x (Man(x) → Mortal(x)))
+  2. All Greeks are men. (∀x (Greek(x) → Man(x)))
+- **Inference:**
+  - All Greeks are mortal. (∀x (Greek(x) → Mortal(x)))
+- By transitive property, if all Greeks are men and all men are mortal, then all Greeks must be mortal.
+
+### Universal Instantiation
+
+- **Premises:**
+  1. Every student loves studying. (∀x (Student(x) → LovesStudying(x)))
+  2. Alice is a student. (Student(Alice))
+- **Inference:**
+    - Alice loves studying. (LovesStudying(Alice))
+    - By applying the universal statement to the specific instance of Alice being a student, we infer that Alice loves studying.
+
+### Existential Generalization
+
+- **Premises:**
+  - Alice loves studying. (LovesStudying(Alice))
+- **Inference:**
+    - There exists at least one person who loves studying. (∃x (LovesStudying(x)))
+    - From the specific instance of Alice loving studying, we generalize that there is at least one person who loves studying.
+
+---
+
+## Supplier Relationship
+
+  1. ∀x (IsSupplier(x) → Delivers(x, Parts))
+  2. IsSupplier(SupplierA)
+  - SupplierA delivers parts.
+
+- **FOL Notation:**
+  1. ∀x (IsSupplier(x) → Delivers(x, Parts))
+  2. IsSupplier(SupplierA)
+- **Inference:**
+    - Delivers(SupplierA, Parts)
+    - **Conclusion:** SupplierA delivers parts.
+    - **Explanation:** Since SupplierA is a supplier and all suppliers deliver parts, SupplierA must also deliver parts.
+
+---
+
+## Inventory Management
+
+- **Premises:**
+  1. ∀x (Warehouse(x) → ∃y (Contains(x, y) ∧ Part(y)))
+  2. Warehouse(Warehouse1)
+- **Reasoning:**
+  - Warehouse1 contains some part.
+- **FOL Notation:**
+  1. ∀x (Warehouse(x) → ∃y (Contains(x, y) ∧ Part(y)))
+  2. Warehouse(Warehouse1)
+- **Inference:**
+    - ∃y (Contains(Warehouse1, y) ∧ Part(y))
+    - **Conclusion:** Warehouse1 contains some part.
+    - **Explanation:** Given that every warehouse contains some part, and Warehouse1 is a warehouse, it follows that Warehouse1 must contain some part.
+
+---
+
+## Production Line
+
+- **Premises:**
+  1. ∀x (Part(x) → ∃y (IsProducedBy(x, y) ∧ Machine(y)))
+  2. Part(PartA)
+- **Reasoning:**
+  - PartA is produced by some machine.
+- **FOL Notation:**
+  1. ∀x (Part(x) → ∃y (IsProducedBy(x, y) ∧ Machine(y)))
+  2. Part(PartA)
+- **Inference:**
+    - ∃y (IsProducedBy(PartA, y) ∧ Machine(y))
+    - **Conclusion:** PartA is produced by some machine.
+    - **Explanation:** Since every part is produced by a machine, and PartA is a part, it must be produced by some machine.
+
+---
+
+## Delivery and Logistics
+
+### Delivery Routes
+
+- **Premises:**
+  1. ∀x ∀y (Delivers(x, y) → ∃z (Route(z) ∧ UsesRoute(x, z) ∧ LeadsTo(z, y)))
+  2. Delivers(Truck1, LocationA)
+- **Reasoning:**
+  - There exists a route that Truck1 uses to deliver to LocationA.
+- **FOL Notation:**
+  1. ∀x ∀y (Delivers(x, y) → ∃z (Route(z) ∧ UsesRoute(x, z) ∧ LeadsTo(z, y)))
+  2. Delivers(Truck1, LocationA)
+- **Inference:**
+    - ∃z (Route(z) ∧ UsesRoute(Truck1, z) ∧ LeadsTo(z, LocationA))
+    - **Conclusion:** There exists a route that Truck1 uses to deliver to LocationA.
+    - **Explanation:** Since Truck1 delivers to LocationA, there must be a route that Truck1 uses which leads to LocationA.
+
+---
+
+## Quality Control
+
+### Quality Assurance
+
+- **Premises:**
+  1. ∀x (Product(x) → ∃y (IsCheckedBy(x, y) ∧ Inspector(y)))
+  2. Product(ProductB)
+- **Reasoning:**
+  - ProductB is checked by some inspector.
+- **FOL Notation:**
+  1. ∀x (Product(x) → ∃y (IsCheckedBy(x, y) ∧ Inspector(y)))
+  2. Product(ProductB)
+  - **Inference:**
+    - ∃y (IsCheckedBy(ProductB, y) ∧ Inspector(y))
+    - **Conclusion:** ProductB is checked by some inspector.
+    - **Explanation:** Since every product is checked by an inspector, and ProductB is a product, it follows that ProductB must be checked by some inspector.
+---
+
+## Supplier Selection
+
+### Preferred Suppliers
+
+- **Premises:**
+  1. ∀x (PreferredSupplier(x) ↔ (IsSupplier(x) ∧ HasGoodRating(x)))
+  2. IsSupplier(SupplierB)
+  3. HasGoodRating(SupplierB)
+- **Reasoning:**
+  - SupplierB is a preferred supplier.
+- **FOL Notation:**
+  1. ∀x (PreferredSupplier(x) ↔ (IsSupplier(x) ∧ HasGoodRating(x)))
+  2. IsSupplier(SupplierB)
+  3. HasGoodRating(SupplierB)
+  - **Inference:**
+    - PreferredSupplier(SupplierB)
+    - **Conclusion:** SupplierB is a preferred supplier.
+    - **Explanation:** Since SupplierB is a supplier and has a good rating, it meets the criteria to be considered a preferred supplier.
+
+---
+
+## Order Fulfillment
+
+### Order Processing
+
+- **Premises:**
+  1. ∀x (Order(x) → ∃y (ProcessedBy(x, y) ∧ Employee(y)))
+  2. Order(Order123)
+- **Reasoning:**
+  - Order123 is processed by some employee.
+- **FOL Notation:**
+  1. ∀x (Order(x) → ∃y (ProcessedBy(x, y) ∧ Employee(y)))
+  2. Order(Order123)
+  - **Inference:**
+    - ∃y (ProcessedBy(Order123, y) ∧ Employee(y))
+    - **Conclusion:** Order123 is processed by some employee.
+    - **Explanation:** Given that every order is processed by an employee, and Order123 is an order, it follows that Order123 must be processed by some employee.
+
+---

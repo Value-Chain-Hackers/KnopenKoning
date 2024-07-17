@@ -1,0 +1,87 @@
+#prefixList {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(51, 51, 51, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+    /* Outside shadow */ inset 0 1px 3px rgba(255, 255, 255, 0.2); /* Inside shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for beveled effect */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Add this line if you want the items to wrap to the next line if they overflow */
+}
+
+#prefixList li {
+  margin: 5px; /* Adjust margin as needed */
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  color: black;
+  font-size: 14px;
+}
+#prefixList li.disabled {
+  background-color: gray !important;
+}
+
+.graph-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.graph-controls .btn-top {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.graph-controls .btn-bottom {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.graph-container,
+svg.graph-container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 2px double rgba(255, 251, 251, 0.6); /* Light border for beveled effect */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ); /* Light border for beveled effect */
+}
+
+
+.graph-controls {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 70px;
+  width: 30px;
+  left: 12px;
+  background: rgba(51, 51, 51, 0.9);
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+    /* Outside shadow */ inset 0 1px 3px rgba(255, 255, 255, 0.2); /* Inside shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for beveled effect */
+}
+
+.graph-controls button {
+  background: transparent;
+  border: none ! important;
+  cursor: pointer;
+  display: flex;
+  padding: 7px 7px 7px 7px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}

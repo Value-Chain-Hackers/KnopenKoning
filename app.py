@@ -12,7 +12,7 @@ retriever = chroma.as_retriever(search_kwargs= {"k": 5})
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
-llm = Ollama(model="phi3:instruct", num_ctx=4096, num_predict=2048, temperature=0.1)
+llm = Ollama(model="phi3:instruct", num_ctx=4096, num_predict=2048, temperature=0.1, base_url="http://ollama:11434/")
 prompt = PromptTemplate.from_template("Please answer the following question: {question}\nUse only the information provided in the context below to answer the question.\nContext:\n{context}")
 rag_chain = (
     {"context": retriever, "question": RunnablePassthrough()}

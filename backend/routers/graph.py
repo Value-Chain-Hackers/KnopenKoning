@@ -28,7 +28,7 @@ def load_ontologies() -> Graph:
     for file in glob.glob("ontologies\*.ttl"):
         print(file)
         g.parse(source=file, format="turtle")
-    for file in glob.glob("./ontologies/*.rdf"):
+    for file in glob.glob("ontologies\*.rdf"):
         print(file)
         g.parse(source=file, format="xml")
     return g
