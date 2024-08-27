@@ -13,31 +13,8 @@ const App: React.FC = () => {
   const [question, setQuestion] = useState('');
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (questionText: string) => {
-    try {
-      const response = await fetch('http://localhost:18000/process', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-          company: 'Danone',
-          question: questionText,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit question');
-      }
-
-      const data = await response.json();
-      window.location.href = `/view/${data.uid}`; // Navigate to the question page
-    } catch (err: any) {
-      setError(err.message);
-    }
-  };
-
   const handleStarterClick = (message: string) => {
+    console.log('Starter clicked:', message);
     setQuestion(message);
   };
 
@@ -48,7 +25,7 @@ const App: React.FC = () => {
           <Header title="ChainWise" />
           <div className="App">
             <Routes>
-              <Route path="/" element={<StartPage onSubmit={handleSubmit} onStarterClick={handleStarterClick} question={question} setQuestion={setQuestion} />} />
+              <Route path="/" element={<StartPage onStarterClick={handleStarterClick} question={question} setQuestion={setQuestion} />} />
               <Route path="/view/:uid" element={<QuestionPage />} />
               <Route path="/admin" element={<AdminPage />} />
             </Routes>

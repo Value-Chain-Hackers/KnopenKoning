@@ -1,0 +1,727 @@
+@prefix : <http://chainwise.ai/db#> .
+@prefix ui: <http://chainwise.ai/ui#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix iof-av: <https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/> .
+
+
+:Database a owl:Class ;
+    rdfs:label "Database"@en ;
+    rdfs:comment "A structured set of data held in a computer, especially one that is accessible in various ways."@en ;
+    rdfs:subClassOf owl:Thing .
+
+:DatabaseTable a owl:Class ;
+    rdfs:label "Database Table"@en ;
+    rdfs:comment "A database table is a collection of related data held in a structured format within a database."@en ;
+    rdfs:subClassOf :Database .
+
+:DatabaseColumn a owl:Class ;
+    rdfs:label "Database Column"@en ;
+    rdfs:comment "A database column is a set of data values of a particular simple type, one value for each row of the table."@en ;
+    rdfs:subClassOf :Database .
+
+:Key a owl:Class ;
+    rdfs:label "Key"@en ;
+    rdfs:comment "A generic key that can be specialized into a primary key, foreign key, or unique key."@en ;
+    rdfs:subClassOf owl:Thing .
+
+:PrimaryKey a owl:Class ;
+    rdfs:label "Primary Key"@en ;
+    rdfs:comment "A primary key is a column or a set of columns that uniquely identifies each row in a table."@en ;
+    rdfs:subClassOf :Key ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :hasColumn ;
+        owl:allValuesFrom :DatabaseColumn ;
+    ] .
+
+:ForeignKey a owl:Class ;
+    rdfs:label "Foreign Key"@en ;
+    rdfs:comment "A foreign key is a column or a set of columns in one table that uniquely identifies a row of another table."@en ;
+    rdfs:subClassOf :Key .
+
+:UniqueKey a owl:Class ;
+    rdfs:label "Unique Key"@en ;
+    rdfs:comment "A unique key is a column or a set of columns that ensures that all values in the column are distinct."@en ;
+    rdfs:subClassOf :Key .
+
+:DatabaseView a owl:Class ;
+    rdfs:label "Database View"@en ;
+    rdfs:comment "A database view is a virtual table based on the result-set of an SQL statement."@en ;
+    rdfs:subClassOf :Database .
+
+:DatabaseProcedure a owl:Class ;
+    rdfs:label "Database Procedure"@en ;
+    rdfs:comment "A database procedure is a set of SQL statements that can be executed as a unit to perform a specific task."@en ;
+    rdfs:subClassOf :Database .
+
+:DataSystem a owl:Class ;
+    rdfs:label "Data System"@en ;
+    rdfs:comment "A data system is a system that manages data."@en ;
+    rdfs:subClassOf owl:Thing .
+
+:DBMS a owl:Class ;
+    rdfs:label "Database Management System"@en ;
+    rdfs:comment "A database management system (DBMS) is a software system that uses a standard method to store and retrieve data."@en ;
+    rdfs:subClassOf :DataSystem .
+
+:VectorStore a owl:Class ;
+    rdfs:label "Vector Store"@en ;
+    rdfs:comment "A vector store is a data store that stores vectors."@en ;
+    rdfs:subClassOf :DataSystem .
+
+:GraphDatabase a owl:Class ;
+    rdfs:label "Graph Database"@en ;
+    rdfs:comment "A graph database is a database that uses graph structures for semantic queries with nodes, edges, and properties to represent and store data."@en ;
+    rdfs:subClassOf :DataSystem .
+
+
+ui:Widget a owl:Class ;
+    rdfs:label "Widget"@en ;
+    rdfs:comment "A widget is a small component that gets executed within an application (web or not)."@en ;
+    rdfs:subClassOf owl:Thing ;
+    iof-av:firstOrderLogicDefinition """Widget(x) ↔ ApplicationComponent(x)""" ;
+    iof-av:naturalLanguageDefinition """A widget is a small component that is part of an application."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'widget' is an instance of 'application component'.""" .
+
+ui:ButtonWidget a owl:Class ;
+    rdfs:label "Button"@en ;
+    rdfs:comment "A button is a widget that can be clicked to perform an action."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """Button(x) ↔ (Widget(x) ∧ ∃y(hasAction(x, y)))""" ;
+    iof-av:naturalLanguageDefinition """A button is a widget that performs an action when clicked."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'button' is a 'widget' that has some 'action'.""" .
+
+ui:InputWidget a owl:Class ;
+    rdfs:label "Input"@en ;
+    rdfs:comment "An input is a widget that allows the user to enter data."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """Input(x) ↔ (Widget(x) ∧ ∃y(hasPlaceholder(x, y)))""" ;
+    iof-av:naturalLanguageDefinition """An input is a widget that allows users to enter data."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'input' is a 'widget' that has some 'placeholder'.""" .
+
+ui:LabelWidget a owl:Class ;
+    rdfs:label "Label"@en ;
+    rdfs:comment "A label is a widget that displays text."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """Label(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A label is a widget that displays text."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'label' is a 'widget'.""" .
+
+ui:CheckboxWidget a owl:Class ;
+    rdfs:label "Checkbox"@en ;
+    rdfs:comment "A checkbox is a widget that allows the user to make a binary choice."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """Checkbox(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A checkbox is a widget that allows users to make a binary choice."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'checkbox' is a 'widget'.""" .
+
+ui:RadioButtonWidget a owl:Class ;
+    rdfs:label "Radio Button"@en ;
+    rdfs:comment "A radio button is a widget that allows the user to select one option from a set."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """RadioButton(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A radio button is a widget that allows users to select one option from a set."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'radio button' is a 'widget'.""" .
+
+ui:DropdownWidget a owl:Class ;
+    rdfs:label "Dropdown"@en ;
+    rdfs:comment "A dropdown is a widget that allows the user to select one option from a list."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """Dropdown(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A dropdown is a widget that allows users to select one option from a list."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'dropdown' is a 'widget'.""" .
+
+ui:ContainerWidget a owl:Class ;
+    rdfs:label "Container"@en ;
+    rdfs:comment "A container is a widget that can hold other widgets."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """Container(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A container is a widget that can hold other widgets."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'container' is a 'widget'.""" .
+
+ui:FormWidget a owl:Class ;
+    rdfs:label "Form"@en ;
+    rdfs:comment "A form is a container that holds widgets for user input."@en ;
+    rdfs:subClassOf ui:ContainerWidget ;
+    iof-av:firstOrderLogicDefinition """Form(x) ↔ Container(x)""" ;
+    iof-av:naturalLanguageDefinition """A form is a container that holds widgets for user input."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'form' is a 'container'.""" .
+
+ui:PanelWidget a owl:Class ;
+    rdfs:label "Panel"@en ;
+    rdfs:comment "A panel is a container that holds widgets and other containers."@en ;
+    rdfs:subClassOf ui:ContainerWidget ;
+    iof-av:firstOrderLogicDefinition """Panel(x) ↔ Container(x)""" ;
+    iof-av:naturalLanguageDefinition """A panel is a container that holds widgets and other containers."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'panel' is a 'container'.""" .
+
+ui:DataGridWidget a owl:Class ;
+    rdfs:label "Data Grid"@en ;
+    rdfs:comment "A data grid is a widget that displays data in a tabular format."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """DataGrid(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A data grid is a widget that displays data in a tabular format."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'data grid' is a 'widget'.""" .
+
+ui:ChartWidget a owl:Class ;
+    rdfs:label "Chart Widget"@en ;
+    rdfs:comment "A chart widget is a widget that displays data in a graphical format."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """ChartWidget(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A chart widget is a widget that displays data in a graphical format."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'chart widget' is a 'widget'.""" .
+
+ui:GraphWidget a owl:Class ;
+    rdfs:label "Graph Widget"@en ;
+    rdfs:comment "A graph widget is a widget that displays data in a graph format."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """GraphWidget(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A graph widget is a widget that displays data in a graph format."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'graph widget' is a 'widget'.""" .
+
+ui:ChatWidget a owl:Class ;
+    rdfs:label "Chat Widget"@en ;
+    rdfs:comment "A chat widget is a widget that allows users to communicate with each other."@en ;
+    rdfs:subClassOf ui:Widget ;
+    iof-av:firstOrderLogicDefinition """ChatWidget(x) ↔ Widget(x)""" ;
+    iof-av:naturalLanguageDefinition """A chat widget is a widget that allows users to communicate with each other."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'chat widget' is a 'widget'.""" .
+
+
+
+
+
+ui:Application a owl:Class ;
+    rdfs:label "Application"@en ;
+    rdfs:comment "An application is a software program that runs on a web server or a local machine."@en ;
+    rdfs:subClassOf owl:Thing ;
+    iof-av:firstOrderLogicDefinition """Application(x) ↔ SoftwareProgram(x)""" ;
+    iof-av:naturalLanguageDefinition """An application is a software program that runs on a web server or a local machine."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'application' is a 'software program'.""" .
+
+ui:WebApplication a owl:Class ;
+    rdfs:label "Web Application"@en ;
+    rdfs:comment "A web application is an application that runs on a web server and is accessed via a web browser."@en ;
+    rdfs:subClassOf ui:Application ;
+    iof-av:firstOrderLogicDefinition """WebApplication(x) ↔ (Application(x) ∧ ∃y(hostedOn(x, y) ∧ WebServer(y)))""" ;
+    iof-av:naturalLanguageDefinition """A web application is an application that runs on a web server and is accessed via a web browser."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'web application' is an 'application' that is 'hosted on' some 'web server'.""" .
+
+ui:DesktopApplication a owl:Class ;
+    rdfs:label "Desktop Application"@en ;
+    rdfs:comment "A desktop application is an application that runs on a desktop or laptop computer."@en ;
+    rdfs:subClassOf ui:Application ;
+    iof-av:firstOrderLogicDefinition """DesktopApplication(x) ↔ (Application(x) ∧ ∃y(runsOn(x, y) ∧ Computer(y)))""" ;
+    iof-av:naturalLanguageDefinition """A desktop application is an application that runs on a desktop or laptop computer."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'desktop application' is an 'application' that 'runs on' some 'computer'.""" .
+
+ui:MobileApplication a owl:Class ;
+    rdfs:label "Mobile Application"@en ;
+    rdfs:comment "A mobile application is an application that runs on a mobile device."@en ;
+    rdfs:subClassOf ui:Application ;
+    iof-av:firstOrderLogicDefinition """MobileApplication(x) ↔ (Application(x) ∧ ∃y(runsOn(x, y) ∧ MobileDevice(y)))""" ;
+    iof-av:naturalLanguageDefinition """A mobile application is an application that runs on a mobile device."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """Every instance of 'mobile application' is an 'application' that 'runs on' some 'mobile device'.""" .
+
+
+# Object properties
+ui:containsWidget a owl:ObjectProperty ;
+    rdfs:label "contains widget"@en ;
+    rdfs:comment "A container contains a widget."@en ;
+    rdfs:domain ui:Container ;
+    rdfs:range ui:Widget ;
+    iof-av:firstOrderLogicDefinition """containsWidget(x, y) ↔ (Container(x) ∧ Widget(y) ∧ ∃z(hasComponent(x, z) ∧ Widget(z)))""" ;
+    iof-av:naturalLanguageDefinition """A container contains a widget."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """A container 'contains widget' some widget.""" .
+
+ui:containsContainer a owl:ObjectProperty ;
+    rdfs:label "contains container"@en ;
+    rdfs:comment "A container contains another container."@en ;
+    rdfs:domain ui:Container ;
+    rdfs:range ui:Container ;
+    iof-av:firstOrderLogicDefinition """containsContainer(x, y) ↔ (Container(x) ∧ Container(y) ∧ ∃z(hasComponent(x, z) ∧ Container(z)))""" ;
+    iof-av:naturalLanguageDefinition """A container contains another container."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """A container 'contains container' some container.""" .
+
+ui:hasForm a owl:ObjectProperty ;
+    rdfs:label "has form"@en ;
+    rdfs:comment "An application has a form."@en ;
+    rdfs:domain ui:Application ;
+    rdfs:range ui:Form ;
+    iof-av:firstOrderLogicDefinition """hasForm(x, y) ↔ (Application(x) ∧ Form(y) ∧ ∃z(hasComponent(x, z) ∧ Form(z)))""" ;
+    iof-av:naturalLanguageDefinition """An application has a form."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """An application 'has form' some form.""" .
+
+# Data properties
+ui:hasTitle a owl:DatatypeProperty ;
+    rdfs:label "has title"@en ;
+    rdfs:comment "The title of the application, form, or widget."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    iof-av:firstOrderLogicDefinition """hasTitle(x, y) ↔ (Title(y) ∧ ∃z(Title(z) ∧ hasTitle(x, z)))""" ;
+    iof-av:naturalLanguageDefinition """The title of the application, form, or widget."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """An instance has a title which is a string.""" .
+
+ui:hasAction a owl:DatatypeProperty ;
+    rdfs:label "has action"@en ;
+    rdfs:comment "The action performed by a button."@en ;
+    rdfs:domain ui:Button ;
+    rdfs:range xsd:string ;
+    iof-av:firstOrderLogicDefinition """hasAction(x, y) ↔ (Button(x) ∧ Action(y) ∧ ∃z(Action(z) ∧ hasAction(x, z)))""" ;
+    iof-av:naturalLanguageDefinition """The action performed by a button."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """A button 'has action' some action which is a string.""" .
+
+
+ui:hasPlaceholder a owl:DatatypeProperty ;
+    rdfs:label "has placeholder"@en ;
+    rdfs:comment "The placeholder text for an input widget."@en ;
+    rdfs:domain ui:Input ;
+    rdfs:range xsd:string ;
+    iof-av:firstOrderLogicDefinition """hasPlaceholder(x, y) ↔ (Input(x) ∧ Placeholder(y) ∧ ∃z(Placeholder(z) ∧ hasPlaceholder(x, z)))""" ;
+    iof-av:naturalLanguageDefinition """The placeholder text for an input widget."""@en ;
+    iof-av:semiFormalNaturalLanguageDefinition """An input 'has placeholder' some placeholder which is a string.""" .
+
+
+:sqlite a :DBMS ;
+    :hasName "SQLite" ;
+    :hasVersion "3.35.4" ;
+    :hasOperators :likeOperator, :containsOperator, :inOperator, :betweenOperator, :isNullOperator .
+
+:chroma a :VectorStore ;
+    :hasName "Chroma" ;
+    :hasVersion "1.0.0" ;
+    :hasOperators :likeOperator, :containsOperator, :inOperator, :betweenOperator, :isNullOperator .
+
+:neo4j a :GraphDatabase ;
+    :hasName "Neo4j" ;
+    :hasVersion "4.3.2" ;
+    :hasOperators :likeOperator, :containsOperator, :inOperator, :betweenOperator, :isNullOperator .
+
+
+:likeOperator a :QueryOperator ;
+    :hasName "LIKE" ;
+    :hasDescription "The LIKE operator is used in a WHERE clause to search for a specified pattern in a column." .
+
+:containsOperator a :QueryOperator ;
+    :hasName "CONTAINS" ;
+    :hasDescription "The CONTAINS operator is used in a WHERE clause to search for a specified pattern in a column." .
+
+:inOperator a :QueryOperator ;
+    :hasName "IN" ;
+    :hasDescription "The IN operator is used in a WHERE clause to specify multiple values in a WHERE clause." .
+
+:betweenOperator a :QueryOperator ;
+    :hasName "BETWEEN" ;
+    :hasDescription "The BETWEEN operator is used in a WHERE clause to specify a range of values." .
+
+:isNullOperator a :QueryOperator ;
+    :hasName "IS NULL" ;
+    :hasDescription "The IS NULL operator is used in a WHERE clause to check if a value is NULL." .
+
+# Files is the superclass for TextFiles, Images, BinaryFiles, CSVFiles, PDFFiles, MarkdownFiles
+# it has a mandatory name and a size, optional creation date and modification date, sha256 hash, and a path
+:File a owl:Class ;
+    rdfs:label "File"@en ;
+    rdfs:comment "A file is a collection of data stored in a file system."@en ;
+    rdfs:subClassOf owl:Thing .
+
+:TextFile a owl:Class ;
+    rdfs:label "Text File"@en ;
+    rdfs:comment "A text file is a file that contains plain text."@en ;
+    rdfs:subClassOf :File .
+
+:Image a owl:Class ;
+    rdfs:label "Image"@en ;
+    rdfs:comment "An image is a file that contains an image."@en ;
+    rdfs:subClassOf :File .
+
+:BinaryFile a owl:Class ;
+    rdfs:label "Binary File"@en ;
+    rdfs:comment "A binary file is a file that contains binary data."@en ;
+    rdfs:subClassOf :File .
+
+:CSVFile a owl:Class ;
+    rdfs:label "CSV File"@en ;
+    rdfs:comment "A CSV file is a file that contains comma-separated values."@en ;
+    rdfs:subClassOf :File .
+
+:PDFFile a owl:Class ;
+    rdfs:label "PDF File"@en ;
+    rdfs:comment "A PDF file is a file that contains a PDF document."@en ;
+    rdfs:subClassOf :File .
+
+:MarkdownFile a owl:Class ;
+    rdfs:label "Markdown File"@en ;
+    rdfs:comment "A Markdown file is a file that contains Markdown text."@en ;
+    rdfs:subClassOf :File .
+
+# Document has a file that is one an only one of the subclasses of File
+:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:comment "A document is a file that contains text, images, or other data."@en ;
+    rdfs:subClassOf :File ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasFile ;
+        owl:allValuesFrom :File ;
+    ] .
+
+# refer to the documents ontology for the full definition of the Document class
+:hasFile a owl:ObjectProperty ;
+    rdfs:label "has file"@en ;
+    rdfs:comment "The document has a file."@en ;
+    rdfs:domain :Document ;
+    rdfs:range :File .
+
+
+:Task a owl:Class ;
+    rdfs:label "Tasks"@en ;
+    rdfs:comment "A task is a unit of work that needs to be done."@en ;
+    rdfs:subClassOf owl:Thing .
+
+# importing and exporting are Tasks that have a source and a destination
+:DataTask a owl:Class ;
+    rdfs:label "Data Task"@en ;
+    rdfs:comment "A data task is a task that imports or exports data."@en ;
+    rdfs:subClassOf :Task ;
+    # tasks have a name, description
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasName ;
+        owl:allValuesFrom xsd:string ;
+    ] ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasDescription ;
+        owl:allValuesFrom xsd:string ;
+    ] ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasSource ;
+        owl:allValuesFrom :File ;
+    ] ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasDestination ;
+        owl:allValuesFrom :File ;
+    ] .
+
+:DataImportTask a owl:Class ;
+    rdfs:label "Import Task"@en ;
+    rdfs:comment "An import task is a task that imports data."@en ;
+    rdfs:subClassOf :DataTask .
+
+:DataExportTask a owl:Class ;
+    rdfs:label "Export Task"@en ;
+    rdfs:comment "An export task is a task that exports data."@en ;
+    rdfs:subClassOf :DataTask .
+
+:DataTransformationTask a owl:Class ;
+    rdfs:label "Transformation Task"@en ;
+    rdfs:comment "A transformation task is a task that transforms data."@en ;
+    rdfs:subClassOf :Task .
+
+
+# Pipeline is a sequence of tasks
+:DataPipeline a owl:Class ;
+    rdfs:label "Pipeline"@en ;
+    rdfs:comment "A pipeline is a sequence of tasks."@en ;
+    rdfs:subClassOf :Task ;
+        owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasTasks ;
+        owl:allValuesFrom :Task ;
+    ] . # refer to the tasks ontology for the full definition of the Task class and its subclasses
+
+:hasTasks a owl:ObjectProperty ;
+    rdfs:label "has tasks"@en ;
+    rdfs:comment "The pipeline has tasks."@en ;
+    rdfs:domain :Pipeline ;
+    rdfs:range :Task .
+
+
+
+:hasSource a owl:ObjectProperty ;
+    rdfs:label "has source"@en ;
+    rdfs:comment "The data task has a source file."@en ;
+    rdfs:domain :DataTask ;
+    rdfs:range :File .
+
+:hasDestination a owl:ObjectProperty ;
+    rdfs:label "has destination"@en ;
+    rdfs:comment "The data task has a destination file."@en ;
+    rdfs:domain :DataTask ;
+    rdfs:range :File .
+
+
+:PandasDataFrame a owl:Class ;
+    rdfs:label "Pandas DataFrame"@en ;
+    rdfs:comment "A Pandas DataFrame is a two-dimensional, size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns)."@en ;
+    rdfs:subClassOf owl:Thing .
+
+# define DataSchema as a set of columns with a name and a type
+:DataSchema a owl:Class ;
+    rdfs:label "Data Schema"@en ;
+    rdfs:comment "A data schema is a set of columns with a name and a type."@en ;
+    rdfs:subClassOf owl:Thing ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasColumn ;
+        owl:allValuesFrom :Column ;
+    ] ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasName ;
+        owl:allValuesFrom xsd:string ;
+    ] ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty :hasType ;
+        owl:allValuesFrom xsd:string ;
+    ] .
+
+:Api a owl:Class ;
+    rdfs:label "API"@en ;
+    rdfs:comment "An API is a set of rules and protocols that allows different software applications to communicate with each other."@en ;
+    rdfs:subClassOf owl:Thing .
+
+:WebApi a owl:Class ;
+    rdfs:label "REST API"@en ;
+    rdfs:comment "A Web API is an API that uses HTTP requests to perform operations."@en ;
+    rdfs:subClassOf :Api .
+
+:PythonApi a owl:Class ;
+    rdfs:label "Python API"@en ;
+    rdfs:comment "A Python API is an API that uses Python to perform operations."@en ;
+    rdfs:subClassOf :Api .
+
+# Object properties
+:hasTable a owl:ObjectProperty ;
+    rdfs:label "has table"@en ;
+    rdfs:comment "The database has a table."@en ;
+    rdfs:domain :Database ;
+    rdfs:range :DatabaseTable .
+
+:hasColumn a owl:ObjectProperty ;
+    rdfs:label "has column"@en ;
+    rdfs:comment "The database table has a column."@en ;
+    rdfs:domain :DatabaseTable ;
+    rdfs:range :DatabaseColumn .
+
+:hasPrimaryKey a owl:ObjectProperty ;
+    rdfs:label "has primary key"@en ;
+    rdfs:comment "The database table has a primary key."@en ;
+    rdfs:domain :DatabaseTable ;
+    rdfs:range :PrimaryKey .
+
+:hasForeignKey a owl:ObjectProperty ;
+    rdfs:label "has foreign key"@en ;
+    rdfs:comment "The database table has a foreign key."@en ;
+    rdfs:domain :DatabaseTable ;
+    rdfs:range :ForeignKey .
+
+:hasUniqueKey a owl:ObjectProperty ;
+    rdfs:label "has unique key"@en ;
+    rdfs:comment "The database table has a unique key."@en ;
+    rdfs:domain :DatabaseTable ;
+    rdfs:range :UniqueKey .
+
+:hostedOn a owl:ObjectProperty ;
+    rdfs:label "hosted on"@en ;
+    rdfs:comment "The database is hosted on a DBMS."@en ;
+    rdfs:domain :Database ;
+    rdfs:range :DBMS .
+
+# Data properties
+:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name"@en ;
+    rdfs:comment "The name of the database, table, column, view, or procedure."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+:hasType a owl:DatatypeProperty ;
+    rdfs:label "has type"@en ;
+    rdfs:comment "The type of the database column."@en ;
+    rdfs:domain :DatabaseColumn ;
+    rdfs:range xsd:string .
+
+:hasVersion a owl:DatatypeProperty ;
+    rdfs:label "has version"@en ;
+    rdfs:comment "The version of the DBMS hosting the database."@en ;
+    rdfs:domain :DBMS ;
+    rdfs:range xsd:string .
+
+:hasConnectionString a owl:DatatypeProperty ;
+    rdfs:label "has connection string"@en ;
+    rdfs:comment "The connection string to access the database."@en ;
+    rdfs:domain :Database ;
+    rdfs:range xsd:string .
+
+
+:tasks a :DatabaseTable ;
+    :hasName "tasks" ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "id" ;
+        :hasType "INTEGER" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "description" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "expected_output" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "tools" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "asynchronious" ;
+        :hasType "INTEGER" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "context" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "config" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "output_json" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "output_pydantic" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "output_file" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "human_input" ;
+        :hasType "INTEGER" ;
+    ] ;
+    :hasPrimaryKey [
+        a :PrimaryKey ;
+        :hasColumn :id ;
+    ] .
+
+# CREATE TABLE tools ( id INTEGER NOT NULL, name VARCHAR, description VARCHAR, output VARCHAR, enabled INTEGER, PRIMARY KEY (id) )
+:tools a :DatabaseTable ;
+    :hasName "tools" ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "id" ;
+        :hasType "INTEGER" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "name" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "description" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "output" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "enabled" ;
+        :hasType "INTEGER" ;
+    ] ;
+    :hasPrimaryKey [
+        a :PrimaryKey ;
+        :hasColumn :id ;
+    ] .
+
+# CREATE TABLE crews ( id INTEGER NOT NULL, name VARCHAR, process VARCHAR, agents VARCHAR, PRIMARY KEY (id) )
+:crews a :DatabaseTable ;
+    :hasName "crews" ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "id" ;
+        :hasType "INTEGER" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "name" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "process" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "agents" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasPrimaryKey [
+        a :PrimaryKey ;
+        :hasColumn :id ;
+    ] .
+
+#CREATE TABLE companies ( id INTEGER NOT NULL, company_name VARCHAR, PRIMARY KEY (id) )
+:companies a :DatabaseTable ;
+    :hasName "companies" ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "id" ;
+        :hasType "INTEGER" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "company_name" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasPrimaryKey [
+        a :PrimaryKey ;
+        :hasColumn :id ;
+    ] .
+
+# CREATE TABLE brands ( id INTEGER NOT NULL, company_name VARCHAR, brand_name VARCHAR, PRIMARY KEY (id) )
+:brands a :DatabaseTable ;
+    :hasName "brands" ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "id" ;
+        :hasType "INTEGER" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "company_name" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasColumn [
+        a :DatabaseColumn ;
+        :hasName "brand_name" ;
+        :hasType "VARCHAR" ;
+    ] ;
+    :hasPrimaryKey [
+        a :PrimaryKey ;
+        :hasColumn :id ;
+    ] .
+
+:CompaniesDB a :Database ;
+    :hasName "CompaniesDB" ;
+    :hasTable :companies ;
+    :hasTable :brands ;
+    :hasTable :crews ;
+    :hasTable :tools ;
+    :hostedOn :sqlite ;
+    :hasConnectionString "sqlite:///companies.db" .
+
+

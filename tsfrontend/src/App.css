@@ -67,6 +67,45 @@
   pointer-events: none;
 }
 
+.progress-stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.step.completed .step-number {
+  background-color: #4caf50;
+  color: white;
+}
+
+.step.active .step-number {
+  background-color: #2196f3;
+  color: white;
+}
+
+.step-detail {
+  text-align: center;
+  font-size: 12px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

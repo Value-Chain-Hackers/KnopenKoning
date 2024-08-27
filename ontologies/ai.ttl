@@ -1,0 +1,241 @@
+
+@prefix ai: <http://example.org/ai#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix iof-av: <https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/> .
+@prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix iof-scro: <https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/> .
+
+ai:AITask a owl:Class ;
+    rdfs:label "AI Task"@en ;
+    rdfs:comment "A task performed by an AI system, such as classification, regression, or generation."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:ClassificationTask a owl:Class ;
+    rdfs:label "Classification Task"@en ;
+    rdfs:comment "An AI task that involves categorizing data into classes or groups."@en ;
+    rdfs:subClassOf ai:AITask .
+
+ai:NamedEntityRecognitionTask a owl:Class ;
+    rdfs:label "Named Entity Recognition Task"@en ;
+    rdfs:comment "An AI task that involves identifying and classifying named entities in text."@en ;
+    rdfs:subClassOf ai:AITask .
+
+ai:SummarizationTask a owl:Class ;
+    rdfs:label "Summarization Task"@en ;
+    rdfs:comment "An AI task that involves generating a concise summary of a longer text."@en ;
+    rdfs:subClassOf ai:AITask .
+
+ai:QuestionAnsweringTask a owl:Class ;
+    rdfs:label "Question Answering Task"@en ;
+    rdfs:comment "An AI task that involves answering questions based on a given context."@en ;
+    rdfs:subClassOf ai:AITask .
+
+ai:KnowledgeExtractionTask a owl:Class ;
+    rdfs:label "Knowledge Extraction Task"@en ;
+    rdfs:comment "An AI task that involves extracting structured information from unstructured data."@en ;
+    rdfs:subClassOf ai:AITask .
+
+ai:RegressionTask a owl:Class ;
+    rdfs:label "Regression Task"@en ;
+    rdfs:comment "An AI task that involves predicting continuous values from input data."@en ;
+    rdfs:subClassOf ai:AITask .
+
+ai:GenerationTask a owl:Class ;
+    rdfs:label "Generation Task"@en ;
+    rdfs:comment "An AI task that involves creating new data, such as text, images, or music."@en ;
+    rdfs:subClassOf ai:AITask .
+
+
+ai:AIModel a owl:Class ;
+    rdfs:label "AI Model"@en ;
+    rdfs:comment "An AI model used to perform tasks, such as a neural network or decision tree."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:VisionModel a owl:Class ;
+    rdfs:label "Vision Model"@en ;
+    rdfs:comment "An AI model used for computer vision tasks, such as image classification or object detection."@en ;
+    rdfs:subClassOf ai:AIModel .
+
+ai:LargeLanguageModel a owl:Class ;
+    rdfs:label "Large Language Model"@en ;
+    rdfs:comment "An AI model used for natural language processing tasks, such as text generation or translation."@en ;
+    rdfs:subClassOf ai:AIModel .
+
+ai:MultimodalModel a owl:Class ;
+    rdfs:label "Multimodal Model"@en ;
+    rdfs:comment "An AI model used for tasks that involve multiple modalities, such as image captioning or video analysis."@en ;
+    rdfs:subClassOf ai:AIModel .
+
+ai:AIAgent a owl:Class ;
+    rdfs:label "AI Agent"@en ;
+    rdfs:comment "An AI system that can interact with its environment, make decisions, and perform tasks."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:Chatbot a owl:Class ;
+    rdfs:label "Chatbot"@en ;
+    rdfs:comment "An AI agent that can engage in conversation with users, answer questions, and provide information."@en ;
+    rdfs:subClassOf ai:AIAgent .
+
+ai:FunctionCallTool a owl:Class ;
+    rdfs:label "Function Call Tool"@en ;
+    rdfs:comment "A tool that allows models to call functions of other models or libraries, apis, packages."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:supports a ai:Feature ;
+    rdfs:label "supports"@en ;
+    rdfs:comment "An AI model supports a specific feature or capability."@en ;
+    rdfs:domain ai:AIModel ;
+    rdfs:range ai:Feature .
+
+ai:Feature a owl:Class ;
+    rdfs:label "Feature"@en ;
+    rdfs:comment "A feature or capability of an AI model, such as image recognition or sentiment analysis, function calling, output formats."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:Prompt a owl:Class ;
+    rdfs:label "Prompt"@en ;
+    rdfs:comment "A prompt is an input to an AI model, guiding its response or behavior."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:Chain a owl:Class ;
+    rdfs:label "Chain"@en ;
+    rdfs:comment "A sequence of AI models and tasks combined to achieve a more complex goal."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:Retriever a owl:Class ;
+    rdfs:label "Retriever"@en ;
+    rdfs:comment "A retriever is a component that fetches relevant information for an AI task."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:Framework a owl:Class ;
+    rdfs:label "Framework"@en ;
+    rdfs:comment "A framework is a software library or environment that supports the development and execution of AI models."@en ;
+    rdfs:subClassOf owl:Thing .
+
+ai:Package a owl:Class ;
+    rdfs:label "Package"@en ;
+    rdfs:comment "A package is a collection of software modules or components that can be used for AI development."@en ;
+    rdfs:subClassOf owl:Thing .
+
+# Object properties
+ai:usesModel a owl:ObjectProperty ;
+    rdfs:label "uses model"@en ;
+    rdfs:comment "An AI task uses an AI model."@en ;
+    rdfs:domain ai:AITask ;
+    rdfs:range ai:AIModel .
+
+ai:hasPrompt a owl:ObjectProperty ;
+    rdfs:label "has prompt"@en ;
+    rdfs:comment "An AI task or model has a prompt."@en ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (ai:AITask ai:AIModel) ] ;
+    rdfs:range ai:Prompt .
+
+ai:containsTask a owl:ObjectProperty ;
+    rdfs:label "contains task"@en ;
+    rdfs:comment "A chain contains multiple AI tasks."@en ;
+    rdfs:domain ai:Chain ;
+    rdfs:range ai:AITask .
+
+ai:retrievesFor a owl:ObjectProperty ;
+    rdfs:label "retrieves for"@en ;
+    rdfs:comment "A retriever retrieves information for an AI task or model."@en ;
+    rdfs:domain ai:Retriever ;
+    rdfs:range [ a owl:Class ; owl:unionOf (ai:AITask ai:AIModel) ] .
+
+ai:supportedBy a owl:ObjectProperty ;
+    rdfs:label "supported by"@en ;
+    rdfs:comment "An AI model, task, or chain is supported by a framework."@en ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (ai:AITask ai:AIModel ai:Chain) ] ;
+    rdfs:range ai:Framework .
+
+ai:providedBy a owl:ObjectProperty ;
+    rdfs:label "provided by"@en ;
+    rdfs:comment "A framework or model is provided by a package."@en ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (ai:Framework ai:AIModel) ] ;
+    rdfs:range ai:Package .
+
+# Data properties
+ai:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name"@en ;
+    rdfs:comment "The name of the AI task, model, prompt, chain, retriever, framework, or package."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+ai:hasVersion a owl:DatatypeProperty ;
+    rdfs:label "has version"@en ;
+    rdfs:comment "The version of the AI model, framework, or package."@en ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (ai:AIModel ai:Framework ai:Package) ] ;
+    rdfs:range xsd:string .
+
+ai:hasDescription a owl:DatatypeProperty ;
+    rdfs:label "has description"@en ;
+    rdfs:comment "A description of the AI task, model, prompt, chain, retriever, framework, or package."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+# Examples and Explanatory Notes
+ai:KnowldgeExtractionTask a owl:Class ;
+    rdfs:label "Knowledge Extraction Task"@en ;
+    rdfs:comment "An example of a Knowledge Extraction Task"@en ;
+    rdfs:subClassOf ai:KnowledgeExtractionTask ;
+    skos:example "Named entity recognition, relation extraction, information retrieval" ;
+    iof-av:explanatoryNote "Knowledge extraction tasks involve extracting structured information from unstructured data." ;
+    iof-av:firstOrderLogicDefinition """KnowledgeExtractionTask(x) ↔ ∃y(AITask(y) ∧ usesModel(y, x))""" ;
+    iof-av:naturalLanguageDefinition "A Knowledge Extraction Task is an AI task that involves extracting structured information from unstructured data."@en ;
+    iof-av:semiFormalNaturalLanguageDefinition "Every instance of 'Knowledge Extraction Task' uses some 'AI Model'." .
+
+
+ai:Phi3 a ai:LargeLanguageModel ;
+    rdfs:label "Phi3"@en ;
+    rdfs:comment "An example of a Phi3"@en ;
+    rdfs:subClassOf ai:LargeLanguageModel ;
+    skos:example "OpenAI's GPT-3, Google's T5" ;
+    iof-av:explanatoryNote "Phi3 is a large language model used for natural language processing tasks." ;
+    iof-av:firstOrderLogicDefinition """Phi3(x) ↔ ∃y(LargeLanguageModel(y) ∧ supports(y, x))""" ;
+    iof-av:naturalLanguageDefinition "Phi3 is a large language model used for natural language processing tasks."@en ;
+    iof-av:semiFormalNaturalLanguageDefinition "Every instance of 'Phi3' supports some 'Large Language Model'." .
+
+
+ai:DocumentRetriever a owl:Class ;
+    rdfs:label "Retriever Example"@en ;
+    rdfs:comment "An example of a Retriever"@en ;
+    rdfs:subClassOf ai:Retriever ;
+    skos:example "Information retrieval from databases, fetching relevant documents for NLP tasks" .
+   
+
+ai:RetrievalAugmentedGenerationTask a owl:Class ;
+    rdfs:label "Retrieval Augmented Generation"@en ;
+    rdfs:comment "An example of a Retrieval Augmented Generation Task"@en ;
+    rdfs:subClassOf ai:GenerationTask ;
+    skos:example "OpenAI's GPT-3, Google's T5" ;
+    iof-av:explanatoryNote "Retrieval Augmented Generation tasks involve generating text based on retrieved information." ;
+    iof-av:firstOrderLogicDefinition """RetrievalAugmentedGeneration(x) ↔ ∃y(GenerationTask(y) ∧ usesModel(x, y) ∧ retrievesFor(x, y))""" ;
+    iof-av:naturalLanguageDefinition "A Retrieval Augmented Generation Task is an AI task that involves generating text based on retrieved information."@en ;
+    iof-av:semiFormalNaturalLanguageDefinition "Every instance of 'Retrieval Augmented Generation Task' uses some 'Generation Task' and retrieves information for it." .
+
+ai:RetrievalAugmentedGenerationTask ai:usesModel ai:Phi3 .
+ai:RetrievalAugmentedGenerationTask ai:retrievesFrom ai:DocumentRetriever .
+
+ai:LangChain a ai:Framework ;
+    rdfs:label "LangChain"@en ;
+    rdfs:comment "An example of a LangChain"@en ;
+    rdfs:subClassOf ai:Framework ;
+    skos:example "Hugging Face Transformers, OpenAI Codex" ;
+    iof-av:explanatoryNote "LangChain is a framework for language models and generation tasks." ;
+    iof-av:firstOrderLogicDefinition """LangChain(x) ↔ ∃y(Framework(y) ∧ supportedBy(y, x))""" ;
+    iof-av:naturalLanguageDefinition "LangChain is a framework for language models and generation tasks."@en ;
+    iof-av:semiFormalNaturalLanguageDefinition "Every instance of 'LangChain' is supported by some 'Framework'." .
+
+ai:PackageExample a owl:Class ;
+    rdfs:label "Package Example"@en ;
+    rdfs:comment "An example of a Package"@en ;
+    rdfs:subClassOf ai:Package ;
+    skos:example "Python packages, Java libraries" ;
+    iof-av:explanatoryNote "Packages are collections of software modules for AI development." ;
+    iof-av:firstOrderLogicDefinition """Package(x) ↔ ∃y(Framework(y) ∧ providedBy(y, x))""" ;
+    iof-av:naturalLanguageDefinition "A Package is a collection of software modules or components for AI development."@en ;
+    iof-av:semiFormalNaturalLanguageDefinition "Every instance of 'Package' provides some 'framework' or 'model'." .

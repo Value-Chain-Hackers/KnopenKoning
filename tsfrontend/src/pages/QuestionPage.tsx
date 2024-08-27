@@ -16,32 +16,15 @@ const QuestionPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchQuestion = async () => {
-    //   try {
-    //     const response = await fetch(`http://localhost:18000/view/${uid}`);
-    //     if (!response.ok) {
-    //      // throw new Error('Failed to fetch question details');
-    //     }
-    //     const data: Question = await response.json();
-    //     setQuestion(data);
-    //   } catch (err: any) {
-    //     setError(err.message);
-    //   }
-    };
 
-    fetchQuestion();
   }, [uid]);
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
-//   if (!question) {
-//     return <div>Loading...</div>;
-//   }
-
   return (
-    <TabControl url='/tabs.json' sessionId={uid} />
+    <TabControl url='http://localhost:18000/view/' sessionId={uid} />
   );
 };
 

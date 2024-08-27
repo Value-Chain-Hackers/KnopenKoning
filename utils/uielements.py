@@ -3,6 +3,7 @@ import json
 from langchain_community.llms.ollama import Ollama
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
+
 class UIElementsBuilder():
     def __init__(self, host="http://ollama:11434"):
         self.host = host
@@ -26,9 +27,9 @@ Each element should have a 'description' field that contains the description of 
 Each element should have a 'query' field that contains the rdflib compliant query that should be used to retrieve the data.
 Each element should have a 'followup' field that contains a JSON array strings with a maximum 3 questions that can be asked to further explore the data within the element.
 The followups should not propose filters or other ways to manipulate the data, but rather other points of interest that can be explored.
-Only return a valid JSON array of UI elements.
+Only return a valid JSON array of UI elements. Do not output any other data. The user can't edit your message and it will be parsed as JSON.
 """)
-        chain = prompt | Ollama(model="llama3:8b", base_url=self.host) | JsonOutputParser()
+        chain = prompt | Ollama(model="llama3.1:70b", base_url=self.host) | JsonOutputParser()
         elements = chain.invoke({'question': question})
         for element in elements:
             type = element.get('type')
@@ -44,6 +45,6 @@ The answer should be text based and should fullfill the following description:
 The element is titled '{title}' and is described as '{description}'.
 The ouput should be a text string in markdown format.
 """)
-        chain = prompt | Ollama(model="llama3:8b", base_url=self.host)
+        chain = prompt | Ollama(model="llama3.1:70b", base_url=self.host)
         elements = chain.invoke({'question': question, 'title': title, 'description': description})
         return elements

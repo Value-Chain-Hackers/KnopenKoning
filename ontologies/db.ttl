@@ -1,0 +1,234 @@
+# Namespace declarations
+@prefix : <http://example.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix iof-av: <http://example.org/iof-av#> .
+
+# Ontology declaration
+<http://example.org/ontology>
+    a owl:Ontology ;
+    rdfs:label "Database Ontology"@en ;
+    rdfs:comment "An ontology for representing various elements of a database, including tables, columns, keys, views, procedures, vector stores, and graph databases."@en ;
+    owl:versionInfo "1.0" ;
+    owl:imports <http://www.w3.org/2002/07/owl> ;
+    owl:imports <http://www.w3.org/2000/01/rdf-schema> ;
+    owl:imports <http://www.w3.org/2001/XMLSchema> ;
+    owl:imports <http://www.w3.org/2004/02/skos/core> .
+
+# Classes
+:DatabaseElement a owl:Class ;
+    rdfs:label "Database Element"@en ;
+    rdfs:comment "A database element is a component of a database, such as a table, column, key, view, or procedure."@en ;
+    rdfs:subClassOf owl:Thing ;
+    iof-av:firstOrderLogicAxiom "DatabaseElement(x) -> Thing(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Database Element, then x is a Thing." ;
+    skos:example "A table, column, or key within a database." .
+
+:DatabaseTable a owl:Class ;
+    rdfs:label "Database Table"@en ;
+    rdfs:comment "A database table is a collection of related data held in a structured format within a database."@en ;
+    rdfs:subClassOf :DatabaseElement ;
+    iof-av:firstOrderLogicAxiom "DatabaseTable(x) -> DatabaseElement(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Database Table, then x is a Database Element." ;
+    skos:example "A table named 'Users' in a MySQL database." .
+
+:DatabaseColumn a owl:Class ;
+    rdfs:label "Database Column"@en ;
+    rdfs:comment "A database column is a set of data values of a particular simple type, one value for each row of the table."@en ;
+    rdfs:subClassOf :DatabaseElement ;
+    iof-av:firstOrderLogicAxiom "DatabaseColumn(x) -> DatabaseElement(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Database Column, then x is a Database Element." ;
+    skos:example "A column named 'email' in the 'Users' table." .
+
+:Key a owl:Class ;
+    rdfs:label "Key"@en ;
+    rdfs:comment "A generic key that can be specialized into a primary key, foreign key, or unique key."@en ;
+    rdfs:subClassOf :DatabaseElement ;
+    iof-av:firstOrderLogicAxiom "Key(x) -> DatabaseElement(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Key, then x is a Database Element." ;
+    skos:example "A unique identifier for rows in a table." .
+
+:PrimaryKey a owl:Class ;
+    rdfs:label "Primary Key"@en ;
+    rdfs:comment "A primary key is a column or a set of columns that uniquely identifies each row in a table."@en ;
+    rdfs:subClassOf :Key ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :hasColumn ;
+        owl:allValuesFrom :DatabaseColumn ;
+    ] ;
+    iof-av:firstOrderLogicAxiom "PrimaryKey(x) -> Key(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Primary Key, then x is a Key." ;
+    skos:example "The 'id' column in a 'Users' table." .
+
+:ForeignKey a owl:Class ;
+    rdfs:label "Foreign Key"@en ;
+    rdfs:comment "A foreign key is a column or a set of columns in one table that uniquely identifies a row of another table."@en ;
+    rdfs:subClassOf :Key ;
+    iof-av:firstOrderLogicAxiom "ForeignKey(x) -> Key(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Foreign Key, then x is a Key." ;
+    skos:example "The 'user_id' column in an 'Orders' table that references 'id' in 'Users' table." .
+
+:UniqueKey a owl:Class ;
+    rdfs:label "Unique Key"@en ;
+    rdfs:comment "A unique key is a column or a set of columns that ensures that all values in the column are distinct."@en ;
+    rdfs:subClassOf :Key ;
+    iof-av:firstOrderLogicAxiom "UniqueKey(x) -> Key(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Unique Key, then x is a Key." ;
+    skos:example "A 'username' column in a 'Users' table." .
+
+:DatabaseView a owl:Class ;
+    rdfs:label "Database View"@en ;
+    rdfs:comment "A database view is a virtual table based on the result-set of an SQL statement."@en ;
+    rdfs:subClassOf :DatabaseElement ;
+    iof-av:firstOrderLogicAxiom "DatabaseView(x) -> DatabaseElement(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Database View, then x is a Database Element." ;
+    skos:example "A view named 'ActiveUsers' showing only users with active status." .
+
+:DatabaseProcedure a owl:Class ;
+    rdfs:label "Database Procedure"@en ;
+    rdfs:comment "A database procedure is a set of SQL statements that can be executed as a unit to perform a specific task."@en ;
+    rdfs:subClassOf :DatabaseElement ;
+    iof-av:firstOrderLogicAxiom "DatabaseProcedure(x) -> DatabaseElement(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Database Procedure, then x is a Database Element." ;
+    skos:example "A stored procedure to calculate monthly sales." .
+
+:VectorStore a owl:Class ;
+    rdfs:label "Vector Store"@en ;
+    rdfs:comment "A vector store is a database optimized for storing and querying vector data."@en ;
+    rdfs:subClassOf :DatabaseElement ;
+    iof-av:firstOrderLogicAxiom "VectorStore(x) -> DatabaseElement(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Vector Store, then x is a Database Element." ;
+    skos:example "A database optimized for storing and querying vector data such as Pinecone." .
+
+:Vector a owl:Class ;
+    rdfs:label "Vector"@en ;
+    rdfs:comment "A vector is a sequence of values that represents data in multi-dimensional space."@en ;
+    rdfs:subClassOf :VectorStore ;
+    iof-av:firstOrderLogicAxiom "Vector(x) -> VectorStore(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Vector, then x is a Vector Store." ;
+    skos:example "A vector representing word embeddings." .
+
+:GraphDatabase a owl:Class ;
+    rdfs:label "Graph Database"@en ;
+    rdfs:comment "A graph database uses graph structures with nodes, edges, and properties to represent and store data."@en ;
+    rdfs:subClassOf :DatabaseElement ;
+    iof-av:firstOrderLogicAxiom "GraphDatabase(x) -> DatabaseElement(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Graph Database, then x is a Database Element." ;
+    skos:example "A Neo4j database storing social network data." .
+
+:GraphNode a owl:Class ;
+    rdfs:label "Graph Node"@en ;
+    rdfs:comment "A graph node is an entity in a graph database."@en ;
+    rdfs:subClassOf :GraphDatabase ;
+    iof-av:firstOrderLogicAxiom "GraphNode(x) -> GraphDatabase(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Graph Node, then x is a Graph Database." ;
+    skos:example "A node representing a person in a social network graph." .
+
+:GraphEdge a owl:Class ;
+    rdfs:label "Graph Edge"@en ;
+    rdfs:comment "A graph edge represents a relationship between two nodes in a graph database."@en ;
+    rdfs:subClassOf :GraphDatabase ;
+    iof-av:firstOrderLogicAxiom "GraphEdge(x) -> GraphDatabase(x)" ;
+    iof-av:semiFormalNaturalLanguageAxiom "If x is a Graph Edge, then x is a Graph Database." ;
+    skos:example "An edge representing the 'follows' relationship between two users." .
+
+# Object properties
+:hasTable a owl:ObjectProperty ;
+    rdfs:label "has table"@en ;
+    rdfs:comment "The database has a table."@en ;
+    rdfs:domain :DatabaseElement ;
+    rdfs:range :DatabaseTable .
+
+:hasColumn a owl:ObjectProperty ;
+    rdfs:label "has column"@en ;
+    rdfs:comment "The database table has a column."@en ;
+    rdfs:domain :DatabaseTable ;
+    rdfs:range :DatabaseColumn .
+
+:hasPrimaryKey a owl:ObjectProperty ;
+    rdfs:label "has primary key"@en ;
+    rdfs:comment "The database table has a primary key."@en ;
+    rdfs:domain :DatabaseTable ;
+    rdfs:range :PrimaryKey .
+
+:hasForeignKey a owl:ObjectProperty ;
+    rdfs:label "has foreign key"@en ;
+    rdfs:comment "The database table has a foreign key."@en ;
+    rdfs:domain :DatabaseTable ;
+    rdfs:range :ForeignKey .
+
+:hasUniqueKey a owl:ObjectProperty ;
+    rdfs:label "has unique key"@en ;
+    rdfs:comment "The database table has a unique key."@en ;
+    rdfs:domain :DatabaseTable ;
+    rdfs:range :UniqueKey .
+
+:isPrimaryKeyOf a owl:ObjectProperty ;
+    rdfs:label "is primary key of"@en ;
+    rdfs:comment "Indicates the table that the primary key belongs to."@en ;
+    rdfs:domain :PrimaryKey ;
+    rdfs:range :DatabaseTable .
+
+:hasVector a owl:ObjectProperty ;
+    rdfs:label "has vector"@en ;
+    rdfs:comment "The vector store has a vector."@en ;
+    rdfs:domain :VectorStore ;
+    rdfs:range :Vector .
+
+:hasNode a owl:ObjectProperty ;
+    rdfs:label "has node"@en ;
+    rdfs:comment "The graph database has a node."@en ;
+    rdfs:domain :GraphDatabase ;
+    rdfs:range :GraphNode .
+
+:hasEdge a owl:ObjectProperty ;
+    rdfs:label "has edge"@en ;
+    rdfs:comment "The graph database has an edge."@en ;
+    rdfs:domain :GraphDatabase ;
+    rdfs:range :GraphEdge .
+
+:connectsTo a owl:ObjectProperty ;
+    rdfs:label "connects to"@en ;
+    rdfs:comment "The graph edge connects two nodes."@en ;
+    rdfs:domain :GraphEdge ;
+    rdfs:range :GraphNode .
+
+# Data properties
+:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name"@en ;
+    rdfs:comment "The name of the database, table, column, vector, node, or edge."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+:hasType a owl:DatatypeProperty ;
+    rdfs:label "has type"@en ;
+    rdfs:comment "The type of the database column or vector."@en ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (:DatabaseColumn :Vector) ] ;
+    rdfs:range xsd:string .
+
+:hasPrimaryKeyValue a owl:DatatypeProperty ;
+    rdfs:label "has primary key value"@en ;
+    rdfs:comment "The value of the primary key."@en ;
+    rdfs:domain :PrimaryKey ;
+    rdfs:range xsd:string .
+
+:hasConnectionString a owl:DatatypeProperty ;
+    rdfs:label "has connection string"@en ;
+    rdfs:comment "The connection string used to connect to the database."@en ;
+    rdfs:domain :DatabaseElement ;
+    rdfs:range xsd:string .
+
+:hasVersion a owl:DatatypeProperty ;
+    rdfs:label "has version"@en ;
+    rdfs:comment "The version of the database, vector store, or graph database."@en ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (:DatabaseElement :VectorStore :GraphDatabase) ] ;
+    rdfs:range xsd:string .
+
+:hasDescription a owl:DatatypeProperty ;
+    rdfs:label "has description"@en ;
+    rdfs:comment "A description of the database, table, column, vector, node, or edge."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .

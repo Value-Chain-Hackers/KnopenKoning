@@ -14,16 +14,13 @@ from fastapi.responses import RedirectResponse, JSONResponse
 from langchain_community.llms.ollama import Ollama
 from langchain.prompts import PromptTemplate
 import ollama
-import mlflow
-mlflow.set_tracking_uri("http://localhost:5000")
-mlflow.set_experiment("Chainwise-Chatbot")
+
 
 router = APIRouter()
 BASE_DIR = Path(__file__).resolve().parent.parent
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
-OLLAMA_URL = os.getenv("OLLAMA_URL", "localhost:11434")
+OLLAMA_URL = os.getenv("OLLAMA_URL", "45.23.211.101:11434")
 client = ollama.Client(host=OLLAMA_URL)
-mlflow.langchain.autolog(log_models=True, log_input_examples=True)
 
 
 @router.get("")

@@ -9,8 +9,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Graph: React.FC = () => {
+interface GraphProps {
+  id?: string;
+  dataUrl?: string;
+  query?: string;
+}
+
+const Graph: React.FC<GraphProps> = (query) => {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const queryStr = query.query;
   const [nodes, setNodes] = useState<any[]>([]);
   const [lookupMap, setLookupMap] = useState<any>({});
   const [enabledPrefixes, setEnabledPrefixes] = useState<{
@@ -26,7 +33,9 @@ const Graph: React.FC = () => {
 
   // Define the zoom behavior outside of useEffect so it can be used in handlers
   const zoom = d3.zoom<SVGSVGElement, unknown>().on("zoom", (event) => {
-    d3.select(svgRef.current).select("g").attr("transform", event.transform as any);
+    d3.select(svgRef.current)
+      .select("g")
+      .attr("transform", event.transform as any);
   });
 
   useEffect(() => {
@@ -38,7 +47,13 @@ const Graph: React.FC = () => {
 
       const newSimulation = d3
         .forceSimulation()
-        .force("link", d3.forceLink().id((d: any) => d["@id"]).distance(100))
+        .force(
+          "link",
+          d3
+            .forceLink()
+            .id((d: any) => d["@id"])
+            .distance(100)
+        )
         .force("charge", d3.forceManyBody().strength(-300))
         .force(
           "center",
@@ -251,50 +266,60 @@ const Graph: React.FC = () => {
   };
 
   return (
-    <div className="graph-container">
-      <ul id="prefixList">
-        {Object.entries(enabledPrefixes).map(([prefix, enabled], index) => (
-          <li
-            key={prefix}
-            style={{ backgroundColor: colorMapping[prefix] }}
-            className={!enabled ? "disabled" : ""}
-            onClick={() => {
-              setEnabledPrefixes((prev) => ({
-                ...prev,
-                [prefix]: !prev[prefix],
-              }));
-              if (svgRef.current && simulation) {
-                updateGraph(
-                  d3.select(svgRef.current).select("g"),
-                  simulation,
-                  nodes,
-                  enabledPrefixes
-                );
-              } else {
-                console.error("svgRef.current or simulation is undefined.");
-              }
-            }}
-          >
-            {prefix}
-          </li>
-        ))}
-      </ul>
-      <div className="graph-controls">
-        <button id="zoomIn" onClick={handleZoomIn}>
-          <FontAwesomeIcon icon={faSearchPlus} />
-        </button>
-        <button id="zoomOut" onClick={handleZoomOut}>
-          <FontAwesomeIcon icon={faSearchMinus} />
-        </button>
-        <button id="fitContent" onClick={handleFitContent}>
-          <FontAwesomeIcon icon={faExpand} />
-        </button>
-        <button id="refreshButton" onClick={handleRefresh}>
-          <FontAwesomeIcon icon={faSyncAlt} />
-        </button>
+    <>
+      <p>{queryStr}</p>
+      <div className="graph-container">
+        <ul id="prefixList">
+          {Object.entries(enabledPrefixes).map(([prefix, enabled], index) => (
+            <li
+              key={prefix}
+              style={{ backgroundColor: colorMapping[prefix] }}
+              className={!enabled ? "disabled" : ""}
+              onClick={() => {
+                setEnabledPrefixes((prev) => ({
+                  ...prev,
+                  [prefix]: !prev[prefix],
+                }));
+                if (svgRef.current && simulation) {
+                  updateGraph(
+                    d3.select(svgRef.current).select("g"),
+                    simulation,
+                    nodes,
+                    enabledPrefixes
+                  );
+                } else {
+                  console.error("svgRef.current or simulation is undefined.");
+                }
+              }}
+            >
+              {prefix}
+            </li>
+          ))}
+        </ul>
+        <div className="graph-controls">
+          <button id="zoomIn" onClick={handleZoomIn}>
+            <FontAwesomeIcon icon={faSearchPlus} />
+          </button>
+          <button id="zoomOut" onClick={handleZoomOut}>
+            <FontAwesomeIcon icon={faSearchMinus} />
+          </button>
+          <button id="fitContent" onClick={handleFitContent}>
+            <FontAwesomeIcon icon={faExpand} />
+          </button>
+          <button id="refreshButton" onClick={handleRefresh}>
+            <FontAwesomeIcon icon={faSyncAlt} />
+          </button>
+        </div>
+        <svg ref={svgRef} id="graph-canvas"></svg>
       </div>
-      <svg ref={svgRef} id="graph-canvas"></svg>
-    </div>
+
+      <div>
+        Query:
+        <textarea style={{ width: "100%", height: "200px" }} rows={5}>
+          {queryStr}  
+        </textarea>
+      </div>
+    </>
   );
 };
 

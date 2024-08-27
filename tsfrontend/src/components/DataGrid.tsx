@@ -14,19 +14,23 @@ interface DataGridProps {
   dataUrl?: string;
   data?: any[];
   columns?: any[];
+  query?: string;
 }
 
-const DataGrid: React.FC<DataGridProps> = ({ data, dataUrl, columns }) => {
+const DataGrid: React.FC<DataGridProps> = ({ data, dataUrl, columns, query }) => {
   const [tableData, setData] = useState<any[]>([]);
   const [tableColumns, setColumns] = useState<Column<any>[]>([]);
-
+  const [queryStr, setQuery] = useState<string>("");
   useEffect(() => {
+    setQuery(query || "");
     if (data) {
       setData(data);
     } else if (dataUrl) {
       fetch(dataUrl)
         .then((response) => response.json())
         .then((data) => setData(data));
+    } else {
+      setData([]);
     }
   }, [data, dataUrl]);
 
@@ -51,11 +55,12 @@ const DataGrid: React.FC<DataGridProps> = ({ data, dataUrl, columns }) => {
       usePagination
     );
 
-  if (!tableData || tableData.length === 0) {
+  if (!tableData ) {
     return <div>No data</div>;
   }
   return (
     <div>
+      <p style={{textAlign:'left'}}>{queryStr}</p>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => {

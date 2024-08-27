@@ -71,7 +71,7 @@ def read_entity(class_id: str, request: Request):
     return graphVisitor.rdf_to_markdown()
 
 
-model = ChatOllama(model="phi3:latest", base_url=OLLAMA_API_URL)
+model = ChatOllama(model="llama3.1:latest", base_url=OLLAMA_API_URL)
 
 @app.post("/uploadfile/")
 async def upload_file(file: UploadFile = File(...)):
@@ -125,15 +125,6 @@ async def get_models():
     return tools
 
 
-@app.get("/view/{company:str}/")
-async def read_company(request: Request, company: str):
-    context = {
-        "request": request,  # Required for Jinja2 to work with FastAPI
-        "title": company,
-        "company": company
-    }
-    return templates.TemplateResponse("view.html", context)
-
 @app.get("/admin")
 async def read_admin(request: Request, db: Session = Depends(get_db)):
     agents = await get_agents(db)
@@ -151,7 +142,8 @@ async def read_admin(request: Request, db: Session = Depends(get_db)):
 from langchain_core.agents import AgentAction, AgentFinish, AgentStep
 from crewai.tasks.task_output import TaskOutput
 from langchain_core.callbacks import BaseCallbackHandler, BaseCallbackManager
-
+from utils.uielements import UIElementsBuilder
+builder = UIElementsBuilder()
 
 class customCallbackManager(BaseCallbackManager):
     def __init__(self, handlers: List[BaseCallbackHandler], inheritable_handlers: List[BaseCallbackHandler] | None = None, parent_run_id: uuid.UUID | None = None, *, tags: List[str] | None = None, inheritable_tags: List[str] | None = None, metadata: Dict[str, Any] | None = None, inheritable_metadata: Dict[str, Any] | None = None) -> None:
@@ -354,42 +346,48 @@ async def progress(id: str, db: Session = Depends(get_db)):
     async def event_generator(db: Session):
         global processes
         if id in processes:
-            company = processes[id]["company"]
             yield {
                 "event": "message",
                 "id": str(1),
-                "data": f'{{"step": 1, "detail": "Collecting base information about {company}."}}'
+                "data": f'{{"step": 1, "detail": "Collecting base."}}'
             }
-            await asyncio.sleep(1)
+            await asyncio.sleep(2)
             question = processes[id]["question"]
-            #records = collect_base_information(company, db)
             records = []
             yield {
                 "event": "message",
-                "id": str(1),
-                "data": f'{{"step": 1, "detail": "Collected {len(records)} for {company}."}}'
+                "id": str(2),
+                "data": f'{{"step": 2, "detail": "Collected {len(records)}."}}'
             }
-            await asyncio.sleep(1)
+            await asyncio.sleep(2)
 
+            yield {
+                "event": "message",
+                "id": str(3),
+                "data": f'{{"step": 3, "detail": "Collecting {len(records)}."}}'
+            }
             question = processes[id]["question"]
-            from utils.uielements import UIElementsBuilder
-            builder = UIElementsBuilder()
             elements = builder.answer(question)
             processes[id]["elements"] = elements
-            yield {
-                "event": "message",
-                "id": str(2),
-                "data": f'{{"step": 2, "detail": "Collected {len(records)} for {company}.", elements: {elements} }}'
-            }
-            await asyncio.sleep(2)
-
-        for step in range(3, 7):
             await asyncio.sleep(2)
             yield {
                 "event": "message",
-                "id": str(step),
-                "data": f'{{"step": {step}, "detail": "Step {step} done."}}'
+                "id": str(4),
+                "data": f'{{"step": 4, "detail": "Collected {len(records)}."}}'
             }
+            await asyncio.sleep(2)
+            yield {
+                "event": "message",
+                "id": str(5),
+                "data": f'{{"step": 5, "detail": "Collected {len(records)}."}}'
+            }
+            await asyncio.sleep(2)
+            yield {
+                "event": "message",
+                "id": str(6),
+                "data": f'{{"step": 6, "detail": "Collected {len(records)}."}}'
+            }
+            print("Done")
     
     return EventSourceResponse(event_generator(db))
 
@@ -397,25 +395,25 @@ async def progress(id: str, db: Session = Depends(get_db)):
 async def process(request: Request):
     global processes
     data = await request.json()
-    company = data.get("company")
     question = data.get("question")
     uid = uuid.uuid4()
-    processes[str(uid)] = {"company": company, "question": question}
-    return {"company": company, "question": question, "uid": str(uid)}
+    processes[str(uid)] = {"question": question}
+    return { "question": question, "uid": str(uid)}
 
-@app.get("/view/{company:str}/{process_id:str}")
-async def read_root(request: Request, company: str, process_id: str, db: Session = Depends(get_db)):
+@app.get("/view/{process_id:str}")
+async def read_root(request: Request, process_id: str, db: Session = Depends(get_db)):
     global processes
-    companies = db.query(Company).order_by(Company.company_name).filter(Company.company_name == company).first()
-    print(processes[process_id])
+    initial = processes[process_id]
+    print(initial)
+#    companies = db.query(Company).order_by(Company.company_name).filter(Company.company_name == initial['company']).first()
+
     context = {
-        "request": request,  # Required for Jinja2 to work with FastAPI
         "title": "ChainWise",
-        "company": companies,
+ #       "company": companies,
         "process_id": process_id,
         "elements": processes[process_id].get("elements")
     }
-    return templates.TemplateResponse("view.html", context)
+    return context
 
 @app.get("/")
 async def read_root(request: Request, db: Session = Depends(get_db)):

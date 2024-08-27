@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 interface TextContentProps {
   content?: string;
@@ -6,8 +7,8 @@ interface TextContentProps {
 
 const TextContent: React.FC<TextContentProps> = ({ content }) => {
   return (
-    <div>
-      <p>{content}</p>
+    <div style={{ padding: '20px', textAlign: 'left' }}>
+      <ReactMarkdown>{content || ''}</ReactMarkdown>
     </div>
   );
 };
