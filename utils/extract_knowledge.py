@@ -233,7 +233,7 @@ from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain.chains import ConversationChain
-from langchain.memory import ConversationKGMemory
+from langchain_community.memory.kg import ConversationKGMemory
 from langchain_community.callbacks.labelstudio_callback import (
     LabelStudioCallbackHandler,
 )
