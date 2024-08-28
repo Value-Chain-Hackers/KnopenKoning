@@ -31,9 +31,11 @@ const StartPage: React.FC<StartPageProps> = ({
     setIsProcessing(true);
     setProgress([]);
     const question_text = question;
+    const token = localStorage.getItem('token');
     const response = await fetch('http://localhost:18000/process', {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ 

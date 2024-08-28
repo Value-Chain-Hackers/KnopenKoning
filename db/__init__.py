@@ -7,5 +7,6 @@ from .agents import Agents
 from .tools import Tools
 from .crews import Crews
 from .document import Document
+from .user import User
 
-__all__ = ["Base", "engine", "Agents", "Company", "Crews", "Document", "Records", "Tasks", "Tools", "Website"]
+__all__ = ["Base", "engine", "Agents", "Company", "Crews", "Document", "Records", "Tasks", "Tools", "Website", "User"]

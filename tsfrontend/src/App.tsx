@@ -12,7 +12,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './App.css';
 
 const AppRoutes = () => {
-  const { isAuthenticated, isAdmin } = useAuth();
+  const { isAuthenticated, isAdmin, isLoading } = useAuth();
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [question, setQuestion] = useState('');
 
@@ -20,6 +20,10 @@ const AppRoutes = () => {
     console.log('Starter clicked:', message);
     setQuestion(message);
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={`app-container ${isChatOpen ? 'chat-open' : ''}`}>

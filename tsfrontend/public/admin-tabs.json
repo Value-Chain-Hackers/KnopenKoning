@@ -1,49 +1,62 @@
-[
-  {
-    "type": "Text",
-    "title": "Databases",
-    "content": "This is the DB tab."
-  },
-
-  {
-    "id" : "models",
-    "type": "DataGrid",
-    "title": "Models",
-    "dataUrl": "http://localhost:18000/ai/models",
-    "columns": [ "name", "details.parameter_size", "details.quantization_level" ]
-  },
-
-  {
-    "id" : "loaded_models",
-    "type": "LoadedModels",
-    "title": "Loaded Models"
-  },
-  {
-    "id" : "companies",
-    "type": "DataGrid",
-    "title": "Companies",
-    "dataUrl": "http://localhost:18000/api/companies",
-    "columns": [ "company_name" ]
-  },
-  {
-    "id" : "crews",
-    "type": "DataGrid",
-    "title": "Crews",
-    "dataUrl": "http://localhost:18000/api/crews",
-    "columns": [ "company_name" ]
-  },
-  {
-    "id" : "agents",
-    "type": "DataGrid",
-    "title": "Agents",
-    "dataUrl": "http://localhost:18000/api/agents",
-    "columns": [ "company_name" ]
-  },
-  {
-    "id" : "tasks",
-    "type": "DataGrid",
-    "title": "Tasks",
-    "dataUrl": "http://localhost:18000/api/tasks",
-    "columns": [ "company_name" ]
-  }
-]
+{
+  "search_results":[],
+  "elements": [
+    {
+      "type": "Text",
+      "title": "Databases",
+      "content": "This is the DB tab."
+    },
+    {
+      "id": "models",
+      "type": "DataGrid",
+      "title": "Models",
+      "dataUrl": "http://localhost:18000/ai/models",
+      "columns": [
+        "name",
+        "details.parameter_size",
+        "details.quantization_level"
+      ]
+    },
+    {
+      "id": "loaded_models",
+      "type": "LoadedModels",
+      "title": "Loaded Models"
+    },
+    {
+      "id": "companies",
+      "type": "DataGrid",
+      "title": "Companies",
+      "dataUrl": "http://localhost:18000/api/companies",
+      "columns": [
+        "company_name"
+      ]
+    },
+    {
+      "id": "crews",
+      "type": "DataGrid",
+      "title": "Crews",
+      "dataUrl": "http://localhost:18000/api/crews",
+      "columns": [
+        "company_name"
+      ]
+    },
+    {
+      "id": "agents",
+      "type": "DataGrid",
+      "title": "Agents",
+      "dataUrl": "http://localhost:18000/api/agents",
+      "columns": [
+        "company_name"
+      ]
+    },
+    {
+      "id": "tasks",
+      "type": "DataGrid",
+      "title": "Tasks",
+      "dataUrl": "http://localhost:18000/api/tasks",
+      "columns": [
+        "company_name"
+      ]
+    }
+  ]
+}

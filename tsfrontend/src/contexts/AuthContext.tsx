@@ -4,6 +4,7 @@ import axios from 'axios';
 interface AuthContextType {
   isAuthenticated: boolean;
   isAdmin: boolean;
+  isLoading: boolean;
   login: (token: string) => Promise<void>;
   logout: () => void;
 }
@@ -13,11 +14,14 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       verifyToken(token);
+    } else {
+      setIsLoading(false);
     }
   }, []);
 
@@ -37,6 +41,8 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
     } catch (error) {
       console.error('Token verification error:', error);
       logout();
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -52,7 +58,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, isAdmin, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, isAdmin, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
