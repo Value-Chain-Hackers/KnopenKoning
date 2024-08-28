@@ -5,7 +5,6 @@ import {
   useFilters,
   usePagination,
   Column,
-  CellProps,
 } from "react-table";
 import "./DataGrid.css";
 
@@ -13,36 +12,75 @@ interface DataGridProps {
   id?: string;
   dataUrl?: string;
   data?: any[];
-  columns?: any[];
+  columns?: string[];
   query?: string;
 }
 
-const DataGrid: React.FC<DataGridProps> = ({ data, dataUrl, columns, query }) => {
+const DataGrid: React.FC<DataGridProps> = ({ data: initialData, dataUrl, columns, query }) => {
   const [tableData, setData] = useState<any[]>([]);
   const [tableColumns, setColumns] = useState<Column<any>[]>([]);
   const [queryStr, setQuery] = useState<string>("");
-  useEffect(() => {
-    setQuery(query || "");
-    if (data) {
-      setData(data);
-    } else if (dataUrl) {
-      fetch(dataUrl)
-        .then((response) => response.json())
-        .then((data) => setData(data));
-    } else {
-      setData([]);
-    }
-  }, [data, dataUrl]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (tableData && tableData.length > 0) {
-      const cc = columns!.map((key) => ({
+    setQuery(query || "");
+    fetchData();
+  }, [query, dataUrl]);
+
+  const fetchData = async () => {
+    if (initialData) {
+      setData(initialData);
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+    if (!query) {
+      setIsLoading(false);
+      return;
+    }
+    try {
+      const response = await fetch('http://localhost:18000/graph/query', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: query,
+          url: dataUrl,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      setData(result.data || []);
+    } catch (e) {
+      //setError(`Failed to fetch data: ${e instanceof Error ? e.message : String(e)}`);
+      setData([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (columns && columns.length > 0) {
+      const cc = columns.map((key) => ({
+        Header: key,
+        accessor: key,
+      }));
+      setColumns(cc);
+    } else if (tableData && tableData.length > 0) {
+      const cc = Object.keys(tableData[0]).map((key) => ({
         Header: key,
         accessor: key,
       }));
       setColumns(cc);
     }
-  }, [tableData]);
+  }, [columns, tableData]);
 
   const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } =
     useTable(
@@ -55,12 +93,17 @@ const DataGrid: React.FC<DataGridProps> = ({ data, dataUrl, columns, query }) =>
       usePagination
     );
 
-  if (!tableData ) {
-    return <div>No data</div>;
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <div>
-      <p style={{textAlign:'left'}}>{queryStr}</p>
+      { queryStr && <textarea cols={100} rows={5}  value={queryStr} readOnly={true}></textarea>}
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => {
@@ -80,22 +123,30 @@ const DataGrid: React.FC<DataGridProps> = ({ data, dataUrl, columns, query }) =>
           })}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
-            prepareRow(row);
-            const { key, ...restRowProps } = row.getRowProps();
-            return (
-              <tr key={key} {...restRowProps}>
-                {row.cells.map((cell) => {
-                  const { key, ...restCellProps } = cell.getCellProps();
-                  return (
-                    <td key={key} {...restCellProps}>
-                      {cell.render("Cell")}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
+          {rows.length > 0 ? (
+            rows.map((row) => {
+              prepareRow(row);
+              const { key, ...restRowProps } = row.getRowProps();
+              return (
+                <tr key={key} {...restRowProps}>
+                  {row.cells.map((cell) => {
+                    const { key, ...restCellProps } = cell.getCellProps();
+                    return (
+                      <td key={key} {...restCellProps}>
+                        {cell.render("Cell")}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })
+          ) : (
+            <tr>
+              <td colSpan={tableColumns.length} style={{ textAlign: 'center' }}>
+                No data available
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

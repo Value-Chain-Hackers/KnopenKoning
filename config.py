@@ -1,4 +1,6 @@
-MODEL_NAME = "llama3:latest"
+import os
+
+MODEL_NAME = os.environ.get("OLLAMA_MODEL", "llama3.1:70b")
 #MODEL_NAME = "mistral:latest"
 #MODEL_NAME = "mixtral:8x7b"
 #MODEL_NAME = "mixtral:8x7b"

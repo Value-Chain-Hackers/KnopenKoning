@@ -14,7 +14,7 @@ const FollowUpQuestions: React.FC<FollowUpQuestionsProps> = ({ followup }) => {
             <li key={`followup-${index}`} className="transition-all duration-200 ease-in-out hover:translate-x-1">
               <a
                 href={`?question=${encodeURIComponent(question)}`}
-                className="text-white-600 hover:text-blue-800 flex items-center"
+                className="text-white-600 flex items-center"
               >
                 <svg
                   className="w-4 h-4 mr-2"

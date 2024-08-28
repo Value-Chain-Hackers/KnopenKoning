@@ -315,9 +315,7 @@ const Graph: React.FC<GraphProps> = (query) => {
 
       <div>
         Query:
-        <textarea style={{ width: "100%", height: "200px" }} rows={5}>
-          {queryStr}  
-        </textarea>
+        { queryStr && <textarea cols={100} rows={5}  value={queryStr} readOnly={true}></textarea>}
       </div>
     </>
   );

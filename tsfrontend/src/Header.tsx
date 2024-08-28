@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { faCog, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
 
 interface HeaderProps {
@@ -15,6 +15,11 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
     navigate('/admin');
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
   return (
     <div className="header">
       <div className="avatar">
@@ -25,6 +30,9 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
       <div className="titleBar">{title}</div>
       <button id="adminButton" className="admin-button" style={{ backgroundColor: "transparent" }} onClick={handleAdminClick}>
         <FontAwesomeIcon icon={faCog} size="lg" />
+      </button>
+      <button id="logoutButton" className="logout-button" style={{ backgroundColor: "transparent" }} onClick={handleLogout}>
+        <FontAwesomeIcon icon={faSignOutAlt} size="lg" />
       </button>
     </div>
   );

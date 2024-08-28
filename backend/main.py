@@ -11,6 +11,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent.parent
     print("BASE_DIR: ", BASE_DIR)
+    print("Loading environment variables {}".format(BASE_DIR / ".env"))
     load_dotenv(BASE_DIR / ".env")
 
     print(" 🚀 Starting the backend server...")

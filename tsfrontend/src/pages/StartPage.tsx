@@ -45,7 +45,7 @@ const StartPage: React.FC<StartPageProps> = ({
       throw new Error('Failed to submit question');
     }
     const data = await response.json();
-    const eventSource = new EventSource(`http://localhost:18000/progress/${data.uid}`);
+    const eventSource = new EventSource(`http://localhost:18000/progress/${data.process_id}`);
 
     eventSource.onmessage = (event) => {
       const messageData = JSON.parse(event.data);
@@ -55,7 +55,7 @@ const StartPage: React.FC<StartPageProps> = ({
         eventSource.close();
         setIsProcessing(false);
         console.log('Stream complete');
-        window.location.href = `/view/${data.uid}`; // Navigate to the question page
+        window.location.href = `/view/${data.process_id}`; // Navigate to the question page
         return;
       }
     };

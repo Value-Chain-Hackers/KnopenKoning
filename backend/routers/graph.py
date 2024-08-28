@@ -18,6 +18,7 @@ templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
 from rdflib import Graph, URIRef, Literal, Namespace
 from rdflib.plugins.stores.memory import SimpleMemory
+from rdflib.plugins.sparql import prepareQuery
 import glob
 import re
 import json
@@ -35,27 +36,19 @@ def load_ontologies() -> Graph:
 
 @router.get("/")
 async def get_graph(request: Request):
+
     return templates.TemplateResponse("graph.html", {"request": request})
 
-@router.get("/query")
+@router.post("/query")
 async def query(request: Request):
+    query = await request.json()
+    query = query['query']
+    query = query.replace("\n", " ")
+    print(query)
     graph = load_ontologies()
-    graph.serialize(format="json-ld", context={
-    'ui':'http://example.org/ontology#',
-    'ai':'http://example.org/ai#',
-    'db':'http://example.org/ontology/db#',
-    'deo':'http://purl.org/spar/deo/',
-    'corp': "https://spec.edmcouncil.org/fibo/ontology/BE/Corporations/Corporations/",
-    'doco': "http://purl.org/spar/doco/",
-    'owl':"http://www.w3.org/2002/07/owl#",
-    'rdf': "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    'rdfs':"http://www.w3.org/2000/01/rdf-schema#",
-    'skos':"http://www.w3.org/2004/02/skos/core#",
-    'dct':"http://purl.org/dc/terms/",
-    'iof-core':'https://spec.industrialontologies.org/ontology/core/Core/',
-    'iof-av':'https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/',
-    "scm":"https://spec.industrialontologies.org/ontology/supplychain/SupplyChain/"
-    }, destination="ontologies/combined.jsonld", encoding="utf-8")
-    with open("ontologies/combined.jsonld", encoding="utf-8") as f:
-        data = json.load(f)
-    return JSONResponse({"nodes": data})
+    result = graph.query(prepareQuery(query))
+    data = [
+            {str(var): str(value) for var, value in row.items()}
+            for row in result
+        ]
+    return JSONResponse({"data": data})
