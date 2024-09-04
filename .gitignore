@@ -7,3 +7,6 @@ data/**/*.ttl
 docs/_site/*
 data/**/*.txt
 docs/*_files/*
+mlartifacts/*
+mlruns/*
+old/*

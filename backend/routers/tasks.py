@@ -5,12 +5,13 @@ from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi.routing import APIRouter 
 from sqlalchemy.orm import Session
 from db import Tasks
-from db.session import SessionLocal
 from fastapi.templating import Jinja2Templates
 
 router = APIRouter()
 BASE_DIR = Path(__file__).resolve().parent.parent
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
+
+from db.session import SessionLocal
 
 # Dependency
 def get_db():
