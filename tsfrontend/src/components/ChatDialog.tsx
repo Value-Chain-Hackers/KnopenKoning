@@ -2,17 +2,21 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faComments } from '@fortawesome/free-solid-svg-icons';
 import './ChatDialog.css';
+import { useParams } from 'react-router-dom';
+import { useSettings } from '../contexts/SettingsContext';
 
 interface ChatDialogProps {
   isOpen: boolean;
+  sessionId?: string;
   onClose: () => void;
 }
 
-const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, onClose }) => {
+const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, sessionId, onClose }) => {
   const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState<string>('');
   const [isReceiving, setIsReceiving] = useState<boolean>(false);
   const messageEndRef = useRef<HTMLDivElement>(null);
+  const settings = useSettings();
 
   const scrollToBottom = () => {
     if (messageEndRef.current) {
@@ -36,7 +40,8 @@ const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, onClose }) => {
   const sendMessage = async (message: string) => {
     setIsReceiving(true);
     try {
-      const response = await fetch('http://localhost:18000/ai/ask', {
+      const backendUrl = process.env.REACT_APP_BACKEND_URL;
+      const response = await fetch(`${backendUrl}/ai/ask`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -75,13 +80,14 @@ const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, onClose }) => {
       <div className="chat-header bg-blue-500 p-4 flex justify-between items-center">
         <div className="flex items-center">
           <FontAwesomeIcon icon={faComments} className="mr-2" />
-          <h2>Chat</h2>
+          <h2>Chat {settings.apiUrl}</h2>
         </div>
         <button onClick={onClose} className="text-white">
           <FontAwesomeIcon icon={faTimes} />
         </button>
       </div>
       <div className="chat-content p-4 flex flex-col h-full">
+        <b>Session {sessionId}</b>
         <div className="messages flex-1 overflow-auto">
           {messages.map((msg, index) => (
             <div key={index} className="message mb-2">

@@ -16,7 +16,7 @@ interface Tab {
   id?: string;
   type: string;
   title: string;
-  icon?: string 
+  icon?: string;
   content?: string;
   columns?: string[];
   data?: any[];
@@ -131,19 +131,26 @@ const TabControl: React.FC<TabControlProps> = ({
           {tabs.length > 0 && renderTabContent(tabs[activeTab], activeTab)}
         </div>
       </div>
-      {searchResults.map((result, index) => (
-        <div key={index} className="search-result">
-          <a
-            href={result.url}
-            target="_blank"
-            rel="noreferrer"
-            className="search-result-link"
-          >
-            <h3>{result.title}</h3>
-            <p>{result.body}</p>
-          </a>
-        </div>))
-      }
+      <div>
+        <details>
+          <summary>Search Results</summary>
+          <div>
+            {searchResults.map((result, index) => (
+              <div key={index} className="search-result">
+                <a
+                  href={result.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="search-result-link"
+                >
+                  <h3>{result.title}</h3>
+                  <p>{result.body}</p>
+                </a>
+              </div>
+            ))}
+          </div>
+        </details>
+      </div>
     </>
   );
 };

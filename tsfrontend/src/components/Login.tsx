@@ -8,11 +8,11 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
-
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:18000/auth/login', {
+      const response = await axios.post(`${backendUrl}/auth/login`, {
         username,
         password
       }, {

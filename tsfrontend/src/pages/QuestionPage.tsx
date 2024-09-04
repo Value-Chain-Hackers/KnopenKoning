@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
-import axios from 'axios';
-import TabControl from '../components/TabControl';
-import { useAuth } from '../contexts/AuthContext';
+import React, { useEffect, useState } from "react";
+import { useParams, Navigate } from "react-router-dom";
+import axios from "axios";
+import TabControl from "../components/TabControl";
+import { useAuth } from "../contexts/AuthContext";
+import ChatDialog from "../components/ChatDialog";
+import ChatButton from "../components/ChatButton";
 
 const QuestionPage: React.FC = () => {
   const { uid } = useParams<{ uid: string }>();
   const [question, setQuestion] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { isAuthenticated, isLoading } = useAuth();
-
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  
   useEffect(() => {
     if (isAuthenticated && uid) {
       fetchQuestion();
@@ -18,16 +21,16 @@ const QuestionPage: React.FC = () => {
 
   const fetchQuestion = async () => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const response = await axios.get(`http://localhost:18000/view/${uid}`, {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
       setQuestion(response.data);
     } catch (error) {
-      console.error('Error fetching question:', error);
-      setError('Failed to fetch question data');
+      console.error("Error fetching question:", error);
+      setError("Failed to fetch question data");
     }
   };
 
@@ -48,7 +51,11 @@ const QuestionPage: React.FC = () => {
   }
 
   return (
-    <TabControl url='http://localhost:18000/view/' sessionId={uid} />
+    <div>
+      <TabControl url="http://localhost:18000/view/" sessionId={uid} />
+      <ChatDialog isOpen={isChatOpen} sessionId={uid} onClose={() => setIsChatOpen(false)} />
+      {!isChatOpen && <ChatButton onClick={() => setIsChatOpen(true)} />}
+    </div>
   );
 };
 

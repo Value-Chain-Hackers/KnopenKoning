@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
+
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import ChatButton from './components/ChatButton';
-import ChatDialog from './components/ChatDialog';
 import Header from './Header';
 import QuestionPage from './pages/QuestionPage';
 import AdminPage from './pages/AdminPage';
@@ -11,9 +10,10 @@ import Register from './components/Register';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './App.css';
 
+
+
 const AppRoutes = () => {
   const { isAuthenticated, isAdmin, isLoading } = useAuth();
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const [question, setQuestion] = useState('');
 
   const handleStarterClick = (message: string) => {
@@ -26,7 +26,7 @@ const AppRoutes = () => {
   }
 
   return (
-    <div className={`app-container ${isChatOpen ? 'chat-open' : ''}`}>
+    <div className={`app-container`}>
       <div className="main-content">
         <Header title="ChainWise" />
         <div className="App">
@@ -48,8 +48,6 @@ const AppRoutes = () => {
           </Routes>
         </div>
       </div>
-      <ChatDialog isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
-      {!isChatOpen && <ChatButton onClick={() => setIsChatOpen(true)} />}
       <footer className="footer" id="footer">
         <span>Status: Ready</span>
       </footer>

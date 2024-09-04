@@ -10,17 +10,18 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.101",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.5",
     "bcrypt": "^5.1.1",
     "d3": "^7.9.0",
     "daisyui": "^4.12.10",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-mysql-session": "^3.0.3",
     "express-session": "^1.18.0",
     "mysql2": "^3.11.0",
+    "npx": "^10.2.2",
     "passport": "^0.7.0",
     "passport-facebook": "^3.0.0",
     "passport-github2": "^0.1.12",
@@ -61,9 +62,11 @@
   },
   "devDependencies": {
     "@types/d3": "^7.4.3",
+    "@types/node": "^22.5.4",
     "@types/react-table": "^7.7.20",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.4",
+    "ts-node": "^10.9.2"
   }
 }
