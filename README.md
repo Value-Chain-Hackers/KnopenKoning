@@ -1,11 +1,27 @@
 # KnopenKoning
 Master your supply chain, untangling every challenge.
 
+## Documetation 
 
+ - Install quarto from [Quarto](https://quarto.org/docs/download/)
+ ```bash
+    quarto install tinytex
+    quarto render docs --format pdf
+ ```
 
 ## Installation
+
+Install python from [Python](https://www.python.org/downloads/)
+Install node from [Node](https://nodejs.org/en/download/)
+Install mongodb from [MongoDB](https://www.mongodb.com/try/download/community)
+Install mysql from [MySQL](https://dev.mysql.com/downloads/installer/)
+
+Check and update .env file with the correct database connection strings and urls.
+
 ```bash
 
+### backend requirements
+```bash
 python -m venv .venv    
 
 #windows
@@ -14,15 +30,18 @@ python -m venv .venv
 # linux
 source .venv/bin/activate
 
-
 python -m pip install -r requirements.txt
+
+# create the mysql database
+python create_db.py
+
 ``` 
 
+### frontend requirements
 
-## Building the rag index
 ```bash
-python build_rag.py
-python build_knowledge.py
+cd tsfrontend
+npm install
 ```
 
 
@@ -30,6 +49,22 @@ python build_knowledge.py
 ```bash
 python backend/main.py
 ```
+
+
+
+```mermaid
+
+graph TD
+
+    Input --> llm
+    llm --> response
+    response --> llm2
+    llm2 --> llm
+    llm2 --NO--> llm3
+    llm2 --Yes--> llm4
+
+```
+
 
 
 ```mermaid

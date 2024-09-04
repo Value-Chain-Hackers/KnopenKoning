@@ -10,6 +10,7 @@ label-studio-sdk
 langchain_chroma
 langchain_community 
 langchain_core
+langchain_ollama
 langchain
 langgraph
 langserve
