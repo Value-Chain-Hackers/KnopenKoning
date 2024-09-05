@@ -46,7 +46,13 @@ const TabControl: React.FC<TabControlProps> = ({
     if (sessionId) {
       url = `${url}/${sessionId}`;
     }
-    fetch(url!)
+    fetch(url!, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      }
+    } )
       .then((response) => response.json())
       .then((data) => {
         console.log("fetch data", data);

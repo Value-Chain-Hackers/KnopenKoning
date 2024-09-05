@@ -75,7 +75,9 @@ const Graph: React.FC<GraphProps> = (query) => {
     const response =  await fetch(`${settings.apiUrl}/graph/query`, {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
+        
       },
       body: JSON.stringify({
         query: queryStr,

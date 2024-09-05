@@ -40,10 +40,10 @@ const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, sessionId, onClose }) =
   const sendMessage = async (message: string) => {
     setIsReceiving(true);
     try {
-      const backendUrl = process.env.REACT_APP_BACKEND_URL;
-      const response = await fetch(`${backendUrl}/ai/ask`, {
+      const response = await fetch(`${settings.apiUrl}/ai/ask`, {
         method: 'POST',
         headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ message }),

@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react';
-
+import { useSettings } from '../contexts/SettingsContext';
 const toHumanReadable = (bytes: number) => {
     if (bytes === 0) return '0 B';
     const k = 1024;
@@ -10,8 +10,9 @@ const toHumanReadable = (bytes: number) => {
 
 const Chart: React.FC = () => {
     const [data, setData] = useState<any[]>([]);
+    const settings = useSettings();
     useEffect(() => {
-        fetch('http://localhost:18000/ai/models/loaded')
+        fetch(`${settings.apiUrl}/ai/models/loaded`)
             .then((response) => response.json())
             .then((data) => setData(data));
     }, []);
