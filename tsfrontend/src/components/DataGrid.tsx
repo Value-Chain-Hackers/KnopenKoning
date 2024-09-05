@@ -6,6 +6,7 @@ import {
   usePagination,
   Column,
 } from "react-table";
+import { useSettings } from "../contexts/SettingsContext";
 import "./DataGrid.css";
 
 interface DataGridProps {
@@ -17,6 +18,7 @@ interface DataGridProps {
 }
 
 const DataGrid: React.FC<DataGridProps> = ({ data: initialData, dataUrl, columns, query }) => {
+  const settings = useSettings();
   const [tableData, setData] = useState<any[]>([]);
   const [tableColumns, setColumns] = useState<Column<any>[]>([]);
   const [queryStr, setQuery] = useState<string>("");
@@ -41,7 +43,7 @@ const DataGrid: React.FC<DataGridProps> = ({ data: initialData, dataUrl, columns
       return;
     }
     try {
-      const response = await fetch('http://localhost:18000/graph/query', {
+      const response = await fetch(`${settings.apiUrl}/graph/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

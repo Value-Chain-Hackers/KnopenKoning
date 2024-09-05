@@ -1,5 +1,5 @@
 import concurrent.futures
-from config import MODEL_NAME, EMBEDDING_MODEL
+from config import MODEL_NAME, EMBEDDING_MODEL, OLLAMA_API_URL
 import fitz  # PyMuPDF
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.llms.ollama import Ollama
@@ -276,15 +276,15 @@ class KnowledgeExtractor():
 
         self.store  = {}
 
-        self.llm_preprocess = Ollama(model=self.model, base_url="http://ollama:11434/", 
+        self.llm_preprocess = Ollama(model=self.model, base_url=OLLAMA_API_URL, 
             temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["preprocess"], 
             callbacks=[langfuse_handler], tags=["preprocess"])#, callbacks=[LabelStudioCallbackHandler(project_name="xpreprocess")])
         
-        self.llm_extract = Ollama(model="llama3:8b", base_url="http://ollama:11434/", 
+        self.llm_extract = Ollama(model="llama3:8b", base_url=OLLAMA_API_URL, 
             temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["extraction"], 
             callbacks=[langfuse_handler], tags=["extraction"])#, callbacks=[LabelStudioCallbackHandler(project_name="xextraction")])
         
-        self.llm_validate = Ollama(model=self.model, base_url="http://ollama:11434/", 
+        self.llm_validate = Ollama(model=self.model, base_url=OLLAMA_API_URL, 
             temperature=0.2, num_ctx=chunk_size, num_predict=chunk_size, system=self._prompts["validation"], 
             callbacks=[langfuse_handler], tags=["validation"])#, callbacks=[LabelStudioCallbackHandler(project_name="xvalidation")])
         

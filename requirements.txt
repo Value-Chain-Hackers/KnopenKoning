@@ -37,3 +37,6 @@ sse_starlette
 tqdm
 uvicorn==0.29.0
 wikipedia
+markdown2
+xhtml2pdf
+reportlab

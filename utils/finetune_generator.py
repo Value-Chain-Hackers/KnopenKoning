@@ -15,7 +15,7 @@ import sys
 
 load_dotenv(".env")
 
-OLLAMA_URL = os.getenv("OLLAMA_URL", "localhost:11434")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "localhost:11434")
 
 if not os.path.exists(".cache"):
     os.makedirs(".cache")
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     temperature = args.temperature
     max_workers = args.max_workers
 
-    llm = Ollama(model=model, num_ctx=4096*2, num_predict=4096*2, temperature=temperature, base_url=f"http://{OLLAMA_URL}")
+    llm = Ollama(model=model, num_ctx=4096*2, num_predict=4096*2, temperature=temperature, base_url=f"http://{OLLAMA_HOST}")
     prompt = PromptTemplate.from_file("prompts/ontology_finetune.md")
     chain = prompt | llm | JsonOutputParser()
 

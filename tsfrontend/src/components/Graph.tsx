@@ -8,6 +8,7 @@ import {
   faExpand,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSettings } from "../contexts/SettingsContext";
 
 interface GraphProps {
   id?: string;
@@ -16,6 +17,7 @@ interface GraphProps {
 }
 
 const Graph: React.FC<GraphProps> = (query) => {
+  const settings = useSettings();
   const svgRef = useRef<SVGSVGElement | null>(null);
   const queryStr = query.query;
   const [nodes, setNodes] = useState<any[]>([]);
@@ -70,7 +72,16 @@ const Graph: React.FC<GraphProps> = (query) => {
     g: d3.Selection<SVGGElement, unknown, null, undefined>,
     simulation: d3.Simulation<any, any>
   ) => {
-    const response = await fetch("http://localhost:18000/graph/query");
+    const response =  await fetch(`${settings.apiUrl}/graph/query`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: queryStr,
+        url: settings.apiUrl,
+      }),
+    });
     const data = await response.json();
 
     const nodesData = data["nodes"]["@graph"];

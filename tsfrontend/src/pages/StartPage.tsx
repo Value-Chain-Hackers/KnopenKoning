@@ -6,6 +6,7 @@ import {
   faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import StarterCard from "../components/StarterCard";
+import { useSettings } from "../contexts/SettingsContext";
 
 interface StartPageProps {
   onStarterClick: (message: string) => void;
@@ -25,14 +26,14 @@ const StartPage: React.FC<StartPageProps> = ({
 }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState<ProgressStep[]>([]);
-
+  const settings = useSettings();
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setIsProcessing(true);
     setProgress([]);
     const question_text = question;
     const token = localStorage.getItem('token');
-    const response = await fetch('http://localhost:18000/process', {
+    const response = await fetch(`${settings.apiUrl}/process`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -47,8 +48,8 @@ const StartPage: React.FC<StartPageProps> = ({
       throw new Error('Failed to submit question');
     }
     const data = await response.json();
-    const eventSource = new EventSource(`http://localhost:18000/progress/${data.process_id}`);
-
+    const eventSource = new EventSource(`${settings.apiUrl}/progress/${data.process_id}`);
+ 
     eventSource.onmessage = (event) => {
       const messageData = JSON.parse(event.data);
       setProgress((prevProgress) => [...prevProgress, { step: messageData.step, detail: messageData.detail }]);

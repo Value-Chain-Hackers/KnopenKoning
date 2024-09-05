@@ -1,11 +1,12 @@
 # main.py
+from datetime import datetime
 from crewai.tasks.task_output import TaskOutput
 from db import Company, Website, Records, Agents, Tasks, Tools, Crews, Document
 from db.session import SessionLocal
 from dotenv import load_dotenv
 from fastapi import FastAPI, Depends, HTTPException, File, UploadFile, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from langchain_community.chat_models.ollama import ChatOllama
@@ -22,13 +23,19 @@ from utils.extract_knowledge import get_records_manager
 from utils.mongo_process import Process
 from utils.ontology_parser import GraphVisitor
 from utils.uielements import UIElementsBuilder
+import os
+from markdown2 import markdown
+from xhtml2pdf import pisa
+from reportlab.lib.pagesizes import letter, A4
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer 
+from reportlab.lib.styles import getSampleStyleSheet
 import asyncio
 import json
 import ollama
 import os
 import uuid
 from bson import ObjectId
-
+from config import OLLAMA_API_URL, OLLAMA_HOST, OLLAMA_MODEL
 from duckduckgo_search import DDGS
 
 search = DDGS()
@@ -36,7 +43,11 @@ search = DDGS()
 load_dotenv()
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
-OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "http://ollama:11434/")
+
+print(f"🤖 Ollama API URL: {OLLAMA_API_URL}")
+print(f"🤖 Ollama Host: {OLLAMA_HOST}")
+print(f"🤖 Ollama Model: {OLLAMA_MODEL}")
+
 
 # Serve static files
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
@@ -81,7 +92,7 @@ def read_entity(class_id: str, request: Request):
         raise HTTPException(status_code=404, detail="Class not found")
     return graphVisitor.rdf_to_markdown()
 
-model = ChatOllama(model="llama3.1:latest", base_url=OLLAMA_API_URL)
+model = ChatOllama(model=OLLAMA_MODEL, base_url=OLLAMA_API_URL)
 
 @app.post("/uploadfile/")
 async def upload_file(file: UploadFile = File(...)):
@@ -208,7 +219,7 @@ async def kickoff(name: str, db: Session = Depends(get_db)):
     from langchain_community.utilities.wikipedia import WikipediaAPIWrapper
     from backend.tools.search import DuckSearch
 
-    llm = ChatOllama(model="mistral:latest", num_ctx=4096, num_predict=2048, temperature=1, base_url="http://ollama:11434/")
+    llm = ChatOllama(model=OLLAMA_MODEL, num_ctx=4096, num_predict=2048, temperature=1, base_url=OLLAMA_API_URL)
     crew = db.query(Crews).filter(Crews.name == name).first()
     agents = db.query(Agents).all()
     tasks = db.query(Tasks).all()
@@ -400,26 +411,81 @@ async def progress(process_id: str, db: Session = Depends(get_db)):
     return EventSourceResponse(event_generator(db, process_id))
 
 @app.post("/process")
-async def process(request: Request):
+async def process(request: Request, user = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    # get the authorisation token
+    print(user)
+
     data = await request.json()
     question = data.get("question")
     uid = ObjectId()
     new_process = Process(uid, question)
+    new_process.owner = user.id
+    new_process.created_at = datetime.now()
     new_process.save()
-    return {"process_id": str(uid), "question": question, "elements": []}
+    return {"process_id": str(uid), "question": question, "elements": [], "search_results": [], "owner": user.id}
 
 @app.get("/view/{process_id:str}")
-async def read_root(request: Request, process_id: str, db: Session = Depends(get_db)):
+async def read_root(request: Request, process_id: str, user = Depends(auth.get_current_user), db: Session = Depends(get_db)):
     initial = Process.get(ObjectId(process_id))
+    print(user)
     return initial.to_dict()
 
+def markdown_to_html(markdown_text):
+    return markdown(markdown_text)
 
-# @app.get("/")
-# async def read_root(request: Request, db: Session = Depends(get_db)):
-#     companies = await get_companies(db)
-#     context = {
-#         "request": request,  # Required for Jinja2 to work with FastAPI
-#         "title": "ChainWise",
-#         "companies": companies
-#     }
-#     return templates.TemplateResponse("index.html", context)
+def html_to_pdf(html_content, output_filename):
+    with open(output_filename, "wb") as out_pdf:
+        pisa.CreatePDF(html_content, dest=out_pdf)
+
+def create_pdf_from_assets(assets, output_filename):
+    # Create a PDF document
+    doc = SimpleDocTemplate(output_filename, pagesize=letter)
+    styles = getSampleStyleSheet()
+    story = []
+
+    for asset in assets:
+        if asset['type'] == 'html':
+            # Convert HTML to PDF directly
+            html_to_pdf(asset['content'], f"temp_{asset['name']}.pdf")
+            # You'd need to merge this PDF with the main one
+            # This is a simplification; actual merging would require additional code
+            story.append(Paragraph(f"HTML content from {asset['name']} inserted here", styles['Normal']))
+        elif asset['type'] == 'markdown':
+            # Convert Markdown to HTML, then to PDF content
+            html_content = markdown_to_html(asset['content'])
+            story.append(Paragraph(html_content, styles['Normal']))
+        else:
+            story.append(Paragraph(f"Unsupported asset type: {asset['type']}", styles['Normal']))
+        
+        story.append(Spacer(1, 12))
+
+    # Build the PDF
+    doc.build(story)
+
+@app.get("/view/{process_id:str}/pdf")
+async def view_as_pdf(request: Request, process_id: str, db: Session = Depends(get_db)):
+    initial = Process.get(ObjectId(process_id))
+    story = []
+    story.append(f"<h1>{initial.question}</h1>")
+    for element in initial.elements:
+        if element["type"] == 'Text':
+            html_content = markdown_to_html(element["content"])
+            story.append(html_content)
+        elif element["type"] == 'DataGrid':
+            story.append(f"<h3>{element['title']}</h3>")
+            table = "<table>"
+            table += "<tr>"
+            for column in element["columns"]:
+                table += f"<th>{column}</th>"
+            table += "</tr>"
+            table += "</table>" 
+            story.append(table)
+        else:
+            story.append(f"<i>Unsupported asset type: {element['type'] }</i>")
+        
+        #story.append(Spacer(1, 12))
+    with open(f"{process_id}.pdf", "wb") as out_pdf:
+        pisa.CreatePDF("\n".join(story),dest=out_pdf, dest_bytes=out_pdf)
+    # Build the PDF
+    #doc.build(story)
+    return StreamingResponse(open(f"{process_id}.pdf", "rb"), media_type="application/pdf")

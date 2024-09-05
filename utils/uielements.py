@@ -3,11 +3,13 @@ import json
 from langchain_community.llms.ollama import Ollama
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
-
+from config import OLLAMA_MODEL, OLLAMA_API_URL
 class UIElementsBuilder():
-    def __init__(self, host="http://ollama:11434"):
+    def __init__(self, host=OLLAMA_API_URL, model_name=OLLAMA_MODEL):
         self.host = host
+        self.model_name = model_name
         self.search_results = []
+        print(f"UIElementsBuilder initialized with host: {host} and model_name: {model_name}")
 
     def answer(self, question):
         prompt=  PromptTemplate.from_template("""\
@@ -36,7 +38,7 @@ The followups should not propose filters or other ways to manipulate the data, b
 Only return a valid JSON array of UI elements. Do not output any other data. The user can't edit your message and it will be parsed as JSON.
 DO use the relevant information out of the search results to generate the answer.
 """)
-        chain = prompt | Ollama(model="llama3.1:70b", base_url=self.host, num_ctx=8192) | JsonOutputParser()
+        chain = prompt | Ollama(model=self.model_name, base_url=self.host, num_ctx=8192) | JsonOutputParser()
         search_results = json.dumps(self.search_results)
         print(search_results)
         elements = chain.invoke({'question': question, 'search_results': search_results})
@@ -55,6 +57,6 @@ The answer should be text based and should fullfill the following description:
 The element is titled '{title}' and is described as '{description}'.
 The ouput should be a text string in markdown format.
 """)
-        chain = prompt | Ollama(model="llama3.1:70b", base_url=self.host)
+        chain = prompt | Ollama(model=self.model_name, base_url=self.host)
         elements = chain.invoke({'question': question, 'title': title, 'description': description})
         return elements

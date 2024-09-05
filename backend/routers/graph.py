@@ -43,7 +43,6 @@ async def get_graph(request: Request):
 async def query(request: Request):
     query = await request.json()
     query = query['query']
-    query = query.replace("\n", " ")
     print(query)
     graph = load_ontologies()
     result = graph.query(prepareQuery(query))
