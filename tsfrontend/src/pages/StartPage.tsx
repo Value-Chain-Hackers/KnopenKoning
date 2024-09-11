@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import StarterCard from "../components/StarterCard";
 import { useSettings } from "../contexts/SettingsContext";
+import LatestItems from "../components/LatestItems";
 
 interface StartPageProps {
   onStarterClick: (message: string) => void;
@@ -32,32 +33,37 @@ const StartPage: React.FC<StartPageProps> = ({
     setIsProcessing(true);
     setProgress([]);
     const question_text = question;
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const response = await fetch(`${settings.apiUrl}/process`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         question: question_text,
       }),
     });
 
     if (!response.ok) {
-      throw new Error('Failed to submit question');
+      throw new Error("Failed to submit question");
     }
     const data = await response.json();
-    const eventSource = new EventSource(`${settings.apiUrl}/progress/${data.process_id}`);
- 
+    const eventSource = new EventSource(
+      `${settings.apiUrl}/progress/${data.process_id}`
+    );
+
     eventSource.onmessage = (event) => {
       const messageData = JSON.parse(event.data);
-      setProgress((prevProgress) => [...prevProgress, { step: messageData.step, detail: messageData.detail }]);
+      setProgress((prevProgress) => [
+        ...prevProgress,
+        { step: messageData.step, detail: messageData.detail },
+      ]);
 
       if (messageData.step === 6) {
         eventSource.close();
         setIsProcessing(false);
-        console.log('Stream complete');
+        console.log("Stream complete");
         window.location.href = `/view/${data.process_id}`; // Navigate to the question page
         return;
       }
@@ -79,9 +85,16 @@ const StartPage: React.FC<StartPageProps> = ({
           const isActive = progress.length === step - 1;
 
           return (
-            <div key={step} className={`step ${isCompleted ? 'completed' : ''} ${isActive ? 'active' : ''}`}>
+            <div
+              key={step}
+              className={`step ${isCompleted ? "completed" : ""} ${
+                isActive ? "active" : ""
+              }`}
+            >
               <div className="step-number">{step}</div>
-              <div className="step-detail">{currentStep?.detail || `Step ${step}`}</div>
+              <div className="step-detail">
+                {currentStep?.detail || `Step ${step}`}
+              </div>
             </div>
           );
         })}
@@ -92,8 +105,9 @@ const StartPage: React.FC<StartPageProps> = ({
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <div style={{ display: "block", width:"100%" }}>
-          <br/><br/>
+        <div style={{ display: "block", width: "100%" }}>
+          <br />
+          <br />
           <h2 className="mb-4">Ask a Question</h2>
           <input
             type="text"
@@ -114,28 +128,32 @@ const StartPage: React.FC<StartPageProps> = ({
       {isProcessing && renderProgressStepper()}
 
       {!isProcessing && (
-        <div className="starter-proposals grid grid-cols-1 md:grid-cols-2 gap-4">
-          <StarterCard
-            icon={faDollarSign}
-            text="What are the latest funding rounds in the AI industry?"
-            onClick={onStarterClick}
-          />
-          <StarterCard
-            text="Who are the suppliers of Unilever ?"
-            icon={faTruck}
-            onClick={onStarterClick}
-          />
-          <StarterCard
-            icon={faGlobe}
-            text="What are the latest AI trends in the automotive industry?"
-            onClick={onStarterClick}
-          />
-          <StarterCard
-            icon={faRocket}
-            text="What are the latest AI trends in the finance industry?"
-            onClick={onStarterClick}
-          />
-        </div>
+        <>
+          <LatestItems />
+{/* 
+          <div className="starter-proposals grid grid-cols-1 md:grid-cols-2 gap-4">
+            <StarterCard
+              icon={faDollarSign}
+              text="What are the latest funding rounds in the AI industry?"
+              onClick={onStarterClick}
+            />
+            <StarterCard
+              text="Who are the suppliers of Unilever ?"
+              icon={faTruck}
+              onClick={onStarterClick}
+            />
+            <StarterCard
+              icon={faGlobe}
+              text="What are the latest AI trends in the automotive industry?"
+              onClick={onStarterClick}
+            />
+            <StarterCard
+              icon={faRocket}
+              text="What are the latest AI trends in the finance industry?"
+              onClick={onStarterClick}
+            /> 
+          </div>*/}
+        </>
       )}
     </div>
   );

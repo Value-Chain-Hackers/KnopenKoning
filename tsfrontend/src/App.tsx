@@ -42,6 +42,10 @@ const AppRoutes = () => {
               element={isAuthenticated ? <QuestionPage /> : <Navigate to="/login" />} 
             />
             <Route 
+              path="/view/:uid/followup/:qq" 
+              element={isAuthenticated ? <QuestionPage followup={true} /> : <Navigate to="/login" />} 
+            />
+            <Route  
               path="/admin" 
               element={isAuthenticated && isAdmin ? <AdminPage /> : <Navigate to="/" />} 
             />

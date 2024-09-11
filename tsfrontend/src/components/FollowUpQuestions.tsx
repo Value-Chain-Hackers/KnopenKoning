@@ -2,9 +2,10 @@ import React from 'react';
 
 interface FollowUpQuestionsProps {
   followup: string[];
+  sessionId?: string;
 }
 
-const FollowUpQuestions: React.FC<FollowUpQuestionsProps> = ({ followup }) => {
+const FollowUpQuestions: React.FC<FollowUpQuestionsProps> = ({ followup, sessionId }) => {
   return (
     <div className="followUpQuestions bg-gray-800 rounded-lg p-6 mt-8 shadow-md">
       <h3 className="text-xl font-semibold text-gray-200 mb-4">Follow-up questions</h3>
@@ -13,7 +14,7 @@ const FollowUpQuestions: React.FC<FollowUpQuestionsProps> = ({ followup }) => {
           {followup.map((question, index) => (
             <li key={`followup-${index}`} className="transition-all duration-200 ease-in-out hover:translate-x-1">
               <a
-                href={`?question=${encodeURIComponent(question)}`}
+                href={`/view/${sessionId}/followup/${encodeURIComponent(question)}`}
                 className="text-white-600 flex items-center"
               >
                 <svg

@@ -11,6 +11,8 @@ langchain_chroma
 langchain_community 
 langchain_core
 langchain_ollama
+langchain_mongodb
+langchain_huggingface
 langchain
 langgraph
 langserve

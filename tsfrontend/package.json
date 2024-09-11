@@ -39,6 +39,7 @@
     "express-session": "^1.18.0",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
+    "he": "^1.2.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.3",
@@ -106,6 +107,7 @@
   },
   "devDependencies": {
     "@types/d3": "^7.4.3",
+    "@types/he": "^1.2.3",
     "@types/node": "^22.5.4",
     "@types/react-table": "^7.7.20",
     "autoprefixer": "^10.4.19",

@@ -29,6 +29,7 @@
   margin-bottom: 8px;
   background-color: #374151;
   border-radius: 4px;
+  text-align: left;
 }
 
 .chat-dialog form {

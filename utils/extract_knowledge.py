@@ -94,7 +94,7 @@ def get_records_manager(namespace, database_filename = RECORDS_DATABASE) -> SQLR
         return record_manager
 
 def get_huggingface_model(model_name):
-    from langchain_community.embeddings import HuggingFaceEmbeddings
+    from langchain_huggingface import HuggingFaceEmbeddings
     if CUDA_ENABLED:
         model_kwargs =  {'device': 'cuda'}
     else:

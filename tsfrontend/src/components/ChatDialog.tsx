@@ -4,7 +4,8 @@ import { faTimes, faComments } from '@fortawesome/free-solid-svg-icons';
 import './ChatDialog.css';
 import { useParams } from 'react-router-dom';
 import { useSettings } from '../contexts/SettingsContext';
-
+import he from 'he';
+import { html } from 'd3';
 interface ChatDialogProps {
   isOpen: boolean;
   sessionId?: string;
@@ -46,9 +47,8 @@ const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, sessionId, onClose }) =
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({"message": message, "sessionId":sessionId }),
       });
-
       if (!response.body) {
         throw new Error('ReadableStream not supported.');
       }
@@ -80,18 +80,18 @@ const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, sessionId, onClose }) =
       <div className="chat-header bg-blue-500 p-4 flex justify-between items-center">
         <div className="flex items-center">
           <FontAwesomeIcon icon={faComments} className="mr-2" />
-          <h2>Chat {settings.apiUrl}</h2>
+          <h2>Chat</h2>
         </div>
         <button onClick={onClose} className="text-white">
           <FontAwesomeIcon icon={faTimes} />
         </button>
       </div>
       <div className="chat-content p-4 flex flex-col h-full">
-        <b>Session {sessionId}</b>
+        <b>Session</b>
         <div className="messages flex-1 overflow-auto">
           {messages.map((msg, index) => (
             <div key={index} className="message mb-2">
-              {msg}
+            <div dangerouslySetInnerHTML={{ __html: he.decode(msg).replaceAll("\\n","<br />").replaceAll('"', '') }} />
             </div>
           ))}
           <div ref={messageEndRef} />

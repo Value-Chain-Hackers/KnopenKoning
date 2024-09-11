@@ -25,6 +25,7 @@ class Process:
     owner = None
     question = None
     elements: List[ProcessElement] | None = None
+    search_queries = None
     search_results = None
     created_at = None
 
@@ -33,6 +34,7 @@ class Process:
         self.question = question
         self.elements = elements or []
         self.search_results = search_results or []
+        self.search_queries = []
         self.owner = owner
         self.created_at = created_at or datetime.now()
         
@@ -42,10 +44,12 @@ class Process:
         processes_collection.update_one({"_id": self.id}, {"$set": process_data}, upsert=True)
 
     @staticmethod
-    def get(id):
+    def get(id) -> 'Process':
         process_data = processes_collection.find_one({"_id": id})
         if process_data:
-            return Process(process_data["_id"], process_data["question"], process_data.get("elements", []), process_data.get("search_results", []), process_data.get("owner", None), process_data.get("created_at", None))
+            proc = Process(process_data["_id"], process_data["question"], process_data.get("elements", []), process_data.get("search_results", []), process_data.get("owner", None), process_data.get("created_at", None))
+            proc.search_queries = process_data.get("search_queries", [])
+            return proc
         return None
     
 
@@ -54,6 +58,8 @@ class Process:
         cur = processes_collection.find({"owner":2}).limit(10).sort([('created_at', -1)])
         docs = []
         for doc in cur:
+            doc["_id"] = str(doc["_id"])
+            doc["id"] = str(doc["_id"])
             docs.append(doc)
         return docs
 
@@ -63,6 +69,7 @@ class Process:
             "question": self.question,
             "elements": self.elements,
             "search_results": self.search_results,
+            "search_queries": self.search_queries,
             "owner": self.owner,
             "created_at": self.created_at
         }

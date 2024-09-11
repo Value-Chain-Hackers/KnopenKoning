@@ -91,6 +91,7 @@ const TabControl: React.FC<TabControlProps> = ({
             dataUrl={tab.dataUrl}
             columns={tab.columns}
             query={tab.query}
+            data={tab.data}
           />
         );
         break;
@@ -103,7 +104,7 @@ const TabControl: React.FC<TabControlProps> = ({
     return (
       <div>
         {result}
-        {tab.followup && <FollowUpQuestions followup={tab.followup} />}
+        {tab.followup && <FollowUpQuestions sessionId={sessionId} followup={tab.followup} />}
       </div>
     );
   };

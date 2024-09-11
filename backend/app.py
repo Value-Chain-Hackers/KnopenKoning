@@ -1,5 +1,6 @@
 # main.py
 from datetime import datetime
+import time
 from crewai.tasks.task_output import TaskOutput
 from db import Company, Website, Records, Agents, Tasks, Tools, Crews, Document
 from db.session import SessionLocal
@@ -9,10 +10,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from langchain_community.chat_models.ollama import ChatOllama
+from langchain_ollama.chat_models import ChatOllama
+from langchain_ollama.llms import OllamaLLM
 from langchain_core.agents import AgentAction, AgentFinish, AgentStep
 from langchain_core.callbacks import BaseCallbackHandler, BaseCallbackManager
 from langchain_core.messages import BaseMessage
+from langchain.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import JsonOutputParser
 from langserve import add_routes
 from pathlib import Path
 from routers import agents, tasks, tools, ai, ui, graph, scheduler, auth
@@ -92,7 +96,7 @@ def read_entity(class_id: str, request: Request):
         raise HTTPException(status_code=404, detail="Class not found")
     return graphVisitor.rdf_to_markdown()
 
-model = ChatOllama(model=OLLAMA_MODEL, base_url=OLLAMA_API_URL)
+model = ChatOllama(model=OLLAMA_MODEL, base_url=OLLAMA_API_URL, num_ctx=8192, num_predict=2048, temperature=1)
 
 @app.post("/uploadfile/")
 async def upload_file(file: UploadFile = File(...)):
@@ -357,28 +361,43 @@ async def progress(process_id: str, db: Session = Depends(get_db)):
     async def event_generator(db: Session, process_id: ObjectId):
         process = Process.get(process_id)
         question = process.question
-
+                
+        prompt = ChatPromptTemplate.from_messages(
+            [
+                ("system", """"You are a research assistant, helping the user with questions relative to supply chains and their ontology.\
+                 Given the users question you must create search queries to find relevant information.\
+                 Make at least 3 search queries to find relevant information. Output the queries as an array of strings.\
+                 Only return the queries as an array of strings. Do not output any other data. The user can't edit your message and it will be parsed as JSON."""),
+                 ("human", "{question}"),
+            ]
+        )
+        chain = prompt | model | JsonOutputParser()
+        queries = chain.invoke({"question": question})
+        process.search_queries = queries
+        process.save()
+        print(queries)
         yield {
             "event": "message",
             "id": str(1),
-            "data": f'{{"step": 1, "detail": "Collecting base."}}'
+            "data": f'{{"step": 1, "detail": "Collecting base {len(queries)}."}}'
         }
-        await asyncio.sleep(2)
         records = []
-
-        ddg_results = search.text(question)
-        builder.search_results.extend(ddg_results)
-        process.search_results.extend(ddg_results)
-        process.save()
+        for query in queries:
+            try:
+                search_results = search.text(query)
+                records.extend(search_results)
+                process.search_results.extend(search_results)
+                process.save()
+            except Exception as e:
+                print("Error: ", e)
         yield {
             "event": "message",
             "id": str(2),
-            "data": f'{{"step": 2, "detail": "Search Results {len(ddg_results)}."}}'
+            "data": f'{{"step": 2, "detail": "Search Results {len(records)}."}}'
         }
         await asyncio.sleep(2)
 
         # collect from vectorstore
-
 
         yield {
             "event": "message",
@@ -412,9 +431,6 @@ async def progress(process_id: str, db: Session = Depends(get_db)):
 
 @app.post("/process")
 async def process(request: Request, user = Depends(auth.get_current_user), db: Session = Depends(get_db)):
-    # get the authorisation token
-    print(user)
-
     data = await request.json()
     question = data.get("question")
     uid = ObjectId()
@@ -424,7 +440,73 @@ async def process(request: Request, user = Depends(auth.get_current_user), db: S
     new_process.save()
     return {"process_id": str(uid), "question": question, "elements": [], "search_results": [], "owner": user.id}
 
-@app.get("/view/{process_id:str}")
+
+@app.get("/view/{process_id:str}/followup/{qq:str}")
+async def followup(request: Request, process_id: str, qq: str, db: Session = Depends(get_db)):
+    followup_question  = qq
+    process = Process.get(ObjectId(process_id))
+    prompt = ChatPromptTemplate.from_messages([
+                ("system", """"You are a research assistant, helping the user with questions relative to supply chains and their ontology.\
+                Given the current context:\n {context}\
+                The user has the following elements already displayed: {elements}\
+                The user will now ask a followup question.\
+                You must change the elements array provided in the context to reflect the new question, you perferabliy add new items to complement the users insights.\
+                                                                         
+                ## Search Results: 
+                {search_results}     
+                                                     
+                ## Instructions:
+                 
+                The anwser should be a composit of one or more UI elements that will be added to the ones already shown to the user.
+                Elements might all be of the same type or mixed. Not all types are required to be present.
+                Only add elements that are relevant to the question.
+                Only refer to classes and properties that are defined in the SupplyChainMapping (scm) ontology.
+                Always at least one 'Text' element should be present providing an overall answer and explanation of the other elements, this should be the first element of the list.
+                As part of there are 'DataGrid', 'Chart', 'Text'.
+                Exprected output is a JSON array of UI elements.
+                Each element should have a 'title' field that contains the title of the visualisation. 
+                Each element should have a 'type' field that can be 'DataGrid', 'Chart',  'Text'.
+                Each element should have an 'icon' field that contains the name of a fontawesome icon that should be used to represent the element.
+                If the type is 'DataGrid' or 'Table' the element should have a 'columns' field that contains the columns of the table as an array of strings.
+                Each element should have a 'description' field that contains the description of what data should be retrieved to display this visualisation this includes entities and potenial relations.
+                Each element should have a 'data' field that contains an array of dictionaries with a key value pair for each column of data.
+                Each element should have a 'followup' field that contains a JSON array strings with a maximum 3 questions that can be asked to further explore the data within the element.
+                The followups should not propose filters or other ways to manipulate the data, but rather other points of interest that can be explored.
+                DO ONLY return a valid JSON array of UI elements, property name enclosed in double quotes. DO NOT output any other data. The user can't edit your message and it will be parsed as JSON.
+                DO use the relevant information out of the search results to generate the answer.\
+                
+                """),
+                 ("human", """{followup_question}\nDO ONLY return a valid JSON array of UI elements such as 'DataGrid', 'Chart', 'Text'.
+                   DO NOT output any other data. The user can't edit your message and it will be parsed as JSON."""),
+            ]
+        )
+    
+    chain = prompt | model 
+    new_elements = chain.invoke({
+        "followup_question": followup_question,
+        "context": process.question,
+        "search_results": process.search_results,
+        "elements": process.elements
+        })
+    
+    print(type(new_elements.content), new_elements.content)
+    new_array_start = new_elements.content.find("[")
+    new_array_end = new_elements.content.rfind("]")
+    new_elements = new_elements.content[new_array_start:new_array_end+1]
+    # startAt the first [ and end at the last ]
+    new_elements = json.loads(new_elements)
+    print(new_elements)
+    process.elements.extend(new_elements)
+    process.save()
+    return process.to_dict()
+
+
+@app.post("/view/latest")
+async def read_latest(request: Request, user = Depends(auth.get_current_user), db: Session = Depends(get_db)):
+    process = Process.get_byOwner(user.id)
+    return process
+
+@app.get("/view/{process_id:str}/")
 async def read_root(request: Request, process_id: str, user = Depends(auth.get_current_user), db: Session = Depends(get_db)):
     initial = Process.get(ObjectId(process_id))
     print(user)
@@ -478,6 +560,11 @@ async def view_as_pdf(request: Request, process_id: str, db: Session = Depends(g
             for column in element["columns"]:
                 table += f"<th>{column}</th>"
             table += "</tr>"
+            for row in element["data"]:
+                table += "<tr>"
+                for cell in element["columns"]:
+                    table += f"<td>{row[cell]}</td>"
+                table += "</tr>"
             table += "</table>" 
             story.append(table)
         else:

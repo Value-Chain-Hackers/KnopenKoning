@@ -7,24 +7,22 @@ import { useSettings } from "../contexts/SettingsContext";
 import ChatDialog from "../components/ChatDialog";
 import ChatButton from "../components/ChatButton";
 
-const QuestionPage: React.FC = () => {
+interface QuestionPageProps {
+  followup?: boolean;
+}
+
+const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
   const settings = useSettings();
-  const { uid } = useParams<{ uid: string }>();
+  const { uid, qq } = useParams<{ uid: string, qq:string }>();
   const [question, setQuestion] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { isAuthenticated, isLoading } = useAuth();
   const [isChatOpen, setIsChatOpen] = useState(false);
-  
-  useEffect(() => {
-    if (isAuthenticated && uid) {
-      fetchQuestion();
-    }
-  }, [isAuthenticated, uid]);
-
   const fetchQuestion = async () => {
+    console.log("fetching question", uid, qq);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`${settings.apiUrl}/view/${uid}`, {
+      const response = await axios.get(`${settings.apiUrl}/view/${uid}` + (followup ? "/followup/"+ qq : ""), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -36,6 +34,13 @@ const QuestionPage: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (isAuthenticated && uid) {
+      fetchQuestion();
+    }
+  }, [isAuthenticated, uid]);
+
+  
   if (isLoading) {
     return <div>Loading...</div>;
   }

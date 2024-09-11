@@ -17,9 +17,9 @@ interface DataGridProps {
   query?: string;
 }
 
-const DataGrid: React.FC<DataGridProps> = ({ data: initialData, dataUrl, columns, query }) => {
+const DataGrid: React.FC<DataGridProps> = ({ data: initialData, dataUrl, columns, query, data }) => {
   const settings = useSettings();
-  const [tableData, setData] = useState<any[]>([]);
+  const [tableData, setData] = useState<any[]>(data || []);
   const [tableColumns, setColumns] = useState<Column<any>[]>([]);
   const [queryStr, setQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -43,24 +43,24 @@ const DataGrid: React.FC<DataGridProps> = ({ data: initialData, dataUrl, columns
       return;
     }
     try {
-      const response = await fetch(`${settings.apiUrl}/graph/query`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: query,
-          url: dataUrl,
-        }),
-      });
+      // const response = await fetch(`${settings.apiUrl}/graph/query`, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     query: query,
+      //     url: dataUrl,
+      //   }),
+      // });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+      // if (!response.ok) {
+      //   throw new Error(`HTTP error! status: ${response.status}`);
+      // }
 
-      const result = await response.json();
-      setData(result.data || []);
+      // const result = await response.json();
+      setData(data || []);
     } catch (e) {
       //setError(`Failed to fetch data: ${e instanceof Error ? e.message : String(e)}`);
       setData([]);
