@@ -1,0 +1,570 @@
+@prefix scm: <http://chainwise.ai/supplychain#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix iof-av: <https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/> .
+
+#### Annotations
+scm:Organization a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "A general class representing any organization involved in the supply chain, including companies, corporations, non-profits, and other entities." ;
+    skos:example "Company A, Non-Profit B" ;
+    skos:definition "An entity comprising multiple people, such as an institution or an association, that has a collective goal and is linked to an external environment." ;
+    iof-av:naturalLanguageDefinition "An organization is a group of people structured to achieve specific goals, like a company, non-profit, or government body." ;
+    iof-av:firstOrderLogicDefinition "Organization(x) → ∃y (Person(y) ∧ memberOf(y, x))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Organization(x) ↔ (∃y (Person(y) ∧ memberOf(y, x))))" ;
+    iof-av:explanatoryNote "Organizations play a crucial role in the supply chain, interacting with various entities to facilitate the flow of goods and services." ;
+    iof-av:counterExample "A casual gathering of friends without any structured goal is not an organization." ;
+    iof-av:subjectMatterExpertExplanation "Organizations, whether businesses, non-profits, or governmental, are structured groups with specific objectives and play key roles in the supply chain by interacting with suppliers, manufacturers, and distributors." .
+
+scm:LegalEntity a rdfs:Class ;
+    rdfs:subClassOf scm:Organization ;
+    rdfs:label "Legal Entity" ;
+    rdfs:comment "A legally recognized entity that can participate in contracts and transactions, such as corporations, LLCs, and government bodies." ;
+    skos:example "Corporation XYZ, Government Agency ABC" ;
+    skos:definition "An individual, company, or organization that has legal rights and obligations." ;
+    iof-av:naturalLanguageDefinition "A legal entity is an organization recognized by law, capable of owning property, entering contracts, and being subject to legal obligations." ;
+    iof-av:firstOrderLogicDefinition "LegalEntity(x) → (Organization(x) ∧ ∃y (LegalRights(y) ∧ hasLegalRights(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (LegalEntity(x) ↔ (Organization(x) ∧ ∃y (LegalRights(y) ∧ hasLegalRights(x, y))))" ;
+    iof-av:explanatoryNote "Legal entities can be held accountable and can engage in legal contracts, which distinguishes them from informal groups." ;
+    iof-av:counterExample "A group of individuals operating without legal recognition is not a legal entity." ;
+    iof-av:subjectMatterExpertExplanation "Legal entities include any organization recognized by the law, such as corporations and government bodies, that can engage in legal actions and transactions." .
+
+scm:Subsidiary a rdfs:Class ;
+    rdfs:subClassOf scm:Organization ;
+    rdfs:label "Subsidiary" ;
+    rdfs:comment "A company controlled by another company, known as the parent company. It operates independently but is owned by the parent." ;
+    skos:example "Company B is a subsidiary of Corporation A" ;
+    skos:definition "A company that is completely or partly owned and partly or wholly controlled by another company." ;
+    iof-av:naturalLanguageDefinition "A subsidiary is a company owned by another company, called the parent company, which controls its operations." ;
+    iof-av:firstOrderLogicDefinition "Subsidiary(x) → (Organization(x) ∧ ∃y (ParentCompany(y) ∧ owns(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Subsidiary(x) ↔ (Organization(x) ∧ ∃y (ParentCompany(y) ∧ owns(y, x))))" ;
+    iof-av:explanatoryNote "Subsidiaries operate independently but under the strategic control of their parent companies." ;
+    iof-av:counterExample "A department within a company that does not have separate legal ownership is not a subsidiary." ;
+    iof-av:subjectMatterExpertExplanation "Subsidiaries are entities owned and controlled by a parent company, enabling the parent to manage various aspects of its business operations through these separate legal entities." .
+
+scm:Holdings a rdfs:Class ;
+    rdfs:subClassOf scm:Organization ;
+    rdfs:label "Holdings" ;
+    rdfs:comment "A parent company that holds controlling interest in other companies, typically overseeing and managing them." ;
+    skos:example "Holdings Inc. owns several other companies." ;
+    skos:definition "A company created to buy and possess the shares of other companies, which it then controls." ;
+    iof-av:naturalLanguageDefinition "A holdings company is an organization that owns and manages shares of other companies." ;
+    iof-av:firstOrderLogicDefinition "Holdings(x) → (Organization(x) ∧ ∃y (Company(y) ∧ controls(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Holdings(x) ↔ (Organization(x) ∧ ∃y (Company(y) ∧ controls(x, y))))" ;
+    iof-av:explanatoryNote "Holdings companies typically manage the investments and business operations of their subsidiaries." ;
+    iof-av:counterExample "An investment firm without controlling shares in any company is not a holdings company." ;
+    iof-av:subjectMatterExpertExplanation "Holdings companies are parent organizations that control other companies by owning their shares, allowing for centralized management of different business operations." .
+
+scm:Group a rdfs:Class ;
+    rdfs:subClassOf scm:Organization ;
+    rdfs:label "Group" ;
+    rdfs:comment "A collection of companies operating under a single corporate identity, often sharing resources and strategic goals." ;
+    skos:example "The ABC Group includes several different companies under one brand." ;
+    skos:definition "A set of companies that operate collectively under a unified brand and management structure." ;
+    iof-av:naturalLanguageDefinition "A group is a collective of companies operating under a single brand and unified management." ;
+    iof-av:firstOrderLogicDefinition "Group(x) → (Organization(x) ∧ ∃y (Company(y) ∧ memberOf(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Group(x) ↔ (Organization(x) ∧ ∃y (Company(y) ∧ memberOf(y, x))))" ;
+    iof-av:explanatoryNote "Groups allow for resource sharing and unified strategic planning across different companies." ;
+    iof-av:counterExample "A standalone company without affiliations is not considered a group." ;
+    iof-av:subjectMatterExpertExplanation "A group consists of multiple companies under a single brand and management, enabling coordinated strategies and resource utilization across the member companies." .
+
+scm:Supplier a rdfs:Class ;
+    rdfs:subClassOf scm:Organization ;
+    rdfs:label "Supplier" ;
+    rdfs:comment "An organization that provides raw materials or products to other entities, playing a crucial role in the supply chain." ;
+    skos:example "Supplier A provides raw materials to Manufacturer B." ;
+    skos:definition "An entity that supplies goods or services to other organizations, typically as part of the production or distribution process." ;
+    iof-av:naturalLanguageDefinition "A supplier is an organization that provides products or raw materials to other businesses." ;
+    iof-av:firstOrderLogicDefinition "Supplier(x) → (Organization(x) ∧ ∃y (Product(y) ∧ supplies(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Supplier(x) ↔ (Organization(x) ∧ ∃y (Product(y) ∧ supplies(x, y))))" ;
+    iof-av:explanatoryNote "Suppliers are essential for providing the necessary materials and products needed for manufacturing and distribution." ;
+    iof-av:counterExample "A company that only sells products directly to consumers without supplying to other businesses is not a supplier." ;
+    iof-av:subjectMatterExpertExplanation "Suppliers are organizations that provide essential raw materials or products to manufacturers or other entities within the supply chain." .
+
+scm:Manufacturer a rdfs:Class ;
+    rdfs:subClassOf scm:Organization ;
+    rdfs:label "Manufacturer" ;
+    rdfs:comment "An organization that produces finished products from raw materials, transforming inputs into market-ready goods." ;
+    skos:example "Manufacturer X produces electronics from raw components." ;
+    skos:definition "An entity that converts raw materials into finished products through industrial processes." ;
+    iof-av:naturalLanguageDefinition "A manufacturer is a company that creates finished products from raw materials using industrial processes." ;
+    iof-av:firstOrderLogicDefinition "Manufacturer(x) → (Organization(x) ∧ ∃y (Product(y) ∧ produces(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Manufacturer(x) ↔ (Organization(x) ∧ ∃y (Product(y) ∧ produces(x, y))))" ;
+    iof-av:explanatoryNote "Manufacturers play a critical role in the supply chain by converting raw materials into finished products ready for distribution and sale." ;
+    iof-av:counterExample "A company that only assembles products without transforming raw materials is not a manufacturer." ;
+    iof-av:subjectMatterExpertExplanation "Manufacturers are entities that produce finished goods from raw materials, playing a key role in transforming inputs into market-ready products." .
+
+scm:Distributor a rdfs:Class ;
+    rdfs:subClassOf scm:Organization ;
+    rdfs:label "Distributor" ;
+    rdfs:comment "An organization that distributes products to retailers or directly to consumers, acting as an intermediary in the supply chain." ;
+    skos:example "Distributor Y handles the logistics for delivering products from manufacturers to retailers." ;
+    skos:definition "An entity responsible for the distribution of goods from manufacturers to retailers or directly to end customers." ;
+    iof-av:naturalLanguageDefinition "A distributor is a company that handles the logistics and delivery of products from manufacturers to retailers or consumers." ;
+    iof-av:firstOrderLogicDefinition "Distributor(x) → (Organization(x) ∧ ∃y (Product(y) ∧ distributes(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Distributor(x) ↔ (Organization(x) ∧ ∃y (Product(y) ∧ distributes(x, y))))" ;
+    iof-av:explanatoryNote "Distributors manage the movement of products through the supply chain, ensuring that goods reach their intended destinations." ;
+    iof-av:counterExample "A retailer that sells products directly to consumers without distributing to other retailers is not a distributor." ;
+    iof-av:subjectMatterExpertExplanation "Distributors play a key role in the supply chain by ensuring products are delivered from manufacturers to retailers or directly to consumers." .
+
+scm:Retailer a rdfs:Class ;
+    rdfs:subClassOf scm:Organization ;
+    rdfs:label "Retailer" ;
+    rdfs:comment "An organization that sells products directly to consumers, typically through physical stores or online platforms." ;
+    skos:example "Retailer Z sells electronics directly to consumers through its online store." ;
+    skos:definition "An entity that sells goods directly to end consumers, typically through storefronts or online platforms." ;
+    iof-av:naturalLanguageDefinition "A retailer is a company that sells products directly to consumers, often through physical stores or online platforms." ;
+    iof-av:firstOrderLogicDefinition "Retailer(x) → (Organization(x) ∧ ∃y (Product(y) ∧ sellsToConsumers(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Retailer(x) ↔ (Organization(x) ∧ ∃y (Product(y) ∧ sellsToConsumers(x, y))))" ;
+    iof-av:explanatoryNote "Retailers bridge the gap between distributors and end consumers, providing products for personal use." ;
+    iof-av:counterExample "A wholesaler that sells products in bulk to other businesses, but not directly to consumers, is not a retailer." ;
+    iof-av:subjectMatterExpertExplanation "Retailers are businesses that sell products directly to consumers, usually through physical shops or online platforms." .
+
+scm:Product a rdfs:Class ;
+    rdfs:label "Product" ;
+    rdfs:comment "A general class for any item that can be supplied, manufactured, or sold, including goods, services, and digital products." ;
+    skos:example "Smartphone, Software, Car" ;
+    skos:definition "Any item that can be offered to a market to satisfy a want or need, including physical goods, services, and digital items." ;
+    iof-av:naturalLanguageDefinition "A product is any item or service that can be sold or supplied to meet a customer's need or want." ;
+    iof-av:firstOrderLogicDefinition "Product(x) → (∃y (Market(y) ∧ offeredTo(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Product(x) ↔ (∃y (Market(y) ∧ offeredTo(x, y))))" ;
+    iof-av:explanatoryNote "Products can be tangible items, services, or digital goods that are produced to meet consumer demands." ;
+    iof-av:counterExample "A concept or idea without a tangible or serviceable form is not considered a product." ;
+    iof-av:subjectMatterExpertExplanation "Products encompass all items, whether physical, digital, or service-based, that are created and marketed to fulfill consumer needs or wants." .
+
+scm:ProductLine a rdfs:Class ;
+    rdfs:label "Product Line" ;
+    rdfs:comment "A group of related products marketed under a single brand name, often sharing similar features or targeting the same market." ;
+    skos:example "The XYZ Series of smartphones" ;
+    skos:definition "A set of related products marketed under a single brand name and sold by the same company." ;
+    iof-av:naturalLanguageDefinition "A product line is a series of related products offered by a company under one brand, often sharing common features." ;
+    iof-av:firstOrderLogicDefinition "ProductLine(x) → (∃y (Product(y) ∧ partOf(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (ProductLine(x) ↔ (∃y (Product(y) ∧ partOf(y, x))))" ;
+    iof-av:explanatoryNote "Product lines allow companies to target different market segments with products that share common characteristics." ;
+    iof-av:counterExample "A single product without related items in the same brand category is not a product line." ;
+    iof-av:subjectMatterExpertExplanation "A product line includes multiple related products marketed together under a single brand, sharing common features and targeting similar customer segments." .
+
+scm:Brand a rdfs:Class ;
+    rdfs:label "Brand" ;
+    rdfs:comment "A name, term, design, symbol, or other feature that distinguishes one seller's product from those of others, contributing to the product's identity." ;
+    skos:example "Nike, Apple, Toyota" ;
+    skos:definition "A unique identifier for a seller's product, distinguishing it from competitors' products." ;
+    iof-av:naturalLanguageDefinition "A brand is a distinctive name or symbol that identifies a company's products and differentiates them from others in the market." ;
+    iof-av:firstOrderLogicDefinition "Brand(x) → (∃y (Product(y) ∧ associatedWith(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Brand(x) ↔ (∃y (Product(y) ∧ associatedWith(y, x))))" ;
+    iof-av:explanatoryNote "Brands play a crucial role in marketing by creating recognition and loyalty among consumers." ;
+    iof-av:counterExample "A generic product without any unique identifier or name is not a brand." ;
+    iof-av:subjectMatterExpertExplanation "Brands are unique identifiers like names or symbols that help distinguish a company's products, creating consumer recognition and loyalty." .
+
+scm:Component a rdfs:Class ;
+    rdfs:subClassOf scm:Product ;
+    rdfs:label "Component" ;
+    rdfs:comment "A part or element of a larger product, which can be assembled or combined with other components to form a complete product." ;
+    skos:example "Processor in a computer, Battery in a smartphone" ;
+    skos:definition "A constituent part of a larger product, used in assembly or production processes." ;
+    iof-av:naturalLanguageDefinition "A component is a part that combines with others to create a complete product." ;
+    iof-av:firstOrderLogicDefinition "Component(x) → (Product(x) ∧ ∃y (Product(y) ∧ partOf(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Component(x) ↔ (Product(x) ∧ ∃y (Product(y) ∧ partOf(x, y))))" ;
+    iof-av:explanatoryNote "Components are essential for assembling final products, each contributing specific functions or features." ;
+    iof-av:counterExample "A standalone product that is not intended to be combined with other parts is not a component." ;
+    iof-av:subjectMatterExpertExplanation "Components are individual parts designed to be integrated with other parts to form complete products, each serving specific roles in the final assembly." .
+
+scm:Material a rdfs:Class ;
+    rdfs:label "Material" ;
+    rdfs:comment "A substance or matter from which something is or can be made, including raw materials and intermediate goods used in manufacturing." ;
+    skos:example "Steel, Plastic, Wood" ;
+    skos:definition "A substance used in the production of goods, which can be raw or processed." ;
+    iof-av:naturalLanguageDefinition "Material refers to the physical substances used in manufacturing products, such as metals, plastics, or textiles." ;
+    iof-av:firstOrderLogicDefinition "Material(x) → ∃y (Product(y) ∧ containsMaterial(y, x))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Material(x) ↔ ∃y (Product(y) ∧ containsMaterial(y, x)))" ;
+    iof-av:explanatoryNote "Materials are the building blocks of products, crucial for the manufacturing and production processes." ;
+    iof-av:counterExample "An abstract concept or non-tangible item is not considered material." ;
+    iof-av:subjectMatterExpertExplanation "Materials are the physical substances used in creating products, ranging from raw resources to processed goods required for manufacturing." .
+
+scm:Commodity a rdfs:Class ;
+    rdfs:subClassOf scm:Material ;
+    rdfs:label "Commodity" ;
+    rdfs:comment "A basic good used in commerce that is interchangeable with other goods of the same type, such as oil, grain, or metals." ;
+    skos:example "Crude Oil, Wheat, Copper" ;
+    skos:definition "A basic raw material or primary agricultural product that can be bought and sold." ;
+    iof-av:naturalLanguageDefinition "A commodity is a basic good used in trade that is interchangeable with others of the same type, like oil or grain." ;
+    iof-av:firstOrderLogicDefinition "Commodity(x) → (Material(x) ∧ ∃y (Market(y) ∧ tradedIn(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Commodity(x) ↔ (Material(x) ∧ ∃y (Market(y) ∧ tradedIn(x, y))))" ;
+    iof-av:explanatoryNote "Commodities are essential for global trade, providing basic materials for various industries." ;
+    iof-av:counterExample "A branded product with unique characteristics that distinguish it from others is not a commodity." ;
+    iof-av:subjectMatterExpertExplanation "Commodities are fundamental goods like metals, grains, and oils that are traded in bulk and are interchangeable with other goods of the same type." .
+
+scm:Chemical a rdfs:Class ;
+    rdfs:subClassOf scm:Material ;
+    rdfs:label "Chemical" ;
+    rdfs:comment "A compound or substance that has been purified or prepared, especially artificially, and used in various industrial processes." ;
+    skos:example "Sulfuric Acid, Ethanol, Ammonia" ;
+    skos:definition "A substance with a distinct molecular composition that is produced by or used in a chemical process." ;
+    iof-av:naturalLanguageDefinition "A chemical is a compound or substance used in or produced by industrial processes." ;
+    iof-av:firstOrderLogicDefinition "Chemical(x) → (Material(x) ∧ ∃y (IndustrialProcess(y) ∧ usedIn(x, y)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Chemical(x) ↔ (Material(x) ∧ ∃y (IndustrialProcess(y) ∧ usedIn(x, y))))" ;
+    iof-av:explanatoryNote "Chemicals are integral to many industrial processes, serving as essential components or reactants." ;
+    iof-av:counterExample "A natural material not processed or refined for industrial use is not a chemical." ;
+    iof-av:subjectMatterExpertExplanation "Chemicals are substances with specific molecular compositions, used in various industrial processes for manufacturing and production." .
+
+scm:Location a rdfs:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "A particular place or position where an organization operates, including physical sites and facilities." ;
+    skos:example "Factory A, Warehouse B" ;
+    skos:definition "A specific place or position where activities occur, often related to business operations or facilities." ;
+    iof-av:naturalLanguageDefinition "A location is a specific place where an organization operates, such as a factory or warehouse." ;
+    iof-av:firstOrderLogicDefinition "Location(x) → ∃y (Organization(y) ∧ operatesAt(y, x))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Location(x) ↔ ∃y (Organization(y) ∧ operatesAt(y, x)))" ;
+    iof-av:explanatoryNote "Locations are crucial for business operations, serving as the sites for production, storage, or administrative activities." ;
+    iof-av:counterExample "An undefined or mobile position without a fixed address is not considered a location." ;
+    iof-av:subjectMatterExpertExplanation "Locations are specific places where organizations conduct their operations, including factories, warehouses, and offices." .
+
+scm:Plant a rdfs:Class ;
+    rdfs:subClassOf scm:Location ;
+    rdfs:label "Plant" ;
+    rdfs:comment "A manufacturing facility or factory where products are produced, assembled, or processed." ;
+    skos:example "Automobile Plant, Chemical Plant" ;
+    skos:definition "A place where industrial activities take place, often involving large-scale production and assembly." ;
+    iof-av:naturalLanguageDefinition "A plant is a factory or facility where products are manufactured or assembled." ;
+    iof-av:firstOrderLogicDefinition "Plant(x) → (Location(x) ∧ ∃y (Product(y) ∧ producesAt(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Plant(x) ↔ (Location(x) ∧ ∃y (Product(y) ∧ producesAt(y, x))))" ;
+    iof-av:explanatoryNote "Plants are critical for the production process, hosting the machinery and labor needed for manufacturing." ;
+    iof-av:counterExample "An office building without manufacturing capabilities is not a plant." ;
+    iof-av:subjectMatterExpertExplanation "Plants are industrial facilities where manufacturing and assembly of products occur, equipped with necessary machinery and workforce." .
+
+scm:Warehouse a rdfs:Class ;
+    rdfs:subClassOf scm:Location ;
+    rdfs:label "Warehouse" ;
+    rdfs:comment "A storage location for products and materials, used to manage inventory and distribution." ;
+    skos:example "Distribution Warehouse, Cold Storage Facility" ;
+    skos:definition "A building or space where goods are stored before distribution." ;
+    iof-av:naturalLanguageDefinition "A warehouse is a building used for storing goods and materials before they are distributed." ;
+    iof-av:firstOrderLogicDefinition "Warehouse(x) → (Location(x) ∧ ∃y (Product(y) ∧ storesAt(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Warehouse(x) ↔ (Location(x) ∧ ∃y (Product(y) ∧ storesAt(y, x))))" ;
+    iof-av:explanatoryNote "Warehouses are essential for managing inventory and ensuring the smooth flow of goods in the supply chain." ;
+    iof-av:counterExample "A retail store that sells products directly to consumers is not a warehouse." ;
+    iof-av:subjectMatterExpertExplanation "Warehouses are storage facilities used to manage and store inventory before products are distributed to retailers or consumers." .
+
+scm:DistributionCenter a rdfs:Class ;
+    rdfs:subClassOf scm:Location ;
+    rdfs:label "Distribution Center" ;
+    rdfs:comment "A facility for receiving, storing, and distributing products, often serving as a hub in the supply chain." ;
+    skos:example "Regional Distribution Center, E-commerce Fulfillment Center" ;
+    skos:definition "A specialized facility designed to facilitate the efficient distribution of goods." ;
+    iof-av:naturalLanguageDefinition "A distribution center is a facility that receives, stores, and ships products to various destinations." ;
+    iof-av:firstOrderLogicDefinition "DistributionCenter(x) → (Location(x) ∧ ∃y (Product(y) ∧ distributedFrom(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (DistributionCenter(x) ↔ (Location(x) ∧ ∃y (Product(y) ∧ distributedFrom(y, x))))" ;
+    iof-av:explanatoryNote "Distribution centers act as pivotal points in the supply chain, streamlining the process of moving products from manufacturers to retailers or consumers." ;
+    iof-av:counterExample "A manufacturing plant that does not handle distribution tasks is not a distribution center." ;
+    iof-av:subjectMatterExpertExplanation "Distribution centers are critical hubs in the supply chain, designed to efficiently receive, store, and ship products to their final destinations." .
+
+scm:Address a rdfs:Class ;
+    rdfs:label "Address" ;
+    rdfs:comment "The details of the location where an organization is situated, including street address, city, region, and country." ;
+    skos:example "123 Main St, Springfield, IL, USA" ;
+    skos:definition "A specific location identifier used to pinpoint where an organization or person is situated." ;
+    iof-av:naturalLanguageDefinition "An address is a set of details that specify the location of an organization, including street, city, region, and country." ;
+    iof-av:firstOrderLogicDefinition "Address(x) → (∃y (Location(y) ∧ identifiedBy(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Address(x) ↔ (∃y (Location(y) ∧ identifiedBy(y, x))))" ;
+    iof-av:explanatoryNote "Addresses are vital for identifying and locating organizations and facilities within the supply chain." ;
+    iof-av:counterExample "A vague description like 'next to the park' without specific details is not a proper address." ;
+    iof-av:subjectMatterExpertExplanation "An address provides specific location details necessary for identifying where an organization or facility is situated, crucial for logistical and operational purposes." .
+
+scm:Coordinate a rdfs:Class ;
+    rdfs:label "Coordinate" ;
+    rdfs:comment "Geographical coordinates (latitude and longitude) of a location, used to precisely identify its position on the earth's surface." ;
+    skos:example "Latitude: 40.7128, Longitude: -74.0060" ;
+    skos:definition "A set of values that define a specific point on the earth's surface using latitude and longitude." ;
+    iof-av:naturalLanguageDefinition "Coordinates are numerical values representing the exact geographical position of a location using latitude and longitude." ;
+    iof-av:firstOrderLogicDefinition "Coordinate(x) → (∃y (Location(y) ∧ hasCoordinate(y, x)))" ;
+    iof-av:firstOrderLogicAxiom "∀x (Coordinate(x) ↔ (∃y (Location(y) ∧ hasCoordinate(y, x))))" ;
+    iof-av:explanatoryNote "Coordinates provide precise geographical positioning, essential for mapping and navigation." ;
+    iof-av:counterExample "A general description like 'near the river' without specific numerical values is not a coordinate." ;
+    iof-av:subjectMatterExpertExplanation "Coordinates are precise numerical values (latitude and longitude) used to accurately identify the geographical location of places and facilities." .
+
+### Properties
+scm:hasName a rdf:Property ;
+    rdfs:domain scm:Organization, scm:Location, scm:Product, scm:ProductLine, scm:Brand, scm:Material, scm:Commodity;
+    rdfs:range xsd:string ;
+    rdfs:label "has name" ;
+    rdfs:comment "The name of this instance, used to identify and distinguish it." ;
+    skos:example "Apple Inc., Amazon Warehouse" ;
+    skos:definition "The specific identifier used to denote a unique instance within a category." ;
+    iof-av:naturalLanguageDefinition "A name is a label used to uniquely identify an organization, location, product, or other entities." ;
+    iof-av:firstOrderLogicDefinition "hasName(x, y) → (Entity(x) ∧ Name(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (hasName(x, y) ↔ (Entity(x) ∧ Name(y)))" ;
+    iof-av:explanatoryNote "Names provide a means of identification and distinction for various entities within the supply chain." ;
+    iof-av:counterExample "A generic term like 'store' without specific details is not a proper name." ;
+    iof-av:subjectMatterExpertExplanation "Names are unique identifiers for organizations, locations, products, and materials, allowing them to be distinguished and referenced accurately." .
+
+scm:hasAddress a rdf:Property ;
+    rdfs:domain scm:Location ;
+    rdfs:range xsd:string ;
+    rdfs:label "has address" ;
+    rdfs:comment "The address of the location, providing details such as street name, city, and postal code." ;
+    skos:example "456 Elm St, Boston, MA, USA" ;
+    skos:definition "The specific set of details used to identify the physical location of a site." ;
+    iof-av:naturalLanguageDefinition "An address provides detailed information about the location of a place, including street name, city, and postal code." ;
+    iof-av:firstOrderLogicDefinition "hasAddress(x, y) → (Location(x) ∧ Address(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (hasAddress(x, y) ↔ (Location(x) ∧ Address(y)))" ;
+    iof-av:explanatoryNote "Addresses are essential for locating and identifying specific sites within the supply chain." ;
+    iof-av:counterExample "A non-specific location description without concrete details is not a proper address." ;
+    iof-av:subjectMatterExpertExplanation "Addresses provide the necessary details for identifying and locating specific places, essential for logistical operations." .
+
+scm:hasBrand a rdf:Property ;
+    rdfs:domain scm:Product ;
+    rdfs:range scm:Brand ;
+    rdfs:label "has brand" ;
+    rdfs:comment "The brand associated with the product, indicating its market identity and distinguishing it from other products." ;
+    skos:example "Nike for shoes, Coca-Cola for beverages" ;
+    skos:definition "The unique identifier for a product's origin, typically indicating the company that manufactures or sells it." ;
+    iof-av:naturalLanguageDefinition "A brand is a distinctive name or symbol associated with a product, indicating its origin and differentiating it from competitors." ;
+    iof-av:firstOrderLogicDefinition "hasBrand(x, y) → (Product(x) ∧ Brand(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (hasBrand(x, y) ↔ (Product(x) ∧ Brand(y)))" ;
+    iof-av:explanatoryNote "Brands help in creating product identity and consumer recognition in the market." ;
+    iof-av:counterExample "A generic product without a unique identifier or associated name is not considered branded." ;
+    iof-av:subjectMatterExpertExplanation "Brands are unique identifiers for products, signifying their origin and helping to distinguish them in the market." .
+
+scm:isPartOf a rdf:Property ;
+    rdfs:domain scm:Product ;
+    rdfs:range scm:ProductLine ;
+    rdfs:label "is part of" ;
+    rdfs:comment "Indicates that the product is part of a product line, grouped with other related products under a single brand." ;
+    skos:example "iPhone is part of Apple's product line" ;
+    skos:definition "The relationship between an individual product and the broader product line it belongs to." ;
+    iof-av:naturalLanguageDefinition "The 'is part of' property links a product to the product line it belongs to." ;
+    iof-av:firstOrderLogicDefinition "isPartOf(x, y) → (Product(x) ∧ ProductLine(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (isPartOf(x, y) ↔ (Product(x) ∧ ProductLine(y)))" ;
+    iof-av:explanatoryNote "Products within a product line share common features and branding, creating a cohesive group under one brand." ;
+    iof-av:counterExample "A standalone product not associated with a broader product line is not part of a product line." ;
+    iof-av:subjectMatterExpertExplanation "The 'is part of' property indicates that a product is included within a specific product line, sharing common attributes and branding." .
+
+scm:owns a rdf:Property ;
+    rdfs:domain scm:Organization ;
+    rdfs:range scm:Brand ;
+    rdfs:label "owns" ;
+    rdfs:comment "Indicates ownership of a brand by an organization, signifying control and responsibility for the brand." ;
+    skos:example "Procter & Gamble owns the Tide brand" ;
+    skos:definition "The relationship where an organization has legal ownership and control over a brand." ;
+    iof-av:naturalLanguageDefinition "The 'owns' property indicates that an organization has ownership and control over a brand." ;
+    iof-av:firstOrderLogicDefinition "owns(x, y) → (Organization(x) ∧ Brand(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (owns(x, y) ↔ (Organization(x) ∧ Brand(y)))" ;
+    iof-av:explanatoryNote "Ownership of a brand implies control over its identity, marketing, and product offerings." ;
+    iof-av:counterExample "A company that markets products without having legal control over the brand is not considered to own the brand." ;
+    iof-av:subjectMatterExpertExplanation "The 'owns' property signifies that an organization legally controls a brand, managing its identity and associated product offerings." .
+
+scm:locatedIn a rdf:Property ;
+    rdfs:domain scm:Organization ;
+    rdfs:range scm:Location ;
+    rdfs:label "located in" ;
+    rdfs:comment "The location where the organization is situated, including its physical address and geographical position." ;
+    skos:example "Headquarters located in New York City" ;
+    skos:definition "The specific place where an organization operates or is based." ;
+    iof-av:naturalLanguageDefinition "The 'located in' property links an organization to its physical location or base of operations." ;
+    iof-av:firstOrderLogicDefinition "locatedIn(x, y) → (Organization(x) ∧ Location(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (locatedIn(x, y) ↔ (Organization(x) ∧ Location(y)))" ;
+    iof-av:explanatoryNote "Locations are critical for identifying where an organization's operations are conducted." ;
+    iof-av:counterExample "A mobile or virtual entity without a fixed physical location is not considered to be located in a specific place." ;
+    iof-av:subjectMatterExpertExplanation "The 'located in' property indicates the specific physical location where an organization operates, such as its headquarters or main office." .
+
+scm:produces a rdf:Property ;
+    rdfs:domain scm:Manufacturer ;
+    rdfs:range scm:Product ;
+    rdfs:label "produces" ;
+    rdfs:comment "The product produced by the manufacturer, indicating the output of the manufacturing process." ;
+    skos:example "Factory X produces automotive parts" ;
+    skos:definition "The relationship where a manufacturer creates or assembles a product." ;
+    iof-av:naturalLanguageDefinition "The 'produces' property links a manufacturer to the products it creates." ;
+    iof-av:firstOrderLogicDefinition "produces(x, y) → (Manufacturer(x) ∧ Product(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (produces(x, y) ↔ (Manufacturer(x) ∧ Product(y)))" ;
+    iof-av:explanatoryNote "Manufacturers are responsible for transforming raw materials into finished products ready for distribution." ;
+    iof-av:counterExample "A company that only designs products without manufacturing them is not considered to produce them." ;
+    iof-av:subjectMatterExpertExplanation "The 'produces' property identifies the products created by a manufacturer, highlighting the output of their production processes." .
+
+scm:stores a rdf:Property ;
+    rdfs:domain scm:Warehouse ;
+    rdfs:range scm:Product ;
+    rdfs:label "stores" ;
+    rdfs:comment "The product stored in the warehouse, referring to the inventory managed at the storage location." ;
+    skos:example "Warehouse A stores electronics and appliances" ;
+    skos:definition "The relationship where a warehouse holds and manages inventory of products." ;
+    iof-av:naturalLanguageDefinition "The 'stores' property links a warehouse to the products it holds in inventory." ;
+    iof-av:firstOrderLogicDefinition "stores(x, y) → (Warehouse(x) ∧ Product(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (stores(x, y) ↔ (Warehouse(x) ∧ Product(y)))" ;
+    iof-av:explanatoryNote "Warehouses play a crucial role in managing inventory and ensuring products are available for distribution." ;
+    iof-av:counterExample "A retail store that sells products directly to consumers is not considered to store inventory in the same way as a warehouse." ;
+    iof-av:subjectMatterExpertExplanation "The 'stores' property identifies the products held in a warehouse's inventory, highlighting its role in the storage and management of goods." .
+
+scm:supplies a rdf:Property ;
+    rdfs:domain scm:Supplier ;
+    rdfs:range scm:Product ;
+    rdfs:label "supplies" ;
+    rdfs:comment "The product supplied by the supplier, indicating the items provided to other entities in the supply chain." ;
+    skos:example "Supplier B supplies raw materials to Manufacturer C" ;
+    skos:definition "The relationship where a supplier provides products or materials to other entities." ;
+    iof-av:naturalLanguageDefinition "The 'supplies' property links a supplier to the products or materials it provides to other businesses." ;
+    iof-av:firstOrderLogicDefinition "supplies(x, y) → (Supplier(x) ∧ Product(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (supplies(x, y) ↔ (Supplier(x) ∧ Product(y)))" ;
+    iof-av:explanatoryNote "Suppliers are essential for providing the raw materials and products needed by manufacturers and other entities." ;
+    iof-av:counterExample "A retailer that only sells finished products to consumers is not considered to supply materials in the same way as a supplier." ;
+    iof-av:subjectMatterExpertExplanation "The 'supplies' property identifies the products or materials provided by suppliers, emphasizing their role in the supply chain." .
+
+scm:isPartOf a rdf:Property ; 
+    rdfs:domain scm:Component ; 
+    rdfs:range scm:Product ;
+    rdfs:label "is part of" ;
+    rdfs:comment "Indicates that the component is part of a larger product, contributing to the assembly or structure of the final product." ;
+    skos:example "The engine is part of a car" ;
+    skos:definition "The relationship where a component is integrated into a larger product." ;
+    iof-av:naturalLanguageDefinition "The 'is part of' property links a component to the larger product it contributes to." ;
+    iof-av:firstOrderLogicDefinition "isPartOf(x, y) → (Component(x) ∧ Product(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (isPartOf(x, y) ↔ (Component(x) ∧ Product(y)))" ;
+    iof-av:explanatoryNote "Components are crucial elements that, when assembled, form the final product." ;
+    iof-av:counterExample "A standalone item that is not integrated into a larger product is not considered a component." ;
+    iof-av:subjectMatterExpertExplanation "The 'is part of' property identifies the relationship between components and the larger products they help create, highlighting their role in assembly." .
+
+scm:containsMaterial a rdf:Property ; 
+    rdfs:domain scm:Product ; 
+    rdfs:range scm:Material ;
+    rdfs:label "contains material" ;
+    rdfs:comment "Specifies the material contained in the product, identifying the substances or matter used in its composition." ;
+    skos:example "A chair contains wood and metal" ;
+    skos:definition "The relationship where a product includes specific materials as part of its composition." ;
+    iof-av:naturalLanguageDefinition "The 'contains material' property links a product to the materials used in its composition." ;
+    iof-av:firstOrderLogicDefinition "containsMaterial(x, y) → (Product(x) ∧ Material(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (containsMaterial(x, y) ↔ (Product(x) ∧ Material(y)))" ;
+    iof-av:explanatoryNote "Understanding the materials contained in a product is essential for quality control and production processes." ;
+    iof-av:counterExample "A digital product without physical substance does not contain material in the traditional sense." ;
+    iof-av:subjectMatterExpertExplanation "The 'contains material' property specifies the materials that make up a product, crucial for understanding its composition and production requirements." .
+
+scm:hasCoordinate a rdf:Property ; 
+    rdfs:domain scm:Location ; 
+    rdfs:range scm:Coordinate ;
+    rdfs:label "has coordinate" ;
+    rdfs:comment "The geographical coordinates of the location, providing precise latitude and longitude values." ;
+    skos:example "Factory A is located at Latitude: 34.0522, Longitude: -118.2437" ;
+    skos:definition "The specific set of latitude and longitude values that pinpoint a location's position on the earth." ;
+    iof-av:naturalLanguageDefinition "The 'has coordinate' property links a location to its exact geographical coordinates, providing precise latitude and longitude values." ;
+    iof-av:firstOrderLogicDefinition "hasCoordinate(x, y) → (Location(x) ∧ Coordinate(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (hasCoordinate(x, y) ↔ (Location(x) ∧ Coordinate(y)))" ;
+    iof-av:explanatoryNote "Coordinates provide an accurate means of identifying the specific location of a place, essential for mapping and navigation." ;
+    iof-av:counterExample "A non-specific description of location without precise numerical values is not considered to have coordinates." ;
+    iof-av:subjectMatterExpertExplanation "The 'has coordinate' property assigns precise geographical coordinates (latitude and longitude) to a location, essential for accurate positioning and navigation." .
+
+scm:name a rdf:Property ; 
+    rdfs:domain scm:GeographicalName ; 
+    rdfs:range xsd:string ;
+    rdfs:label "name" ;
+    rdfs:comment "The name of the geographical feature, used to identify and distinguish it." ;
+    skos:example "Mount Everest, Amazon River" ;
+    skos:definition "The specific designation or title given to a geographical feature." ;
+    iof-av:naturalLanguageDefinition "A name is a label used to identify and distinguish a geographical feature, such as a mountain or river." ;
+    iof-av:firstOrderLogicDefinition "name(x, y) → (GeographicalFeature(x) ∧ Name(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (name(x, y) ↔ (GeographicalFeature(x) ∧ Name(y)))" ;
+    iof-av:explanatoryNote "Names help in recognizing and referencing specific geographical features, facilitating communication and navigation." ;
+    iof-av:counterExample "A description without a specific label or title is not considered a name." ;
+    iof-av:subjectMatterExpertExplanation "The 'name' property provides a specific label to identify and distinguish geographical features, essential for reference and navigation." .
+
+schema:streetAddress a rdf:Property ;   
+    rdfs:domain scm:Address ; 
+    rdfs:range xsd:string ;
+    rdfs:label "street address" ;
+    rdfs:comment "The street address of the location, including street name and number." ;
+    skos:example "789 Maple St, Springfield" ;
+    skos:definition "The specific location details including the street name and number where a building or site is located." ;
+    iof-av:naturalLanguageDefinition "A street address provides detailed location information including the street name and number." ;
+    iof-av:firstOrderLogicDefinition "streetAddress(x, y) → (Address(x) ∧ StreetNameAndNumber(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (streetAddress(x, y) ↔ (Address(x) ∧ StreetNameAndNumber(y)))" ;
+    iof-av:explanatoryNote "Street addresses are crucial for pinpointing the exact location of buildings and sites within a city or town." ;
+    iof-av:counterExample "A location description without specific street name and number is not a street address." ;
+    iof-av:subjectMatterExpertExplanation "Street addresses provide specific details about the location of a building or site, including the street name and number, essential for precise identification and navigation." .
+
+schema:postalCode a rdf:Property ; 
+    rdfs:domain scm:Address ; 
+    rdfs:range xsd:string ;
+    rdfs:label "postal code" ;
+    rdfs:comment "The postal code of the location, used for mail delivery and addressing." ;
+    skos:example "90210, 10001" ;
+    skos:definition "A series of letters and/or digits assigned to a location for the purposes of sorting and delivering mail." ;
+    iof-av:naturalLanguageDefinition "A postal code is a set of letters and/or numbers used to identify a specific area for mail delivery." ;
+    iof-av:firstOrderLogicDefinition "postalCode(x, y) → (Address(x) ∧ PostalCode(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (postalCode(x, y) ↔ (Address(x) ∧ PostalCode(y)))" ;
+    iof-av:explanatoryNote "Postal codes help in efficiently sorting and delivering mail to the correct addresses." ;
+    iof-av:counterExample "A general area description without specific postal code numbers is not considered a postal code." ;
+    iof-av:subjectMatterExpertExplanation "Postal codes are alphanumeric codes used to identify specific areas for efficient mail sorting and delivery, crucial for postal services." .
+
+schema:addressLocality a rdf:Property ; 
+    rdfs:domain scm:Address ; 
+    rdfs:range xsd:string ;
+    rdfs:label "address locality" ;
+    rdfs:comment "The locality or city of the address, indicating the urban area where the location is situated." ;
+    skos:example "New York, Los Angeles" ;
+    skos:definition "The specific city or town where an address is located." ;
+    iof-av:naturalLanguageDefinition "The address locality refers to the city or town where a location is situated." ;
+    iof-av:firstOrderLogicDefinition "addressLocality(x, y) → (Address(x) ∧ Locality(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (addressLocality(x, y) ↔ (Address(x) ∧ Locality(y)))" ;
+    iof-av:explanatoryNote "Localities help in identifying the broader urban area of an address, important for navigation and regional identification." ;
+    iof-av:counterExample "A description that does not specify a city or town is not considered an address locality." ;
+    iof-av:subjectMatterExpertExplanation "Address locality identifies the city or town where an address is located, providing crucial information for regional identification and navigation." .
+
+schema:addressRegion a rdf:Property ; 
+    rdfs:domain scm:Address ; 
+    rdfs:range xsd:string ;
+    rdfs:label "address region" ;
+    rdfs:comment "The region or state of the address, indicating the administrative area where the location is situated." ;
+    skos:example "California, Ontario" ;
+    skos:definition "The specific state or region where an address is located." ;
+    iof-av:naturalLanguageDefinition "The address region refers to the state or administrative area where a location is situated." ;
+    iof-av:firstOrderLogicDefinition "addressRegion(x, y) → (Address(x) ∧ Region(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (addressRegion(x, y) ↔ (Address(x) ∧ Region(y)))" ;
+    iof-av:explanatoryNote "Regions or states provide higher-level geographical context for an address, essential for broader identification and navigation." ;
+    iof-av:counterExample "A description that does not specify a state or region is not considered an address region." ;
+    iof-av:subjectMatterExpertExplanation "Address region identifies the state or administrative area of an address, providing important context for geographical identification and navigation." .
+
+schema:addressCountry a rdf:Property ; 
+    rdfs:domain scm:Address ; 
+    rdfs:range xsd:string ;
+    rdfs:label "address country" ;
+    rdfs:comment "The country of the address, indicating the nation where the location is situated." ;
+    skos:example "United States, Canada" ;
+    skos:definition "The specific country where an address is located." ;
+    iof-av:naturalLanguageDefinition "The address country refers to the nation where a location is situated." ;
+    iof-av:firstOrderLogicDefinition "addressCountry(x, y) → (Address(x) ∧ Country(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (addressCountry(x, y) ↔ (Address(x) ∧ Country(y)))" ;
+    iof-av:explanatoryNote "Countries provide the highest-level geographical context for an address, essential for global identification and navigation." ;
+    iof-av:counterExample "A description that does not specify a country is not considered an address country." ;
+    iof-av:subjectMatterExpertExplanation "Address country identifies the nation of an address, providing essential context for international identification and navigation." .
+
+geo:lat a rdf:Property ; 
+    rdfs:domain scm:Coordinate ; 
+    rdfs:range xsd:decimal ;
+    rdfs:label "latitude" ;
+    rdfs:comment "The latitude component of the geographical coordinates, indicating the north-south position." ;
+    skos:example "Latitude: 37.7749" ;
+    skos:definition "The angular distance of a place north or south of the earth's equator, usually expressed in degrees and minutes." ;
+    iof-av:naturalLanguageDefinition "Latitude is a geographical coordinate that specifies the north-south position of a location on the Earth's surface." ;
+    iof-av:firstOrderLogicDefinition "latitude(x, y) → (Coordinate(x) ∧ Decimal(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (latitude(x, y) ↔ (Coordinate(x) ∧ Decimal(y)))" ;
+    iof-av:explanatoryNote "Latitude is crucial for accurately pinpointing a location's position in the north-south axis." ;
+    iof-av:counterExample "A non-numerical description of a location's position is not considered a latitude." ;
+    iof-av:subjectMatterExpertExplanation "Latitude provides the north-south positioning for a location on the Earth's surface, essential for precise geographical identification." .
+
+geo:long a rdf:Property ; 
+    rdfs:domain scm:Coordinate ; 
+    rdfs:range xsd:decimal ;
+    rdfs:label "longitude" ;
+    rdfs:comment "The longitude component of the geographical coordinates, indicating the east-west position." ;
+    skos:example "Longitude: -122.4194" ;
+    skos:definition "The angular distance of a place east or west of the prime meridian, usually expressed in degrees and minutes." ;
+    iof-av:naturalLanguageDefinition "Longitude is a geographical coordinate that specifies the east-west position of a location on the Earth's surface." ;
+    iof-av:firstOrderLogicDefinition "longitude(x, y) → (Coordinate(x) ∧ Decimal(y))" ;
+    iof-av:firstOrderLogicAxiom "∀x ∀y (longitude(x, y) ↔ (Coordinate(x) ∧ Decimal(y)))" ;
+    iof-av:explanatoryNote "Longitude is crucial for accurately pinpointing a location's position in the east-west axis." ;
+    iof-av:counterExample "A non-numerical description of a location's position is not considered a longitude." ;
+    iof-av:subjectMatterExpertExplanation "Longitude provides the east-west positioning for a location on the Earth's surface, essential for precise geographical identification." .
