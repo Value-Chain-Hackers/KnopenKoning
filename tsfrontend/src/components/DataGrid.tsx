@@ -6,7 +6,6 @@ import {
   usePagination,
   Column,
 } from "react-table";
-import { useSettings } from "../contexts/SettingsContext";
 import "./DataGrid.css";
 
 interface DataGridProps {
@@ -18,7 +17,7 @@ interface DataGridProps {
 }
 
 const DataGrid: React.FC<DataGridProps> = ({ data: initialData, dataUrl, columns, query, data }) => {
-  const settings = useSettings();
+
   const [tableData, setData] = useState<any[]>(data || []);
   const [tableColumns, setColumns] = useState<Column<any>[]>([]);
   const [queryStr, setQuery] = useState<string>("");

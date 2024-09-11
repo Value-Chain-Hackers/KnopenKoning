@@ -42,3 +42,4 @@ wikipedia
 markdown2
 xhtml2pdf
 reportlab
+werkzeug

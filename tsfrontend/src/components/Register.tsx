@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSettings } from '../contexts/SettingsContext';
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const settings = useSettings();
   const navigate = useNavigate();
 
   const handleRegister = async (e: React.FormEvent) => {
@@ -20,7 +18,7 @@ const Register: React.FC = () => {
     }
 
     try {
-      const response = await fetch(`${settings.apiUrl}/auth/register`, {
+      const response = await fetch(`http://148.251.4.42:18000/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

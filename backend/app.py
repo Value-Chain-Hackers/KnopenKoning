@@ -68,7 +68,7 @@ app.include_router(scheduler.router, prefix="/scheduler", tags=["scheduler"])
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "http://148.251.4.42:18000", "http://148.251.4.42:18001"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

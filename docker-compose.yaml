@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   # ollama:
   #   image: ollama/ollama:latest
@@ -26,9 +25,7 @@ services:
       - "18001:3000"
     depends_on:
       - mysql
-      - virtuoso
       - mongodb
-      - redis
     volumes:
       - shared_data:/shared_data:rw
 
@@ -40,24 +37,9 @@ services:
       - "18000:18000"
     depends_on:
       - mysql
-      - virtuoso
       - mongodb
-      - redis
     volumes:
       - shared_data:/shared_data:rw
-
-  scheduler:
-    image: vch_scheduler:latest
-    environment:
-      - OLLAMA_URL=ollama:11434
-    depends_on:
-      - mysql
-      - virtuoso
-      - mongodb
-      - redis
-    volumes:
-      - shared_data:/shared_data:rw
-      - scheduler_data:/data:rw
 
   mysql:
     image: mysql:8.0
@@ -72,19 +54,6 @@ services:
       - mysql_data:/var/lib/mysql:rw
       - shared_data:/shared_data:ro
 
-  virtuoso:
-    image: openlink/virtuoso-opensource-7:latest
-    environment:
-      SPARQL_UPDATE: "true"
-      DEFAULT_GRAPH: "http://localhost:8890/DAV"
-      DBA_PASSWORD: "dba_password"
-    ports:
-      - "8890:8890"
-      - "1111:1111"
-    volumes:
-      - virtuoso_data:/opt/virtuoso-opensource/database:rw
-      - shared_data:/shared_data:ro
-
   mongodb:
     image: mongo:latest
     environment:
@@ -96,25 +65,8 @@ services:
       - mongodb_data:/data:rw
       - shared_data:/shared_data:ro
 
-  redis:
-    image: redis:latest
-    ports:
-      - "6379:6379"
-
-  test:
-    image: nvidia/cuda:12.3.1-base-ubuntu20.04
-    command: nvidia-smi
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 0
-              capabilities: [gpu]
 volumes:
   mysql_data:
-    driver: local
-  virtuoso_data:
     driver: local
   shared_data:
     driver: local
@@ -122,5 +74,4 @@ volumes:
     driver: local
   ollama_data:
     driver: local
-  scheduler_data:
-    driver: local
+

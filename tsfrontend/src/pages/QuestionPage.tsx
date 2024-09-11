@@ -3,7 +3,6 @@ import { useParams, Navigate } from "react-router-dom";
 import axios from "axios";
 import TabControl from "../components/TabControl";
 import { useAuth } from "../contexts/AuthContext";
-import { useSettings } from "../contexts/SettingsContext";
 import ChatDialog from "../components/ChatDialog";
 import ChatButton from "../components/ChatButton";
 
@@ -12,7 +11,6 @@ interface QuestionPageProps {
 }
 
 const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
-  const settings = useSettings();
   const { uid, qq } = useParams<{ uid: string, qq:string }>();
   const [question, setQuestion] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -22,7 +20,7 @@ const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
     console.log("fetching question", uid, qq);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`${settings.apiUrl}/view/${uid}` + (followup ? "/followup/"+ qq : ""), {
+      const response = await axios.get(`http://148.251.4.42:18000/view/${uid}` + (followup ? "/followup/"+ qq : ""), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -59,8 +57,8 @@ const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
 
   return (
     <div>
-      <a href={settings.apiUrl + '/view/' + uid+'/pdf'} target="_blank" rel="noreferrer">As PDF</a>
-      <TabControl url={settings.apiUrl + '/view'} sessionId={uid} />
+      <a href={'http://148.251.4.42:18000/view/' + uid+'/pdf'} target="_blank" rel="noreferrer">As PDF</a>
+      <TabControl url={'http://148.251.4.42:18000/view'} sessionId={uid} />
       <ChatDialog isOpen={isChatOpen} sessionId={uid} onClose={() => setIsChatOpen(false)} />
       {!isChatOpen && <ChatButton onClick={() => setIsChatOpen(true)} />}
     </div>

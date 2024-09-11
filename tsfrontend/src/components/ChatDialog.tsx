@@ -2,10 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faComments } from '@fortawesome/free-solid-svg-icons';
 import './ChatDialog.css';
-import { useParams } from 'react-router-dom';
-import { useSettings } from '../contexts/SettingsContext';
 import he from 'he';
-import { html } from 'd3';
 interface ChatDialogProps {
   isOpen: boolean;
   sessionId?: string;
@@ -17,7 +14,6 @@ const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, sessionId, onClose }) =
   const [input, setInput] = useState<string>('');
   const [isReceiving, setIsReceiving] = useState<boolean>(false);
   const messageEndRef = useRef<HTMLDivElement>(null);
-  const settings = useSettings();
 
   const scrollToBottom = () => {
     if (messageEndRef.current) {
@@ -41,7 +37,7 @@ const ChatDialog: React.FC<ChatDialogProps> = ({ isOpen, sessionId, onClose }) =
   const sendMessage = async (message: string) => {
     setIsReceiving(true);
     try {
-      const response = await fetch(`${settings.apiUrl}/ai/ask`, {
+      const response = await fetch(`http://148.251.4.42:18000/ai/ask`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,

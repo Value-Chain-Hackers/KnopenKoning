@@ -4,10 +4,9 @@ const LatestItems = () => {
   const [items, setItems] = useState<any>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const settings = useSettings(); 
   useEffect(() => {
     const fetchLatestItems = async () => {
-        await fetch(`${settings.apiUrl}/view/latest`, {
+        await fetch(`http://148.251.4.42:18000/view/latest`, {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${localStorage.getItem('token')}`,

@@ -1,12 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {
-  faDollarSign,
-  faGlobe,
-  faRocket,
-  faTruck,
-} from "@fortawesome/free-solid-svg-icons";
-import StarterCard from "../components/StarterCard";
-import { useSettings } from "../contexts/SettingsContext";
+import React, { useState } from "react";
 import LatestItems from "../components/LatestItems";
 
 interface StartPageProps {
@@ -27,14 +19,13 @@ const StartPage: React.FC<StartPageProps> = ({
 }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState<ProgressStep[]>([]);
-  const settings = useSettings();
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setIsProcessing(true);
     setProgress([]);
     const question_text = question;
     const token = localStorage.getItem("token");
-    const response = await fetch(`${settings.apiUrl}/process`, {
+    const response = await fetch(`http://148.251.4.42:18000/process`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -50,7 +41,7 @@ const StartPage: React.FC<StartPageProps> = ({
     }
     const data = await response.json();
     const eventSource = new EventSource(
-      `${settings.apiUrl}/progress/${data.process_id}`
+      `http://148.251.4.42:18000/progress/${data.process_id}`
     );
 
     eventSource.onmessage = (event) => {
