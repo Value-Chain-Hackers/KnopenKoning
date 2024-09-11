@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from bson import ObjectId
 
 # MongoDB connection
-client = MongoClient('mongodb://localhost:27017/', username='root', password='kpnBCdiAFamV5InlXPvaq7X2M5TsDOEd')
+client = MongoClient('mongodb://mongodb:27017/', username='root', password='kpnBCdiAFamV5InlXPvaq7X2M5TsDOEd')
 db = client['vch']
 processes_collection = db['processes']
 
