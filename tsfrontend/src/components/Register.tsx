@@ -18,7 +18,7 @@ const Register: React.FC = () => {
     }
 
     try {
-      const response = await fetch(`http://148.251.4.42:18000/auth/register`, {
+      const response = await fetch(`https://backend.valuechainhackers.xyz/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

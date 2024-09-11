@@ -27,7 +27,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
 
   const verifyToken = async (token: string) => {
     try {
-      const response = await axios.get('http://148.251.4.42:18000/auth/verify', {
+      const response = await axios.get('https://backend.valuechainhackers.xyz/auth/verify', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

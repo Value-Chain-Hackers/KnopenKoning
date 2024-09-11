@@ -6,7 +6,7 @@ const LatestItems = () => {
   const [error, setError] = useState(null);
   useEffect(() => {
     const fetchLatestItems = async () => {
-        await fetch(`http://148.251.4.42:18000/view/latest`, {
+        await fetch(`https://backend.valuechainhackers.xyz/view/latest`, {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${localStorage.getItem('token')}`,

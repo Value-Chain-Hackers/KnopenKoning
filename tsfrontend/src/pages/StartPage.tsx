@@ -25,7 +25,7 @@ const StartPage: React.FC<StartPageProps> = ({
     setProgress([]);
     const question_text = question;
     const token = localStorage.getItem("token");
-    const response = await fetch(`http://148.251.4.42:18000/process`, {
+    const response = await fetch(`https://backend.valuechainhackers.xyz/process`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -41,7 +41,7 @@ const StartPage: React.FC<StartPageProps> = ({
     }
     const data = await response.json();
     const eventSource = new EventSource(
-      `http://148.251.4.42:18000/progress/${data.process_id}`
+      `https://backend.valuechainhackers.xyz/progress/${data.process_id}`
     );
 
     eventSource.onmessage = (event) => {

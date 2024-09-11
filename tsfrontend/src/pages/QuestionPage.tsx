@@ -20,7 +20,7 @@ const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
     console.log("fetching question", uid, qq);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`http://148.251.4.42:18000/view/${uid}` + (followup ? "/followup/"+ qq : ""), {
+      const response = await axios.get(`https://backend.valuechainhackers.xyz/view/${uid}` + (followup ? "/followup/"+ qq : ""), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -57,8 +57,8 @@ const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
 
   return (
     <div>
-      <a href={'http://148.251.4.42:18000/view/' + uid+'/pdf'} target="_blank" rel="noreferrer">As PDF</a>
-      <TabControl url={'http://148.251.4.42:18000/view'} sessionId={uid} />
+      <a href={'https://backend.valuechainhackers.xyz/view/' + uid+'/pdf'} target="_blank" rel="noreferrer">As PDF</a>
+      <TabControl url={'https://backend.valuechainhackers.xyz/view'} sessionId={uid} />
       <ChatDialog isOpen={isChatOpen} sessionId={uid} onClose={() => setIsChatOpen(false)} />
       {!isChatOpen && <ChatButton onClick={() => setIsChatOpen(true)} />}
     </div>
