@@ -9,6 +9,16 @@ Master your supply chain, untangling every challenge.
     quarto render docs --format pdf
  ```
 
+# Docker installation
+docker buildx build -f ./Dockerfile.Frontend    -t vch_frontend:latest .
+docker buildx build -f ./Dockerfile.Backend     -t vch_backend:latest . 
+
+Will be exposed on port 3000;
+
+if you use traefic, use the docker-compose.traefic
+
+
+
 ## Installation
 
 Install python from [Python](https://www.python.org/downloads/)
