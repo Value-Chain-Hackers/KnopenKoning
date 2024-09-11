@@ -3,8 +3,8 @@ import os
 
 
 MODEL_NAME = os.environ.get("OLLAMA_MODEL", "llama3.1:8b")
-OLLAMA_API_URL = os.environ.get("OLLAMA_API_URL", "http://localhost:11434")
-OLLAMA_HOST = os.getenv("OLLAMA_HOST", "127.0.0.1:11434")
+OLLAMA_API_URL = os.environ.get("OLLAMA_API_URL", "http://ollama:11434")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "ollama:11434")
 OLLAMA_MODEL = MODEL_NAME
 #MODEL_NAME = "mistral:latest"
 #MODEL_NAME = "mixtral:8x7b"
