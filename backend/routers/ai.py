@@ -44,7 +44,7 @@ async def loaded_models(request: Request):
     return JSONResponse(models)
 
 
-@router.post("/ask")
+@router.post("/ask/")
 async def ask(request: Request, user = Depends(auth.get_current_user)):
     data = await request.json()
     question = data.get("message")
@@ -70,7 +70,7 @@ async def ask(request: Request, user = Depends(auth.get_current_user)):
     chain,
     lambda session_id: MongoDBChatMessageHistory(
         session_id=session_id,
-        connection_string="mongodb://root:kpnBCdiAFamV5InlXPvaq7X2M5TsDOEd@localhost:27017",
+        connection_string="mongodb://root:kpnBCdiAFamV5InlXPvaq7X2M5TsDOEd@mongodb:27017",
         database_name="vch",
         collection_name="chat_histories",
     ),

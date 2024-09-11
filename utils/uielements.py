@@ -83,4 +83,4 @@ Additionally extract all named entities that are mentioned in your answer and pr
 """)
         chain = prompt | ChatOllama(model=self.model_name, base_url=self.host)
         elements = chain.invoke({'question': question, 'title': title, 'description': description, 'search_results': search_results})
-        return elements
+        return elements.content

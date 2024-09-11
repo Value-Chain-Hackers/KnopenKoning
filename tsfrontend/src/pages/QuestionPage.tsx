@@ -20,12 +20,12 @@ const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
     console.log("fetching question", uid, qq);
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`https://backend.valuechainhackers.xyz/view/${uid}` + (followup ? "/followup/"+ qq : ""), {
+      const response = await fetch(`https://backend.valuechainhackers.xyz/view/${uid}/` + (followup ? "`followup/"+ qq : ""), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setQuestion(response.data);
+      setQuestion(response.json());     
     } catch (error) {
       console.error("Error fetching question:", error);
       setError("Failed to fetch question data");

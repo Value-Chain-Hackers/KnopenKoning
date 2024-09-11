@@ -81,4 +81,4 @@ if __name__ == "__main__":
             return ret
         Multiprocess.startup = uvicorn_multiprocess_startup
 
-    uvicorn.run("backend.app:app", host="0.0.0.0", port=18000 , workers=1)
+    uvicorn.run("backend.app:app", host="0.0.0.0", port=18000 , workers=1, forwarded_allow_ips="*")

@@ -44,7 +44,7 @@ const TabControl: React.FC<TabControlProps> = ({
     // Fetch the tabs configuration from the JSON file
 
     if (sessionId) {
-      url = `${url}/${sessionId}`;
+      url = `${url}/${sessionId}/`;
     }
     fetch(url!, {
       method: 'GET',

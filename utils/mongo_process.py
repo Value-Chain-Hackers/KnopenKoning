@@ -55,7 +55,7 @@ class Process:
 
     @staticmethod
     def get_byOwner(id):
-        cur = processes_collection.find({"owner":2}).limit(10).sort([('created_at', -1)])
+        cur = processes_collection.find({"owner":id}).limit(10).sort([('created_at', -1)])
         docs = []
         for doc in cur:
             doc["_id"] = str(doc["_id"])
