@@ -1,0 +1,69 @@
+services:
+
+  frontend:
+    image: vch_frontend:latest
+    environment:
+      - OLLAMA_URL=ollama:11434
+    ports:
+      - "18001:3000"
+    depends_on:
+      - mysql
+      - mongodb
+    volumes:
+      - shared_data:/shared_data:rw
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`frontend.${AI_DOMAIN}`)"
+      - "traefik.http.services.frontend.loadbalancer.server.port=3000"
+      - "traefik.http.routers.frontend.entryPoints=http"
+      - "traefik.http.routers.frontend.middlewares=https_redirect@file"
+      - "traefik.http.routers.frontendtls.rule=Host(`frontend.${AI_DOMAIN}`)"
+      - "traefik.http.routers.frontendtls.entryPoints=https"
+      - "traefik.http.routers.frontendtls.tls=true"
+      - "traefik.http.routers.frontendtls.tls.certresolver=le"
+
+  backend:
+    image: vch_backend:latest
+    environment:
+      - OLLAMA_URL=ollama:11434
+    ports:
+      - "18000:18000"
+    depends_on:
+      - mysql
+      - mongodb
+    volumes:
+      - shared_data:/shared_data:rw
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`backend.${AI_DOMAIN}`)"
+      - "traefik.http.services.backend.loadbalancer.server.port=18000"
+      - "traefik.http.routers.backend.entryPoints=http"
+      - "traefik.http.routers.backend.middlewares=https_redirect@file"
+      - "traefik.http.routers.backendtls.rule=Host(`backend.${AI_DOMAIN}`)"
+      - "traefik.http.routers.backendtls.entryPoints=https"
+      - "traefik.http.routers.backendtls.tls=true"
+      - "traefik.http.routers.backendtls.tls.certresolver=le"
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql:rw
+      - shared_data:/shared_data:ro
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data:rw
+      - shared_data:/shared_data:ro
+
+volumes:
+  mysql_data:
+    driver: local
+  shared_data:
+    driver: local
+  mongodb_data:
+    driver: local
