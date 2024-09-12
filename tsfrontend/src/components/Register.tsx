@@ -18,7 +18,7 @@ const Register: React.FC = () => {
     }
 
     try {
-      const response = await fetch(`https://backend.valuechainhackers.xyz/auth/register`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

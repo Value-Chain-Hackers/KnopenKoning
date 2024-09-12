@@ -1,26 +1,11 @@
 version: '3.8'
 services:
-  # ollama:
-  #   image: ollama/ollama:latest
-  #   environment:
-  #     - OLLAMA_MAX_LOADED_MODELS=3
-  #     - OLLAMA_NUM_PARALLEL=4
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - driver: nvidia
-  #             count: 2
-  #             capabilities: [gpu]
-  #   ports:
-  #     - "11434:11434"
-  #   volumes:
-  #     - ollama_data:/root/.ollama:rw
 
   frontend:
     image: vch_frontend:latest
     environment:
       - OLLAMA_URL=ollama:11434
+      - REACT_APP_BACKEND_URL=https://backend.valuechainhackers.xyz
     ports:
       - "18001:3000"
     depends_on:
@@ -62,7 +47,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongodb_data:/data:rw
+      - mongodb_data:/data/db:rw
       - shared_data:/shared_data:ro
 
 volumes:

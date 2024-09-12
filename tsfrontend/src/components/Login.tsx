@@ -12,7 +12,7 @@ const Login: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://backend.valuechainhackers.xyz/auth/login`, {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, {
         username,
         password
       }, {

@@ -20,7 +20,7 @@ const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
     console.log("fetching question", uid, qq);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`https://backend.valuechainhackers.xyz/view/${uid}/` + (followup ? "`followup/"+ qq : ""), {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/view/${uid}/` + (followup ? "`followup/"+ qq : ""), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -57,8 +57,8 @@ const QuestionPage: React.FC<QuestionPageProps> = ({followup}) => {
 
   return (
     <div>
-      <a href={'https://backend.valuechainhackers.xyz/view/' + uid+'/pdf'} target="_blank" rel="noreferrer">As PDF</a>
-      <TabControl url={'https://backend.valuechainhackers.xyz/view'} sessionId={uid} />
+      <a href={`${process.env.REACT_APP_BACKEND_URL}/view/` + uid+'/pdf'} target="_blank" rel="noreferrer">As PDF</a>
+      <TabControl url={`${process.env.REACT_APP_BACKEND_URL}/view`} sessionId={uid} />
       <ChatDialog isOpen={isChatOpen} sessionId={uid} onClose={() => setIsChatOpen(false)} />
       {!isChatOpen && <ChatButton onClick={() => setIsChatOpen(true)} />}
     </div>
