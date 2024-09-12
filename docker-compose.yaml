@@ -1,10 +1,10 @@
-version: '3.8'
 services:
 
   frontend:
     image: vch_frontend:latest
     environment:
-      - OLLAMA_URL=ollama:11434
+      - OLLAMA_API_URL=http://10.31.0.240:11434/
+      - OLLAMA_HOST=10.31.0.240:11434
       - REACT_APP_BACKEND_URL=https://backend.valuechainhackers.xyz
     ports:
       - "18001:3000"
@@ -17,7 +17,8 @@ services:
   backend:
     image: vch_backend:latest
     environment:
-      - OLLAMA_URL=ollama:11434
+      - OLLAMA_API_URL=http://10.31.0.240:11434/
+      - OLLAMA_HOST=10.31.0.240:11434
     ports:
       - "18000:18000"
     depends_on:
