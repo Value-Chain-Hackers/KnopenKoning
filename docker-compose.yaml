@@ -6,6 +6,9 @@ services:
       - OLLAMA_API_URL=http://10.31.0.240:11434/
       - OLLAMA_HOST=10.31.0.240:11434
       - REACT_APP_BACKEND_URL=https://backend.valuechainhackers.xyz
+      - REACT_APP_PUBLIC_URL=https://app.valuechainhackers.xyz:443
+      - WDS_SOCKET_PORT=443
+      - REACT_APP_WDS_SOCKET_PORT=443
 
     ports:
       - "18001:3000"

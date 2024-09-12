@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
+import { useAuth } from "./contexts/AuthContext";
 
 interface HeaderProps {
   title: string;
@@ -10,14 +11,14 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
   const navigate = useNavigate();
+  const { login, logout } = useAuth();
 
   const handleAdminClick = () => {
     navigate('/admin');
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
+    logout()
   };
 
   return (

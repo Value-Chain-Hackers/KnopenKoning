@@ -6,7 +6,6 @@ import axios from 'axios';
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
   const { login } = useAuth();
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
   const handleLogin = async (e: React.FormEvent) => {
@@ -23,7 +22,8 @@ const Login: React.FC = () => {
 
       if (response.data && response.data.token) {
         await login(response.data.token);
-        navigate('/');
+        console.log('logged as user')
+        window.location.assign("/")
       }
     } catch (error) {
       console.error('Login error:', error);
