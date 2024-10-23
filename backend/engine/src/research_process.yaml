@@ -1,0 +1,117 @@
+name: Research Process
+description: A structured process for conducting research and generating reports.
+
+steps:
+  - id: DefineObjective
+    description: "Define the initial research objective and scope."
+    input_model: ResearchObjective
+    output_model: RefinedObjective
+    args:
+      model: llama3.1:70b
+      prompt: |
+        The topic provided is "{topic}".
+        Extract key terms and concepts to define the research scope.
+        Generate clarifying questions if needed.
+    next_step: CollectWikipediaData
+
+  - id: CollectWikipediaData
+    type: GetWikipediaPages
+    description: "Collect Wikipedia pages."
+    input_model: RefinedObjective
+    output_model: CollectedWikipediaData
+    next_step: InitialGathering
+
+  - id: InitialGathering
+    description: "Perform an initial broad search for information."
+    type: GatherInformation
+    input_model: CollectedWikipediaData
+    output_model: InitialGatheringOutput
+    args:
+      model: llama3.1:70b
+      prompt: |
+        Conduct a broad search about "{topic}" using the refined objective: "{refined_key_terms}".
+        Summarize key information from each source and make sure it remains relevant to "{topic}".
+    next_step: HypothesisFormation
+
+  - id: HypothesisFormation
+    type: agent
+    description: "Formulate initial hypotheses around the topic '{topic}' based on gathered information."
+    input_model: InitialGatheringOutput
+    output_model: HypothesisTestingOutput
+    args:
+      model: llama3.1:70b
+      
+      prompt: |
+        Based on the questions answered and the inputs, formulate a series of  hypothesis. 
+        Elaborate a detailed explanation for each hypotesis about "{topic}". 
+    next_step: IterateFocusedDeepDive
+
+  - id: IterateFocusedDeepDive
+    type: agent
+    description: "Conduct a focused deep dive into specific aspects of the research."
+    input_model: HypothesisTestingOutput
+    output_model: FocusedResearchOutput
+    args:
+      model: llama3.1:70b
+      prompt: |
+        Conduct a focused deep dive about "{topic}" into the hypothesis to gather in-depth information.
+        Summarize key findings and assess their relevance to the research objective.
+    next_step: SynthesisReasoning
+
+  - id: SynthesisReasoning
+    description: "Synthesize the information and reason through the data to derive conclusions."
+    input_model: FocusedResearchOutput
+    output_model: SynthesisOutput
+    args:
+      model: llama3.1:70b
+      temperature: 0
+      
+      prompt: |
+        Synthesize the information from the in-depth sources and connect it with the hypotheses about "{topic}"
+        Draw conclusions and identify implications. Be as detailed and exchaustive as possible.
+    next_step: ReportDrafting
+
+  - id: ReportDrafting
+    description: "Draft a comprehensive and extended report based on the synthesized conclusions."
+    input_model: SynthesisOutput
+    output_model: DraftReport
+    args:
+      model: llama3.1:70b
+      prompt: |
+        Draft a report with the following conclusions: "{conclusions}".
+        The report should be structured and detailed, covering all relevant aspects.
+        Be as detailed and exchaustive as possible.
+        Ensure that the report sections are coherent and cover all relevant findings.
+    next_step: ReviewRefinement
+
+  - id: ReviewRefinement
+    description: "Review the draft report and refine it based on feedback."
+    input_model: DraftReport
+    output_model: RefinedReport
+    args:
+      model: llama3.1:70b
+      prompt: |
+        Review the draft report".
+        Refine the sections to improve clarity and completeness.
+    next_step: FinalReportGeneration
+    repeat_step: HypothesisFormation
+
+  - id: FinalReportGeneration
+    description: "Generate the final version of the report in the desired format."
+    input_model: RefinedReport
+    output_model: FinalReport
+    args:
+      model: llama3.1:70b
+      prompt: |
+        Finalize the report titled "{title}" and include an executive summary.
+        Generate the report".
+    next_step: WriteReport
+
+  - id: WriteReport
+    type: WriteReport
+    description: "Generate the final version of the report in the desired format."
+    input_model: FinalReport
+    output_model: FinalReport
+    args:
+      output_file: report.md
+    next_step: exit

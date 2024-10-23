@@ -1,0 +1,16 @@
+pydantic
+pyyaml
+colorlog
+
+langchain
+langchain_community
+langchain_chroma
+langchain_huggingface
+langchain_ollama
+
+
+ollama
+
+wikipedia
+
+pymupdf
